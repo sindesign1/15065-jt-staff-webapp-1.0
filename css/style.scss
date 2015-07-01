@@ -1,25 +1,6 @@
-/* Stylesheet for Journey Tree Desktop App */
 
-/* Variables */
-
-$watermelon: #ff6257;
-
-
-
-
-
-/* Styling */
-
-html body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-}
-
-/* iPad mini styling */
-
-@media only screen and (width:768px) and (resolution: 163dpi) {
-
-	
-
-}
+@import "variables";
+@import "mixins";
+@import "fullScreen";
+@import "global";
+@import "mainSidebar";

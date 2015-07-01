@@ -1,11 +1,84 @@
 /* Stylesheet for Journey Tree Desktop App */
 /* Variables */
+/* Mixins */
+/* iPad mini styling */
+@media only screen and (max-width: 768px) {
+  #loginContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ff6257; }
+
+  #loginDiv {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 35%;
+    box-sizing: border-box;
+    padding: 0 40px; }
+    #loginDiv input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8); }
+    #loginDiv button {
+      margin-top: 30px;
+      background-color: transparent;
+      border: 1px solid #983333;
+      border-radius: 20px;
+      height: 40px;
+      width: 55%;
+      color: #983333;
+      font-size: 18px;
+      cursor: pointer; }
+    #loginDiv p {
+      color: #983333;
+      font-size: 12px;
+      cursor: pointer; }
+
+  .iconContainer {
+    padding: 20px; }
+
+  .iconDiv {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 40px; }
+    .iconDiv:last-child {
+      margin-right: 0px; }
+
+  .icon {
+    background: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    cursor: pointer; } }
 /* Styling */
 html body {
   margin: 0;
   padding: 0;
-  height: 100%; }
+  height: 100%;
+  color: #fff;
+  font-family: myriad pro, arial, sans-serif; }
 
-/* iPad mini styling */
+h1 {
+  font-size: 85px;
+  font-weight: normal; }
+
+h2 {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: -45px; }
+
+/* Main Sidebar Styling */
+.sidebar {
+  position: absolute;
+  height: 100%;
+  width: 640px;
+  background-color: #333; }
 
 /*# sourceMappingURL=style.css.map */
