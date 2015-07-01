@@ -85,5 +85,7 @@ h2 {
 
 
 .new {
+  padding: 20px;
   color: #CCC;
+  background-color: #000;
 }
