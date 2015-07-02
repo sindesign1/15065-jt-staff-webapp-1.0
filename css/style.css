@@ -107,7 +107,7 @@ h6 {
   font-size: 28px;
   font-weight: normal; }
 
-/* Main Sidebar Styling */
+/* Global Sidebar Styling */
 .sidebar {
   position: absolute;
   height: 100%;
@@ -115,12 +115,13 @@ h6 {
   background-color: #333;
   box-sizing: border-box; }
 
+/* Main Sidebar */
 #mainSidebar {
-  background-color: #F16259;
-  padding: 40px; }
+  background-color: #F16259; }
 
 .searchContainer {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  padding: 40px 40px 0 40px; }
   .searchContainer .searchIcon {
     font-family: jt-icons;
     font-size: 18px;
@@ -137,7 +138,8 @@ h6 {
     box-sizing: border-box; }
 
 .staffDetailsContainer {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  padding: 0 40px; }
   .staffDetailsContainer .profilePicture {
     width: 60px;
     height: 60px;
@@ -162,7 +164,7 @@ h6 {
   padding: 0; }
   .mainSidebarMenuList ul li {
     border-bottom: 2px solid #D0504D;
-    padding: 15px 0 10px 0; }
+    padding: 15px 0 10px 40px; }
 .mainSidebarMenuList .menuIcon {
   font-family: jt-icons;
   font-size: 40px;
@@ -183,5 +185,27 @@ h6 {
     padding: 10px 85px;
     font-size: 14px;
     color: #983333; }
+
+.sidebarBackground img {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+
+/* Children List Sidebar */
+#childListSidebar {
+  background: #F0F0F0;
+  color: #282828; }
+  #childListSidebar .searchIcon {
+    font-family: jt-icons;
+    font-size: 18px;
+    color: #282828;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle; }
+
+.childListSidebarMenuList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
 
 /*# sourceMappingURL=style.css.map */

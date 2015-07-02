@@ -1,4 +1,4 @@
-/* Main Sidebar Styling */
+/* Global Sidebar Styling */
 
 .sidebar {
 	position: absolute;
@@ -8,14 +8,17 @@
 	box-sizing: border-box;
 }
 
+/* Main Sidebar */
+
 #mainSidebar {
 	background-color: $melon;
-	padding: 40px;
+	
 }
 
 .searchContainer {
 
 	margin-bottom: 40px;
+	padding: 40px 40px 0 40px;
 
 	.searchIcon {
 		font-family: $iconfont;
@@ -39,6 +42,7 @@
 .staffDetailsContainer {
 
 	margin-bottom: 40px;
+	padding: 0 40px;
 
 	.profilePicture {
 		width: 60px;
@@ -76,7 +80,7 @@
 
 		li {
 			border-bottom: 2px solid $deep-melon;
-			padding: 15px 0 10px 0;
+			padding: 15px 0 10px 40px;
 		}
 	}
 
@@ -106,4 +110,40 @@
 		font-size: 14px;
 		color: $dark-melon;
 	}
+}
+
+.sidebarBackground {
+
+	img {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+}
+
+/* Children List Sidebar */
+
+#childListSidebar {
+	background: $grey240;
+	color: $grey40;
+
+	.searchIcon {
+		font-family: $iconfont;
+		font-size: 18px;
+		color: $grey40;
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.childListSidebarMenuList {
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
 }
