@@ -106,7 +106,7 @@ h5 {
   font-weight: normal; }
 
 h6 {
-  font-size: 28px;
+  font-size: 14px;
   font-weight: normal; }
 
 /* Global Sidebar Styling */
@@ -199,6 +199,7 @@ h6 {
     font-size: 20px;
     color: #983333; }
 
+<<<<<<< HEAD
 .sidebarBackground img {
   width: 100%;
   position: absolute;
@@ -314,5 +315,37 @@ h6 {
         height: 100%; }
     .classGallery div a:nth-child(5n+0) {
       margin-right: 0; }
+=======
+#botMainNav .jtIcons {
+  position: center;
+  display: inline-block;
+  font-family: jt-icons;
+  color: #C8C8C8;
+  margin: 0px 30px;
+  font-size: 24px; }
+#botMainNav a {
+  color: #C8C8C8;
+  text-decoration: none; }
+
+#botMainNav {
+  background-color: #282828;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 786px;
+  height: 62px; }
+
+#botMainNav ul {
+  position: relative;
+  margin: 0px 73px; }
+
+#botMainNav li {
+  margin-top: 10px;
+  float: left;
+  width: 100px;
+  list-style: none;
+  text-align: center;
+  font-size: 14px; }
+>>>>>>> origin/botMainNav
 
 /*# sourceMappingURL=style.css.map */
