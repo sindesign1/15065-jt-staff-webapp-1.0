@@ -74,7 +74,8 @@ html body {
   height: 100%;
   color: #fff;
   font-size: 1em;
-  font-family: myriad pro, arial, sans-serif; }
+  font-family: myriad pro, arial, sans-serif;
+  font-weight: lighter; }
 
 .topTitle {
   font-size: 44px;
@@ -108,20 +109,27 @@ h6 {
   font-size: 28px;
   font-weight: normal; }
 
-/* Main Sidebar Styling */
-.sidebar {
+/* Global Sidebar Styling */
+.sidebarLeft, .sidebarRight {
   position: absolute;
   height: 100%;
   width: 320px;
   background-color: #333;
   box-sizing: border-box; }
 
+.sidebarLeft {
+  left: 0; }
+
+.sidebarRight {
+  right: 0; }
+
+/* Main Sidebar */
 #mainSidebar {
-  background-color: #F16259;
-  padding: 40px; }
+  background-color: #F16259; }
 
 .searchContainer {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  padding: 10px 10px 0 10px; }
   .searchContainer .searchIcon {
     font-family: jt-icons;
     font-size: 18px;
@@ -135,26 +143,31 @@ h6 {
     background: rgba(255, 255, 255, 0.8);
     width: 86%;
     display: inline-block;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    height: 50px; }
 
 .staffDetailsContainer {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  padding: 0 10px; }
   .staffDetailsContainer .profilePicture {
-    width: 60px;
-    height: 60px;
-    background: url("../img/profile-MissHannah.png") no-repeat;
+    width: 50px;
+    height: 50px;
     margin-right: 20px;
     display: inline-block;
     vertical-align: middle;
     border-radius: 40px;
     border: 2px solid #fff; }
+    .staffDetailsContainer .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px; }
   .staffDetailsContainer .personDetailsContainer {
     display: inline-block;
     vertical-align: middle; }
   .staffDetailsContainer .profileName {
-    font-size: 18px; }
+    font-size: 20px; }
   .staffDetailsContainer .profileEmail {
-    font-size: 14px;
+    font-size: 17px;
     margin-top: -15px; }
 
 .mainSidebarMenuList ul {
@@ -163,7 +176,7 @@ h6 {
   padding: 0; }
   .mainSidebarMenuList ul li {
     border-bottom: 2px solid #D0504D;
-    padding: 15px 0 10px 0; }
+    padding: 12px 0 7px 10px; }
 .mainSidebarMenuList .menuIcon {
   font-family: jt-icons;
   font-size: 40px;
@@ -172,7 +185,8 @@ h6 {
   margin-right: 10px; }
 .mainSidebarMenuList .listItem {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  font-size: 20px; }
 
 .logoutContainer {
   text-align: center;
@@ -180,10 +194,99 @@ h6 {
   .logoutContainer button {
     background: none;
     border: 1px solid #983333;
-    border-radius: 20px;
-    padding: 10px 85px;
-    font-size: 14px;
+    border-radius: 30px;
+    padding: 16px 85px;
+    font-size: 20px;
     color: #983333; }
+
+.sidebarBackground img {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+
+/* Children List Sidebar */
+#childListSidebar {
+  background: #F0F0F0;
+  color: #282828; }
+  #childListSidebar .searchIcon {
+    font-family: jt-icons;
+    font-size: 18px;
+    color: #282828;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle; }
+  #childListSidebar .childListSidebarMenuList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #childListSidebar .childListSidebarMenuList ul li {
+      border-bottom: 2px solid #C8C8C8;
+      padding: 10px 10px; }
+      #childListSidebar .childListSidebarMenuList ul li:first-child {
+        border-top: 2px solid #C8C8C8; }
+  #childListSidebar .menuDisplayPicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    display: inline-block;
+    vertical-align: middle; }
+    #childListSidebar .menuDisplayPicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      border: 2px solid #F16259; }
+  #childListSidebar .listItem {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px; }
+
+/* Message Sidebar styling for both kids and general */
+#messageSidebar-c {
+  background: #fff; }
+  #messageSidebar-c .messageSidebarMenuList-c ul {
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 0; }
+    #messageSidebar-c .messageSidebarMenuList-c ul li {
+      padding: 20px 10px;
+      border-bottom: 2px solid #C8C8C8; }
+  #messageSidebar-c .messageSidebarMenuList-c .listItem {
+    font-size: 20px;
+    color: #F16259; }
+  #messageSidebar-c .messageSidebarMenuList-c .relationship {
+    font-size: 18px;
+    color: #C8C8C8; }
+  #messageSidebar-c .messageSidebarMenuList-c .menuDisplayPicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    vertical-align: middle; }
+    #messageSidebar-c .messageSidebarMenuList-c .menuDisplayPicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+      border: 2px solid #F16259; }
+  #messageSidebar-c .messageSidebarMenuList-c .textContainer {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px; }
+  #messageSidebar-c .messageSidebarMenuList-c .btnContainer {
+    text-align: right; }
+  #messageSidebar-c .messageSidebarMenuList-c .bioBtn {
+    color: #F16259;
+    border: 1px solid #F16259;
+    text-align: center;
+    width: 40px;
+    border-radius: 20px;
+    padding: 3px 5px;
+    display: inline-block;
+    line-height: 20px; }
+  #messageSidebar-c .messageSidebarMenuList-c .bioDisplay {
+    background: #F0F0F0;
+    color: #333;
+    display: none; }
 
 .headerPlaceholder {
   height: 64px;
