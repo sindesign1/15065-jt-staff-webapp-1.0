@@ -4,11 +4,12 @@
 
 @font-face {
   font-family: "jt-icons";
-  src:url("../fonts/jt-iconfont.eot");
-  src:url("../fonts/jt-iconfont.eot?#iefix") format("embedded-opentype"),
+  src:url("../fonts/jt-iconfont.svg") format("svg");
+  src:url("../fonts/jt-iconfont.eot") format("embedded-opentype"),
     url("../fonts/jt-iconfont.woff") format("woff"),
     url("../fonts/jt-iconfont.ttf") format("truetype"),
-    url("../fonts/jt-iconfont.svg#jt-iconfont") format("svg");
+    url("../fonts/jt-iconfont.eot");
+    
   font-weight: normal;
   font-style: normal;
 
@@ -20,6 +21,7 @@ html body {
 	height: 100%;
 	color: #fff;
 	font-family: myriad pro, arial, sans-serif;
+	font-weight: lighter;
 }
 
 
