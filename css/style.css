@@ -81,11 +81,8 @@ h2 {
   width: 640px;
   background-color: #333; }
 
+#mainSidebar {
+  background-color: #F16259;
+  padding: 40px; }
+
 /*# sourceMappingURL=style.css.map */
-
-
-.new {
-  padding: 20px;
-  color: #CCC;
-  background-color: #000;
-}
