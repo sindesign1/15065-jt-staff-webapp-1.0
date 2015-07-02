@@ -73,6 +73,7 @@ html body {
   padding: 0;
   height: 100%;
   color: #fff;
+  font-size: 1em;
   font-family: myriad pro, arial, sans-serif; }
 
 .topTitle {
@@ -183,5 +184,32 @@ h6 {
     padding: 10px 85px;
     font-size: 14px;
     color: #983333; }
+
+.headerPlaceholder {
+  height: 64px;
+  background: #F16259; }
+  .headerPlaceholder p {
+    margin: 0;
+    padding-top: 20px;
+    text-align: center; }
+
+.classGallery {
+  width: 100%; }
+  .classGallery p {
+    padding: 0 25px;
+    color: #282828; }
+  .classGallery div {
+    clear: both; }
+    .classGallery div a {
+      float: left;
+      width: 19.53125%;
+      margin-right: 0.5859375%;
+      margin-bottom: 5px;
+      padding: 0; }
+      .classGallery div a img {
+        width: 100%;
+        height: 100%; }
+    .classGallery div a:nth-child(5n+0) {
+      margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */
