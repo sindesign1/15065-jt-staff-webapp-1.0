@@ -136,14 +136,40 @@
 		display: inline-block;
 		vertical-align: middle;
 	}
-}
 
-.childListSidebarMenuList {
+	.childListSidebarMenuList {
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				border-bottom: 2px solid $grey200;
+				padding: 10px 40px;
+
+				&:first-child {
+					border-top: 2px solid $grey200;
+				}
+			}
+		}
+
 	}
 
+	.menuDisplayPicture {
+		width: 60px;
+		height: 60px;
+		background-color: $melon;
+		border-radius: 30px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.listItem {
+		font-size: 18px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
 }
+
