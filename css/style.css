@@ -340,12 +340,43 @@ h6 {
   margin: 0px 73px; }
 
 #botMainNav li {
-  margin-top: 10px;
+  margin-top: 15px;
   float: left;
   width: 100px;
   list-style: none;
   text-align: center;
   font-size: 14px; }
 >>>>>>> origin/botMainNav
+
+#botImgActions .jtIcons {
+  position: center;
+  display: inline-block;
+  font-family: jt-icons;
+  color: #C8C8C8;
+  margin: 0px 30px;
+  font-size: 24px; }
+#botImgActions a {
+  color: #C8C8C8;
+  text-decoration: none; }
+
+#botImgActions {
+  background-color: #282828;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 786px;
+  height: 62px; }
+
+#botImgActions ul {
+  position: relative;
+  margin: 0px 133px; }
+
+#botImgActions li {
+  margin-top: 15px;
+  float: left;
+  width: 120px;
+  list-style: none;
+  text-align: center;
+  font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-#botMainNav {
+#botImgActions {
 	.jtIcons{	
 				position:center;
 				display: inline-block;
@@ -17,7 +17,7 @@
 	}
 
 }
-#botMainNav {
+#botImgActions {
 
 	background-color:$grey40;
 	position: fixed;
@@ -29,17 +29,17 @@
 
 
 }
-#botMainNav ul{
+#botImgActions ul{
 			position: relative;
-			margin:0px 73px;
+			margin:0px 133px;
 
 
 }
 
-#botMainNav li{
+#botImgActions li{
 		margin-top:15px;
 		float:left;
-		width:100px;
+		width:120px;
 		list-style: none;
 		text-align: center;
 		font-size:$h6-size;
