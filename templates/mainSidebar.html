@@ -2,14 +2,51 @@
 <html>
 <head>
 	<title>Journey Tree</title>
-	<script src='js/jquery-1.11.3.js' type='text/javascript'></script>
-	<script src="js/templates.js" type="text/javascript"></script>
+	<script src='../js/jquery-1.11.3.js' type='text/javascript'></script>
+	<script src="../js/templates.js" type="text/javascript"></script>
 
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 	<section id="mainSidebar" class="sidebar left">
-		<div>rar</div>
+		<div class="searchContainer">
+			<div class="searchIcon">2</div>
+			<input type="text" placeholder="search"/>
+		</div>
+		<div class="staffDetailsContainer">
+			<div class="profilePicture"></div>
+			<div class="personDetailsContainer">
+				<p class="profileName">Miss Rebecca</p>
+				<p class="profileEmail">rebecca@email.com.au</p>
+			</div>
+		</div>
+		<div class="mainSidebarMenuList">
+			<ul>
+				<li>
+					<div class="menuIcon">}</div>
+					<div class="listItem">Children</div>
+				</li>
+				<li>
+					<div class="menuIcon">@</div>
+					<div class="listItem">Albums</div>
+				</li>
+				<li>
+					<div class="menuIcon">c</div>
+					<div class="listItem">Drafts</div>
+				</li>
+				<li>
+					<div class="menuIcon">~</div>
+					<div class="listItem">Locations</div>
+				</li>
+				<li>
+					<div class="menuIcon">g</div>
+					<div class="listItem">Help</div>
+				</li>
+			</ul>
+		</div>
+		<div class="logoutContainer">
+			<button>Logout</button>
+		</div>
 	</section>
 </body>
 </html>

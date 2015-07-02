@@ -1,5 +1,9 @@
 /* Stylesheet for Journey Tree Desktop App */
 /* Variables */
+/* Main colours - refer to style guide for names and colours */
+/* Header Title in top melon bar */
+/* Heading font size gradations */
+/* Icons */
 /* Mixins */
 /* iPad mini styling */
 @media only screen and (max-width: 768px) {
@@ -58,6 +62,12 @@
     border-radius: 30px;
     cursor: pointer; } }
 /* Styling */
+@font-face {
+  font-family: "jt-icons";
+  src: url("../fonts/jt-iconfont.eot");
+  src: url("../fonts/jt-iconfont.eot?#iefix") format("embedded-opentype"), url("../fonts/jt-iconfont.woff") format("woff"), url("../fonts/jt-iconfont.ttf") format("truetype"), url("../fonts/jt-iconfont.svg#jt-iconfont") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 html body {
   margin: 0;
   padding: 0;
@@ -65,24 +75,113 @@ html body {
   color: #fff;
   font-family: myriad pro, arial, sans-serif; }
 
+.topTitle {
+  font-size: 44px;
+  font-weight: normal; }
+
+.profileTitle {
+  font-size: 50px;
+  font-weight: normal; }
+
 h1 {
-  font-size: 85px;
+  font-size: 40px;
   font-weight: normal; }
 
 h2 {
-  font-size: 25px;
-  font-weight: normal;
-  margin-top: -45px; }
+  font-size: 38px;
+  font-weight: normal; }
+
+h3 {
+  font-size: 36px;
+  font-weight: normal; }
+
+h4 {
+  font-size: 34px;
+  font-weight: normal; }
+
+h5 {
+  font-size: 30px;
+  font-weight: normal; }
+
+h6 {
+  font-size: 28px;
+  font-weight: normal; }
 
 /* Main Sidebar Styling */
 .sidebar {
   position: absolute;
   height: 100%;
-  width: 640px;
-  background-color: #333; }
+  width: 320px;
+  background-color: #333;
+  box-sizing: border-box; }
 
 #mainSidebar {
   background-color: #F16259;
   padding: 40px; }
+
+.searchContainer {
+  margin-bottom: 40px; }
+  .searchContainer .searchIcon {
+    font-family: jt-icons;
+    font-size: 18px;
+    color: #fff;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle; }
+  .searchContainer input {
+    padding: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    width: 86%;
+    display: inline-block;
+    box-sizing: border-box; }
+
+.staffDetailsContainer {
+  margin-bottom: 40px; }
+  .staffDetailsContainer .profilePicture {
+    width: 60px;
+    height: 60px;
+    background: url("../img/profile-MissHannah.png") no-repeat;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 40px;
+    border: 2px solid #fff; }
+  .staffDetailsContainer .personDetailsContainer {
+    display: inline-block;
+    vertical-align: middle; }
+  .staffDetailsContainer .profileName {
+    font-size: 18px; }
+  .staffDetailsContainer .profileEmail {
+    font-size: 14px;
+    margin-top: -15px; }
+
+.mainSidebarMenuList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .mainSidebarMenuList ul li {
+    border-bottom: 2px solid #D0504D;
+    padding: 15px 0 10px 0; }
+.mainSidebarMenuList .menuIcon {
+  font-family: jt-icons;
+  font-size: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; }
+.mainSidebarMenuList .listItem {
+  display: inline-block;
+  vertical-align: middle; }
+
+.logoutContainer {
+  text-align: center;
+  margin-top: 80px; }
+  .logoutContainer button {
+    background: none;
+    border: 1px solid #983333;
+    border-radius: 20px;
+    padding: 10px 85px;
+    font-size: 14px;
+    color: #983333; }
 
 /*# sourceMappingURL=style.css.map */

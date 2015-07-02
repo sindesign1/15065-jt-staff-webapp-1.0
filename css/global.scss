@@ -3,7 +3,7 @@
 
 
 @font-face {
-  font-family: "jt-iconfont";
+  font-family: "jt-icons";
   src:url("../fonts/jt-iconfont.eot");
   src:url("../fonts/jt-iconfont.eot?#iefix") format("embedded-opentype"),
     url("../fonts/jt-iconfont.woff") format("woff"),
@@ -24,51 +24,51 @@ html body {
 
 
 .topTitle {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $profile-title;
 	font-weight: normal;
 }
 
 
 .profileTitle {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $top-title;
 	font-weight: normal;
 }
 
 
 h1 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h1-size;
 	font-weight: normal;
 }
 
 h2 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h2-size;
 	font-weight: normal;
 }
 
 h3 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h3-size;
 	font-weight: normal;
 }
 
 h4 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h4-size;
 	
 	font-weight: normal;
 }
 h5 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h5-size;
 	font-weight: normal;
 }
 
 h6 {
-	font-family:$jt-icons;
+	// font-family:$iconfont;
 	font-size: $h6-size;
 	font-weight: normal;
 }
