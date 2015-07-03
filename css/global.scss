@@ -22,12 +22,18 @@ html body {
 	font-family: myriad pro, arial, sans-serif;
 	font-weight: lighter;
 }
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+
 
 
 .topTitle {
 	// font-family:$iconfont;
 	font-size: $profile-title;
 	font-weight: normal;
+	text-align: center;
 }
 
 
@@ -37,6 +43,10 @@ html body {
 	font-weight: normal;
 }
 
+h1, h2, h3 ,h4 ,h5 ,h6 {
+	margin:0px;
+	padding:0px;
+}
 
 h1 {
 	// font-family:$iconfont;
