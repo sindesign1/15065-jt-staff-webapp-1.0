@@ -28,23 +28,35 @@
 	margin-bottom: 40px;
 	padding: 10px 10px 0 10px;
 
-	.searchIcon {
-		font-family: $iconfont;
-		font-size: 18px;
-		color: #fff;
-		margin-right: 10px;
-		display: inline-block;
-		vertical-align: middle;
+	.searchWrapper {
+
+		background: rgba(255,255,255,0.8);
+
+		&:before {
+			content: "3";
+			font-family: jt-icons;
+			font-size: 25px;
+			color: #787878;
+			margin-right: -3px;
+			display: inline-block;
+			vertical-align: middle;
+			height: 50px;
+			padding: 0 8px;
+			box-sizing: border-box;
+			line-height: 49px;
+		}
+
 	}
 
 	input {
 		padding: 8px;
 		border: none;
-		background: rgba(255,255,255,0.8);
+		background: none;
 		width: 86%;
 		display: inline-block;
 		box-sizing: border-box;
 		height: 50px;
+		font-size: 17px;
 	}
 }
 

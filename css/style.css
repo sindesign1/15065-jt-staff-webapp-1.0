@@ -130,21 +130,29 @@ h6 {
 .searchContainer {
   margin-bottom: 40px;
   padding: 10px 10px 0 10px; }
-  .searchContainer .searchIcon {
-    font-family: jt-icons;
-    font-size: 18px;
-    color: #fff;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: middle; }
+  .searchContainer .searchWrapper {
+    background: rgba(255, 255, 255, 0.8); }
+    .searchContainer .searchWrapper:before {
+      content: "3";
+      font-family: jt-icons;
+      font-size: 25px;
+      color: #787878;
+      margin-right: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 50px;
+      padding: 0 8px;
+      box-sizing: border-box;
+      line-height: 49px; }
   .searchContainer input {
     padding: 8px;
     border: none;
-    background: rgba(255, 255, 255, 0.8);
+    background: none;
     width: 86%;
     display: inline-block;
     box-sizing: border-box;
-    height: 50px; }
+    height: 50px;
+    font-size: 17px; }
 
 .staffDetailsContainer {
   margin-bottom: 40px;
