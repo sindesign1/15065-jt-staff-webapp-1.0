@@ -111,7 +111,6 @@ h4 {
 
 h5 {
   font-size: 16px;
->>>>>>> headerNav
   font-weight: normal; }
 
 h6 {
@@ -324,7 +323,6 @@ h6 {
     .classGallery div a:nth-child(5n+0) {
       margin-right: 0; }
 
-<<<<<<< HEAD
 .albumContainer {
   width: 100%;
   padding: 3.75em 7.8125%;
@@ -345,19 +343,19 @@ h6 {
       font-size: 0.875em; }
   .albumContainer a:nth-child(4n+0) {
     margin-right: 0; }
-=======
-#botMainNav .jtIcons {
+
+#botImgActions .jtIcons {
   position: center;
   display: inline-block;
   font-family: jt-icons;
   color: #C8C8C8;
   margin: 0px 30px;
   font-size: 24px; }
-#botMainNav a {
+#botImgActions a {
   color: #C8C8C8;
   text-decoration: none; }
 
-#botMainNav {
+#botImgActions {
   background-color: #282828;
   position: fixed;
   left: 0px;
@@ -365,18 +363,17 @@ h6 {
   width: 786px;
   height: 62px; }
 
-#botMainNav ul {
+#botImgActions ul {
   position: relative;
-  margin: 0px 73px; }
+  margin: 0px 133px; }
 
-#botMainNav li {
+#botImgActions li {
   margin-top: 15px;
   float: left;
-  width: 100px;
+  width: 120px;
   list-style: none;
   text-align: center;
   font-size: 14px; }
->>>>>>> headerNav
 
 #botMainNav .jtIcons {
   position: center;
@@ -440,8 +437,6 @@ h6 {
   text-align: center;
   font-size: 14px; }
 
-<<<<<<< HEAD
-=======
 #headerNav .jtIcons {
   position: center;
   display: inline-block;
@@ -478,5 +473,4 @@ h6 {
   width: 10%;
   text-align: center; }
 
->>>>>>> headerNav
 /*# sourceMappingURL=style.css.map */
