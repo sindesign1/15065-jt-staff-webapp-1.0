@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$melon".
-        on line 3 of ./css/classImageGallary.scss
+        on line 3 of ./css/classImageGallery.scss
 
 1: .headerPlaceholder {
 2: 	height: 64px;
@@ -12,7 +12,7 @@ Error: Undefined variable: "$melon".
 8: 	}
 
 Backtrace:
-./css/classImageGallary.scss:3
+./css/classImageGallery.scss:3
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/script/tree/node.rb:50:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/tree/visitors/perform.rb:394:in `visit_prop'
@@ -65,4 +65,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$melon\".\A         on line 3 of ./css/classImageGallary.scss\A \A 1: .headerPlaceholder {\A 2: 	height: 64px;\A 3: 	background: $melon;\A 4: 	p {\A 5: 		margin: 0;\A 6: 		padding-top: 20px;\A 7: 		text-align: center;\A 8: 	}"; }
+  content: "Error: Undefined variable: \"$melon\".\A         on line 3 of ./css/classImageGallery.scss\A \A 1: .headerPlaceholder {\A 2: 	height: 64px;\A 3: 	background: $melon;\A 4: 	p {\A 5: 		margin: 0;\A 6: 		padding-top: 20px;\A 7: 		text-align: center;\A 8: 	}"; }
