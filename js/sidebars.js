@@ -30,8 +30,17 @@ var Sidebars = {
 			$('#activitiesList').fadeIn();
 		});
 
-
+		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 	},
+
+	toggleMainSidebar: function() {
+		console.log('clicked');
+		if($('#mainSidebar').hasClass('sidebarLeft')) {
+			$('#mainSidebar').toggleClass('openLeft');
+		} else if($('#mainSidebar').hasClass('sidebarRight')) {
+			$('#mainSidebar').toggleClass('openRight');
+		}
+	}
 
 }
 
