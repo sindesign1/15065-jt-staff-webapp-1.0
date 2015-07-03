@@ -296,6 +296,123 @@ h6 {
     color: #333;
     display: none; }
 
+/* Tag Sidebar */
+#tagSidebar .menuContainer {
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 0px; }
+#tagSidebar .item {
+  display: inline-block;
+  margin-left: 30px;
+  color: #A0A0A0; }
+  #tagSidebar .item:first-child {
+    margin-left: 0px; }
+#tagSidebar .menuIcon {
+  font-family: jt-icons;
+  font-size: 34px; }
+#tagSidebar #tagList {
+  display: block; }
+  #tagSidebar #tagList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #tagList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+  #tagSidebar #tagList .profilePicture {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 30px;
+    border: 2px solid;
+    vertical-align: middle; }
+    #tagSidebar #tagList .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px; }
+  #tagSidebar #tagList .personName {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    font-size: 20px; }
+  #tagSidebar #tagList #buttonContainer {
+    padding: 20px;
+    margin-top: 200px;
+    text-align: center; }
+    #tagSidebar #tagList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      padding: 0 60px;
+      color: #A0A0A0;
+      font-size: 20px; }
+#tagSidebar #frameworksList {
+  display: none; }
+  #tagSidebar #frameworksList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #frameworksList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+  #tagSidebar #frameworksList .title {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: -10px; }
+  #tagSidebar #frameworksList .content {
+    margin-left: 15px;
+    font-size: 15px; }
+  #tagSidebar #frameworksList #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #tagSidebar #frameworksList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #frameworksList #buttonContainer button:last-child {
+        margin-right: 0; }
+#tagSidebar #activitiesList {
+  display: none; }
+  #tagSidebar #activitiesList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #activitiesList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+      #tagSidebar #activitiesList ul li p {
+        font-size: 17px; }
+  #tagSidebar #activitiesList #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #tagSidebar #activitiesList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #activitiesList #buttonContainer button:last-child {
+        margin-right: 0; }
+
 .headerPlaceholder {
   height: 64px;
   background: #F16259; }

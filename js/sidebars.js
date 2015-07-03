@@ -15,6 +15,22 @@ var Sidebars = {
 			$('#carolBio').slideToggle();
 		});
 
+		$('#tagSidebar').on('click touch', '#name', function(){
+			$('#frameworksList, #activitiesList').hide();
+			$('#tagList').fadeIn();
+		});
+
+		$('#tagSidebar').on('click touch', '#frameworks', function(){
+			$('#tagList, #activitiesList').hide();
+			$('#frameworksList').fadeIn();
+		});
+
+		$('#tagSidebar').on('click touch', '#activities', function(){
+			$('#frameworksList, #tagList').hide();
+			$('#activitiesList').fadeIn();
+		});
+
+
 	},
 
 }
