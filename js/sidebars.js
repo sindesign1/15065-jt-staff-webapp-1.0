@@ -5,18 +5,18 @@ var Sidebars = {
 	},
 
 	events: function() {
-		$('body').on('click touch', '.bioBtn', Sidebars.toggleBio);
+		$('#messageSidebar-c').on('click touch', '#hannahBioBtn', function(e){
+			e.stopPropagation();
+			$('#hannahBio').slideToggle();
+		});
+
+		$('#messageSidebar-c').on('click touch', '#carolBioBtn', function(e){
+			e.stopPropagation();
+			$('#carolBio').slideToggle();
+		});
+
 	},
 
-	toggleBio: function() {
-		console.log('clicked');
-		var $this = $(this);
-		var $bio = $this.closest('.bioDisplay');
-
-		$this.slideToggle($bio);
-
-
-	}
 }
 
 $(document).ready(function(){

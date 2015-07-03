@@ -129,7 +129,7 @@ h6 {
 
 .searchContainer {
   margin-bottom: 40px;
-  padding: 10px 10px 0 10px; }
+  padding: 20px 20px 0 20px; }
   .searchContainer .searchWrapper {
     background: rgba(255, 255, 255, 0.8); }
     .searchContainer .searchWrapper:before {
@@ -148,7 +148,7 @@ h6 {
     padding: 8px;
     border: none;
     background: none;
-    width: 86%;
+    width: 85%;
     display: inline-block;
     box-sizing: border-box;
     height: 50px;
@@ -228,10 +228,10 @@ h6 {
     margin: 0;
     padding: 0; }
     #childListSidebar .childListSidebarMenuList ul li {
-      border-bottom: 2px solid #C8C8C8;
+      border-bottom: 2px solid #CACCCE;
       padding: 10px 10px; }
       #childListSidebar .childListSidebarMenuList ul li:first-child {
-        border-top: 2px solid #C8C8C8; }
+        border-top: 2px solid #CACCCE; }
   #childListSidebar .menuDisplayPicture {
     width: 40px;
     height: 40px;

@@ -26,7 +26,7 @@
 .searchContainer {
 
 	margin-bottom: 40px;
-	padding: 10px 10px 0 10px;
+	padding: 20px 20px 0 20px;
 
 	.searchWrapper {
 
@@ -52,7 +52,7 @@
 		padding: 8px;
 		border: none;
 		background: none;
-		width: 86%;
+		width: 85%;
 		display: inline-block;
 		box-sizing: border-box;
 		height: 50px;
@@ -172,11 +172,11 @@
 			padding: 0;
 
 			li {
-				border-bottom: 2px solid $grey200;
+				border-bottom: 2px solid #CACCCE;
 				padding: 10px 10px;
 
 				&:first-child {
-					border-top: 2px solid $grey200;
+					border-top: 2px solid #CACCCE;
 				}
 			}
 		}
