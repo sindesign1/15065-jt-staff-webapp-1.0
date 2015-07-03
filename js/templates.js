@@ -6,7 +6,7 @@ var Templates = {
 
 	loadScripts: function() {
 		// $('head').prepend("<script src='js/jquery-1.11.3.js' type='text/javascript'></script>");
-		// $('head').append("<script src='js/templates.js' type='text/javascript'></script>");
+		 $('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
 		// $('head').append("<link rel='stylesheet' type='text/css' href='css/style.css'>")
 	},
 }

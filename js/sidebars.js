@@ -5,18 +5,34 @@ var Sidebars = {
 	},
 
 	events: function() {
-		$('body').on('click touch', '.bioBtn', Sidebars.toggleBio);
+		$('#messageSidebar-c').on('click touch', '#hannahBioBtn', function(e){
+			e.stopPropagation();
+			$('#hannahBio').slideToggle();
+		});
+
+		$('#messageSidebar-c').on('click touch', '#carolBioBtn', function(e){
+			e.stopPropagation();
+			$('#carolBio').slideToggle();
+		});
+
+		$('#tagSidebar').on('click touch', '#name', function(){
+			$('#frameworksList, #activitiesList').hide();
+			$('#tagList').fadeIn();
+		});
+
+		$('#tagSidebar').on('click touch', '#frameworks', function(){
+			$('#tagList, #activitiesList').hide();
+			$('#frameworksList').fadeIn();
+		});
+
+		$('#tagSidebar').on('click touch', '#activities', function(){
+			$('#frameworksList, #tagList').hide();
+			$('#activitiesList').fadeIn();
+		});
+
+
 	},
 
-	toggleBio: function() {
-		console.log('clicked');
-		var $this = $(this);
-		var $bio = $this.closest('.bioDisplay');
-
-		$this.slideToggle($bio);
-
-
-	}
 }
 
 $(document).ready(function(){
