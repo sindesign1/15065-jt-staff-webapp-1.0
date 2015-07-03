@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$profile-title".
-        on line 28 of ./css/global.scss
+        on line 29 of ./css/global.scss
 
-23: }
-24: 
+24: }
 25: 
-26: .topTitle {
-27: 	// font-family:$iconfont;
-28: 	font-size: $profile-title;
-29: 	font-weight: normal;
-30: }
-31: 
+26: 
+27: .topTitle {
+28: 	// font-family:$iconfont;
+29: 	font-size: $profile-title;
+30: 	font-weight: normal;
+31: }
 32: 
-33: .profileTitle {
+33: 
+34: .profileTitle {
 
 Backtrace:
-./css/global.scss:28
+./css/global.scss:29
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/script/tree/node.rb:50:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/tree/visitors/perform.rb:394:in `visit_prop'
@@ -68,4 +68,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$profile-title\".\A         on line 28 of ./css/global.scss\A \A 23: }\A 24: \A 25: \A 26: .topTitle {\A 27: 	// font-family:$iconfont;\A 28: 	font-size: $profile-title;\A 29: 	font-weight: normal;\A 30: }\A 31: \A 32: \A 33: .profileTitle {"; }
+  content: "Error: Undefined variable: \"$profile-title\".\A         on line 29 of ./css/global.scss\A \A 24: }\A 25: \A 26: \A 27: .topTitle {\A 28: 	// font-family:$iconfont;\A 29: 	font-size: $profile-title;\A 30: 	font-weight: normal;\A 31: }\A 32: \A 33: \A 34: .profileTitle {"; }

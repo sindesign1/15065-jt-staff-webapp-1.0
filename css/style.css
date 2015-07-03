@@ -1,6 +1,6 @@
 /*
 Error: Invalid CSS after "...ssImageGallary"": expected "{", was ";"
-        on line 8 of style.scss
+        on line 8 of ./css/style.scss
 
 3: @import "fullScreen";
 4: @import "global";
@@ -15,7 +15,7 @@ Error: Invalid CSS after "...ssImageGallary"": expected "{", was ";"
 13: @import "botMainNav";
 
 Backtrace:
-style.scss:8
+./css/style.scss:8
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/scss/parser.rb:1162:in `expected'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/scss/parser.rb:1098:in `expected'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/lib/sass/scss/parser.rb:1093:in `tok!'
@@ -37,11 +37,12 @@ style.scss:8
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/listener.rb:252:in `call'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/listener.rb:252:in `on_change'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.15/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ssImageGallary\"\": expected \"{\", was \";\"\A         on line 8 of style.scss\A \A 3: @import \"fullScreen\";\A 4: @import \"global\";\A 5: @import \"mainSidebar\";\A 6: <<<<<<< HEAD\A 7: <<<<<<< HEAD\A 8: @import \"classImageGallary\";\A 9: =======\A 10: @import \"botMainNav\";\A 11: >>>>>>> origin/botMainNav\A 12: =======\A 13: @import \"botMainNav\";"; }
+  content: "Error: Invalid CSS after \"...ssImageGallary\"\": expected \"{\", was \";\"\A         on line 8 of ./css/style.scss\A \A 3: @import \"fullScreen\";\A 4: @import \"global\";\A 5: @import \"mainSidebar\";\A 6: <<<<<<< HEAD\A 7: <<<<<<< HEAD\A 8: @import \"classImageGallary\";\A 9: =======\A 10: @import \"botMainNav\";\A 11: >>>>>>> origin/botMainNav\A 12: =======\A 13: @import \"botMainNav\";"; }
