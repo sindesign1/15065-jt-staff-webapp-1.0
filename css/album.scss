@@ -11,10 +11,11 @@
 		text-decoration: none;
 		img {
 			clear: both;
+			display: block;
 			width: 100%;
 		}
 		p {
-			margin: 0;
+			margin: 0.625em 0 0;
 			color: $grey40;
 			font-size: 0.875em;
 		}
