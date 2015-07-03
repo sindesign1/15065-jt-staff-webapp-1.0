@@ -75,6 +75,9 @@ html body {
   color: #fff;
   font-family: myriad pro, arial, sans-serif; }
 
+html {
+  -webkit-font-smoothing: antialiased; }
+
 .topTitle {
   font-size: 44px;
   font-weight: normal; }
@@ -185,8 +188,7 @@ h6 {
     color: #983333; }
 
 #botMainNav .jtIcons {
-  position: center;
-  display: inline-block;
+  display: block;
   font-family: jt-icons;
   color: #C8C8C8;
   margin: 0px 30px;
@@ -200,15 +202,14 @@ h6 {
   position: fixed;
   left: 0px;
   bottom: 0px;
-  width: 786px;
+  width: 100%;
   height: 62px; }
 
 #botMainNav ul {
-  position: relative;
-  margin: 0px 73px; }
+  width: 600px;
+  margin: 15px auto 0px auto; }
 
 #botMainNav li {
-  margin-top: 10px;
   float: left;
   width: 100px;
   list-style: none;

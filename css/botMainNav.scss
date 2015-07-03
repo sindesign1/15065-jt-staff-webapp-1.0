@@ -1,14 +1,10 @@
 #botMainNav {
 	.jtIcons{	
-				position:center;
-				display: inline-block;
+				display: block;
 				font-family: $iconfont;
 				color: $grey200;
 				margin:0px 30px;
-				font-size:24px;
-
-			
-			
+				font-size:24px					
 	}
 
 	a{
@@ -23,21 +19,20 @@
 	position: fixed;
 	left:0px;
     bottom:0px;
-	width:786px;
+	width:100%;
 	height:62px;
 
 
 
 }
 #botMainNav ul{
-			position: relative;
-			margin:0px 73px;
+			width:600px;
+			margin: 15px auto 0px auto;
 
 
 }
 
 #botMainNav li{
-		margin-top:10px;
 		float:left;
 		width:100px;
 		list-style: none;

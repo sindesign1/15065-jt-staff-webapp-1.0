@@ -22,6 +22,9 @@ html body {
 	font-family: myriad pro, arial, sans-serif;
 }
 
+html {
+    -webkit-font-smoothing: antialiased;
+}
 
 .topTitle {
 	// font-family:$iconfont;
