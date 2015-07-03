@@ -1,24 +1,4 @@
 #botMainNav {
-	.jtIcons{	
-				position:center;
-				display: inline-block;
-				font-family: $iconfont;
-				color: $grey200;
-				margin:0px 30px;
-				font-size:24px;
-
-			
-			
-	}
-
-	a{
-		color: $grey200;
-		text-decoration: none;
-	}
-
-}
-#botMainNav {
-
 	background-color:$grey40;
 	position: fixed;
 	left:0px;
@@ -26,24 +6,32 @@
 	width:786px;
 	height:62px;
 
+	ul {
+		position: relative;
+		margin:0px 73px;
 
+		li {
+			margin-top:15px;
+			float:left;
+			width:100px;
+			list-style: none;
+			text-align: center;
+			font-size:$h6-size;
+		}
+	}
 
-}
-#botMainNav ul{
-			position: relative;
-			margin:0px 73px;
+	.jtIcons{	
+		position:center;
+		display: inline-block;
+		font-family: $iconfont;
+		color: $grey200;
+		margin:0px 30px;
+		font-size:24px;	
+	}
 
-
-}
-
-#botMainNav li{
-		margin-top:15px;
-		float:left;
-		width:100px;
-		list-style: none;
-		text-align: center;
-		font-size:$h6-size;
-
-
+	a{
+		color: $grey200;
+		text-decoration: none;
+	}
 
 }
