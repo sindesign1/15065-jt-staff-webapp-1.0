@@ -1,14 +1,17 @@
 #botImgActions {
+	background-color:$grey40;
+	position: fixed;
+	left:0px;
+    bottom:0px;
+	width:786px;
+	height:62px;
 	.jtIcons{	
-				position:center;
-				display: inline-block;
-				font-family: $iconfont;
-				color: $grey200;
-				margin:0px 30px;
-				font-size:24px;
-
-			
-			
+		position:center;
+		display: inline-block;
+		font-family: $iconfont;
+		color: $grey200;
+		margin:0px 30px;
+		font-size:24px;			
 	}
 
 	a{
@@ -17,33 +20,17 @@
 	}
 
 }
-#botImgActions {
 
-	background-color:$grey40;
-	position: fixed;
-	left:0px;
-    bottom:0px;
-	width:786px;
-	height:62px;
-
-
-
-}
 #botImgActions ul{
-			position: relative;
-			margin:0px 133px;
-
-
+	position: relative;
+	margin:0px 133px;
 }
 
 #botImgActions li{
-		margin-top:15px;
-		float:left;
-		width:120px;
-		list-style: none;
-		text-align: center;
-		font-size:$h6-size;
-
-
-
+	margin-top:15px;
+	float:left;
+	width:120px;
+	list-style: none;
+	text-align: center;
+	font-size:$h6-size;
 }
