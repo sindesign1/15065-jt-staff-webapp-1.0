@@ -743,7 +743,8 @@ input:checked ~ .modal__overlay {
   width: 100%;
   height: 242px;
   padding-top: 50px;
-  text-align: center; }
+  text-align: center;
+  display: none; }
   #feedProfile .profilePicture {
     width: 180px;
     height: 180px;
@@ -777,7 +778,7 @@ input:checked ~ .modal__overlay {
     #childNav ul li:first-child {
       box-shadow: none; }
     #childNav ul li.active {
-      background-color: #F7261C; }
+      background-color: #F2716C; }
   #childNav a {
     color: #fff;
     text-decoration: none; }
