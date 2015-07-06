@@ -14,6 +14,10 @@ var Templates = {
 	loadScripts: function() {
 		// $('head').prepend("<script src='js/jquery-1.11.3.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
+<<<<<<< HEAD
+=======
+		$('head').append("<link rel='stylesheet' type='text/css' href='../css/style.css'>");
+>>>>>>> templateFunctionality
 	},
 
 	mainNavFooter: function() {
@@ -42,6 +46,10 @@ var Templates = {
 
 	tagSidebar: function() {
 		$('#loadTagSidebar').load('../templates/tagSidebar.html #tagSidebar');
+	}
+
+	photoSidebar: function() {
+		$('#loadPhotoSidebar').load('../templates/addImageSidebar.html #addImageSidebar');
 	}
 }
 
