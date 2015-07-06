@@ -41,7 +41,7 @@ var Templates = {
 
 	tagSidebar: function() {
 		$('#loadTagSidebar').load('../templates/tagSidebar.html #tagSidebar');
-	}
+	},
 
 	photoSidebar: function() {
 		$('#loadPhotoSidebar').load('../templates/addImageSidebar.html #addImageSidebar');
