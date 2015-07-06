@@ -46,6 +46,7 @@ var Sidebars = {
 
 	togglePhotoSidebar: function() {
 		console.log('photo sidebar clicked');
+		$('#addImageSidebar').toggleClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {
 			$('#addImageSidebar').toggleClass('openLeft');
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
@@ -55,6 +56,7 @@ var Sidebars = {
 
 	toggleTagSidebar: function() {
 		console.log('tag sidebar clicked');
+		$('#addImageSidebar').toggleClass('display');
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').toggleClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
