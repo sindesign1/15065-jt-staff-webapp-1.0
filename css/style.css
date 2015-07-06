@@ -1,250 +1,79 @@
-/* Stylesheet for Journey Tree Desktop App */
-/* Variables */
-/* Main colours - refer to style guide for names and colours */
-/* Header Title in top melon bar */
-/* Heading font size gradations */
-/* Icons */
-/* Mixins */
-/* iPad mini styling */
-@media only screen and (max-width: 768px) {
-  #loginContainer {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #F16259; }
+/*
+Error: Invalid CSS after "...d-color:$grey40": expected "{", was ";"
+        on line 24 of botImgActions.scss
+        from line 8 of style.scss
 
-  #loginDiv {
-    width: 70%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 35%;
-    box-sizing: border-box;
-    padding: 0 40px; }
-    #loginDiv input {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      height: 50px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.8); }
-    #loginDiv button {
-      margin-top: 30px;
-      background-color: transparent;
-      border: 1px solid #983333;
-      border-radius: 20px;
-      height: 40px;
-      width: 55%;
-      color: #983333;
-      font-size: 18px;
-      cursor: pointer; }
-    #loginDiv p {
-      color: #983333;
-      font-size: 12px;
-      cursor: pointer; }
+19: }
+20: #botImgActions {
+21: 
+22: =======
+23: >>>>>>> master
+24: 	background-color:$grey40;
+25: 	position: fixed;
+26: 	left:0px;
+27:     bottom:0px;
+28: <<<<<<< HEAD
+29: 	width:100%;
 
-  .iconContainer {
-    padding: 20px; }
-
-  .iconDiv {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 40px; }
-    .iconDiv:last-child {
-      margin-right: 0px; }
-
-  .icon {
-    background: #fff;
-    height: 60px;
-    width: 60px;
-    border-radius: 30px;
-    cursor: pointer; } }
-/* Styling */
-@font-face {
-  font-family: "jt-icons";
-  src: url("../fonts/jt-iconfont.eot");
-  src: url("../fonts/jt-iconfont.eot?#iefix") format("embedded-opentype"), url("../fonts/jt-iconfont.woff") format("woff"), url("../fonts/jt-iconfont.ttf") format("truetype"), url("../fonts/jt-iconfont.svg#jt-iconfont") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-html body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  color: #fff;
-  font-family: myriad pro, arial, sans-serif; }
-
-html {
-  -webkit-font-smoothing: antialiased; }
-
-.topTitle {
-  font-size: 44px;
-  font-weight: normal; }
-
-.profileTitle {
-  font-size: 50px;
-  font-weight: normal; }
-
-h1 {
-  font-size: 40px;
-  font-weight: normal; }
-
-h2 {
-  font-size: 38px;
-  font-weight: normal; }
-
-h3 {
-  font-size: 36px;
-  font-weight: normal; }
-
-h4 {
-  font-size: 34px;
-  font-weight: normal; }
-
-h5 {
-  font-size: 30px;
-  font-weight: normal; }
-
-h6 {
-  font-size: 14px;
-  font-weight: normal; }
-
-/* Main Sidebar Styling */
-.sidebar {
-  position: absolute;
-  height: 100%;
-  width: 320px;
-  background-color: #333;
-  box-sizing: border-box; }
-
-#mainSidebar {
-  background-color: #F16259;
-  padding: 40px; }
-
-.searchContainer {
-  margin-bottom: 40px; }
-  .searchContainer .searchIcon {
-    font-family: jt-icons;
-    font-size: 18px;
-    color: #fff;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: middle; }
-  .searchContainer input {
-    padding: 8px;
-    border: none;
-    background: rgba(255, 255, 255, 0.8);
-    width: 86%;
-    display: inline-block;
-    box-sizing: border-box; }
-
-.staffDetailsContainer {
-  margin-bottom: 40px; }
-  .staffDetailsContainer .profilePicture {
-    width: 60px;
-    height: 60px;
-    background: url("../img/profile-MissHannah.png") no-repeat;
-    margin-right: 20px;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 40px;
-    border: 2px solid #fff; }
-  .staffDetailsContainer .personDetailsContainer {
-    display: inline-block;
-    vertical-align: middle; }
-  .staffDetailsContainer .profileName {
-    font-size: 18px; }
-  .staffDetailsContainer .profileEmail {
-    font-size: 14px;
-    margin-top: -15px; }
-
-.mainSidebarMenuList ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-  .mainSidebarMenuList ul li {
-    border-bottom: 2px solid #D0504D;
-    padding: 15px 0 10px 0; }
-.mainSidebarMenuList .menuIcon {
-  font-family: jt-icons;
-  font-size: 40px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; }
-.mainSidebarMenuList .listItem {
-  display: inline-block;
-  vertical-align: middle; }
-
-.logoutContainer {
-  text-align: center;
-  margin-top: 80px; }
-  .logoutContainer button {
-    background: none;
-    border: 1px solid #983333;
-    border-radius: 20px;
-    padding: 10px 85px;
-    font-size: 14px;
-    color: #983333; }
-
-#botMainNav .jtIcons {
-  position: center;
-  display: inline-block;
-  font-family: jt-icons;
-  color: #C8C8C8;
-  margin: 0px 30px;
-  font-size: 24px; }
-#botMainNav a {
-  color: #C8C8C8;
-  text-decoration: none; }
-
-#botMainNav {
-  background-color: #282828;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  width: 786px;
-  height: 62px; }
-
-#botMainNav ul {
-  position: relative;
-  margin: 0px 73px; }
-
-#botMainNav li {
-  margin-top: 15px;
-  float: left;
-  width: 100px;
-  list-style: none;
-  text-align: center;
-  font-size: 14px; }
-
-#botImgActions .jtIcons {
-  display: block;
-  font-family: jt-icons;
-  color: #C8C8C8;
-  margin: 0px 30px;
-  font-size: 24px; }
-#botImgActions a {
-  color: #C8C8C8;
-  text-decoration: none; }
-
-#botImgActions {
-  background-color: #282828;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  height: 62px; }
-
-#botImgActions ul {
-  width: 480px;
-  margin: 15px auto 0px auto; }
-
-#botImgActions li {
-  float: left;
-  width: 120px;
-  list-style: none;
-  text-align: center;
-  font-size: 14px; }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+botImgActions.scss:24
+style.scss:8
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1162:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1098:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1093:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:638:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:658:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:647:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:639:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:632:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:657:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:650:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:393:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:299:in `to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:252:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:321:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:297:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...d-color:$grey40\": expected \"{\", was \";\"\A         on line 24 of botImgActions.scss\A         from line 8 of style.scss\A \A 19: }\A 20: #botImgActions {\A 21: \A 22: =======\A 23: >>>>>>> master\A 24: 	background-color:$grey40;\A 25: 	position: fixed;\A 26: 	left:0px;\A 27:     bottom:0px;\A 28: <<<<<<< HEAD\A 29: 	width:100%;"; }
