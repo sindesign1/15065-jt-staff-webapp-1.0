@@ -31,6 +31,8 @@ var Sidebars = {
 		});
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
+		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
+		$('body').on('click touch', '#addCoverTagBtn, #addTagBtn', Sidebars.toggleTagSidebar);
 	},
 
 	toggleMainSidebar: function() {
@@ -39,6 +41,24 @@ var Sidebars = {
 			$('#mainSidebar').toggleClass('openLeft');
 		} else if($('#mainSidebar').hasClass('sidebarRight')) {
 			$('#mainSidebar').toggleClass('openRight');
+		}
+	},
+
+	togglePhotoSidebar: function() {
+		console.log('photo sidebar clicked');
+		if($('#addImageSidebar').hasClass('sidebarLeft')) {
+			$('#addImageSidebar').toggleClass('openLeft');
+		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+			$('#addImageSidebar').toggleClass('openRight');
+		}
+	},
+
+	toggleTagSidebar: function() {
+		console.log('tag sidebar clicked');
+		if($('#tagSidebar').hasClass('sidebarLeft')) {
+			$('#tagSidebar').toggleClass('openLeft');
+		} else if($('#tagSidebar').hasClass('sidebarRight')) {
+			$('#tagSidebar').toggleClass('openRight');
 		}
 	}
 
