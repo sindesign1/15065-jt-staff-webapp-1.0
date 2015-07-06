@@ -708,7 +708,14 @@ input:checked ~ .modal__overlay {
     float: left;
     width: 10%;
     text-align: center; }
-  #childHeader .middle {
+  #childHeader .middleText {
+    display: inline-block;
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin: 0px auto;
+    display: none; }
+  #childHeader .middleProfile {
     display: inline-block;
     float: left;
     width: 80%;
@@ -718,9 +725,41 @@ input:checked ~ .modal__overlay {
     float: right;
     width: 10%;
     text-align: center; }
+  #childHeader .profilePicture {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 40px;
+    border: 2px solid #fff; }
+    #childHeader .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px; }
+
+#feedProfile {
+  background-color: #F16259;
+  width: 100%;
+  height: 242px;
+  padding-top: 50px;
+  text-align: center; }
+  #feedProfile .profilePicture {
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100px;
+    border: 4px solid #fff;
+    margin-top: -20px;
+    margin-bottom: 20px; }
+    #feedProfile .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100px; }
 
 #childNav {
-  background-color: #F16259;
+  background-color: #F3817B;
   width: 100%;
   height: 50px; }
   #childNav ul {
@@ -737,6 +776,8 @@ input:checked ~ .modal__overlay {
       box-shadow: 2px 0px 0px 0px #F16259 inset; }
     #childNav ul li:first-child {
       box-shadow: none; }
+    #childNav ul li.active {
+      background-color: #F7261C; }
   #childNav a {
     color: #fff;
     text-decoration: none; }
