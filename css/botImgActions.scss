@@ -1,37 +1,45 @@
 #botImgActions {
+
 	background-color:$grey40;
 	position: fixed;
 	left:0px;
     bottom:0px;
 	width: 100%;
 	height:62px;
-
-	ul {
-		position: relative;
-		margin:0px 133px;
-
-		li {
-			margin-top:15px;
-			float:left;
-			width:120px;
-			list-style: none;
-			text-align: center;
-			font-size:$h6-size;
-		}	
-	}
+	text-align: center;
+	padding: 20px 0;
+	box-sizing: border-box;
 
 	.jtIcons{	
-		position:center;
-		display: inline-block;
+		display: block;
 		font-family: $iconfont;
 		color: $grey200;
 		margin:0px 30px;
-		font-size:24px;	
+		font-size:24px			
 	}
 
-	a {
-		color: $grey200;
-		text-decoration: none;
-	}
+	ul {
+		position: relative;
+		margin:0;
+		padding: 0;
 
+		li {
+			width:24%;
+			list-style: none;
+			text-align: center;
+			font-size:$h6-size;
+			display: inline-block;
+			vertical-align: middle;
+
+			a{
+				color: $grey200;
+				text-decoration: none;
+			}
+		}	
+	}
 }
+
+	
+
+	
+
