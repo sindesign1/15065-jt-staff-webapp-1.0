@@ -1,7 +1,7 @@
 /* Global Sidebar Styling */
 
 .sidebarLeft, .sidebarRight {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 320px;
 	background-color: #333;
@@ -12,6 +12,7 @@
     -moz-transition: all 300ms ease 300ms;
     -o-transition: all 300ms ease 300ms;
     transition: all 300ms ease 300ms;
+    overflow-y: scroll;
 }
 
 .sidebarLeft {
