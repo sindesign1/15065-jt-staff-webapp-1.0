@@ -1,79 +1,705 @@
-/*
-Error: Invalid CSS after "...d-color:$grey40": expected "{", was ";"
-        on line 24 of botImgActions.scss
-        from line 8 of style.scss
+/* Stylesheet for Journey Tree Desktop App */
+/* Variables */
+/* Main colours - refer to style guide for names and colours */
+/* Header Title in top melon bar */
+/* Heading font size gradations */
+/* Icons */
+/* Mixins */
+/* iPad mini styling */
+@media only screen and (max-width: 768px) {
+  #loginContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #F16259; }
 
-19: }
-20: #botImgActions {
-21: 
-22: =======
-23: >>>>>>> master
-24: 	background-color:$grey40;
-25: 	position: fixed;
-26: 	left:0px;
-27:     bottom:0px;
-28: <<<<<<< HEAD
-29: 	width:100%;
+  #loginDiv {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 35%;
+    box-sizing: border-box;
+    padding: 0 40px; }
+    #loginDiv input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8); }
+    #loginDiv button {
+      margin-top: 30px;
+      background-color: transparent;
+      border: 1px solid #983333;
+      border-radius: 20px;
+      height: 40px;
+      width: 55%;
+      color: #983333;
+      font-size: 18px;
+      cursor: pointer; }
+    #loginDiv p {
+      color: #983333;
+      font-size: 12px;
+      cursor: pointer; }
 
-Backtrace:
-botImgActions.scss:24
-style.scss:8
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1162:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1098:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1093:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:638:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:658:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:647:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:639:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:632:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:657:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:650:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:42:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:393:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:299:in `to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:88:in `block in with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:88:in `with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:252:in `report_changes'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:321:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/listen-1.3.1/lib/listen/adapter.rb:297:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...d-color:$grey40\": expected \"{\", was \";\"\A         on line 24 of botImgActions.scss\A         from line 8 of style.scss\A \A 19: }\A 20: #botImgActions {\A 21: \A 22: =======\A 23: >>>>>>> master\A 24: 	background-color:$grey40;\A 25: 	position: fixed;\A 26: 	left:0px;\A 27:     bottom:0px;\A 28: <<<<<<< HEAD\A 29: 	width:100%;"; }
+  .iconContainer {
+    padding: 20px; }
+
+  .iconDiv {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 40px; }
+    .iconDiv:last-child {
+      margin-right: 0px; }
+
+  .icon {
+    background: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    cursor: pointer; } }
+/* Styling */
+@font-face {
+  font-family: "jt-icons";
+  src: url("../fonts/jt-iconfont.eot");
+  src: url("../fonts/jt-iconfont.eot?#iefix") format("embedded-opentype"), url("../fonts/jt-iconfont.woff") format("woff"), url("../fonts/jt-iconfont.ttf") format("truetype"), url("../fonts/jt-iconfont.svg#jt-iconfont") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+html body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #fff;
+  font-size: 1em;
+  font-family: myriad pro, arial, sans-serif;
+  font-weight: lighter; }
+
+html {
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  -webkit-font-smoothing: antialiased; }
+
+.topTitle {
+  font-size: 26px;
+  font-weight: normal;
+  text-align: center; }
+
+.profileTitle {
+  font-size: 28px;
+  font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px; }
+
+h1 {
+  font-size: 24px;
+  font-weight: normal; }
+
+h2 {
+  font-size: 22px;
+  font-weight: normal; }
+
+h3 {
+  font-size: 20px;
+  font-weight: normal; }
+
+h4 {
+  font-size: 18px;
+  font-weight: normal; }
+
+h5 {
+  font-size: 16px;
+  font-weight: normal; }
+
+h6 {
+  font-size: 14px;
+  font-weight: normal; }
+
+/* Global Sidebar Styling */
+.sidebarLeft, .sidebarRight {
+  position: absolute;
+  height: 100%;
+  width: 320px;
+  background-color: #333;
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 300ms ease 300ms;
+  -moz-transition: all 300ms ease 300ms;
+  -o-transition: all 300ms ease 300ms;
+  transition: all 300ms ease 300ms; }
+
+.sidebarLeft {
+  left: -320px; }
+
+.sidebarRight {
+  right: -320px; }
+
+.openRight {
+  right: 0; }
+
+.openLeft {
+  left: 0; }
+
+/* Main Sidebar */
+#mainSidebar {
+  background-color: #F16259; }
+
+.searchContainer {
+  margin-bottom: 40px;
+  padding: 20px 20px 0 20px; }
+  .searchContainer .searchWrapper {
+    background: rgba(255, 255, 255, 0.8); }
+    .searchContainer .searchWrapper:before {
+      content: "3";
+      font-family: jt-icons;
+      font-size: 25px;
+      color: #787878;
+      margin-right: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 50px;
+      padding: 0 8px;
+      box-sizing: border-box;
+      line-height: 49px; }
+  .searchContainer input {
+    padding: 8px;
+    border: none;
+    background: none;
+    width: 85%;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 50px;
+    font-size: 17px; }
+
+.staffDetailsContainer {
+  margin-bottom: 40px;
+  padding: 0 10px; }
+  .staffDetailsContainer .profilePicture {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 40px;
+    border: 2px solid #fff; }
+    .staffDetailsContainer .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px; }
+  .staffDetailsContainer .personDetailsContainer {
+    display: inline-block;
+    vertical-align: middle; }
+  .staffDetailsContainer .profileName {
+    font-size: 20px; }
+  .staffDetailsContainer .profileEmail {
+    font-size: 17px;
+    margin-top: -15px; }
+
+.mainSidebarMenuList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .mainSidebarMenuList ul li {
+    border-bottom: 2px solid #D0504D;
+    padding: 12px 0 7px 10px; }
+.mainSidebarMenuList .menuIcon {
+  font-family: jt-icons;
+  font-size: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; }
+.mainSidebarMenuList .listItem {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px; }
+
+.logoutContainer {
+  text-align: center;
+  margin-top: 80px; }
+  .logoutContainer button {
+    background: none;
+    border: 1px solid #983333;
+    border-radius: 30px;
+    padding: 16px 85px;
+    font-size: 20px;
+    color: #983333; }
+
+.sidebarBackground img {
+  width: 100%;
+  background: #F16259; }
+
+/* Children List Sidebar */
+#childListSidebar {
+  background: #F0F0F0;
+  color: #282828; }
+  #childListSidebar .searchIcon {
+    font-family: jt-icons;
+    font-size: 18px;
+    color: #282828;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle; }
+  #childListSidebar .childListSidebarMenuList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #childListSidebar .childListSidebarMenuList ul li {
+      border-bottom: 2px solid #CACCCE;
+      padding: 10px 10px; }
+      #childListSidebar .childListSidebarMenuList ul li:first-child {
+        border-top: 2px solid #CACCCE; }
+  #childListSidebar .menuDisplayPicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    display: inline-block;
+    vertical-align: middle; }
+    #childListSidebar .menuDisplayPicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      border: 2px solid #F16259; }
+  #childListSidebar .listItem {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px; }
+
+/* Message Sidebar styling for both kids and general */
+#messageSidebar-c {
+  background: #fff; }
+  #messageSidebar-c .messageSidebarMenuList-c ul {
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 0; }
+    #messageSidebar-c .messageSidebarMenuList-c ul li {
+      padding: 20px 10px;
+      border-bottom: 2px solid #C8C8C8; }
+  #messageSidebar-c .messageSidebarMenuList-c .listItem {
+    font-size: 20px;
+    color: #F16259; }
+  #messageSidebar-c .messageSidebarMenuList-c .relationship {
+    font-size: 18px;
+    color: #C8C8C8; }
+  #messageSidebar-c .messageSidebarMenuList-c .menuDisplayPicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    vertical-align: middle; }
+    #messageSidebar-c .messageSidebarMenuList-c .menuDisplayPicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+      border: 2px solid #F16259; }
+  #messageSidebar-c .messageSidebarMenuList-c .textContainer {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px; }
+  #messageSidebar-c .messageSidebarMenuList-c .btnContainer {
+    text-align: right; }
+  #messageSidebar-c .messageSidebarMenuList-c .bioBtn {
+    color: #F16259;
+    border: 1px solid #F16259;
+    text-align: center;
+    width: 40px;
+    border-radius: 20px;
+    padding: 3px 5px;
+    display: inline-block;
+    line-height: 20px; }
+  #messageSidebar-c .messageSidebarMenuList-c .bioDisplay {
+    background: #F0F0F0;
+    color: #333;
+    display: none; }
+
+/* Tag Sidebar */
+#tagSidebar .menuContainer {
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 0px; }
+#tagSidebar .item {
+  display: inline-block;
+  margin-left: 30px;
+  color: #A0A0A0; }
+  #tagSidebar .item:first-child {
+    margin-left: 0px; }
+#tagSidebar .menuIcon {
+  font-family: jt-icons;
+  font-size: 34px; }
+#tagSidebar #tagList {
+  display: block; }
+  #tagSidebar #tagList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #tagList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+  #tagSidebar #tagList .profilePicture {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 30px;
+    border: 2px solid;
+    vertical-align: middle; }
+    #tagSidebar #tagList .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px; }
+  #tagSidebar #tagList .personName {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    font-size: 20px; }
+  #tagSidebar #tagList #buttonContainer {
+    padding: 20px;
+    margin-top: 200px;
+    text-align: center; }
+    #tagSidebar #tagList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      padding: 0 60px;
+      color: #A0A0A0;
+      font-size: 20px; }
+#tagSidebar #frameworksList {
+  display: none;
+  background: #333; }
+  #tagSidebar #frameworksList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #frameworksList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+  #tagSidebar #frameworksList .title {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: -10px; }
+  #tagSidebar #frameworksList .content {
+    margin-left: 15px;
+    font-size: 15px; }
+  #tagSidebar #frameworksList #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #tagSidebar #frameworksList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #frameworksList #buttonContainer button:last-child {
+        margin-right: 0; }
+#tagSidebar #activitiesList {
+  display: none; }
+  #tagSidebar #activitiesList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #tagSidebar #activitiesList ul li {
+      padding: 10px 20px;
+      border-bottom: 2px solid #282828;
+      background: #505050; }
+      #tagSidebar #activitiesList ul li p {
+        font-size: 17px; }
+  #tagSidebar #activitiesList #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #tagSidebar #activitiesList #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #activitiesList #buttonContainer button:last-child {
+        margin-right: 0; }
+
+#addImageSidebar {
+  background: #333; }
+  #addImageSidebar .menuContainer {
+    padding: 20px;
+    padding-bottom: 0px; }
+  #addImageSidebar .item {
+    display: inline-block;
+    margin-left: 30px;
+    color: #fff;
+    text-align: center; }
+    #addImageSidebar .item:first-child {
+      margin-left: 0px; }
+  #addImageSidebar .menuIcon {
+    font-family: jt-icons;
+    font-size: 34px; }
+  #addImageSidebar #imageList {
+    padding: 0 4px;
+    background: #333; }
+    #addImageSidebar #imageList .imgBlock {
+      display: inline-block;
+      width: 32.5%; }
+      #addImageSidebar #imageList .imgBlock img {
+        width: 100%; }
+  #addImageSidebar #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #addImageSidebar #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #addImageSidebar #buttonContainer button:last-child {
+        margin-right: 0; }
+
+.headerPlaceholder {
+  height: 64px;
+  background: #F16259; }
+  .headerPlaceholder p {
+    margin: 0;
+    padding-top: 20px;
+    color: #FFF;
+    text-align: center; }
+
+.classGallery {
+  clear: both;
+  width: 100%; }
+  .classGallery p {
+    padding: 0 25px;
+    color: #282828; }
+  .classGallery .thumbnail, .classGallery a {
+    float: left;
+    width: 19.53125%;
+    margin-right: 0.5859375%;
+    margin-bottom: 5px;
+    padding: 0; }
+    .classGallery .thumbnail img, .classGallery a img {
+      display: block;
+      width: 100%; }
+  .classGallery .thumbnail:nth-child(5n+0) {
+    margin-right: 0; }
+  .classGallery a:nth-child(5n+0) {
+    margin-right: 0; }
+
+.thumbnail > label {
+  transition: all 0.55s; }
+
+.modal__overlay {
+  background: #FFF;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-shadow: none;
+  top: 0;
+  z-index: 600; }
+
+.modal__wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 100%; }
+  .modal__wrap p {
+    padding: 20px 25px 0;
+    color: #FFF; }
+
+.modal__wrap label {
+  cursor: pointer;
+  display: inline-block;
+  float: right; }
+
+.modal input:focus ~ label {
+  transform: scale(0.97); }
+
+.classGallery input {
+  position: absolute;
+  top: -1000px; }
+
+.modal__overlay {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -100; }
+
+input:checked ~ .modal__overlay {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 800; }
+
+.albumContainer {
+  width: 100%;
+  padding: 3.75em 7.8125%;
+  overflow: hidden; }
+  .albumContainer a {
+    display: block;
+    float: left;
+    margin: 0 7.29167% 3.5em 0;
+    width: 15.625%;
+    text-align: center;
+    text-decoration: none; }
+    .albumContainer a img {
+      clear: both;
+      display: block;
+      width: 100%; }
+    .albumContainer a p {
+      margin: 0.625em 0 0;
+      color: #282828;
+      font-size: 0.875em; }
+  .albumContainer a:nth-child(4n+0) {
+    margin-right: 0; }
+
+#botImgActions {
+  background-color: #282828;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 62px;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box; }
+  #botImgActions .jtIcons {
+    display: block;
+    font-family: jt-icons;
+    color: #C8C8C8;
+    margin: 0px 30px;
+    font-size: 24px; }
+  #botImgActions ul {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    #botImgActions ul li {
+      width: 24%;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle; }
+      #botImgActions ul li a {
+        color: #C8C8C8;
+        text-decoration: none; }
+
+#botMainNav {
+  background-color: #282828;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 62px;
+  z-index: 9999;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box; }
+  #botMainNav ul {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    #botMainNav ul li {
+      width: 100px;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      display: inline-block; }
+  #botMainNav .jtIcons {
+    position: center;
+    display: inline-block;
+    font-family: jt-icons;
+    color: #C8C8C8;
+    margin: 0px 30px;
+    font-size: 24px; }
+  #botMainNav a {
+    color: #C8C8C8;
+    text-decoration: none; }
+
+#botImgActions {
+  background-color: #282828;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 62px;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box; }
+  #botImgActions .jtIcons {
+    display: block;
+    font-family: jt-icons;
+    color: #C8C8C8;
+    margin: 0px 30px;
+    font-size: 24px; }
+  #botImgActions ul {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    #botImgActions ul li {
+      width: 24%;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle; }
+      #botImgActions ul li a {
+        color: #C8C8C8;
+        text-decoration: none; }
+
+#headerNav {
+  background-color: #F16259;
+  width: 100%;
+  height: 40px;
+  padding-top: 50px; }
+  #headerNav .jtIcons {
+    position: center;
+    display: inline-block;
+    font-family: jt-icons;
+    color: #fff;
+    font-size: 28px;
+    line-height: 28px; }
+  #headerNav a {
+    color: #fff;
+    text-decoration: none; }
+  #headerNav h1, #headerNav h5 {
+    line-height: 28px; }
+  #headerNav .left {
+    float: left;
+    width: 10%;
+    text-align: center; }
+  #headerNav .middle {
+    display: inline-block;
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin: 0px auto; }
+  #headerNav .right {
+    float: right;
+    width: 10%;
+    text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
