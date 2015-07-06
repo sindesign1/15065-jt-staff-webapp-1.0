@@ -80,6 +80,12 @@ html body {
 html {
   -webkit-font-smoothing: antialiased; }
 
+html {
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  -webkit-font-smoothing: antialiased; }
+
 .topTitle {
   font-size: 26px;
   font-weight: normal;
@@ -433,6 +439,47 @@ h6 {
       #tagSidebar #activitiesList #buttonContainer button:last-child {
         margin-right: 0; }
 
+#addImageSidebar {
+  background: #333; }
+  #addImageSidebar .menuContainer {
+    padding: 20px;
+    padding-bottom: 0px; }
+  #addImageSidebar .item {
+    display: inline-block;
+    margin-left: 30px;
+    color: #fff;
+    text-align: center; }
+    #addImageSidebar .item:first-child {
+      margin-left: 0px; }
+  #addImageSidebar .menuIcon {
+    font-family: jt-icons;
+    font-size: 34px; }
+  #addImageSidebar #imageList {
+    padding: 0 4px;
+    background: #333; }
+    #addImageSidebar #imageList .imgBlock {
+      display: inline-block;
+      width: 32.5%; }
+      #addImageSidebar #imageList .imgBlock img {
+        width: 100%; }
+  #addImageSidebar #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #addImageSidebar #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #addImageSidebar #buttonContainer button:last-child {
+        margin-right: 0; }
+
 .headerPlaceholder {
   height: 64px;
   background: #F16259; }
@@ -478,6 +525,7 @@ h6 {
 
 .modal__wrap {
   position: relative;
+  z-index: 1000;
   margin: 0 auto;
   width: 100%; }
   .modal__wrap p {
@@ -508,26 +556,31 @@ input:checked ~ .modal__overlay {
   z-index: 800; }
 
 .albumContainer {
-  width: 100%;
-  padding: 3.75em 7.8125%;
-  overflow: hidden; }
-  .albumContainer a {
-    display: block;
-    float: left;
-    margin: 0 7.29167% 3.5em 0;
-    width: 15.625%;
-    text-align: center;
-    text-decoration: none; }
-    .albumContainer a img {
-      clear: both;
+  width: 100%; }
+  .albumContainer .albums {
+    width: auto;
+    padding: 3.75em 5% 0;
+    overflow: hidden; }
+    .albumContainer .albums a {
       display: block;
-      width: 100%; }
-    .albumContainer a p {
-      margin: 0.625em 0 0;
-      color: #282828;
-      font-size: 0.875em; }
-  .albumContainer a:nth-child(4n+0) {
-    margin-right: 0; }
+      float: left;
+      margin: 0 5% 3.5em 0;
+      width: 21.25%;
+      text-align: center;
+      text-decoration: none; }
+      .albumContainer .albums a img {
+        clear: both;
+        display: block;
+        width: 100%; }
+      .albumContainer .albums a p {
+        margin: 0.625em 0 0;
+        color: #282828;
+        font-size: 0.875em; }
+      .albumContainer .albums a:nth-child(4n+0) {
+        margin-right: 0; }
+  .albumContainer .albumIcon .albums {
+    width: auto;
+    padding: 0 5% 3.75em; }
 
 #botImgActions {
   background-color: #282828;
@@ -535,46 +588,53 @@ input:checked ~ .modal__overlay {
   left: 0px;
   bottom: 0px;
   width: 100%;
-  height: 62px; }
-  #botImgActions ul {
-    position: relative;
-    margin: 0px 133px; }
-    #botImgActions ul li {
-      margin-top: 15px;
-      float: left;
-      width: 120px;
-      list-style: none;
-      text-align: center;
-      font-size: 14px; }
+  height: 62px;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box; }
   #botImgActions .jtIcons {
-    position: center;
-    display: inline-block;
+    display: block;
     font-family: jt-icons;
     color: #C8C8C8;
     margin: 0px 30px;
     font-size: 24px; }
-  #botImgActions a {
-    color: #C8C8C8;
-    text-decoration: none; }
+  #botImgActions ul {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    #botImgActions ul li {
+      width: 24%;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle; }
+      #botImgActions ul li a {
+        color: #C8C8C8;
+        text-decoration: none; }
 
 #botMainNav {
   background-color: #282828;
   position: fixed;
+  z-index: 1 !important;
   left: 0px;
   bottom: 0px;
   width: 100%;
   height: 62px;
-  z-index: 9999; }
+  z-index: 9999;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box; }
   #botMainNav ul {
     position: relative;
-    margin: 0px 73px; }
+    margin: 0;
+    padding: 0; }
     #botMainNav ul li {
-      margin-top: 15px;
-      float: left;
       width: 100px;
       list-style: none;
       text-align: center;
-      font-size: 14px; }
+      font-size: 14px;
+      display: inline-block; }
   #botMainNav .jtIcons {
     position: center;
     display: inline-block;
@@ -592,27 +652,30 @@ input:checked ~ .modal__overlay {
   left: 0px;
   bottom: 0px;
   width: 100%;
-  height: 62px; }
-  #botImgActions ul {
-    position: relative;
-    margin: 0px 133px; }
-    #botImgActions ul li {
-      margin-top: 15px;
-      float: left;
-      width: 120px;
-      list-style: none;
-      text-align: center;
-      font-size: 14px; }
+  height: 62px;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box; }
   #botImgActions .jtIcons {
-    position: center;
-    display: inline-block;
+    display: block;
     font-family: jt-icons;
     color: #C8C8C8;
     margin: 0px 30px;
     font-size: 24px; }
-  #botImgActions a {
-    color: #C8C8C8;
-    text-decoration: none; }
+  #botImgActions ul {
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    #botImgActions ul li {
+      width: 24%;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle; }
+      #botImgActions ul li a {
+        color: #C8C8C8;
+        text-decoration: none; }
 
 #headerNav {
   background-color: #F16259;
@@ -645,5 +708,32 @@ input:checked ~ .modal__overlay {
     float: right;
     width: 10%;
     text-align: center; }
+
+/* Learning Story Cover Page Styling */
+#coverPageContainer {
+  width: 100%;
+  height: 100%;
+  background: #333;
+  position: absolute;
+  text-align: center;
+  padding: 60px;
+  box-sizing: border-box;
+  padding-bottom: 100px; }
+  #coverPageContainer .innerContainer {
+    border: 2px dashed #fff;
+    height: 100%;
+    width: 100%; }
+    #coverPageContainer .innerContainer .addImageContainer {
+      margin-top: 40%; }
+    #coverPageContainer .innerContainer .addImageBtn {
+      background-color: #fff;
+      border: none;
+      border-radius: 40px;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 10px;
+      font-family: jt-icons;
+      font-size: 30px;
+      line-height: 30px; }
 
 /*# sourceMappingURL=style.css.map */
