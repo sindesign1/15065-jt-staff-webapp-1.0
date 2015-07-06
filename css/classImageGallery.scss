@@ -4,31 +4,86 @@
 	p {
 		margin: 0;
 		padding-top: 20px;
+		color: #FFF;
 		text-align: center;
 	}
 }
 
 .classGallery {
+	clear: both;
 	width: 100%;
 	p {
 		padding: 0 25px;
 		color: $grey40;
 	}
-	div {
-		clear: both;
-		a {
-			float: left;
-			width: 19.53125%;
-			margin-right: 0.5859375%;
-			margin-bottom: 5px;
-			padding: 0;
-			img {
-				width: 100%;
-				height: 100%;
-			}
-		}
-		a:nth-child(5n+0) {
-			margin-right: 0;
+	.thumbnail, a {
+	float: left;
+	width: 19.53125%;
+	margin-right: 0.5859375%;
+	margin-bottom: 5px;
+	padding: 0;
+		img {
+			display: block;
+			width: 100%;
 		}
 	}
+	.thumbnail:nth-child(5n+0) {
+		margin-right: 0;
+	}
+	a:nth-child(5n+0) {
+		margin-right: 0;
+	}
+}
+
+.thumbnail > label {
+	transition: all 0.55s;
+}
+
+.modal__overlay {
+	background: #FFF;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	text-shadow: none;
+	top: 0;
+	z-index: 600;
+}
+.modal__wrap {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	p {
+		padding: 20px 25px 0;
+		color: #FFF;
+	}
+}
+
+.modal__wrap label {
+	cursor: pointer;
+	display: inline-block;
+	float: right;
+}
+
+.modal input:focus ~ label {
+	transform: scale(0.97);
+}
+
+.classGallery input {
+	position: absolute;
+	top: -1000px;
+}
+
+.modal__overlay {
+	opacity: 0;
+	transform: scale(0.5);
+	transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	z-index: -100;
+}
+
+input:checked ~ .modal__overlay {
+	opacity: 1;
+	transform: scale(1);
+	z-index: 800;
 }
