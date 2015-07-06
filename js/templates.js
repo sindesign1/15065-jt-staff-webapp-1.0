@@ -9,6 +9,7 @@ var Templates = {
 		Templates.charlotteMessageSidebar();
 		Templates.charlotteMessageSidebar();
 		Templates.tagSidebar();
+		Templates.photoSidebar();
 	},
 
 	loadScripts: function() {
