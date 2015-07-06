@@ -555,26 +555,31 @@ input:checked ~ .modal__overlay {
   z-index: 800; }
 
 .albumContainer {
-  width: 100%;
-  padding: 3.75em 7.8125%;
-  overflow: hidden; }
-  .albumContainer a {
-    display: block;
-    float: left;
-    margin: 0 7.29167% 3.5em 0;
-    width: 15.625%;
-    text-align: center;
-    text-decoration: none; }
-    .albumContainer a img {
-      clear: both;
+  width: 100%; }
+  .albumContainer .albums {
+    width: auto;
+    padding: 3.75em 5% 0;
+    overflow: hidden; }
+    .albumContainer .albums a {
       display: block;
-      width: 100%; }
-    .albumContainer a p {
-      margin: 0.625em 0 0;
-      color: #282828;
-      font-size: 0.875em; }
-  .albumContainer a:nth-child(4n+0) {
-    margin-right: 0; }
+      float: left;
+      margin: 0 5% 3.5em 0;
+      width: 21.25%;
+      text-align: center;
+      text-decoration: none; }
+      .albumContainer .albums a img {
+        clear: both;
+        display: block;
+        width: 100%; }
+      .albumContainer .albums a p {
+        margin: 0.625em 0 0;
+        color: #282828;
+        font-size: 0.875em; }
+      .albumContainer .albums a:nth-child(4n+0) {
+        margin-right: 0; }
+  .albumContainer .albumIcon .albums {
+    width: auto;
+    padding: 0 5% 3.75em; }
 
 #botImgActions {
   background-color: #282828;
