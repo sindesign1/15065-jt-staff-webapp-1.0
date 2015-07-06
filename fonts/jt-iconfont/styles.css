@@ -158,3 +158,9 @@
 .icon-jt-icon-tree:before {
   content: "1";
 }
+.icon-jt-icon-edit:before {
+  content: "2";
+}
+.icon-jt-icon-search:before {
+  content: "3";
+}
