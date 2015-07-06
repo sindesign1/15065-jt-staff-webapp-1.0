@@ -433,6 +433,47 @@ h6 {
       #tagSidebar #activitiesList #buttonContainer button:last-child {
         margin-right: 0; }
 
+#addImageSidebar {
+  background: #333; }
+  #addImageSidebar .menuContainer {
+    padding: 20px;
+    padding-bottom: 0px; }
+  #addImageSidebar .item {
+    display: inline-block;
+    margin-left: 30px;
+    color: #fff;
+    text-align: center; }
+    #addImageSidebar .item:first-child {
+      margin-left: 0px; }
+  #addImageSidebar .menuIcon {
+    font-family: jt-icons;
+    font-size: 34px; }
+  #addImageSidebar #imageList {
+    padding: 0 4px;
+    background: #333; }
+    #addImageSidebar #imageList .imgBlock {
+      display: inline-block;
+      width: 32.5%; }
+      #addImageSidebar #imageList .imgBlock img {
+        width: 100%; }
+  #addImageSidebar #buttonContainer {
+    padding: 20px;
+    margin-top: 100px;
+    text-align: center; }
+    #addImageSidebar #buttonContainer button {
+      background: none;
+      border: 1px solid #A0A0A0;
+      border-radius: 40px;
+      height: 50px;
+      color: #A0A0A0;
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #addImageSidebar #buttonContainer button:last-child {
+        margin-right: 0; }
+
 .headerPlaceholder {
   height: 64px;
   background: #F16259; }
