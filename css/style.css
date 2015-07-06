@@ -736,5 +736,19 @@ input:checked ~ .modal__overlay {
       font-family: jt-icons;
       font-size: 30px;
       line-height: 30px; }
+    #coverPageContainer .innerContainer .textContainer {
+      margin-top: 40%; }
+      #coverPageContainer .innerContainer .textContainer .header {
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+        border: none;
+        font-size: 40px;
+        text-align: center;
+        color: #fff; }
+      #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
+        font-size: 25px; }
+    #coverPageContainer .innerContainer #subHeaderInput, #coverPageContainer .innerContainer #headerInput {
+      display: none; }
 
 /*# sourceMappingURL=style.css.map */

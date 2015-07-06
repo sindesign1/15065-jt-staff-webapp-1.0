@@ -31,5 +31,27 @@
   			font-size: 30px;
   			line-height: 30px;
   		}
+
+      .textContainer {
+        margin-top: 40%;
+
+        .header {
+          display: block;
+          margin: 0 auto;
+          background: transparent;
+          border: none;
+          font-size: 40px;
+          text-align: center;
+          color: #fff;
+        }
+
+        #subHeader, #subHeaderInput {
+          font-size: 25px;
+        }
+      }
+
+      #subHeaderInput, #headerInput {
+        display: none;
+      }
   	}
 }
