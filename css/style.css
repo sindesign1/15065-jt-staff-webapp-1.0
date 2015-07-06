@@ -525,7 +525,6 @@ h6 {
 
 .modal__wrap {
   position: relative;
-  z-index: 1000;
   margin: 0 auto;
   width: 100%; }
   .modal__wrap p {
@@ -616,7 +615,6 @@ input:checked ~ .modal__overlay {
 #botMainNav {
   background-color: #282828;
   position: fixed;
-  z-index: 1 !important;
   left: 0px;
   bottom: 0px;
   width: 100%;
