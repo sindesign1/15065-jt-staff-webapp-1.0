@@ -1,23 +1,6 @@
-#botMainNav {
-<<<<<<< HEAD
-	.jtIcons{	
-				display: block;
-				font-family: $iconfont;
-				color: $grey200;
-				margin:0px 30px;
-				font-size:24px					
-	}
 
-	a{
-		color: $grey200;
-		text-decoration: none;
-	}
-
-}
 #botMainNav {
 
-=======
->>>>>>> master
 	background-color:$grey40;
 	position: fixed;
 	left:0px;
@@ -25,18 +8,21 @@
 	width:100%;
 	height:62px;
 	z-index: 9999;
+	text-align: center;
+	padding: 10px 0;
+	box-sizing: border-box;
 
 	ul {
 		position: relative;
-		margin:0px 73px;
+		margin:0;
+		padding:0;
 
 		li {
-			margin-top:15px;
-			float:left;
 			width:100px;
 			list-style: none;
 			text-align: center;
 			font-size:$h6-size;
+			display: inline-block;
 		}
 	}
 
@@ -49,29 +35,9 @@
 		font-size:24px;	
 	}
 
-<<<<<<< HEAD
-
-}
-#botMainNav ul{
-			width:600px;
-			margin: 15px auto 0px auto;
-
-
-}
-
-#botMainNav li{
-		float:left;
-		width:100px;
-		list-style: none;
-		text-align: center;
-		font-size:$h6-size;
-
-
-=======
 	a{
 		color: $grey200;
 		text-decoration: none;
 	}
->>>>>>> master
 
 }
