@@ -16,22 +16,20 @@
 		padding: 0 25px;
 		color: $grey40;
 	}
-	.thumbnail, a {
-	float: left;
-	width: 19.53125%;
-	margin-right: 0.5859375%;
-	margin-bottom: 5px;
-	padding: 0;
+	div.thumbnail,
+	a {
+		float: left;
+		width: 19.53125%;
+		margin-right: 0.5859375%;
+		margin-bottom: 5px;
+		padding: 0;
 		img {
 			display: block;
 			width: 100%;
 		}
-	}
-	.thumbnail:nth-child(5n+0) {
-		margin-right: 0;
-	}
-	a:nth-child(5n+0) {
-		margin-right: 0;
+		&:nth-child(5n+0) {
+			margin-right: 0;
+		}
 	}
 }
 
