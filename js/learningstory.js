@@ -7,7 +7,6 @@ var Story = {
 
 	events: function() {
 		$('body').on('click touch', '#header', Story.changeHeaderText);
-		$('body').on('taphold', '#coverPageContainer', Story.tapHoldOpenSidebar);
 	},
 
 	changeHeaderText: function(e) {
@@ -29,13 +28,6 @@ var Story = {
 		    console.log('has input');
 		}
 	},
-
-	tapHoldOpenSidebar: function() {
-		Sidebars.toggleTagSidebar();
-	}
-
-
-	
 
 }
 

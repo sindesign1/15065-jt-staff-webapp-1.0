@@ -359,7 +359,7 @@
 
 		#buttonContainer {
 			padding: 20px;
-			margin-top: 200px;
+			margin-top: 100px;
 			text-align: center;
 
 			button {
@@ -367,9 +367,16 @@
 				border: 1px solid $grey160;
 				border-radius: 40px;
 				height: 50px;
-				padding: 0 60px;
 				color: $grey160;
 				font-size: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 25px;
+				width: 120px;
+
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}
@@ -380,6 +387,7 @@
 
 		display: none;
 		background: #333;
+		padding-bottom: 90px;
 
 		ul {
 			list-style: none;

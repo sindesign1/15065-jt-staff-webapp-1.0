@@ -364,19 +364,25 @@ h6 {
     font-size: 20px; }
   #tagSidebar #tagList #buttonContainer {
     padding: 20px;
-    margin-top: 200px;
+    margin-top: 100px;
     text-align: center; }
     #tagSidebar #tagList #buttonContainer button {
       background: none;
       border: 1px solid #A0A0A0;
       border-radius: 40px;
       height: 50px;
-      padding: 0 60px;
       color: #A0A0A0;
-      font-size: 20px; }
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #tagList #buttonContainer button:last-child {
+        margin-right: 0; }
 #tagSidebar #frameworksList {
   display: none;
-  background: #333; }
+  background: #333;
+  padding-bottom: 90px; }
   #tagSidebar #frameworksList ul {
     list-style: none;
     margin: 0;
@@ -757,7 +763,7 @@ input:checked ~ .modal__overlay {
   height: 100%;
   bottom: 0;
   background: #333;
-  position: absolute;
+  position: fixed;
   text-align: center;
   padding: 60px;
   box-sizing: border-box;
