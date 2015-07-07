@@ -481,6 +481,47 @@ h6 {
       #addImageSidebar #buttonContainer button:last-child {
         margin-right: 0; }
 
+.chooseLearningContainer {
+  background-color: #F3817B;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box; }
+  .chooseLearningContainer .content {
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%); }
+    .chooseLearningContainer .content h1 {
+      margin: 20px;
+      padding: 20px;
+      font-size: 44px;
+      display: inline-block;
+      word-wrap: break-word;
+      width: 20%; }
+    .chooseLearningContainer .content ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      .chooseLearningContainer .content ul li {
+        width: 100px;
+        list-style: none;
+        text-align: center;
+        font-size: 14px;
+        display: inline-block; }
+    .chooseLearningContainer .content .jtIcons {
+      position: center;
+      display: inline-block;
+      font-family: jt-icons;
+      color: #FFFFFF;
+      margin: 0px 20px;
+      font-size: 64px; }
+    .chooseLearningContainer .content a {
+      color: #FFFFFF;
+      text-decoration: none; }
+
 .headerPlaceholder {
   height: 64px;
   background: #F16259; }

@@ -1,0 +1,56 @@
+
+.chooseLearningContainer {
+
+	background-color:$tint-melon;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+//	background: $melon;
+	text-align: center;
+	padding: 10px 0;
+	box-sizing: border-box;
+
+	.content {
+		position: relative;
+	    top: 30%;
+	    transform: translateY(-50%);
+
+		h1 {
+			margin:20px;
+			padding:20px;
+			font-size:$big-text;
+			display: inline-block;
+			word-wrap: break-word;
+			width: 20%;
+		}
+
+		ul {
+			position: relative;
+			margin:0;
+			padding:0;
+			text-align: center;
+
+			li {
+				width:100px;
+				list-style: none;
+				text-align: center;
+				font-size:$h6-size;
+				display: inline-block;
+			}
+		}
+
+		.jtIcons{	
+			position:center;
+			display: inline-block;
+			font-family: $iconfont;
+			color: $white;
+			margin:0px 20px;
+			font-size:64px;	
+		}
+
+		a {
+			color: $white;
+			text-decoration: none;
+		}		
+	}
+}
