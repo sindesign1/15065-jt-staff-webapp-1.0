@@ -748,7 +748,12 @@ input:checked ~ .modal__overlay {
         color: #fff; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
         font-size: 25px; }
-    #coverPageContainer .innerContainer #subHeaderInput, #coverPageContainer .innerContainer #headerInput {
-      display: none; }
+      #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
+        display: none; }
+
+#learningStoryPage {
+  position: absolute;
+  top: 100%;
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
