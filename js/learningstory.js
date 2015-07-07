@@ -7,7 +7,7 @@ var Story = {
 
 	events: function() {
 		$('body').on('click touch', '#header', Story.changeHeaderText);
-		$('body').on('click touch', '.imgBlock', Story.getCoverImage);
+//		$('body').on('click touch', '.imgBlock', Story.getCoverImage);
 		$(window).scroll(Story.scrollFunction);
 	},
 

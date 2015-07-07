@@ -9,17 +9,28 @@
 
 	<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
 
-	<script>
-		function getChildData(n) {
-			var thisChild = {};
-			thisChild.thumbnail = $(n).prop('src');
-			thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
-			DataUtils.setCurrentChildData(thisChild);
-			console.log(DataUtils.currentChildData());
-		}
-	</script>
 </head>
 <body>
+
+    <div class="classGallery">
+        <p>Today</p>
+
+        <!--Thumbnail 1 -->
+        <div class="thumbnail">
+            <input id="thumb_1" type="checkbox" />
+            <label for="thumb_1"><img src="../img/classroomThumbs/thumb_IMG_01.jpg"></label>
+            <div class="modal__overlay" role="dialog">
+                <div class="modal__wrap">
+                    <header class="headerPlaceholder">
+                        <p class="new">Header template <label for="thumb_1">Close</label></p>
+                    </header>
+                    <img src="../img/classroomLarge/IMG_01.jpg">
+                </div>
+            </div>
+        </div>
+        <!--End Thumbnail 1 -->
+	</div>
+
 	<section id="addImageSidebar" class="sidebarRight right">
 		<div class="menuContainer">
 			<div class="menuItems">
