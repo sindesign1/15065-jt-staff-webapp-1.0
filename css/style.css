@@ -460,7 +460,7 @@ h6 {
     background: #333; }
     #addImageSidebar #imageList .imgBlock {
       display: inline-block;
-      width: 32.5%; }
+      width: 30.5%; }
       #addImageSidebar #imageList .imgBlock img {
         width: 100%; }
   #addImageSidebar #buttonContainer {
@@ -755,6 +755,7 @@ input:checked ~ .modal__overlay {
 #coverPageContainer {
   width: 100%;
   height: 100%;
+  bottom: 0;
   background: #333;
   position: absolute;
   text-align: center;
@@ -784,13 +785,15 @@ input:checked ~ .modal__overlay {
         margin: 0 auto;
         background: transparent;
         border: none;
-        font-size: 40px;
+        font-size: 56px;
         text-align: center;
         color: #fff; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
         font-size: 25px; }
       #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
         display: none; }
+      #coverPageContainer .innerContainer .textContainer #headerInput {
+        font-size: 53px; }
 
 #learningStoryPage {
   position: absolute;
