@@ -15,24 +15,27 @@ var Sidebars = {
 			$('#carolBio').slideToggle();
 		});
 
-		$('#tagSidebar').on('click touch', '#name', function(){
+		$('body').on('click touch', '#name', function(){
+			console.log('name worked');
 			$('#frameworksList, #activitiesList').hide();
 			$('#tagList').fadeIn();
 		});
 
-		$('#tagSidebar').on('click touch', '#frameworks', function(){
+		$('body').on('click touch', '#frameworks', function(){
+			console.log('frameworks worked');
 			$('#tagList, #activitiesList').hide();
 			$('#frameworksList').fadeIn();
 		});
 
-		$('#tagSidebar').on('click touch', '#activities', function(){
+		$('body').on('click touch', '#activities', function(){
+			console.log('activities worked');
 			$('#frameworksList, #tagList').hide();
 			$('#activitiesList').fadeIn();
 		});
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('click touch', '#addCoverTagBtn, #addTagBtn', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer', Sidebars.toggleTagSidebar);
 	},
 
 	toggleMainSidebar: function() {
@@ -56,11 +59,10 @@ var Sidebars = {
 
 	toggleTagSidebar: function() {
 		console.log('tag sidebar clicked');
-		$('#addImageSidebar').toggleClass('display');
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
-			$('#tagSidebar').toggleClass('openLeft');
+			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
-			$('#tagSidebar').toggleClass('openRight');
+			$('#tagSidebar').addClass('openRight');
 		}
 	}
 

@@ -761,13 +761,24 @@ input:checked ~ .modal__overlay {
   text-align: center;
   padding: 60px;
   box-sizing: border-box;
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  background-size: cover; }
+  #coverPageContainer:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
   #coverPageContainer .innerContainer {
     border: 2px dashed #fff;
     height: 100%;
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
-      margin-top: 40%; }
+      position: absolute;
+      bottom: 60%;
+      left: 46%; }
     #coverPageContainer .innerContainer .addImageBtn {
       background-color: #fff;
       border: none;
@@ -779,19 +790,24 @@ input:checked ~ .modal__overlay {
       font-size: 30px;
       line-height: 30px; }
     #coverPageContainer .innerContainer .textContainer {
-      margin-top: 40%; }
+      position: absolute;
+      bottom: 18%;
+      left: 16%;
+      width: 524px; }
       #coverPageContainer .innerContainer .textContainer .header {
         display: block;
         margin: 0 auto;
         background: transparent;
         border: none;
-        font-size: 56px;
+        font-size: 57px;
         text-align: center;
-        color: #fff; }
+        color: #fff;
+        width: 524px; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
         font-size: 25px; }
       #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
-        display: none; }
+        display: none;
+        padding: 0; }
       #coverPageContainer .innerContainer .textContainer #headerInput {
         font-size: 53px; }
 

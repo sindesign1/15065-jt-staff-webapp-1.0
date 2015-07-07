@@ -11,6 +11,17 @@
   	padding: 60px;
   	box-sizing: border-box;
   	padding-bottom: 100px;
+    background-size: cover;
+
+    &:before {
+        content: '';
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
 
   	.innerContainer {
   		border: 2px dashed #fff;
@@ -18,7 +29,9 @@
   		width: 100%;
 
   		.addImageContainer {
-  			margin-top: 40%;
+  			position: absolute;
+            bottom: 60%;
+            left: 46%;
   		}
 
   		.addImageBtn {
@@ -34,16 +47,20 @@
   		}
 
         .textContainer {
-            margin-top: 40%;
+            position: absolute;
+            bottom: 18%;
+            left: 16%;
+            width: 524px;
 
             .header {
                 display: block;
                 margin: 0 auto;
                 background: transparent;
                 border: none;
-                font-size: 56px;
+                font-size: 57px;
                 text-align: center;
                 color: #fff;
+                width: 524px;
             }
 
             #subHeader, #subHeaderInput {
@@ -52,6 +69,7 @@
 
             #subHeaderInput, #headerInput {
                 display: none;
+                padding: 0;
             }
 
             #headerInput {
