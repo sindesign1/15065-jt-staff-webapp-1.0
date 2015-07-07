@@ -12,7 +12,8 @@
 		function getChildData(n) {
 			window.currentChildData = window.currentChildData || {};
 			window.currentChildData.thumbnail = $(n).prop('src');
-//			console.log(window.currentChildData);
+			window.currentChildData.image = window.currentChildData.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+			console.log(window.currentChildData);
 		}
 	</script>
 </head>
