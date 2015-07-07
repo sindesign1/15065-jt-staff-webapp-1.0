@@ -3,64 +3,10 @@
 /* Main colours - refer to style guide for names and colours */
 /* Header Title in top melon bar */
 /* Heading font size gradations */
+/* Font Families */
+/* Font Weight */
 /* Icons */
 /* Mixins */
-/* iPad mini styling */
-@media only screen and (max-width: 768px) {
-  #loginContainer {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #F16259; }
-
-  #loginDiv {
-    width: 70%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 35%;
-    box-sizing: border-box;
-    padding: 0 40px; }
-    #loginDiv input {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      height: 50px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.8); }
-    #loginDiv button {
-      margin-top: 30px;
-      background-color: transparent;
-      border: 1px solid #983333;
-      border-radius: 20px;
-      height: 40px;
-      width: 55%;
-      color: #983333;
-      font-size: 18px;
-      cursor: pointer; }
-    #loginDiv p {
-      color: #983333;
-      font-size: 12px;
-      cursor: pointer; }
-
-  .iconContainer {
-    padding: 20px; }
-
-  .iconDiv {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 40px; }
-    .iconDiv:last-child {
-      margin-right: 0px; }
-
-  .icon {
-    background: #fff;
-    height: 60px;
-    width: 60px;
-    border-radius: 30px;
-    cursor: pointer; } }
 /* Styling */
 @font-face {
   font-family: "jt-icons";
@@ -80,12 +26,6 @@ html body {
 html {
   -webkit-font-smoothing: antialiased; }
 
-html {
-  -webkit-font-smoothing: antialiased; }
-
-html {
-  -webkit-font-smoothing: antialiased; }
-
 .topTitle {
   font-size: 26px;
   font-weight: normal;
@@ -100,8 +40,9 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0px; }
 
 h1 {
-  font-size: 24px;
-  font-weight: normal; }
+  font-size: 60px;
+  font-weight: 300;
+  font-family: museo; }
 
 h2 {
   font-size: 22px;
@@ -495,19 +436,20 @@ h6 {
   .classGallery p {
     padding: 0 25px;
     color: #282828; }
-  .classGallery .thumbnail, .classGallery a {
+  .classGallery div.thumbnail,
+  .classGallery a {
     float: left;
     width: 19.53125%;
     margin-right: 0.5859375%;
     margin-bottom: 5px;
     padding: 0; }
-    .classGallery .thumbnail img, .classGallery a img {
+    .classGallery div.thumbnail img,
+    .classGallery a img {
       display: block;
       width: 100%; }
-  .classGallery .thumbnail:nth-child(5n+0) {
-    margin-right: 0; }
-  .classGallery a:nth-child(5n+0) {
-    margin-right: 0; }
+    .classGallery div.thumbnail:nth-child(5n+0),
+    .classGallery a:nth-child(5n+0) {
+      margin-right: 0; }
 
 .thumbnail > label {
   transition: all 0.55s; }
@@ -708,5 +650,69 @@ input:checked ~ .modal__overlay {
     float: right;
     width: 10%;
     text-align: center; }
+
+#loginContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #F16259; }
+  #loginContainer img {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; }
+
+#loginDiv {
+  z-index: 2;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 35%;
+  box-sizing: border-box;
+  padding: 0 40px; }
+  #loginDiv h1 {
+    margin-bottom: 50px; }
+  #loginDiv input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 10px 10px 50px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.3); }
+  #loginDiv input:focus {
+    color: #FFF; }
+  #loginDiv ::-webkit-input-placeholder {
+    color: #FFF; }
+  #loginDiv :-moz-placeholder {
+    /* Firefox 18- */
+    color: #FFF; }
+  #loginDiv div {
+    position: relative; }
+    #loginDiv div .jtIcons {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 32px;
+      font-family: jt-icons; }
+  #loginDiv button {
+    margin-top: 50px;
+    background-color: transparent;
+    border: 1px solid #983333;
+    border-radius: 20px;
+    height: 40px;
+    width: 55%;
+    color: #983333;
+    font-size: 18px;
+    cursor: pointer; }
+  #loginDiv p {
+    color: #983333;
+    font-size: 12px;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
