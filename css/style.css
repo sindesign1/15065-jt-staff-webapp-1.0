@@ -716,9 +716,6 @@ input:checked ~ .modal__overlay {
     color: #FFF; }
   #loginDiv ::-webkit-input-placeholder {
     color: #FFF; }
-  #loginDiv :-moz-placeholder {
-    /* Firefox 18- */
-    color: #FFF; }
   #loginDiv div {
     position: relative; }
     #loginDiv div .jtIcons {
@@ -741,5 +738,63 @@ input:checked ~ .modal__overlay {
     color: #983333;
     font-size: 12px;
     cursor: pointer; }
+
+.tab-group {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 70%; }
+
+.tab {
+  position: relative;
+  width: 100%; }
+  .tab input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -999; }
+  .tab label {
+    display: block;
+    padding: 2em;
+    color: #F16259;
+    font-size: 20px;
+    font-family: Myriad Pro;
+    background: #FFF; }
+    .tab label span {
+      position: absolute;
+      font-size: 40px;
+      font-family: jt-icons; }
+    .tab label h3.sub-head {
+      color: #A0A0A0; }
+    .tab label .tab-active {
+      top: 40px;
+      right: 30px; }
+    .tab label .tab-inactive {
+      top: -10000px; }
+  .tab input:focus + label,
+  .tab label:hover {
+    color: #505050; }
+    .tab input:focus + label .tab-inactive,
+    .tab label:hover .tab-inactive {
+      top: 40px;
+      right: 30px; }
+    .tab input:focus + label .tab-active,
+    .tab label:hover .tab-active {
+      top: -10000px; }
+  .tab input:checked ~ .tab-content {
+    max-height: 20em; }
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all .35s;
+  background: #FCDCDB; }
+  .tab-content ul {
+    margin: 0;
+    padding: 0; }
+    .tab-content ul li {
+      padding: 1em 1em 1em 2em;
+      color: #505050; }
 
 /*# sourceMappingURL=style.css.map */
