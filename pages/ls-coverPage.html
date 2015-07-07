@@ -7,10 +7,20 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="../js/templates.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function(){
+            var v = localStorage.getItem('currentChildData');
+            window.currentChildData = $.parseJSON(localStorage.getItem('currentChildData'));
+            $('.mainImage').attr("src",window.currentChildData.image);
+        });
+    </script>
 </head>
 <body>
 
     <div id="coverPageContainer">
+
+        <img class="mainImage" src=""/>
         <div class="innerContainer">
             <div class="addImageContainer">
                 <button class="addImageBtn" id="addCoverImg">?</button>

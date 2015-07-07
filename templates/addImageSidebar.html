@@ -13,7 +13,8 @@
 			window.currentChildData = window.currentChildData || {};
 			window.currentChildData.thumbnail = $(n).prop('src');
 			window.currentChildData.image = window.currentChildData.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
-			console.log(window.currentChildData);
+			localStorage.setItem('currentChildData', JSON.stringify(window.currentChildData));
+			console.log(localStorage.getItem('currentChildData'));
 		}
 	</script>
 </head>
