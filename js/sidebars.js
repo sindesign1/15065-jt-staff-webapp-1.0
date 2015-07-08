@@ -119,19 +119,13 @@ var Sidebars = {
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
 
-//		var pContent = $.map($(obj).find('p').text()).join(" : ");
+//		var pContent = $.map($(obj).find('p').text());
 
-		var x = $(obj).find('p').map(function() {
+		var txt = $(obj).find('p').map(function() {
 
 			return $(this).text();
 
 		}).toArray().join(" : ");
-
-		var titleText = $(obj).find('.title').text();
-		var contentText = $(obj).find('.content').text();
-		var txt = (titleText ? titleText + ': ' : "") + contentText;
-
-		txt = x;
 
 		if ( $.inArray(txt, addedArray) == -1 ) {
 			$(sectionClass).find('ul').append (
