@@ -704,7 +704,9 @@ input:checked ~ .modal__overlay {
 
 #mainFeed {
   background-color: #fff;
-  width: 100%; }
+  width: 100%;
+  box-sizing: border-box;
+  border: 5px solid #fff; }
   #mainFeed .profilePicture {
     width: 46px;
     height: 46px;
@@ -773,7 +775,9 @@ input:checked ~ .modal__overlay {
       color: #A0A0A0; }
   #mainFeed #feedPhoto {
     width: 50%;
-    float: left; }
+    float: left;
+    box-sizing: border-box;
+    border: 5px solid #fff; }
     #mainFeed #feedPhoto .feedPhotoImg {
       width: 100%; }
     #mainFeed #feedPhoto .feedPhotoDescribe {
@@ -781,7 +785,9 @@ input:checked ~ .modal__overlay {
       font-size: 20px; }
   #mainFeed #feedNotice {
     width: 50%;
-    float: left; }
+    float: left;
+    box-sizing: border-box;
+    border: 5px solid #fff; }
     #mainFeed #feedNotice .feedPhotoImg {
       width: 100%; }
     #mainFeed #feedNotice .feedNoticeText {
@@ -794,7 +800,9 @@ input:checked ~ .modal__overlay {
   #mainFeed #feedLearnStory {
     position: relative;
     width: 50%;
-    float: left; }
+    float: left;
+    box-sizing: border-box;
+    border: 5px solid #fff; }
     #mainFeed #feedLearnStory .feedLearnStoryImg {
       width: 100%; }
     #mainFeed #feedLearnStory .feedLearnStoryText {
@@ -806,17 +814,27 @@ input:checked ~ .modal__overlay {
       padding: 20px; }
   #mainFeed #feedPhotoGrid {
     position: relative;
+    background-color: #C8C8C8;
     width: 50%;
-    float: left; }
+    float: left;
+    box-sizing: border-box;
+    border: 5px solid #fff; }
     #mainFeed #feedPhotoGrid .feedPhotoGridImg {
       width: 100%; }
-    #mainFeed #feedPhotoGrid .feedPhotoGridThumbs img {
-      width: 100%; }
-    #mainFeed #feedPhotoGrid .feedPhotoGridThumbs ul {
+    #mainFeed #feedPhotoGrid .feedPhotoGridThumbs {
       margin: 0px;
-      padding: 0px; }
-    #mainFeed #feedPhotoGrid .feedPhotoGridThumbs li {
-      float: left;
-      width: 33%; }
+      padding: 0px;
+      width: 100%; }
+      #mainFeed #feedPhotoGrid .feedPhotoGridThumbs img {
+        width: 100%; }
+      #mainFeed #feedPhotoGrid .feedPhotoGridThumbs li {
+        display: inline-block;
+        width: calc(100% / 3);
+        height: 100%;
+        list-style: none;
+        box-sizing: border-box;
+        border: 5px solid #fff; }
+        #mainFeed #feedPhotoGrid .feedPhotoGridThumbs li:first-child {
+          border-left: 0px; }
 
 /*# sourceMappingURL=style.css.map */

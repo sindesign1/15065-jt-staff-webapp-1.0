@@ -1,6 +1,8 @@
 #mainFeed { 
 	background-color:#fff;
 	width:100%;
+	box-sizing: border-box;
+	border: 5px solid #fff;
 	.profilePicture {
 				width: 46px;
 				height: 46px;
@@ -23,6 +25,7 @@
 	#addToFeed{
 		float:left;
 		width:100%;
+
 		padding: 20px 0px 20px 0px;
 		
 		.feedAuth{
@@ -101,6 +104,8 @@
 	#feedPhoto{
 		width:50%;
 		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
 		.feedPhotoImg{
 			width:100%;
 		}
@@ -112,6 +117,8 @@
 	#feedNotice{
 		width:50%;
 		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
 		.feedPhotoImg{
 			width:100%;
 		}
@@ -129,6 +136,8 @@
 		position:relative;
 		width:50%;
 		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
 		.feedLearnStoryImg{
 			width:100%;
 		}
@@ -144,25 +153,34 @@
 	}
 	#feedPhotoGrid{
 		position:relative;
+		background-color:$grey200;
 		width:50%;
 		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
 		.feedPhotoGridImg{
 			width:100%;
 		}
 		.feedPhotoGridThumbs{
+			margin:0px;
+			padding:0px;
+			width:100%;
 			img{
 				width:100%;
 			}
-			ul{
-				margin:0px;
-				padding:0px;
-
-			}
 			li{
-				float:left;
-				width:33%;
+				display: inline-block;
+				width:calc(100% / 3);
+				height: 100%;
+				list-style:none;
+				box-sizing: border-box;
+				border: 5px solid #fff;
 
+				&:first-child{
+					border-left: 0px;
+				}
 			}
+			
 
 		}
 	}		
