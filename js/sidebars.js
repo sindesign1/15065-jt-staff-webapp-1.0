@@ -116,11 +116,15 @@ var Sidebars = {
 		$('.modal__overlay').css('width', '100%');
 		$('.sidebarRight').css('right', '-320px');
 		$('.classroomLargeImg').css('width', '100%');
+
+		$('.editImageTextArea textarea').val('');
+		$('.frameworksSection ul').find('li').not(':first').remove();
+		$('.activitiesSection ul').find('li').not(':first').remove();
+		addedFrameworks = new Array();
+		addedActivities = new Array();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
-
-//		var pContent = $.map($(obj).find('p').text());
 
 		var txt = $(obj).find('p').map(function() {
 
