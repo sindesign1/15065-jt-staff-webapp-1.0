@@ -1,9 +1,9 @@
-#loginContainer {
+.loginContainer {
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	background: $melon;
-	img {
+	> img {
 		z-index: 1;
 		position: absolute;
 		bottom: 0;
