@@ -43,7 +43,8 @@
   			margin-bottom: 10px;
   			font-family: $iconfont;
   			font-size: 30px;
-  			line-height: 30px;
+  			padding-top: 6px;
+            color: $melon;
   		}
 
         .textContainer {
@@ -76,6 +77,30 @@
                 font-size: 53px;
             }
         }
+
+        #arrowContainer {
+            position: absolute;
+            bottom: 8%;
+            left: 45%;
+
+            .arrowBtn {
+                font-family: $iconfont;
+                font-size: 30px;
+                background-color: #fff;
+                border-radius: 40px;
+                height: 35px;
+                width: 35px;
+                color: $melon;
+                padding-top: 5px;
+                box-sizing: border-box;
+                margin: 0 auto;
+                font-weight: bold;
+            }
+
+            .arrowText {
+                margin-top: 5px;
+            }
+        }
     }
 }
 
@@ -83,4 +108,66 @@
     position: absolute;
     top: 100%;
     display: none;
+    height: 50%;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .addBtnContainer {
+        text-align: center;
+
+        button {
+            background: none;
+            border: 1px solid $melon;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            font-family: $iconfont;
+            font-size: 19px;
+            padding: 5px;
+        }
+    }
+}
+
+#addElementContainer {
+    width: 100%;
+    height: 100%;
+    background-color: $melon;
+    position: fixed;
+    text-align: center;
+    padding-top: 50%;
+    display: none;
+
+    .btnContainer {
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 80px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        button {
+            background: #fff;
+            border: none;
+            border-radius: 40px;
+            height: 60px;
+            width: 60px;
+            font-size: 26px;
+            font-family: $iconfont;
+
+        }
+
+        div {
+            margin-top: 10px;
+        }
+    }
+
+    #nevermindBtn {
+        position: absolute;
+        bottom: 33%;
+        left: 45%;
+    }  
 }
