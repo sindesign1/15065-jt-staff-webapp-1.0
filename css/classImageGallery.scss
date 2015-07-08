@@ -9,6 +9,29 @@
 	}
 }
 
+.editSection {
+	display: block;
+	color: $melon;
+	text-align: left;
+	
+	p {
+		color: $melon;
+	}
+
+	ul {
+		list-style-type: none;
+		text-align: left;
+	}
+
+}
+
+.editImageTextArea {
+	textarea {
+		border: none;
+		width: 524px;
+	}
+}
+
 .classGallery {
 	clear: both;
 	width: 100%;
@@ -16,7 +39,7 @@
 		padding: 0 25px;
 		color: $grey40;
 	}
-	.thumbnail, a {
+	.thumbnail, .mainModal, a {
 	float: left;
 	width: 19.53125%;
 	margin-right: 0.5859375%;
@@ -25,6 +48,9 @@
 		img {
 			display: block;
 			width: 100%;
+		}
+		textarea {
+			float: left;
 		}
 	}
 	.thumbnail:nth-child(5n+0) {
@@ -35,7 +61,7 @@
 	}
 }
 
-.thumbnail > label {
+.mainModal > label {
 	transition: all 0.55s;
 }
 

@@ -35,8 +35,15 @@ var Sidebars = {
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('taphold', '#coverPageContainer', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer, #mainModalContainer', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
+
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
+		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
+
+		$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
+		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
+
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
 	},
 
@@ -68,9 +75,16 @@ var Sidebars = {
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').addClass('openRight');
 		}
+
+		$('.modal__overlay').css({'width': '70%'});
+		$('.sidebarRight').css('right', '0px');
+		$('.classroomLargeImg').animate({'width': '20%'});
+		$('.editImageTextArea textarea').focus();
+		$('.classGallery').hide();
 	},
 
 	closeTagSidebar: function() {
+		$('.classGallery').show();
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
@@ -86,9 +100,64 @@ var Sidebars = {
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
 			$('#addImageSidebar').removeClass('openRight');
 		}
+	},
+	openMainModal: function() {
+		console.log('open main modal');
+		var thumbImg = $(this).find('.classroomThumbImg').prop('src');
+		var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+		$('.classroomLargeImg').attr("src",mainImg);
+		$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
+	},
+
+	closeMainModal: function() {
+		console.log('close main modal');
+		$('.modal__overlay').css({'opacity': '0', 'transform': 'scale(0.5)', 'z-index': '-800'});
+		$('.classGallery').show();
+		$('.modal__overlay').css('width', '100%');
+		$('.sidebarRight').css('right', '-320px');
+		$('.classroomLargeImg').css('width', '100%');
+	},
+
+	addSectionItem: function(obj, sectionClass, addedArray) {
+
+//		var pContent = $.map($(obj).find('p').text()).join(" : ");
+
+		var x = $(obj).find('p').map(function() {
+
+			return $(this).text();
+
+		}).toArray().join(" : ");
+
+		var titleText = $(obj).find('.title').text();
+		var contentText = $(obj).find('.content').text();
+		var txt = (titleText ? titleText + ': ' : "") + contentText;
+
+		txt = x;
+
+		if ( $.inArray(txt, addedArray) == -1 ) {
+			$(sectionClass).find('ul').append (
+				$('<li/>').append(
+					$('<h6/>').text(txt)
+				)
+			);
+
+			addedArray.push(txt);
+		}
+	},
+
+	addFramework: function() {
+		Sidebars.addSectionItem(this, '.frameworksSection', addedFrameworks);
+	},
+
+	addActivity: function() {
+		Sidebars.addSectionItem(this, '.activitiesSection', addedActivities);
 	}
 
 }
+
+
+var addedFrameworks = new Array();
+var addedActivities = new Array();
 
 $(document).ready(function(){
 	Sidebars.init();
