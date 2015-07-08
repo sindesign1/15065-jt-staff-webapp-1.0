@@ -537,27 +537,43 @@ h6 {
     color: #FFF;
     text-align: center; }
 
+.editSection {
+  display: block;
+  color: #F16259;
+  text-align: left; }
+  .editSection p {
+    color: #F16259; }
+  .editSection ul {
+    list-style-type: none;
+    text-align: left; }
+
+.editImageTextArea textarea {
+  border: none;
+  width: 524px; }
+
 .classGallery {
   clear: both;
   width: 100%; }
   .classGallery p {
     padding: 0 25px;
     color: #282828; }
-  .classGallery .thumbnail, .classGallery a {
+  .classGallery .thumbnail, .classGallery .mainModal, .classGallery a {
     float: left;
     width: 19.53125%;
     margin-right: 0.5859375%;
     margin-bottom: 5px;
     padding: 0; }
-    .classGallery .thumbnail img, .classGallery a img {
+    .classGallery .thumbnail img, .classGallery .mainModal img, .classGallery a img {
       display: block;
       width: 100%; }
+    .classGallery .thumbnail textarea, .classGallery .mainModal textarea, .classGallery a textarea {
+      float: left; }
   .classGallery .thumbnail:nth-child(5n+0) {
     margin-right: 0; }
   .classGallery a:nth-child(5n+0) {
     margin-right: 0; }
 
-.thumbnail > label {
+.mainModal > label {
   transition: all 0.55s; }
 
 .modal__overlay {
