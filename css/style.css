@@ -843,7 +843,7 @@ input:checked ~ .modal__overlay {
   height: 50%;
   text-align: center;
   width: 100%;
-  padding: 20px;
+  padding: 20px 100px;
   box-sizing: border-box; }
   #learningStoryPage .addBtnContainer {
     text-align: center; }
@@ -856,6 +856,12 @@ input:checked ~ .modal__overlay {
       font-family: jt-icons;
       font-size: 19px;
       padding: 5px; }
+  #learningStoryPage .singleImage {
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 50%;
+    margin-top: 30px;
+    display: none; }
 
 #addElementContainer {
   width: 100%;

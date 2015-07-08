@@ -20,7 +20,9 @@
             DataUtils.setCurrentChildData(thisChild);
             console.log(DataUtils.currentChildData());
             var thisChild = DataUtils.currentChildData();
-            $('#coverPageContainer').css("background-image",'url(' + thisChild.image + ')');
+            $(window.divForBackground).css("background-image",'url(' + thisChild.image + ')');
+            // $('#coverPageContainer').css("background-image",'url(' + thisChild.image + ')');
+            // $('.singleImage').css('background-image', 'url(' + thisChild.image + ')');
             $('#coverPageContainer').find('.innerContainer').css('border', 'none');
             $('#coverPageContainer').find('.addImageBtnText').text('replace');
             $('#coverPageContainer').find('.addImageBtn').text('h');
@@ -52,12 +54,13 @@
 
     <div id="learningStoryPage">
         <div class="addBtnContainer">
-            <button id="addElementBtn">?</button>
+            <button id="addElementBtn" class="addElementBtn">?</button>
         </div>
+        <div class="singleImage"></div>
     </div>
 
     <div id="addElementContainer">
-        <div class="btnContainer">
+        <div id="addPhotoElement" class="btnContainer">
             <button>^</button>
             <div>photo</div>
         </div>
