@@ -1,15 +1,60 @@
-
-.tab-group {
-	position: relative;
-	z-index: 2;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 70%;
+/* Header and bacground image styling */
+.learningCentreContainer {
+	header {
+		position: absolute;
+		z-index: 5;
+		height: 64px;
+		width: 100%;
+		font-family: $museo;
+		background: $melon;
+		h3 {
+			position: absolute;
+			bottom: 10px;
+			width: 100%;
+			text-align: center;
+		}
+	}
 }
+
+.whiteOverlay {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.2);
+}
+
+/* Accordion styling */
+.tabGroup {
+	z-index: 3;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40%;
+	width: 70%;
+}
+
+.centerIconContainer {
+	position: relative;
+	float: left;
+	padding: 0.5em;
+	margin-right: 1em;
+	width: 75px;
+	height: 75px;
+	border: 3px $melon solid;
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+
 
 .tab {
 	position: relative;
-	width: 100%;
+	margin-bottom: 40px;
+	&:last-child {
+		margin-bottom: 0;
+	}
 	input {
 		position: absolute;
 		left: 0;
@@ -17,55 +62,69 @@
 		z-index: -999;
 	}
 	label {
+		overflow: auto;
 		display: block;
-		padding: 2em;
+		padding: 1em;
 		color: $melon;
-		font-size: $h3-size;
-		font-family: $Myriad;
-		background: #FFF;
-		span {
+		font-size: $h4-size;
+		font-family: $myriad;
+		background: $white;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		> span {
 			position: absolute;
 			font-size: 40px;
 			font-family: $iconfont;
 		}
-		h3.sub-head {
+		h4 {
+			margin-top: 0.75em;
+		}
+		.subHead {
 			color: $grey160;
 		}
-		.tab-active {
+		.tabActive {
 			top: 40px;
 			right: 30px;
 		}
-		.tab-inactive {
+		.tabInactive {
 			top: -10000px;
 		}
 	}
 	input:focus + label,
 	label:hover {
+		-webkit-border-radius: 10px 10px 0 0;
+		border-radius: 10px 10px 0 0;
 		color: $grey80;
-		.tab-inactive {
+		.tabInactive {
 			top: 40px;
 			right: 30px;
 		}
-		.tab-active {
+		.tabActive {
 			top: -10000px;
 		}
 	}
-	input:checked ~ .tab-content {
+	input:checked ~ .tabContent {
 		max-height: 20em;
 	}
 }
 
-.tab-content {
+.tabContent {
 	max-height: 0;
 	overflow: hidden;
 	transition: all .35s;
 	background: $pale-melon;
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
 	ul {
 		margin: 0;
 		padding: 0;
-		li {
+		a {
 			padding: 1em 1em 1em 2em;
+			display: block;
 			color: $grey80;
+			font-size: $h4-size;
+			text-decoration: none;
+			border-top: 2px $melon solid;
 		}
 	}
 }
