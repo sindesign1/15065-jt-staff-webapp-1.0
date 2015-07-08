@@ -58,6 +58,7 @@ var Sidebars = {
 
 	togglePhotoSidebar: function(e) {
 		console.log('photo sidebar clicked');
+		window.divForBackground = '#coverPageContainer';
 		e.stopPropagation();
 		$('#addImageSidebar').addClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {

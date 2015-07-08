@@ -2,3 +2,7 @@
 css/style.css
 css/style.css.map
 css/.sass-cache/*
+
+*.map
+
+css/.sass-cache/339db380a47e205d028ce83f35466c871a3e90e1/classImageGallery.scssc
