@@ -79,7 +79,7 @@ var Sidebars = {
 		}
 
 		$('.modal__overlay').css({'width': '70%'});
-		$('.sidebarRight').css('right', '0px');
+		// $('.sidebarRight').css('right', '0px');
 		$('.classroomLargeImg').animate({'width': '20%'});
 		$('.editImageTextArea textarea').focus();
 		$('.classGallery').hide();
@@ -92,6 +92,7 @@ var Sidebars = {
 	},
 
 	closeTagSidebar: function() {
+		console.log('closing sidebar');
 		$('.classGallery').show();
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
