@@ -83,6 +83,7 @@ h6 {
   left: -320px; }
 
 .sidebarRight {
+  top: 64px;
   right: -320px; }
 
 .openRight {
@@ -469,14 +470,19 @@ h6 {
       color: #FFF;
       text-decoration: none; }
 
-.headerPlaceholder {
+.headerPlaceholder, .modalHeaderPlaceholder {
+  top: 0;
   height: 64px;
   background: #F16259; }
-  .headerPlaceholder p {
+  .headerPlaceholder p, .modalHeaderPlaceholder p {
     margin: 0;
     padding-top: 20px;
     color: #FFF;
     text-align: center; }
+
+.modalHeaderPlaceholder p label {
+  padding: 0px 25px 0;
+  float: right; }
 
 .editSection {
   display: block;
@@ -523,7 +529,7 @@ h6 {
   right: 0;
   text-align: center;
   text-shadow: none;
-  top: 0;
+  top: 64px;
   z-index: 600; }
 
 .modal__wrap {
@@ -717,10 +723,10 @@ input:checked ~ .modal__overlay {
   width: 100%;
   height: 100%;
   bottom: 0;
-  background: #333;
-  position: fixed;
+  background: #505050;
+  position: relative;
   text-align: center;
-  padding: 60px;
+  padding: 40px;
   box-sizing: border-box;
   padding-bottom: 100px;
   background-size: cover; }
@@ -733,7 +739,7 @@ input:checked ~ .modal__overlay {
     height: 100%;
     width: 100%; }
   #coverPageContainer .innerContainer {
-    border: 2px dashed #fff;
+    border: 2px dashed #A0A0A0;
     height: 100%;
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
@@ -744,12 +750,12 @@ input:checked ~ .modal__overlay {
       background-color: #fff;
       border: none;
       border-radius: 40px;
-      height: 60px;
-      width: 60px;
+      height: 75px;
+      width: 75px;
       margin-bottom: 10px;
       font-family: jt-icons;
-      font-size: 30px;
-      padding-top: 6px;
+      font-size: 56px;
+      padding-top: 8px;
       color: #F16259; }
     #coverPageContainer .innerContainer .textContainer {
       position: absolute;
@@ -761,17 +767,25 @@ input:checked ~ .modal__overlay {
         margin: 0 auto;
         background: transparent;
         border: none;
-        font-size: 57px;
+        font-size: 75px;
         text-align: center;
         color: #fff;
-        width: 524px; }
+        width: 524px;
+        font-family: museo; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
-        font-size: 25px; }
+        font-size: 35px;
+        font-family: Myriad Pro; }
       #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
         display: none;
         padding: 0; }
       #coverPageContainer .innerContainer .textContainer #headerInput {
-        font-size: 53px; }
+        font-size: 65px;
+        font-family: museo;
+        font-weight: lighter; }
+      #coverPageContainer .innerContainer .textContainer .date {
+        font-size: 17px;
+        font-family: Myriad Pro;
+        margin-top: 10px; }
     #coverPageContainer .innerContainer #arrowContainer {
       position: absolute;
       bottom: 8%;
@@ -792,40 +806,50 @@ input:checked ~ .modal__overlay {
         margin-top: 5px; }
 
 #learningStoryPage {
-  position: absolute;
-  top: 100%;
+  position: relative;
   display: none;
-  height: 50%;
+  height: 500px;
   text-align: center;
   width: 100%;
-  padding: 20px 100px;
+  padding: 20px 100px 100px 100px;
   box-sizing: border-box; }
   #learningStoryPage .addBtnContainer {
     text-align: center; }
     #learningStoryPage .addBtnContainer button {
       background: none;
-      border: 1px solid #F16259;
+      border: 1px solid #505050;
       border-radius: 30px;
       width: 30px;
       height: 30px;
       font-family: jt-icons;
       font-size: 19px;
-      padding: 5px; }
+      padding: 5px;
+      color: #505050; }
   #learningStoryPage .singleImage {
     border: 1px dashed #ccc;
     width: 100%;
-    height: 50%;
+    height: 500px;
     margin-top: 30px;
-    display: none; }
+    display: none;
+    background-size: cover; }
+  #learningStoryPage .storyInput {
+    text-align: left;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
+    min-height: 10px;
+    color: #333; }
 
 #addElementContainer {
   width: 100%;
   height: 100%;
-  background-color: #F16259;
+  background: rgba(240, 97, 91, 0.8);
   position: fixed;
   text-align: center;
   padding-top: 50%;
-  display: none; }
+  display: none;
+  top: 0; }
   #addElementContainer .btnContainer {
     margin-left: 20px;
     display: inline-block;

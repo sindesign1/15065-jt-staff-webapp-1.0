@@ -5,10 +5,10 @@
 	width: 100%;
   	height: 100%;
     bottom: 0;
-  	background: #333;
-  	position: fixed;
+  	background: $grey80;
+  	position: relative;
   	text-align: center;
-  	padding: 60px;
+  	padding: 40px;
   	box-sizing: border-box;
   	padding-bottom: 100px;
     background-size: cover;
@@ -24,7 +24,7 @@
     }
 
   	.innerContainer {
-  		border: 2px dashed #fff;
+  		border: 2px dashed $grey160;
   		height: 100%;
   		width: 100%;
 
@@ -38,12 +38,12 @@
   			background-color: #fff;
   			border: none;
   			border-radius: 40px;
-  			height: 60px;
-  			width: 60px;
+  			height: 75px;
+  			width: 75px;
   			margin-bottom: 10px;
   			font-family: $iconfont;
-  			font-size: 30px;
-  			padding-top: 6px;
+  			font-size: 56px;
+  			padding-top: 8px;
             color: $melon;
   		}
 
@@ -58,14 +58,16 @@
                 margin: 0 auto;
                 background: transparent;
                 border: none;
-                font-size: 57px;
+                font-size: 75px;
                 text-align: center;
                 color: #fff;
                 width: 524px;
+                font-family: $museo;
             }
 
             #subHeader, #subHeaderInput {
-                font-size: 25px;
+                font-size: 35px;
+                font-family: $myriad;
             }
 
             #subHeaderInput, #headerInput {
@@ -74,7 +76,15 @@
             }
 
             #headerInput {
-                font-size: 53px;
+                font-size: 65px;
+                font-family: $museo;
+                font-weight: lighter;
+            }
+
+            .date {
+                font-size: 17px;
+                font-family: $myriad;
+                margin-top: 10px;
             }
         }
 
@@ -105,13 +115,13 @@
 }
 
 #learningStoryPage {
-    position: absolute;
-    top: 100%;
+    position: relative;
+    // margin-top: 1024px;
     display: none;
-    height: 50%;
+    height: 500px;
     text-align: center;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 100px 100px 100px;
     box-sizing: border-box;
 
     .addBtnContainer {
@@ -119,33 +129,46 @@
 
         button {
             background: none;
-            border: 1px solid $melon;
+            border: 1px solid $grey80;
             border-radius: 30px;
             width: 30px;
             height: 30px;
             font-family: $iconfont;
             font-size: 19px;
             padding: 5px;
+            color: $grey80;
         }
     }
 
     .singleImage {
         border: 1px dashed #ccc;
         width: 100%;
-        height: 50%;
+        height: 500px;
         margin-top: 30px;
         display: none;
+        background-size: cover;
+    }
+
+    .storyInput {
+        text-align: left;
+        border: none;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 20px;
+        min-height: 10px;
+        color: #333;
     }
 }
 
 #addElementContainer {
     width: 100%;
     height: 100%;
-    background-color: $melon;
+    background: rgba(240, 97, 91, 0.8);
     position: fixed;
     text-align: center;
     padding-top: 50%;
     display: none;
+    top: 0;
 
     .btnContainer {
         margin-left: 20px;
