@@ -62,10 +62,12 @@
                 text-align: center;
                 color: #fff;
                 width: 524px;
+                font-family: $museo;
             }
 
             #subHeader, #subHeaderInput {
                 font-size: 35px;
+                font-family: $myriad;
             }
 
             #subHeaderInput, #headerInput {
@@ -74,11 +76,14 @@
             }
 
             #headerInput {
-                font-size: 70px;
+                font-size: 65px;
+                font-family: $museo;
+                font-weight: lighter;
             }
 
             .date {
                 font-size: 17px;
+                font-family: $myriad;
                 margin-top: 10px;
             }
         }
@@ -124,13 +129,14 @@
 
         button {
             background: none;
-            border: 1px solid $melon;
+            border: 1px solid $grey80;
             border-radius: 30px;
             width: 30px;
             height: 30px;
             font-family: $iconfont;
             font-size: 19px;
             padding: 5px;
+            color: $grey80;
         }
     }
 

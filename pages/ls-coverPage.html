@@ -16,7 +16,7 @@
         function getChildData(n) {
             var thisChild = {};
             thisChild.thumbnail = $(n).prop('src');
-            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
             DataUtils.setCurrentChildData(thisChild);
             console.log(DataUtils.currentChildData());
             var thisChild = DataUtils.currentChildData();
