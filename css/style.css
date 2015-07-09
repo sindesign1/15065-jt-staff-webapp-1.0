@@ -66,7 +66,7 @@ h6 {
 
 /* Global Sidebar Styling */
 .sidebarLeft, .sidebarRight {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 320px;
   background-color: #333;
@@ -76,7 +76,8 @@ h6 {
   -webkit-transition: all 300ms ease 300ms;
   -moz-transition: all 300ms ease 300ms;
   -o-transition: all 300ms ease 300ms;
-  transition: all 300ms ease 300ms; }
+  transition: all 300ms ease 300ms;
+  overflow-y: scroll; }
 
 .sidebarLeft {
   left: -320px; }
@@ -304,19 +305,25 @@ h6 {
     font-size: 20px; }
   #tagSidebar #tagList #buttonContainer {
     padding: 20px;
-    margin-top: 200px;
+    margin-top: 100px;
     text-align: center; }
     #tagSidebar #tagList #buttonContainer button {
       background: none;
       border: 1px solid #A0A0A0;
       border-radius: 40px;
       height: 50px;
-      padding: 0 60px;
       color: #A0A0A0;
-      font-size: 20px; }
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      width: 120px; }
+      #tagSidebar #tagList #buttonContainer button:last-child {
+        margin-right: 0; }
 #tagSidebar #frameworksList {
   display: none;
-  background: #333; }
+  background: #333;
+  padding-bottom: 90px; }
   #tagSidebar #frameworksList ul {
     list-style: none;
     margin: 0;
@@ -400,7 +407,7 @@ h6 {
     background: #333; }
     #addImageSidebar #imageList .imgBlock {
       display: inline-block;
-      width: 32.5%; }
+      width: 30.5%; }
       #addImageSidebar #imageList .imgBlock img {
         width: 100%; }
   #addImageSidebar #buttonContainer {
@@ -421,6 +428,47 @@ h6 {
       #addImageSidebar #buttonContainer button:last-child {
         margin-right: 0; }
 
+.chooseLearningContainer {
+  background-color: #F3817B;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box; }
+  .chooseLearningContainer .content {
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%); }
+    .chooseLearningContainer .content h1 {
+      margin: 20px;
+      padding: 20px;
+      font-size: 44px;
+      display: inline-block;
+      word-wrap: break-word;
+      width: 20%; }
+    .chooseLearningContainer .content ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      .chooseLearningContainer .content ul li {
+        width: 100px;
+        list-style: none;
+        text-align: center;
+        font-size: 14px;
+        display: inline-block; }
+    .chooseLearningContainer .content .jtIcons {
+      position: center;
+      display: inline-block;
+      font-family: jt-icons;
+      color: #FFF;
+      margin: 0px 20px;
+      font-size: 64px; }
+    .chooseLearningContainer .content a {
+      color: #FFF;
+      text-decoration: none; }
+
 .headerPlaceholder {
   height: 64px;
   background: #F16259; }
@@ -430,28 +478,41 @@ h6 {
     color: #FFF;
     text-align: center; }
 
+.editSection {
+  display: block;
+  color: #F16259;
+  text-align: left; }
+  .editSection p {
+    color: #F16259; }
+  .editSection ul {
+    list-style-type: none;
+    text-align: left; }
+
+.editImageTextArea textarea {
+  border: none;
+  width: 524px; }
+
 .classGallery {
   clear: both;
   width: 100%; }
   .classGallery p {
     padding: 0 25px;
     color: #282828; }
-  .classGallery div.thumbnail,
-  .classGallery a {
+  .classGallery div.thumbnail, .classGallery .mainModal, .classGallery a {
     float: left;
     width: 19.53125%;
     margin-right: 0.5859375%;
     margin-bottom: 5px;
     padding: 0; }
-    .classGallery div.thumbnail img,
-    .classGallery a img {
+    .classGallery div.thumbnail img, .classGallery .mainModal img, .classGallery a img {
       display: block;
       width: 100%; }
-    .classGallery div.thumbnail:nth-child(5n+0),
-    .classGallery a:nth-child(5n+0) {
+    .classGallery div.thumbnail:nth-child(5n+0), .classGallery .mainModal:nth-child(5n+0), .classGallery a:nth-child(5n+0) {
       margin-right: 0; }
+    .classGallery div.thumbnail textarea, .classGallery .mainModal textarea, .classGallery a textarea {
+      float: left; }
 
-.thumbnail > label {
+.mainModal > label {
   transition: all 0.55s; }
 
 .modal__overlay {
@@ -655,18 +716,30 @@ input:checked ~ .modal__overlay {
 #coverPageContainer {
   width: 100%;
   height: 100%;
+  bottom: 0;
   background: #333;
-  position: absolute;
+  position: fixed;
   text-align: center;
   padding: 60px;
   box-sizing: border-box;
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  background-size: cover; }
+  #coverPageContainer:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
   #coverPageContainer .innerContainer {
     border: 2px dashed #fff;
     height: 100%;
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
-      margin-top: 40%; }
+      position: absolute;
+      bottom: 60%;
+      left: 46%; }
     #coverPageContainer .innerContainer .addImageBtn {
       background-color: #fff;
       border: none;
@@ -676,7 +749,104 @@ input:checked ~ .modal__overlay {
       margin-bottom: 10px;
       font-family: jt-icons;
       font-size: 30px;
-      line-height: 30px; }
+      padding-top: 6px;
+      color: #F16259; }
+    #coverPageContainer .innerContainer .textContainer {
+      position: absolute;
+      bottom: 18%;
+      left: 16%;
+      width: 524px; }
+      #coverPageContainer .innerContainer .textContainer .header {
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+        border: none;
+        font-size: 57px;
+        text-align: center;
+        color: #fff;
+        width: 524px; }
+      #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
+        font-size: 25px; }
+      #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
+        display: none;
+        padding: 0; }
+      #coverPageContainer .innerContainer .textContainer #headerInput {
+        font-size: 53px; }
+    #coverPageContainer .innerContainer #arrowContainer {
+      position: absolute;
+      bottom: 8%;
+      left: 45%; }
+      #coverPageContainer .innerContainer #arrowContainer .arrowBtn {
+        font-family: jt-icons;
+        font-size: 30px;
+        background-color: #fff;
+        border-radius: 40px;
+        height: 35px;
+        width: 35px;
+        color: #F16259;
+        padding-top: 5px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        font-weight: bold; }
+      #coverPageContainer .innerContainer #arrowContainer .arrowText {
+        margin-top: 5px; }
+
+#learningStoryPage {
+  position: absolute;
+  top: 100%;
+  display: none;
+  height: 50%;
+  text-align: center;
+  width: 100%;
+  padding: 20px 100px;
+  box-sizing: border-box; }
+  #learningStoryPage .addBtnContainer {
+    text-align: center; }
+    #learningStoryPage .addBtnContainer button {
+      background: none;
+      border: 1px solid #F16259;
+      border-radius: 30px;
+      width: 30px;
+      height: 30px;
+      font-family: jt-icons;
+      font-size: 19px;
+      padding: 5px; }
+  #learningStoryPage .singleImage {
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 50%;
+    margin-top: 30px;
+    display: none; }
+
+#addElementContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #F16259;
+  position: fixed;
+  text-align: center;
+  padding-top: 50%;
+  display: none; }
+  #addElementContainer .btnContainer {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px; }
+    #addElementContainer .btnContainer:first-child {
+      margin-left: 0; }
+    #addElementContainer .btnContainer button {
+      background: #fff;
+      border: none;
+      border-radius: 40px;
+      height: 60px;
+      width: 60px;
+      font-size: 26px;
+      font-family: jt-icons; }
+    #addElementContainer .btnContainer div {
+      margin-top: 10px; }
+  #addElementContainer #nevermindBtn {
+    position: absolute;
+    bottom: 33%;
+    left: 45%; }
 
 .loginContainer {
   position: absolute;
@@ -891,5 +1061,101 @@ input:checked ~ .modal__overlay {
 .content {
   height: 2000px;
   /*just to get the page to scroll*/ }
+
+#childHeader {
+  background-color: #F16259;
+  width: 100%;
+  height: 40px;
+  padding-top: 50px; }
+  #childHeader .jtIcons {
+    position: center;
+    display: inline-block;
+    font-family: jt-icons;
+    color: #fff;
+    font-size: 28px;
+    line-height: 28px; }
+  #childHeader a {
+    color: #fff;
+    text-decoration: none; }
+  #childHeader h1, #childHeader h5 {
+    line-height: 28px; }
+  #childHeader .left {
+    float: left;
+    width: 10%;
+    text-align: center; }
+  #childHeader .middleText {
+    display: inline-block;
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin: 0px auto;
+    display: none; }
+  #childHeader .middleProfile {
+    display: inline-block;
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin: 0px auto; }
+  #childHeader .right {
+    float: right;
+    width: 10%;
+    text-align: center; }
+  #childHeader .profilePicture {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 40px;
+    border: 2px solid #fff; }
+    #childHeader .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 40px; }
+
+#feedProfile {
+  background-color: #F16259;
+  width: 100%;
+  height: 242px;
+  padding-top: 50px;
+  text-align: center;
+  display: none; }
+  #feedProfile .profilePicture {
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100px;
+    border: 4px solid #fff;
+    margin-top: -20px;
+    margin-bottom: 20px; }
+    #feedProfile .profilePicture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100px; }
+
+#childNav {
+  background-color: #F3817B;
+  width: 100%;
+  height: 50px; }
+  #childNav ul {
+    padding: 0px;
+    margin: 0px; }
+    #childNav ul li {
+      height: 35px;
+      padding: 15px 0px 0px 0px;
+      float: left;
+      width: 25%;
+      list-style: none;
+      text-align: center;
+      font-size: 20px;
+      box-shadow: 2px 0px 0px 0px #F16259 inset; }
+    #childNav ul li:first-child {
+      box-shadow: none; }
+    #childNav ul li.active {
+      background-color: #F2716C; }
+  #childNav a {
+    color: #fff;
+    text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

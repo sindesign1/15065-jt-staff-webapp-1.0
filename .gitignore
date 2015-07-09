@@ -1,6 +1,4 @@
-
 *.scssc
-
-*.scssc
-
-.sass-cache/b5812d7da8b4ac7be40df13ea9b051873f0603af/style.scssc
+css/style.css
+css/style.css.map
+css/.sass-cache/*
