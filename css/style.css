@@ -142,6 +142,7 @@ h6 {
   left: -320px; }
 
 .sidebarRight {
+  top: 64px;
   right: -320px; }
 
 .openRight {
@@ -528,14 +529,19 @@ h6 {
       color: #FFFFFF;
       text-decoration: none; }
 
-.headerPlaceholder {
+.headerPlaceholder, .modalHeaderPlaceholder {
+  top: 0;
   height: 64px;
   background: #F16259; }
-  .headerPlaceholder p {
+  .headerPlaceholder p, .modalHeaderPlaceholder p {
     margin: 0;
     padding-top: 20px;
     color: #FFF;
     text-align: center; }
+
+.modalHeaderPlaceholder p label {
+  padding: 0px 25px 0;
+  float: right; }
 
 .editSection {
   display: block;
@@ -557,21 +563,19 @@ h6 {
   .classGallery p {
     padding: 0 25px;
     color: #282828; }
-  .classGallery .thumbnail, .classGallery .mainModal, .classGallery a {
+  .classGallery div.thumbnail, .classGallery .mainModal, .classGallery a {
     float: left;
     width: 19.53125%;
     margin-right: 0.5859375%;
     margin-bottom: 5px;
     padding: 0; }
-    .classGallery .thumbnail img, .classGallery .mainModal img, .classGallery a img {
+    .classGallery div.thumbnail img, .classGallery .mainModal img, .classGallery a img {
       display: block;
       width: 100%; }
-    .classGallery .thumbnail textarea, .classGallery .mainModal textarea, .classGallery a textarea {
+    .classGallery div.thumbnail:nth-child(5n+0), .classGallery .mainModal:nth-child(5n+0), .classGallery a:nth-child(5n+0) {
+      margin-right: 0; }
+    .classGallery div.thumbnail textarea, .classGallery .mainModal textarea, .classGallery a textarea {
       float: left; }
-  .classGallery .thumbnail:nth-child(5n+0) {
-    margin-right: 0; }
-  .classGallery a:nth-child(5n+0) {
-    margin-right: 0; }
 
 .mainModal > label {
   transition: all 0.55s; }
@@ -584,7 +588,7 @@ h6 {
   right: 0;
   text-align: center;
   text-shadow: none;
-  top: 0;
+  top: 64px;
   z-index: 600; }
 
 .modal__wrap {
@@ -778,10 +782,10 @@ input:checked ~ .modal__overlay {
   width: 100%;
   height: 100%;
   bottom: 0;
-  background: #333;
+  background: #505050;
   position: relative;
   text-align: center;
-  padding: 60px;
+  padding: 40px;
   box-sizing: border-box;
   padding-bottom: 100px;
   background-size: cover; }
@@ -794,7 +798,7 @@ input:checked ~ .modal__overlay {
     height: 100%;
     width: 100%; }
   #coverPageContainer .innerContainer {
-    border: 2px dashed #fff;
+    border: 2px dashed #A0A0A0;
     height: 100%;
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
@@ -805,12 +809,12 @@ input:checked ~ .modal__overlay {
       background-color: #fff;
       border: none;
       border-radius: 40px;
-      height: 60px;
-      width: 60px;
+      height: 75px;
+      width: 75px;
       margin-bottom: 10px;
       font-family: jt-icons;
-      font-size: 30px;
-      padding-top: 6px;
+      font-size: 56px;
+      padding-top: 8px;
       color: #F16259; }
     #coverPageContainer .innerContainer .textContainer {
       position: absolute;
@@ -822,17 +826,20 @@ input:checked ~ .modal__overlay {
         margin: 0 auto;
         background: transparent;
         border: none;
-        font-size: 57px;
+        font-size: 75px;
         text-align: center;
         color: #fff;
         width: 524px; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
-        font-size: 25px; }
+        font-size: 35px; }
       #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
         display: none;
         padding: 0; }
       #coverPageContainer .innerContainer .textContainer #headerInput {
-        font-size: 53px; }
+        font-size: 70px; }
+      #coverPageContainer .innerContainer .textContainer .date {
+        font-size: 17px;
+        margin-top: 10px; }
     #coverPageContainer .innerContainer #arrowContainer {
       position: absolute;
       bottom: 8%;
