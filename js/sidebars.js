@@ -52,9 +52,12 @@ var Sidebars = {
 		console.log('clicked');
 		if($('#mainSidebar').hasClass('sidebarLeft')) {
 			$('#mainSidebar').toggleClass('openLeft');
+			$('body').toggleClass('overflow');
 		} else if($('#mainSidebar').hasClass('sidebarRight')) {
 			$('#mainSidebar').toggleClass('openRight');
+			$('body').toggleClass('overflow');
 		}
+		
 	},
 
 	togglePhotoSidebar: function(e) {
@@ -67,6 +70,7 @@ var Sidebars = {
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
 			$('#addImageSidebar').addClass('openRight');
 		}
+		$('body').css('overflow', 'hidden');
 	},
 
 	toggleTagSidebar: function() {
@@ -76,6 +80,8 @@ var Sidebars = {
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').addClass('openRight');
 		}
+
+		$('body').css('overflow', 'hidden');
 
 		$('.modal__overlay').css({'width': '70%'});
 		// $('.sidebarRight').css('right', '0px');
@@ -92,6 +98,7 @@ var Sidebars = {
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').removeClass('openRight');
 		}
+		$('body').css('overflow', 'auto');
 	},
 
 	closePhotoSidebar: function() {
@@ -102,6 +109,7 @@ var Sidebars = {
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
 			$('#addImageSidebar').removeClass('openRight');
 		}
+		$('body').css('overflow', 'auto');
 	},
 	openMainModal: function() {
 		console.log('open main modal');
