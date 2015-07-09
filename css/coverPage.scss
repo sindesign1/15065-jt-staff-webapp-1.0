@@ -53,7 +53,7 @@
             left: 16%;
             width: 524px;
 
-            .header {
+            .headerInput {
                 display: block;
                 margin: 0 auto;
                 background: transparent;
@@ -65,20 +65,11 @@
                 font-family: $museo;
             }
 
-            #subHeader, #subHeaderInput {
+            #subHeaderInput {
                 font-size: 35px;
                 font-family: $myriad;
             }
 
-            #subHeaderInput, #headerInput {
-                padding: 0;
-            }
-
-            #headerInput {
-                font-size: 65px;
-                font-family: $museo;
-                font-weight: lighter;
-            }
 
             .date {
                 font-size: 17px;

@@ -766,7 +766,7 @@ input:checked ~ .modal__overlay {
       bottom: 18%;
       left: 16%;
       width: 524px; }
-      #coverPageContainer .innerContainer .textContainer .header {
+      #coverPageContainer .innerContainer .textContainer .headerInput {
         display: block;
         margin: 0 auto;
         background: transparent;
@@ -776,15 +776,9 @@ input:checked ~ .modal__overlay {
         color: #fff;
         width: 524px;
         font-family: museo; }
-      #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
+      #coverPageContainer .innerContainer .textContainer #subHeaderInput {
         font-size: 35px;
         font-family: Myriad Pro; }
-      #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
-        padding: 0; }
-      #coverPageContainer .innerContainer .textContainer #headerInput {
-        font-size: 65px;
-        font-family: museo;
-        font-weight: lighter; }
       #coverPageContainer .innerContainer .textContainer .date {
         font-size: 17px;
         font-family: Myriad Pro;
