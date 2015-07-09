@@ -41,6 +41,7 @@ var Sidebars = {
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
+		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
 		$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
 		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 
@@ -144,18 +145,45 @@ var Sidebars = {
 	},
 
 	addFramework: function() {
-		Sidebars.addSectionItem(this, '.frameworksSection', addedFrameworks);
+		Sidebars.addSectionItem(this, '.frameworksSection', window.addedFrameworks);
 	},
 
 	addActivity: function() {
-		Sidebars.addSectionItem(this, '.activitiesSection', addedActivities);
+		Sidebars.addSectionItem(this, '.activitiesSection', window.addedActivities);
+	},
+
+	addProfileTag: function() {
+
+		var sectionClass = '.profileTagsSection';
+		var obj = this;
+		var addedArray = window.addedProfileTags;
+
+		var personName = $(obj).find('.personName').text();
+
+		if ( $.inArray(personName, addedArray) == -1 ) {
+			addedArray.push(personName);
+
+			var tagText = 'With ' + addedArray[0];
+			if ( addedArray.length > 1 ) {
+				if ( addedArray.length > 2 ) {
+					for ( var i=1; i<addedArray.length-1; i++ ) {
+						tagText += ', ' + addedArray[i];
+					}
+				}
+
+				tagText += ' and ' + addedArray[addedArray.length-1];
+			}
+
+			$(sectionClass).find('h6').text(tagText);
+		}
 	}
 
 }
 
 
-var addedFrameworks = new Array();
-var addedActivities = new Array();
+window.addedProfileTags = new Array();
+window.addedFrameworks = new Array();
+window.addedActivities = new Array();
 
 $(document).ready(function(){
 	Sidebars.init();
