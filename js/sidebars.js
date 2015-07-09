@@ -36,6 +36,7 @@ var Sidebars = {
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
 		$('body').on('taphold', '#coverPageContainer, #mainModalContainer', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
@@ -82,6 +83,12 @@ var Sidebars = {
 		$('.classroomLargeImg').animate({'width': '20%'});
 		$('.editImageTextArea textarea').focus();
 		$('.classGallery').hide();
+
+		$('.editImageTextArea').show();
+		$('.profileTagsSection').show();
+		$('.frameworksSection').show();
+		$('.activitiesSection').show();
+
 	},
 
 	closeTagSidebar: function() {
@@ -104,14 +111,17 @@ var Sidebars = {
 	},
 	openMainModal: function() {
 		console.log('open main modal');
-		var thumbImg = $(this).find('.classroomThumbImg').prop('src');
-		var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
 
-		$('.headerPlaceholder').hide();
-		$('.modalHeaderPlaceholder').show();
+		if ( !window.selectImagesChecked ) {
+			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
+			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
 
-		$('.classroomLargeImg').attr("src",mainImg);
-		$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
+			$('.headerPlaceholder').hide();
+			$('.modalHeaderPlaceholder').show();
+
+			$('.classroomLargeImg').attr("src",mainImg);
+			$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
+		}
 	},
 
 	closeMainModal: function() {
@@ -122,7 +132,12 @@ var Sidebars = {
 		$('.classGallery').show();
 		$('.modal__overlay').css('width', '100%');
 		$('.sidebarRight').css('right', '-320px');
-		$('.classroomLargeImg').animate({'width': '100%'});
+		$('.classroomLargeImg').delay(2000).animate({'width': '100%'});
+
+		$('.editImageTextArea').hide();
+		$('.profileTagsSection').hide();
+		$('.frameworksSection').hide();
+		$('.activitiesSection').hide();
 
 		$('.editImageTextArea textarea').val('');
 		$('.frameworksSection ul').find('li').not(':first').remove();
@@ -136,18 +151,24 @@ var Sidebars = {
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
 
-		var txt = $(obj).find('p').map(function() {
+		var titleText = $(obj).find('p.title').text();
+		var contentText = $(obj).find('p.content').text();
+		var pText = $(obj).find('p').text();
 
-			return $(this).text();
-
-		}).toArray().join(" : ");
+		if ( !contentText ) {
+			titleText = pText;
+			contentText = 'Click here to add a sub-paragraph';
+		}
 
 		if ( $.inArray(txt, addedArray) == -1 ) {
 			$(sectionClass).find('ul').append (
 				$('<li/>').append(
-					$('<h6/>').text(txt)
-				)
-			);
+					$('<h4 contenteditable=true/>').text(titleText)
+					)
+				).append(
+					$('<h6 contenteditable=true/>').text(contentText)
+					)
+			;
 
 			addedArray.push(txt);
 		}
