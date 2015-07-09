@@ -1042,6 +1042,49 @@ input:checked ~ .modal__overlay {
       text-decoration: none;
       border-top: 2px #F16259 solid; }
 
+.header {
+  z-index: 1000;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em 0;
+  background: #F16259;
+  text-align: center;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .header.shrink h3 {
+    font-size: 0;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .header.shrink img {
+    width: 5%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .header h3 {
+    padding-bottom: 1em;
+    font-family: museo;
+    font-weight: 500;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .header img {
+    width: 23%;
+    border: 3px solid #FFF;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+
+.content {
+  height: 2000px;
+  /*just to get the page to scroll*/ }
+
 #childHeader {
   background-color: #F16259;
   width: 100%;
