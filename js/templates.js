@@ -15,7 +15,7 @@ var Templates = {
 	loadScripts: function() {
 		$('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
-		$('head').append("<script src='../js/jquerymobile-swipeupdown.js' type='text/javascript'></script>");
+		$('head').append("<script src='../js/taphold.js' type='text/javascript'></script>");
 	},
 
 	mainNavFooter: function() {
