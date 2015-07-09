@@ -41,6 +41,7 @@ var Sidebars = {
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
+		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
 		$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
 		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 
@@ -106,34 +107,41 @@ var Sidebars = {
 		console.log('open main modal');
 		var thumbImg = $(this).find('.classroomThumbImg').prop('src');
 		var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+
+		$('.headerPlaceholder').hide();
+		$('.modalHeaderPlaceholder').show();
+
 		$('.classroomLargeImg').attr("src",mainImg);
 		$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
 	},
 
 	closeMainModal: function() {
 		console.log('close main modal');
+		$('.headerPlaceholder').show();
+		$('.modalHeaderPlaceholder').hide();
 		$('.modal__overlay').css({'opacity': '0', 'transform': 'scale(0.5)', 'z-index': '-800'});
 		$('.classGallery').show();
 		$('.modal__overlay').css('width', '100%');
 		$('.sidebarRight').css('right', '-320px');
-		$('.classroomLargeImg').css('width', '100%');
+		$('.classroomLargeImg').animate({'width': '100%'});
+
+		$('.editImageTextArea textarea').val('');
+		$('.frameworksSection ul').find('li').not(':first').remove();
+		$('.activitiesSection ul').find('li').not(':first').remove();
+		$('.profileTagsSection h6').text('');
+
+		window.addedProfileTags = new Array();
+		window.addedFrameworks = new Array();
+		window.addedActivities = new Array();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
 
-//		var pContent = $.map($(obj).find('p').text()).join(" : ");
-
-		var x = $(obj).find('p').map(function() {
+		var txt = $(obj).find('p').map(function() {
 
 			return $(this).text();
 
 		}).toArray().join(" : ");
-
-		var titleText = $(obj).find('.title').text();
-		var contentText = $(obj).find('.content').text();
-		var txt = (titleText ? titleText + ': ' : "") + contentText;
-
-		txt = x;
 
 		if ( $.inArray(txt, addedArray) == -1 ) {
 			$(sectionClass).find('ul').append (
@@ -147,18 +155,44 @@ var Sidebars = {
 	},
 
 	addFramework: function() {
-		Sidebars.addSectionItem(this, '.frameworksSection', addedFrameworks);
+		Sidebars.addSectionItem(this, '.frameworksSection', window.addedFrameworks);
 	},
 
 	addActivity: function() {
-		Sidebars.addSectionItem(this, '.activitiesSection', addedActivities);
-	}
+		Sidebars.addSectionItem(this, '.activitiesSection', window.addedActivities);
+	},
 
+	addProfileTag: function() {
+
+		var sectionClass = '.profileTagsSection';
+		var obj = this;
+		var addedArray = window.addedProfileTags;
+
+		var personName = $(obj).find('.personName').text();
+
+		if ( $.inArray(personName, addedArray) == -1 ) {
+			addedArray.push(personName);
+
+			var tagText = 'With ' + addedArray[0];
+			if ( addedArray.length > 1 ) {
+				if ( addedArray.length > 2 ) {
+					for ( var i=1; i<addedArray.length-1; i++ ) {
+						tagText += ', ' + addedArray[i];
+					}
+				}
+
+				tagText += ' and ' + addedArray[addedArray.length-1];
+			}
+
+			$(sectionClass).find('h6').text(tagText);
+		}
+	}
 }
 
 
-var addedFrameworks = new Array();
-var addedActivities = new Array();
+window.addedProfileTags = new Array();
+window.addedFrameworks = new Array();
+window.addedActivities = new Array();
 
 $(document).ready(function(){
 	Sidebars.init();
