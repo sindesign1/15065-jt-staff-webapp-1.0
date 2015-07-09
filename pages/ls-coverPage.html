@@ -6,21 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    <script src="../js/datautils.js" type="text/javascript"></script>
     <script src="../js/templates.js" type="text/javascript"></script>
+    <script src="//use.typekit.net/xxx2qsl.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <script>
+        function getChildData(n) {
+            var thisChild = {};
+            thisChild.thumbnail = $(n).prop('src');
+            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+            DataUtils.setCurrentChildData(thisChild);
+            console.log(DataUtils.currentChildData());
+            var thisChild = DataUtils.currentChildData();
+            $(window.divForBackground).css("background-image",'url(' + thisChild.image + ')');
+            // $('#coverPageContainer').css("background-image",'url(' + thisChild.image + ')');
+            // $('.singleImage').css('background-image', 'url(' + thisChild.image + ')');
+            $('#coverPageContainer').find('.innerContainer').css('border', 'none');
+            $('#coverPageContainer').find('.addImageBtnText').text('replace');
+            $('#coverPageContainer').find('.addImageBtn').text('h');
+        }
+    </script>
 </head>
 <body>
 
     <div id="coverPageContainer">
+
         <div class="innerContainer">
             <div class="addImageContainer">
-                <button class="addImageBtn">?</button>
+                <button class="addImageBtn" id="addCoverImg">^</button>
                 <div class="addImageBtnText">add image</div>
             </div>
             <div class="textContainer">
-                <input type="text" class="header" id="header" />
-                <input type="text" class="subHeader" id="subHeader" />
+                <div class="header" id="header">Today's Class Learning Story</div>
+                <div class="header" id="subHeader">Enter Classroom Details</div>
+                <textarea class="header" id="headerInput"></textarea>
+                <textarea class="header" id="subHeaderInput"></textarea>
                 <div class="date">18/07/2015</div>
             </div>
+            <div id="arrowContainer">
+                <div id="arrowBtn" class="arrowBtn">_</div>
+                <div class="arrowText">start writing</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="learningStoryPage">
+        <div class="addBtnContainer">
+            <button id="addElementBtn" class="addElementBtn">?</button>
+        </div>
+        <div class="singleImage"></div>
+    </div>
+
+    <div id="addElementContainer">
+        <div id="addPhotoElement" class="btnContainer">
+            <button>^</button>
+            <div>photo</div>
+        </div>
+        <div class="btnContainer">
+            <button>^</button>
+            <div>text</div>
+        </div>
+        <div class="btnContainer">
+            <button>^</button>
+            <div>image grid</div>
+        </div>
+        <div class="btnContainer">
+            <button>f</button>
+            <div>frameworks</div>
+        </div>
+        <div id="nevermindBtn">
+            <div>nevermind</div>
         </div>
     </div>
 

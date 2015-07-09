@@ -9,6 +9,29 @@
 	}
 }
 
+.editSection {
+	display: block;
+	color: $melon;
+	text-align: left;
+	
+	p {
+		color: $melon;
+	}
+
+	ul {
+		list-style-type: none;
+		text-align: left;
+	}
+
+}
+
+.editImageTextArea {
+	textarea {
+		border: none;
+		width: 524px;
+	}
+}
+
 .classGallery {
 	clear: both;
 	width: 100%;
@@ -16,13 +39,12 @@
 		padding: 0 25px;
 		color: $grey40;
 	}
-	div.thumbnail,
-	a {
-		float: left;
-		width: 19.53125%;
-		margin-right: 0.5859375%;
-		margin-bottom: 5px;
-		padding: 0;
+	div.thumbnail, .mainModal, a {
+	float: left;
+	width: 19.53125%;
+	margin-right: 0.5859375%;
+	margin-bottom: 5px;
+	padding: 0;
 		img {
 			display: block;
 			width: 100%;
@@ -30,10 +52,13 @@
 		&:nth-child(5n+0) {
 			margin-right: 0;
 		}
+		textarea {
+			float: left;
+		}
 	}
 }
 
-.thumbnail > label {
+.mainModal > label {
 	transition: all 0.55s;
 }
 

@@ -4,12 +4,24 @@
 
 	width: 100%;
   	height: 100%;
+    bottom: 0;
   	background: #333;
-  	position: absolute;
+  	position: fixed;
   	text-align: center;
   	padding: 60px;
   	box-sizing: border-box;
   	padding-bottom: 100px;
+    background-size: cover;
+
+    &:before {
+        content: '';
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
 
   	.innerContainer {
   		border: 2px dashed #fff;
@@ -17,7 +29,9 @@
   		width: 100%;
 
   		.addImageContainer {
-  			margin-top: 40%;
+  			position: absolute;
+            bottom: 60%;
+            left: 46%;
   		}
 
   		.addImageBtn {
@@ -29,7 +43,139 @@
   			margin-bottom: 10px;
   			font-family: $iconfont;
   			font-size: 30px;
-  			line-height: 30px;
+  			padding-top: 6px;
+            color: $melon;
   		}
-  	}
+
+        .textContainer {
+            position: absolute;
+            bottom: 18%;
+            left: 16%;
+            width: 524px;
+
+            .header {
+                display: block;
+                margin: 0 auto;
+                background: transparent;
+                border: none;
+                font-size: 57px;
+                text-align: center;
+                color: #fff;
+                width: 524px;
+            }
+
+            #subHeader, #subHeaderInput {
+                font-size: 25px;
+            }
+
+            #subHeaderInput, #headerInput {
+                display: none;
+                padding: 0;
+            }
+
+            #headerInput {
+                font-size: 53px;
+            }
+        }
+
+        #arrowContainer {
+            position: absolute;
+            bottom: 8%;
+            left: 45%;
+
+            .arrowBtn {
+                font-family: $iconfont;
+                font-size: 30px;
+                background-color: #fff;
+                border-radius: 40px;
+                height: 35px;
+                width: 35px;
+                color: $melon;
+                padding-top: 5px;
+                box-sizing: border-box;
+                margin: 0 auto;
+                font-weight: bold;
+            }
+
+            .arrowText {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+#learningStoryPage {
+    position: absolute;
+    top: 100%;
+    display: none;
+    height: 50%;
+    text-align: center;
+    width: 100%;
+    padding: 20px 100px;
+    box-sizing: border-box;
+
+    .addBtnContainer {
+        text-align: center;
+
+        button {
+            background: none;
+            border: 1px solid $melon;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            font-family: $iconfont;
+            font-size: 19px;
+            padding: 5px;
+        }
+    }
+
+    .singleImage {
+        border: 1px dashed #ccc;
+        width: 100%;
+        height: 50%;
+        margin-top: 30px;
+        display: none;
+    }
+}
+
+#addElementContainer {
+    width: 100%;
+    height: 100%;
+    background-color: $melon;
+    position: fixed;
+    text-align: center;
+    padding-top: 50%;
+    display: none;
+
+    .btnContainer {
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 80px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        button {
+            background: #fff;
+            border: none;
+            border-radius: 40px;
+            height: 60px;
+            width: 60px;
+            font-size: 26px;
+            font-family: $iconfont;
+
+        }
+
+        div {
+            margin-top: 10px;
+        }
+    }
+
+    #nevermindBtn {
+        position: absolute;
+        bottom: 33%;
+        left: 45%;
+    }  
 }
