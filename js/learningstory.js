@@ -175,26 +175,29 @@ var Story = {
 
 		$('#addElementContainer').css('display', 'none');
 		$('#learningStoryPage').css('height', 'auto');
+
+		var $storyPage = $('#learningStoryPage');
+		console.log('window.frameworkIndex++, yay, cool!');
+		
+		window.addedProfileTags = new Array();
+		window.addedFrameworks = new Array();
+		window.addedActivities = new Array();
+
+		window.frameworkIndex++;
+		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 	},
 
 	appendTagContent: function() {
-
-		console.log('################################### appendTagContent');
 
 		var $storyPage = $('#learningStoryPage');
 
 		// 1 Detect what section theuser clicked
 		var sectionType = $(this).parent().parent().attr('id');
 
-		console.log('sectionType = ' + sectionType);
+		var sectionClass = sectionType.replace('List', 'Section') + window.frameworkIndex;
 
-		var sectionClass = sectionType.replace('List', 'Section');
+		if ( !$storyPage.find('.' + sectionClass).length ) {
 
-		console.log('sectionClass = ' + sectionClass);
-
-//		( !$storyPage.find('.' + sectionClass).length ) {
-
-		// if ( !$storyPage.find('.' + sectionClass).length ) {
 			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
 			$storyPage.append(
 				$('<ul/>').append(
@@ -203,19 +206,15 @@ var Story = {
 						)
 					)
 				);
+		}
 
-			// 2. Call Sidebars.addFramework() etc;
-			if ( sectionType == 'frameworksList' ) {
-				console.log('Yay, doing frameworks Sidebars.addSectionItem on ' + sectionClass);
-				Sidebars.addSectionItem(this, '.' + sectionClass, window.addedFrameworks);
-			}
-			if ( sectionType == 'activitiesList' ) {
-				console.log('Yay, doing activities Sidebars.addSectionItem on ' + sectionClass);
-				Sidebars.addSectionItem(this, '.' + sectionClass, window.addedActivities);
-			}
-		// }
-		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
-
+		// 2. Call Sidebars.addFramework() etc;
+		if ( sectionType == 'frameworksList' ) {
+			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedFrameworks);
+		}
+		if ( sectionType == 'activitiesList' ) {
+			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedActivities);
+		}
 	},
 
 	closePhotoSidebar: function() {
@@ -229,8 +228,6 @@ var Story = {
 			$('.singleImage').css('border', 'none');
 			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 		}
-
-
 	}
 
 }

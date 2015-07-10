@@ -47,8 +47,6 @@ var Sidebars = {
 		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
-		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
-
 		$('.frameworksSelect').change(Sidebars.changeFramework);
 
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
@@ -199,17 +197,10 @@ var Sidebars = {
 			contentText = '<span class="greyText edit-placeholder">Click here to add a sub-paragraph</span>';
 		}
 
-		console.log('addSectionItem: titleText=' + titleText);
-		console.log('addSectionItem: contentText=' + contentText);
-		console.log('addSectionItem: sectionClass=' + sectionClass);
-		console.log('addSectionItem: $(sectionClass).length=' + $(sectionClass).length);
-		console.log('addSectionItem: $(sectionClass).find(ul).first().length=' + $(sectionClass).find('ul').first().length);
-
 		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
 
 			var pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
 			if ( !pTag.text() ) {
-				console.log('addSectionItem: trying to append title...');
 			
 				$(sectionClass).find('ul').first().append (
 					$('<li/>').append(
@@ -220,8 +211,6 @@ var Sidebars = {
 					)
 				;
 			}
-
-			console.log('addSectionItem: trying to append content...');
 
 			pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
 			var ulTag = pTag.parent().find('ul');
