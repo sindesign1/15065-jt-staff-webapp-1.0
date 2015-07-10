@@ -16,6 +16,13 @@ var Story = {
 		$(document).on('click touch','#learningStoryPage', Story.closePhotoSidebar);
 		$('body').on('click touch', '#addTextElement', Story.addTextElement);
 		$('body').on('click touch', '#arrowContainer', Story.slideUpEffect);
+		$('body').on('click touch', '#addFramework', Story.addFramework);
+
+		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
+		$('body').off('click touch', '.li-frameworks');
+		$('body').off('click touch', '.li-activities');
+		$('body').on('click touch', '.li-frameworks', Story.appendTagContent);
+		$('body').on('click touch', '.li-activities', Story.appendTagContent);
 
 	},
 
@@ -158,6 +165,59 @@ var Story = {
 		$('#learningStoryPage').css('height', 'auto');
 	},
 
+	addFramework: function() {
+		console.log('cliiicckkkeeeed');
+		if($('#tagSidebar').hasClass('sidebarLeft')) {
+			$('#tagSidebar').addClass('openLeft');
+		} else if($('#tagSidebar').hasClass('sidebarRight')) {
+			$('#tagSidebar').addClass('openRight');
+		}
+
+		$('#addElementContainer').css('display', 'none');
+		$('#learningStoryPage').css('height', 'auto');
+	},
+
+	appendTagContent: function() {
+
+		console.log('################################### appendTagContent');
+
+		var $storyPage = $('#learningStoryPage');
+
+		// 1 Detect what section theuser clicked
+		var sectionType = $(this).parent().parent().attr('id');
+
+		console.log('sectionType = ' + sectionType);
+
+		var sectionClass = sectionType.replace('List', 'Section');
+
+		console.log('sectionClass = ' + sectionClass);
+
+//		( !$storyPage.find('.' + sectionClass).length ) {
+
+		// if ( !$storyPage.find('.' + sectionClass).length ) {
+			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
+			$storyPage.append(
+				$('<ul/>').append(
+					$('<li class="' + sectionClass + '"/>').append(
+						$('<ul/>')
+						)
+					)
+				);
+
+			// 2. Call Sidebars.addFramework() etc;
+			if ( sectionType == 'frameworksList' ) {
+				console.log('Yay, doing frameworks Sidebars.addSectionItem on ' + sectionClass);
+				Sidebars.addSectionItem(this, '.' + sectionClass, window.addedFrameworks);
+			}
+			if ( sectionType == 'activitiesList' ) {
+				console.log('Yay, doing activities Sidebars.addSectionItem on ' + sectionClass);
+				Sidebars.addSectionItem(this, '.' + sectionClass, window.addedActivities);
+			}
+		// }
+		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+
+	},
+
 	closePhotoSidebar: function() {
 		$('#addImageSidebar').removeClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {
@@ -174,6 +234,8 @@ var Story = {
 	}
 
 }
+
+window.frameworkIndex = 0;
 
 $(document).ready(function(){
 	Story.init();
