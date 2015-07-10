@@ -7,6 +7,9 @@
 	text-align: center;
 	padding: 50px 20px 0 20px;
 	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	z-index: 2;
 
 	.mainText {
 		font-family: $museo;
