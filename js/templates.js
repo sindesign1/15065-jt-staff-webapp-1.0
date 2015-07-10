@@ -10,6 +10,7 @@ var Templates = {
 		Templates.charlotteMessageSidebar();
 		Templates.tagSidebar();
 		Templates.photoSidebar();
+		Templates.childNav();
 		Templates.chooseCentreHeader();
 		Templates.learningStoryHeader();
 		Templates.selectImages();
@@ -24,6 +25,7 @@ var Templates = {
 		$('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/taphold.js' type='text/javascript'></script>");
+		$('head').append("<script src='../js/main.js' type='text/javascript'></script>");
 	},
 
 	mainNavFooter: function() {
@@ -56,6 +58,10 @@ var Templates = {
 
 	photoSidebar: function() {
 		$('#loadPhotoSidebar').load('../templates/addImageSidebar.html #addImageSidebar');
+	},
+
+	childNav: function() {
+		$('#loadchildNav').load('../templates/childNav.html #addchildHeader');
 	},
 
 	chooseCentreHeader: function() {
