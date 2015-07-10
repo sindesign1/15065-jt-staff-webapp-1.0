@@ -10,9 +10,7 @@ var Templates = {
 		Templates.charlotteMessageSidebar();
 		Templates.tagSidebar();
 		Templates.photoSidebar();
-<<<<<<< HEAD
 		Templates.childNav();
-=======
 		Templates.chooseCentreHeader();
 		Templates.learningStoryHeader();
 		Templates.selectImages();
@@ -21,7 +19,6 @@ var Templates = {
 		Templates.helpHeader();
 		Templates.draftsHeader();
 		Templates.editImageHeader();
->>>>>>> origin/master
 	},
 
 	loadScripts: function() {
@@ -63,12 +60,10 @@ var Templates = {
 		$('#loadPhotoSidebar').load('../templates/addImageSidebar.html #addImageSidebar');
 	},
 
-<<<<<<< HEAD
 	childNav: function() {
 		$('#loadchildNav').load('../templates/childNav.html #addchildHeader');
-	}
+	},
 
-=======
 	chooseCentreHeader: function() {
 		$('#loadChooseCentreHeader').load('../templates/headers.html #chooseCentreHeader');
 	},
@@ -108,7 +103,6 @@ var Templates = {
 	messagesHeader: function() {
 		$('#loadMessagesHeader').load('../templates/headers.html #messagesHeader');
 	},
->>>>>>> origin/master
 }
 
 $(document).ready(function(){

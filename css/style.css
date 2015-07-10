@@ -712,7 +712,7 @@ input:checked ~ .modal__overlay {
     left: 20px;
     line-height: 44px; }
   .headerTemplate .littleText {
-    font-family: Myriad Pro;
+    font-family: myriad-pro;
     font-size: 17px;
     color: #E9A8A4; }
   .headerTemplate .iconText {
