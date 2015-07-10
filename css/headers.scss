@@ -1,0 +1,40 @@
+/* Header styling */
+
+.headerTemplate {
+	width: 100%;
+	height: 90px;
+	background: $melon;
+	text-align: center;
+	padding: 50px 20px 0 20px;
+	box-sizing: border-box;
+
+	.mainText {
+		font-family: $museo;
+		font-size: 25px;
+		color: $light-melon;
+	}
+
+	.rightText {
+		position: absolute;
+		right: 20px;
+		line-height: 44px;
+	}
+
+	.leftText {
+		position: absolute;
+		left: 20px;
+		line-height: 44px;
+	}
+
+	.littleText {
+		font-family: $myriad;
+		font-size: 17px;
+		color: $light-melon;
+	}
+
+	.iconText {
+		font-family: $iconfont;
+		font-size: 32px;
+		color: #fff;
+	}
+}

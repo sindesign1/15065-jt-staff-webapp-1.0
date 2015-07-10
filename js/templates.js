@@ -10,7 +10,18 @@ var Templates = {
 		Templates.charlotteMessageSidebar();
 		Templates.tagSidebar();
 		Templates.photoSidebar();
+<<<<<<< HEAD
 		Templates.childNav();
+=======
+		Templates.chooseCentreHeader();
+		Templates.learningStoryHeader();
+		Templates.selectImages();
+		Templates.albumnHeader();
+		Templates.bunniesHeader();
+		Templates.helpHeader();
+		Templates.draftsHeader();
+		Templates.editImageHeader();
+>>>>>>> origin/master
 	},
 
 	loadScripts: function() {
@@ -52,10 +63,52 @@ var Templates = {
 		$('#loadPhotoSidebar').load('../templates/addImageSidebar.html #addImageSidebar');
 	},
 
+<<<<<<< HEAD
 	childNav: function() {
 		$('#loadchildNav').load('../templates/childNav.html #addchildHeader');
 	}
 
+=======
+	chooseCentreHeader: function() {
+		$('#loadChooseCentreHeader').load('../templates/headers.html #chooseCentreHeader');
+	},
+
+	learningStoryHeader: function() {
+		$('#loadLearningStoryHeader').load('../templates/headers.html #learningStoryHeader');
+	},
+
+	selectImages: function() {
+		$('#loadSelectImagesHeader').load('../templates/headers.html #selectImagesHeader');
+	},
+
+	albumnHeader: function() {
+		$('#loadAlbumHeader').load('../templates/headers.html #albumHeader');
+	},
+
+	bunniesHeader: function() {
+		$('#loadBunniesHeader').load('../templates/headers.html #bunniesHeader');
+	},
+
+	helpHeader: function() {
+		$('#loadHelpHeader').load('../templates/headers.html #helpHeader');
+	},
+
+	draftsHeader: function() {
+		$('#loadDraftsHeader').load('../templates/headers.html #draftsHeader');
+	},
+
+	childrenHeader: function() {
+		$('#loadChildrenHeader').load('../templates/headers.html #childrenHeader');
+	},
+
+	editImageHeader: function() {
+		$('#loadEditImageHeader').load('../templates/headers.html #editImageHeader');
+	},
+
+	messagesHeader: function() {
+		$('#loadMessagesHeader').load('../templates/headers.html #messagesHeader');
+	},
+>>>>>>> origin/master
 }
 
 $(document).ready(function(){
