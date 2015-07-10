@@ -137,7 +137,7 @@ var Story = {
 		$('#learningStoryPage').css('height', 'auto');
 	},
 
-	addTextElement: function() {
+	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
 		$storyPage.append('<div contentEditable="true" class="storyInput"></div>');
@@ -147,7 +147,8 @@ var Story = {
 		$('html, body').animate({
 	        scrollTop: $textField.offset().top + 500
 	    }, 1000);
-
+		e.preventDefault();
+		e.stopPropagation();
 		$('.storyInput').focus();
 
 		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');

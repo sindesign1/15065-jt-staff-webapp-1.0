@@ -44,8 +44,10 @@
   			margin-bottom: 10px;
   			font-family: $iconfont;
   			font-size: 56px;
-  			padding-top: 8px;
+  			// padding-top: 8px;
             color: $melon;
+            text-align: center;
+            padding:0;
   		}
 
         .textContainer {
@@ -179,6 +181,7 @@
             width: 60px;
             font-size: 26px;
             font-family: $iconfont;
+            padding: 0;
 
         }
 
