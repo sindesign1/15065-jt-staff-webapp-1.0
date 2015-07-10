@@ -1,0 +1,110 @@
+.childContent {
+	overflow: auto;
+    margin-top: 423px;
+    margin-bottom: 112px;
+    width: 100%;
+    -webkit-transition: height 0.35s;
+    -moz-transition: height 0.35s;
+    transition: height 0.35s;
+    img {
+        width: 100%;
+    }
+}
+
+.messageSidebar {
+	float: left;
+	padding-bottom: 62px;
+	width: 320px;
+	background: $grey240;
+}
+
+.childMessages {
+	float: right;
+	width: 58%;
+	h5 {
+		color: $grey120;
+		text-align: center;
+	}
+	h6 {
+		position: absolute;
+		top: -20px;
+		color: $grey160;
+	}
+	.message {
+		position: relative;
+		width: 58%;
+		margin: 50px 8% 0;
+		padding: 20px;
+		box-sizing: border-box;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+	}
+	.messageProfilePic {
+		position: absolute;
+		top: -35px;
+		padding: 2px;
+		width: 52px;
+		height: 52px;
+		display: block;
+		text-align: center;
+		border: 4px $white solid;
+		border-radius: 50%;
+		background: $melon;
+		box-sizing: border-box;
+		img {
+			display: block;
+			width: 100%;
+			border-radius: 50%;
+		}
+	}
+	.messageLeft {
+		float: left;
+		.messageProfilePic {
+			left: -20px;
+		}
+		h6 {
+			left: 40px;
+		}
+	}
+	.messageRight {
+		float: right;
+		.messageProfilePic {
+			right: -20px;
+		}
+		h6 {
+			right: 40px;
+		}
+	}
+	p {
+		margin: 0;
+		color: $grey40;
+		font-weight: 400;
+	}
+}
+
+.importantNotice {
+	display: inline-block;
+	float: none;
+	width: 84%;
+	margin: 50px 8%;
+	padding: 20px;
+	text-align: center;
+	background: $melon;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	box-sizing: border-box;
+	p {
+		margin-top: 20px;
+		color: $white;
+	}
+}
+
+.paleMelonMessage {
+	background: $pale-melon;
+}
+.tintGreenMessage {
+	background: $tint-green;
+}
+.hueGreenMessage {
+	background: $hue-green;
+}

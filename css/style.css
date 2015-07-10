@@ -1070,16 +1070,6 @@ input:checked ~ .modal__overlay {
         border-left: none; }
       #childNav ul li.active {
         background-color: #F2716C; }
-  #childNav .jtIcons {
-    position: center;
-    display: inline-block;
-    font-family: jt-icons;
-    color: #fff;
-    font-size: 28px;
-    line-height: 28px; }
-
-.childMasthead {
-  width: 100%; }
 
 .childheader {
   z-index: 1;
@@ -1094,6 +1084,16 @@ input:checked ~ .modal__overlay {
   -webkit-transition: height 0.35s;
   -moz-transition: height 0.35s;
   transition: height 0.35s; }
+  .childheader .childMasthead {
+    width: 100%;
+    margin-bottom: 1em; }
+    .childheader .childMasthead .childTreeIcon {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      color: #fff;
+      font-family: jt-icons;
+      line-height: 28px; }
   .childheader.shrink h3 {
     font-size: 0;
     -webkit-transition: all 0.35s;
@@ -1104,9 +1104,6 @@ input:checked ~ .modal__overlay {
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s; }
-  .childheader h3:first-child {
-    padding-top: 0;
-    padding-bottom: 1em; }
   .childheader h3 {
     padding-top: 1em;
     font-family: museo;
@@ -1123,8 +1120,96 @@ input:checked ~ .modal__overlay {
     -moz-transition: all 0.35s;
     transition: all 0.35s; }
 
-.placeholder {
-  height: 2000px;
-  /*just to get the page to scroll*/ }
+.childContent {
+  overflow: auto;
+  margin-top: 423px;
+  margin-bottom: 112px;
+  width: 100%;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .childContent img {
+    width: 100%; }
+
+.messageSidebar {
+  float: left;
+  padding-bottom: 62px;
+  width: 320px;
+  background: #F0F0F0; }
+
+.childMessages {
+  float: right;
+  width: 58%; }
+  .childMessages h5 {
+    color: #787878;
+    text-align: center; }
+  .childMessages h6 {
+    position: absolute;
+    top: -20px;
+    color: #A0A0A0; }
+  .childMessages .message {
+    position: relative;
+    width: 58%;
+    margin: 50px 8% 0;
+    padding: 20px;
+    box-sizing: border-box;
+    -webkit-border-radius: 8px;
+    border-radius: 8px; }
+  .childMessages .messageProfilePic {
+    position: absolute;
+    top: -35px;
+    padding: 2px;
+    width: 52px;
+    height: 52px;
+    display: block;
+    text-align: center;
+    border: 4px #FFF solid;
+    border-radius: 50%;
+    background: #F16259;
+    box-sizing: border-box; }
+    .childMessages .messageProfilePic img {
+      display: block;
+      width: 100%;
+      border-radius: 50%; }
+  .childMessages .messageLeft {
+    float: left; }
+    .childMessages .messageLeft .messageProfilePic {
+      left: -20px; }
+    .childMessages .messageLeft h6 {
+      left: 40px; }
+  .childMessages .messageRight {
+    float: right; }
+    .childMessages .messageRight .messageProfilePic {
+      right: -20px; }
+    .childMessages .messageRight h6 {
+      right: 40px; }
+  .childMessages p {
+    margin: 0;
+    color: #282828;
+    font-weight: 400; }
+
+.importantNotice {
+  display: inline-block;
+  float: none;
+  width: 84%;
+  margin: 50px 8%;
+  padding: 20px;
+  text-align: center;
+  background: #F16259;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  box-sizing: border-box; }
+  .importantNotice p {
+    margin-top: 20px;
+    color: #FFF; }
+
+.paleMelonMessage {
+  background: #FCDCDB; }
+
+.tintGreenMessage {
+  background: #BBD483; }
+
+.hueGreenMessage {
+  background: #D1E0AB; }
 
 /*# sourceMappingURL=style.css.map */
