@@ -47,6 +47,10 @@ var Sidebars = {
 		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
+		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
+
+		$('.frameworksSelect').change(Sidebars.changeFramework);
+
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
 	},
 
@@ -128,7 +132,7 @@ var Sidebars = {
 
 		if ( !window.selectImagesChecked ) {
 			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
-			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
 
 			// $('.headerPlaceholder').hide();
 			// $('.modalHeaderPlaceholder').show();
@@ -253,6 +257,25 @@ var Sidebars = {
 
 			$(sectionClass).find('h6').html(tagText);
 		}
+	},
+
+	changeFramework: function() {
+		// $('#frameworksList ul').children().remove();
+
+		// var val = $(this).val();
+		// var frameworkData = window.frameworkData[val];
+		// for ( var i=0; i<frameworkData.length; i++ ) {
+		// 	$('#frameworksList ul').append(
+		// 		$('<li class="li-frameworks"/>').append(
+		// 			frameworkData[i].title ?
+		// 			$('<p class="title"/>').text(frameworkData[i].title)
+		// 			:
+		// 			null
+		// 		).append(
+		// 			$('<p class="content"/>').text(frameworkData[i].content);
+		// 		)
+		// 	);
+		// }
 	}
 }
 
@@ -260,6 +283,62 @@ var Sidebars = {
 window.addedProfileTags = new Array();
 window.addedFrameworks = new Array();
 window.addedActivities = new Array();
+
+window.frameworkData = {
+
+	// federal: [
+	// 	{
+	// 		title: '1.0 Connectedness',
+	// 		content: '1.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: '1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: '1.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		title: '2.0 Wellbeing',
+	// 		content: '2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: '2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	}
+	// ],
+	state: [
+	// 	{
+	// 		title: 'a1.0 Connectedness',
+	// 		content: '1a.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: 'a1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		title: 'a2.0 Wellbeing',
+	// 		content: 'a2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: 'a2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: 'a2.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	},
+	// 	{
+	// 		content: 'a2.4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	// 		tempor incididunt ut labore et dolore magna aliqua.'
+	// 	}
+	]
+};
 
 $(document).ready(function(){
 	Sidebars.init();
