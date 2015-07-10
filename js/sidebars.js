@@ -87,9 +87,9 @@ var Sidebars = {
 
 		$('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
-		$('.mainImage').animate({'width': '20%', 'height': '20%'});
+		$('.shrinkContainer').animate({'width': '55%', 'height': '55%', 'padding': '20px 20px'});
 		$('.editImageTextArea textarea').focus();
-		$('.mainImageSection').css({'z-index': '-800'});
+		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
 
 		$('.editImageTextArea').show();
@@ -105,7 +105,7 @@ var Sidebars = {
 //		$('.mainImageSection').hide();
 		$('.mainImageSection').css({'z-index': '-800'});
 
-		$('.mainImage').animate({'width': '100%', 'height': '100%'});
+		$('.shrinkContainer').animate({'width': '100%', 'height': '100%'});
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
