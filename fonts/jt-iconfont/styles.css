@@ -164,3 +164,12 @@
 .icon-jt-icon-search:before {
   content: "3";
 }
+.icon-jt-icon-password-thin:before {
+  content: "4";
+}
+.icon-jt-icon-email-thin:before {
+  content: "5";
+}
+.icon-jt-icon-addtext-thin:before {
+  content: "6";
+}

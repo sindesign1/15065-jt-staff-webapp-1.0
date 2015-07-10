@@ -4,67 +4,47 @@
 
 /* Main colours - refer to style guide for names and colours */
 $dark-melon: #983333;
-
 $deep-melon: #D0504D;
-
 $melon: #F16259;
-
-$tint-melon: #F16259;
-
+$tone-melon: #F2716C;
+$tint-melon: #F3817B;
 $light-melon: #E9A8A4;
-
 $pale-melon: #FCDCDB;
-
 $grey40: #282828;
-
 $grey80: #505050;
-
 $grey120: #787878;
-
 $grey160: #A0A0A0;
-
 $grey200: #C8C8C8;
-
 $grey240: #F0F0F0;
-
-
 $dark-green: #58794E;
-
 $deep-green: #809A68;
-
 $green: #7D892E;
-
 $tint-green: #BBD483;
-
 $hue-green: #D1E0AB;
-
 $light-green: #8CB592;
-
 $pale-green: #BDDBBF;
-
-
-
+$white: #FFF;
 
 /* Header Title in top melon bar */
 $top-title:28px;
-
 $profile-title:26px;
 
 /* Heading font size gradations */
-$h1-size: 24px;
+$big-text: 44px;
 
-$h2-size: 22px;
-
-$h3-size: 20px;
-
-$h4-size: 18px;
-
+$h1-size: 60px;
+$h2-size: 43px;
+$h3-size: 25px;
+$h4-size: 20px;
 $h5-size: 16px;
-
 $h6-size: 14px;
 
+/* Font Families */
+$museo: museo;
+$myriad: Myriad Pro;
+
+/* Font Weight */
+
+
 /* Icons */
-
-$iconfont:jt-icons;
-
-  
+$iconfont: jt-icons;

@@ -1,0 +1,555 @@
+/* Global Sidebar Styling */
+
+.sidebarLeft, .sidebarRight {
+	position: fixed;
+	height: 100%;
+	width: 320px;
+	background-color: #333;
+	box-sizing: border-box;
+	top: 0;
+	bottom: 0;
+	-webkit-transition: all 300ms ease 300ms;
+    -moz-transition: all 300ms ease 300ms;
+    -o-transition: all 300ms ease 300ms;
+    transition: all 300ms ease 300ms;
+    overflow-y: scroll;
+}
+
+.sidebarLeft {
+	left: -320px;
+}
+
+.sidebarRight {
+	top: 64px;
+	right: -320px;
+}
+
+.openRight {
+	right: 0;
+}
+
+.openLeft {
+	left: 0;
+}
+
+.overflow {
+	overflow: hidden !important;
+}
+
+/* Main Sidebar */
+
+#mainSidebar {
+	background-color: $melon;
+	
+}
+
+.searchContainer {
+
+	margin-bottom: 40px;
+	padding: 20px 20px 0 20px;
+
+	.searchWrapper {
+
+		background: rgba(255,255,255,0.8);
+
+		&:before {
+			content: "3";
+			font-family: jt-icons;
+			font-size: 25px;
+			color: #787878;
+			margin-right: -3px;
+			display: inline-block;
+			vertical-align: middle;
+			height: 50px;
+			padding: 0 8px;
+			box-sizing: border-box;
+			line-height: 49px;
+		}
+
+	}
+
+	input {
+		padding: 8px;
+		border: none;
+		background: none;
+		width: 85%;
+		display: inline-block;
+		box-sizing: border-box;
+		height: 50px;
+		font-size: 17px;
+	}
+}
+
+.staffDetailsContainer {
+
+	margin-bottom: 40px;
+	padding: 0 10px;
+
+	.profilePicture {
+		width: 50px;
+		height: 50px;
+		margin-right: 20px;
+		display: inline-block;
+		vertical-align: middle;
+		border-radius: 40px;
+		border: 2px solid #fff;
+
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 40px;
+		}
+	}
+
+	.personDetailsContainer {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.profileName {
+		font-size: 20px;
+	}
+
+	.profileEmail {
+		font-size: 17px;
+		margin-top: -15px;
+	}
+
+}
+
+.mainSidebarMenuList {
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			border-bottom: 2px solid $deep-melon;
+			padding: 12px 0 7px 10px;
+		}
+	}
+
+	.menuIcon {
+		font-family: $iconfont;
+		font-size: 40px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+
+	.listItem {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 20px;
+	}
+}
+
+.logoutContainer {
+	text-align: center;
+	margin-top: 80px;
+
+	button {
+		background: none;
+		border: 1px solid $dark-melon;
+		border-radius: 30px;
+		padding: 16px 85px;
+		font-size: 20px;
+		color: $dark-melon;
+	}
+}
+
+.sidebarBackground {
+
+	img {
+		width: 100%;
+		background: $melon;
+	}
+
+}
+
+/* Children List Sidebar */
+
+#childListSidebar {
+	background: $grey240;
+	color: $grey40;
+
+	.searchIcon {
+		font-family: $iconfont;
+		font-size: 18px;
+		color: $grey40;
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.childListSidebarMenuList {
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				border-bottom: 2px solid #CACCCE;
+				padding: 10px 10px;
+
+				&:first-child {
+					border-top: 2px solid #CACCCE;
+				}
+			}
+		}
+
+	}
+
+	.menuDisplayPicture {
+		width: 40px;
+		height: 40px;
+		border-radius: 30px;
+		display: inline-block;
+		vertical-align: middle;
+
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 30px;
+			border: 2px solid $melon;
+		}
+	}
+
+	.listItem {
+		font-size: 20px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
+}
+
+/* Message Sidebar styling for both kids and general */
+
+#messageSidebar-c {
+
+	background: #fff;
+
+	.messageSidebarMenuList-c {
+
+		ul {
+			list-style: none;
+			margin: 20px 0 0 0;
+			padding: 0;
+
+			li {
+				padding: 20px 10px;
+				border-bottom: 2px solid $grey200;
+			}
+		}
+
+		.listItem {
+			font-size: 20px;
+			color: $melon;
+		}
+
+		.relationship {
+			font-size: 18px;
+			color: $grey200;
+		}
+
+		.menuDisplayPicture {
+			width: 40px;
+			height: 40px;
+			border-radius: 40px;
+			display: inline-block;
+			vertical-align: middle;
+
+			img {
+				width: 100%;
+				height: 100%;
+				border-radius: 40px;
+				border: 2px solid $melon;
+			}
+		}
+
+		.textContainer {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 10px;
+		}
+
+		.btnContainer {
+			text-align: right;
+		}
+
+		.bioBtn {
+			color: $melon;
+			border: 1px solid $melon;
+			text-align: center;
+			width: 40px;
+			border-radius: 20px;
+			padding: 3px 5px;
+			display: inline-block;
+			line-height: 20px;
+		}
+
+		.bioDisplay {
+			background: $grey240;
+			color: #333;
+			display: none;
+		}
+	}
+
+}
+
+/* Tag Sidebar */
+
+#tagSidebar {
+
+	.menuContainer {
+		padding: 20px;
+		text-align: center;
+		padding-bottom: 0px;
+	}
+
+	.item {
+		display: inline-block;
+		margin-left: 30px;
+		color: #A0A0A0;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+	}
+
+	.menuIcon {
+		font-family: $iconfont;
+		font-size: 34px;
+	}
+
+	#tagList {
+
+		display: block;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				padding: 10px 20px;
+				border-bottom: 2px solid $grey40;
+				background: $grey80;
+			}
+		}
+
+		.profilePicture {
+			width: 40px;
+  			height: 40px;
+  			display: inline-block;
+  			border-radius: 30px;
+  			border: 2px solid;
+  			vertical-align: middle;
+
+  			img {
+  				width: 100%;
+				height: 100%;
+				border-radius: 30px;
+  			}
+		}
+
+		.personName {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 15px;
+			font-size: 20px;
+		}
+
+		#buttonContainer {
+			padding: 20px;
+			margin-top: 100px;
+			text-align: center;
+
+			button {
+				background: none;
+				border: 1px solid $grey160;
+				border-radius: 40px;
+				height: 50px;
+				color: $grey160;
+				font-size: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 25px;
+				width: 120px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	
+
+	#frameworksList {
+
+		display: none;
+		background: #333;
+		padding-bottom: 90px;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				padding: 10px 20px;
+				border-bottom: 2px solid $grey40;
+				background: $grey80;
+			}
+		}
+
+		.title {
+			font-weight: bold;
+			font-size: 20px;
+			letter-spacing: 0.5px;
+			margin-bottom: -10px;
+		}
+
+		.content {
+			margin-left: 15px;
+			font-size: 15px;
+		}
+
+		#buttonContainer {
+			padding: 20px;
+			margin-top: 100px;
+			text-align: center;
+
+			button {
+				background: none;
+				border: 1px solid $grey160;
+				border-radius: 40px;
+				height: 50px;
+				color: $grey160;
+				font-size: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 25px;
+				width: 120px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	#activitiesList {
+
+		display: none;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				padding: 10px 20px;
+				border-bottom: 2px solid $grey40;
+				background: $grey80;
+
+				p {
+					font-size: 17px;
+				}
+			}
+		}
+
+		#buttonContainer {
+			padding: 20px;
+			margin-top: 100px;
+			text-align: center;
+
+			button {
+				background: none;
+				border: 1px solid $grey160;
+				border-radius: 40px;
+				height: 50px;
+				color: $grey160;
+				font-size: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 25px;
+				width: 120px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
+	}
+
+}
+
+#addImageSidebar {
+
+	background: #333;
+
+	.menuContainer {
+		padding: 20px;
+		padding-bottom: 0px;
+	}
+
+	.item {
+		display: inline-block;
+		margin-left: 30px;
+		color: #fff;
+		text-align: center;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+	}
+
+	.menuIcon {
+		font-family: $iconfont;
+		font-size: 34px;
+	}
+
+	#imageList {
+	padding: 0 4px;
+	background: #333;
+
+		.imgBlock {
+			display: inline-block;
+			width: 30.5%;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	#buttonContainer {
+		padding: 20px;
+		margin-top: 100px;
+		text-align: center;
+
+		button {
+			background: none;
+			border: 1px solid $grey160;
+			border-radius: 40px;
+			height: 50px;
+			color: $grey160;
+			font-size: 20px;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 25px;
+			width: 120px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	
+}
+

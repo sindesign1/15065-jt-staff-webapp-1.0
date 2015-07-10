@@ -1,0 +1,203 @@
+/* Learning Story Cover Page Styling */
+
+#coverPageContainer {
+
+	width: 100%;
+  	height: 100%;
+    bottom: 0;
+  	background: $grey80;
+  	position: relative;
+  	text-align: center;
+  	padding: 40px;
+  	box-sizing: border-box;
+  	padding-bottom: 100px;
+    background-size: cover;
+
+    &:before {
+        content: '';
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+  	.innerContainer {
+  		border: 2px dashed $grey160;
+  		height: 100%;
+  		width: 100%;
+
+  		.addImageContainer {
+  			position: absolute;
+            bottom: 60%;
+            left: 46%;
+  		}
+
+  		.addImageBtn {
+  			background-color: #fff;
+  			border: none;
+  			border-radius: 40px;
+  			height: 75px;
+  			width: 75px;
+  			margin-bottom: 10px;
+  			font-family: $iconfont;
+  			font-size: 56px;
+  			padding-top: 8px;
+            color: $melon;
+  		}
+
+        .textContainer {
+            position: absolute;
+            bottom: 18%;
+            left: 16%;
+            width: 524px;
+
+            .header {
+                display: block;
+                margin: 0 auto;
+                background: transparent;
+                border: none;
+                font-size: 75px;
+                text-align: center;
+                color: #fff;
+                width: 524px;
+                font-family: $museo;
+            }
+
+            #subHeader, #subHeaderInput {
+                font-size: 35px;
+                font-family: $myriad;
+            }
+
+            #subHeaderInput, #headerInput {
+                padding: 0;
+            }
+
+            #headerInput {
+                font-size: 65px;
+                font-family: $museo;
+                font-weight: lighter;
+            }
+
+            .date {
+                font-size: 17px;
+                font-family: $myriad;
+                margin-top: 10px;
+            }
+        }
+
+        #arrowContainer {
+            position: absolute;
+            bottom: 4%;
+            left: 45%;
+
+            .arrowBtn {
+                font-family: $iconfont;
+                font-size: 59px;
+                background-color: #fff;
+                border-radius: 40px;
+                height: 75px;
+                width: 75px;
+                color: $melon;
+                padding-top: 11px;
+                box-sizing: border-box;
+                margin: 0 auto;
+                font-weight: bold;
+            }
+
+            .arrowText {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+#learningStoryPage {
+    position: relative;
+    // margin-top: 1024px;
+    display: none;
+    height: 500px;
+    text-align: center;
+    width: 100%;
+    padding: 20px 100px 100px 100px;
+    box-sizing: border-box;
+
+    .addBtnContainer {
+        text-align: center;
+
+        button {
+            background: none;
+            border: 1px solid $grey80;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            font-family: $iconfont;
+            font-size: 19px;
+            padding: 5px;
+            color: $grey80;
+        }
+    }
+
+    .singleImage {
+        border: 1px dashed #ccc;
+        width: 100%;
+        height: 500px;
+        margin-top: 30px;
+        display: none;
+        background-size: cover;
+    }
+
+    .storyInput {
+        text-align: left;
+        border: none;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 20px;
+        min-height: 10px;
+        color: #333;
+    }
+}
+
+#addElementContainer {
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 97, 91, 0.8);
+    position: fixed;
+    text-align: center;
+    padding-top: 50%;
+    display: none;
+    top: 0;
+
+    .btnContainer {
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 80px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        button {
+            background: #fff;
+            border: none;
+            border-radius: 40px;
+            height: 60px;
+            width: 60px;
+            font-size: 26px;
+            font-family: $iconfont;
+
+        }
+
+        div {
+            margin-top: 10px;
+        }
+    }
+
+    #nevermindBtn {
+        position: absolute;
+        bottom: 33%;
+        left: 45%;
+    }  
+}
