@@ -1,4 +1,4 @@
-.headerPlaceholder, .modalHeaderPlaceholder {
+.headerPlaceholder {
 	top: 0;
 	height: 64px;
 	background: $melon;
@@ -7,12 +7,7 @@
 		padding-top: 20px;
 		color: #FFF;
 		text-align: center;
-	}
-}
 
-.modalHeaderPlaceholder {
-
-	p {
 		label {
 			padding: 0px 25px 0;
   			float: right;		
@@ -69,6 +64,29 @@
 	}
 }
 
+.mainImageSection {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	text-align: center;
+	text-shadow: none;
+	padding-top: 64px;
+	padding-bottom: 44px;
+	z-index: 0;
+	margin: 0 auto;
+	transform: scale(1.0);
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.mainImage {
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
 .mainModal > label {
 	transition: all 0.55s;
 }
@@ -121,4 +139,14 @@ input:checked ~ .modal__overlay {
 	opacity: 1;
 	transform: scale(1);
 	z-index: 800;
+}
+
+.mainImageSection {
+	opacity: 0;
+	transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	z-index: -100;
+}
+
+.greyText {
+	color: $grey200;
 }

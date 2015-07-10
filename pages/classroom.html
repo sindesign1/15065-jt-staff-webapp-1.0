@@ -16,12 +16,11 @@
 </head>
 <body>
     <header class="headerPlaceholder">
-        <p class="new">All Images</p>
-    </header>
-    <header class="modalHeaderPlaceholder" style="display:none">
-        <p class="new">Header template <label for="thumb" class="classroomImageClose">Close</label></p>
+        <p id="gridHeader" class="new">All Images</p>
+        <p id="imageHeader" class="new" style="display:none">Header template <label for="thumb" class="classroomImageClose">Close</label></p>
     </header>
 
+<!--
     <div class="mainModal" id="mainModalContainer">
         <input id="thumb" type="checkbox" style="display:none" data-role="none"/>
         <div class="modal__overlay" role="dialog">
@@ -49,6 +48,34 @@
                 <div id="loadImgActionFooter"></div>
             </div>
         </div>
+    </div>
+-->
+
+    <div class="mainImageSection">
+        <div class="mainImage">
+        </div>
+        <div class="editSection">
+            <ul>
+                <li class="editImageTextArea" style="display:none">
+                    <textarea class="header"/></textarea>
+                </li>
+                <li class="profileTagsSection" style="display:none">
+                    <h6>
+                    </h6>
+                </li>
+                <li class="frameworksSection" style="display:none">
+                    <p><h4>Frameworks</h4></p>
+                    <ul>
+                    </ul>
+                </li>
+                <li class="activitiesSection" style="display:none">
+                    <p><h4>Activities</h4></p>
+                    <ul>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="loadImgActionFooter"></div>
     </div>
 
     <div class="classGallery">

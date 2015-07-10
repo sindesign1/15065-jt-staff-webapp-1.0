@@ -35,7 +35,7 @@ var Sidebars = {
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('taphold', '#coverPageContainer, #mainModalContainer', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer, .mainImageSection', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
@@ -45,6 +45,7 @@ var Sidebars = {
 		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
 		$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
 		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
+		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
 	},
@@ -78,11 +79,13 @@ var Sidebars = {
 			$('#tagSidebar').addClass('openRight');
 		}
 
-		$('.modal__overlay').css({'width': '70%'});
+//		$('.modal__overlay').css({'width': '70%'});
+//		$('.mainImage').css({'width': '70%'});
 		// $('.sidebarRight').css('right', '0px');
-		$('.classroomLargeImg').animate({'width': '20%'});
+		$('.mainImage').animate({'width': '20%', 'height': '20%'});
 		$('.editImageTextArea textarea').focus();
-		$('.classGallery').hide();
+		$('.mainImageSection').css({'z-index': '-800'});
+//		$('.classGallery').hide();
 
 		$('.editImageTextArea').show();
 		$('.profileTagsSection').show();
@@ -93,7 +96,12 @@ var Sidebars = {
 
 	closeTagSidebar: function() {
 		console.log('closing sidebar');
-		$('.classGallery').show();
+//		$('.classGallery').show();
+//		$('.mainImageSection').hide();
+		$('.mainImageSection').css({'z-index': '-800'});
+
+		$('.mainImage').animate({'width': '100%', 'height': '100%'});
+
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
@@ -117,23 +125,36 @@ var Sidebars = {
 			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
 			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
 
-			$('.headerPlaceholder').hide();
-			$('.modalHeaderPlaceholder').show();
+			// $('.headerPlaceholder').hide();
+			// $('.modalHeaderPlaceholder').show();
 
-			$('.classroomLargeImg').attr("src",mainImg);
-			$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
+			// $('.classroomLargeImg').attr("src",mainImg);
+			// $('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
+
+			$('.mainImage').css("background-image",'url(' + mainImg + ')');
+			$('.classGallery').hide();
+			$('.mainImageSection').show();
+			$('#loadMainFooter').hide();
+			$('.mainImageSection').animate({'opacity': '1', 'z-index': '-800'});
+			$('#gridHeader').hide();
+			$('#imageHeader').show();
 		}
 	},
 
 	closeMainModal: function() {
 		console.log('close main modal');
+
+		Sidebars.closeTagSidebar();
+
+		$('#gridHeader').show();
+		$('#imageHeader').hide();
+
 		$('.headerPlaceholder').show();
 		$('.modalHeaderPlaceholder').hide();
-		$('.modal__overlay').css({'opacity': '0', 'transform': 'scale(0.5)', 'z-index': '-800'});
+		$('#loadMainFooter').show();
+		$('.mainImageSection').css({'opacity': '0', 'z-index': '-800'});
 		$('.classGallery').show();
-		$('.modal__overlay').css('width', '100%');
-		$('.sidebarRight').css('right', '-320px');
-		$('.classroomLargeImg').delay(2000).animate({'width': '100%'});
+		$('.mainImage').animate({'width': '100%'});
 
 		$('.editImageTextArea').hide();
 		$('.profileTagsSection').hide();
@@ -141,8 +162,10 @@ var Sidebars = {
 		$('.activitiesSection').hide();
 
 		$('.editImageTextArea textarea').val('');
-		$('.frameworksSection ul').find('li').not(':first').remove();
-		$('.activitiesSection ul').find('li').not(':first').remove();
+		// $('.frameworksSection ul').find('li').not(':first').remove();
+		// $('.activitiesSection ul').find('li').not(':first').remove();
+		$('.frameworksSection ul').find('li').remove();
+		$('.activitiesSection ul').find('li').remove();
 		$('.profileTagsSection h6').text('');
 
 		window.addedProfileTags = new Array();
@@ -156,22 +179,40 @@ var Sidebars = {
 		var contentText = $(obj).find('p.content').text();
 		var pText = $(obj).find('p').text();
 
-		if ( !contentText ) {
-			titleText = pText;
-			contentText = 'Click here to add a sub-paragraph';
+		if ( sectionClass == '.frameworksSection' ) {
+			if ( !titleText ) {
+				titleText = $(obj).prevUntil('li p.title').find('p.title').last().text();
+			}
 		}
 
-		if ( $.inArray(txt, addedArray) == -1 ) {
-			$(sectionClass).find('ul').append (
-				$('<li/>').append(
-					$('<h4 contenteditable=true/>').text(titleText)
-					)
-				).append(
-					$('<h6 contenteditable=true/>').text(contentText)
-					)
-			;
+		if ( !contentText ) {
+			titleText = pText;
+			contentText = '<span class="greyText edit-placeholder">Click here to add a sub-paragraph</span>';
+		}
 
-			addedArray.push(txt);
+		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
+
+			var pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
+			if ( !pTag.text() ) {
+				$(sectionClass).find('ul').first().append (
+					$('<li/>').append(
+							$('<h4 contenteditable=true/>').html(titleText)
+						).append(
+							$('<ul/>')
+						)
+					)
+				;
+			}
+
+			pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
+			var ulTag = pTag.parent().find('ul');
+			ulTag.append(
+				$('<li/>').append(
+					$('<h6 contenteditable=true/>').html(contentText)
+				)
+			);
+
+			addedArray.push(titleText+contentText);
 		}
 	},
 
@@ -194,7 +235,7 @@ var Sidebars = {
 		if ( $.inArray(personName, addedArray) == -1 ) {
 			addedArray.push(personName);
 
-			var tagText = 'With ' + addedArray[0];
+			var tagText = '<span class="greyText">With </span>' + addedArray[0];
 			if ( addedArray.length > 1 ) {
 				if ( addedArray.length > 2 ) {
 					for ( var i=1; i<addedArray.length-1; i++ ) {
@@ -202,10 +243,10 @@ var Sidebars = {
 					}
 				}
 
-				tagText += ' and ' + addedArray[addedArray.length-1];
+				tagText += '<span class="greyText"> and </span>' + addedArray[addedArray.length-1];
 			}
 
-			$(sectionClass).find('h6').text(tagText);
+			$(sectionClass).find('h6').html(tagText);
 		}
 	}
 }
