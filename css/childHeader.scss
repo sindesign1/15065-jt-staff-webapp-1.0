@@ -1,11 +1,57 @@
-.header {
-    z-index: 1000;
+#childNav {
+    overflow: hidden;
+    width:100%;
+    margin-top: 1em;
+    ul {
+        padding:0px;
+        margin:0px;
+        li {
+            float: left;
+            list-style: none;
+            width: 25%;
+            padding: 0;
+            text-align: center;
+            font-size:$h4-size;
+            box-sizing: border-box;
+            border-left: 2px $melon solid;
+            a {
+                display: block;
+                padding: 15px 0;
+                color: #fff;
+                text-decoration: none;
+                background-color:$tint-melon;
+            }
+            &:first-child {        
+                border-left: none;
+            }
+            &.active {     
+                    background-color:$tone-melon;
+            }
+        }
+    }
+
+.jtIcons {
+        position:center;
+        display: inline-block;
+        font-family: $iconfont;
+        color: #fff;
+        font-size:28px;
+        line-height: $top-title;
+    }
+}
+
+.childMasthead {
+    width: 100%;
+}
+
+.childheader {
+    z-index: 1;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1em 0;
+    padding: 1em 0 0;
     background: $melon;
     text-align: center;
     -webkit-transition: height 0.35s;
@@ -25,8 +71,12 @@
             transition: all 0.35s;
         }
     }
-    h3 {
+    h3:first-child {
+        padding-top: 0;
         padding-bottom: 1em;
+    }
+    h3 {
+        padding-top: 1em;
         font-family: $museo;
         font-weight: 500;
         -webkit-transition: all 0.35s;
@@ -44,7 +94,7 @@
     }
 }
 
-.content {
+.placeholder {
     height: 2000px;
     /*just to get the page to scroll*/
 }

@@ -22,7 +22,7 @@ var Story = {
 	findScreenHeight: function() {
 		var height = $(window).height();
 
-		$('#coverPageContainer').height(height-160);
+		$('#coverPageContainer').height(height - 230);
 	},
 
 	changeHeaderText: function(e) {
