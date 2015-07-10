@@ -2,6 +2,7 @@
 
 .sidebarLeft, .sidebarRight {
 	position: fixed;
+	z-index: 2;
 	height: 100%;
 	width: 320px;
 	background-color: #333;
@@ -20,6 +21,7 @@
 }
 
 .sidebarRight {
+	top: 64px;
 	right: -320px;
 }
 
@@ -29,6 +31,10 @@
 
 .openLeft {
 	left: 0;
+}
+
+.overflow {
+	overflow: hidden !important;
 }
 
 /* Main Sidebar */

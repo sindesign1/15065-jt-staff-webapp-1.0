@@ -21,7 +21,8 @@ html body {
   color: #fff;
   font-size: 1em;
   font-family: myriad pro, arial, sans-serif;
-  font-weight: lighter; }
+  font-weight: lighter;
+  overflow: auto; }
 
 html {
   -webkit-font-smoothing: antialiased; }
@@ -67,6 +68,7 @@ h6 {
 /* Global Sidebar Styling */
 .sidebarLeft, .sidebarRight {
   position: fixed;
+  z-index: 2;
   height: 100%;
   width: 320px;
   background-color: #333;
@@ -83,6 +85,7 @@ h6 {
   left: -320px; }
 
 .sidebarRight {
+  top: 64px;
   right: -320px; }
 
 .openRight {
@@ -90,6 +93,9 @@ h6 {
 
 .openLeft {
   left: 0; }
+
+.overflow {
+  overflow: hidden !important; }
 
 /* Main Sidebar */
 #mainSidebar {
@@ -469,14 +475,19 @@ h6 {
       color: #FFF;
       text-decoration: none; }
 
-.headerPlaceholder {
+.headerPlaceholder, .modalHeaderPlaceholder {
+  top: 0;
   height: 64px;
   background: #F16259; }
-  .headerPlaceholder p {
+  .headerPlaceholder p, .modalHeaderPlaceholder p {
     margin: 0;
     padding-top: 20px;
     color: #FFF;
     text-align: center; }
+
+.modalHeaderPlaceholder p label {
+  padding: 0px 25px 0;
+  float: right; }
 
 .editSection {
   display: block;
@@ -523,7 +534,7 @@ h6 {
   right: 0;
   text-align: center;
   text-shadow: none;
-  top: 0;
+  top: 64px;
   z-index: 600; }
 
 .modal__wrap {
@@ -619,7 +630,7 @@ input:checked ~ .modal__overlay {
 #botMainNav {
   background-color: #282828;
   position: fixed;
-  z-index: 1 !important;
+  z-index: 3 !important;
   left: 0px;
   bottom: 0px;
   width: 100%;
@@ -717,10 +728,10 @@ input:checked ~ .modal__overlay {
   width: 100%;
   height: 100%;
   bottom: 0;
-  background: #333;
-  position: fixed;
+  background: #505050;
+  position: relative;
   text-align: center;
-  padding: 60px;
+  padding: 40px;
   box-sizing: border-box;
   padding-bottom: 100px;
   background-size: cover; }
@@ -733,7 +744,7 @@ input:checked ~ .modal__overlay {
     height: 100%;
     width: 100%; }
   #coverPageContainer .innerContainer {
-    border: 2px dashed #fff;
+    border: 2px dashed #A0A0A0;
     height: 100%;
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
@@ -744,12 +755,12 @@ input:checked ~ .modal__overlay {
       background-color: #fff;
       border: none;
       border-radius: 40px;
-      height: 60px;
-      width: 60px;
+      height: 75px;
+      width: 75px;
       margin-bottom: 10px;
       font-family: jt-icons;
-      font-size: 30px;
-      padding-top: 6px;
+      font-size: 56px;
+      padding-top: 8px;
       color: #F16259; }
     #coverPageContainer .innerContainer .textContainer {
       position: absolute;
@@ -761,30 +772,37 @@ input:checked ~ .modal__overlay {
         margin: 0 auto;
         background: transparent;
         border: none;
-        font-size: 57px;
+        font-size: 75px;
         text-align: center;
         color: #fff;
-        width: 524px; }
+        width: 524px;
+        font-family: museo; }
       #coverPageContainer .innerContainer .textContainer #subHeader, #coverPageContainer .innerContainer .textContainer #subHeaderInput {
-        font-size: 25px; }
+        font-size: 35px;
+        font-family: myriad-pro; }
       #coverPageContainer .innerContainer .textContainer #subHeaderInput, #coverPageContainer .innerContainer .textContainer #headerInput {
-        display: none;
         padding: 0; }
       #coverPageContainer .innerContainer .textContainer #headerInput {
-        font-size: 53px; }
+        font-size: 65px;
+        font-family: museo;
+        font-weight: lighter; }
+      #coverPageContainer .innerContainer .textContainer .date {
+        font-size: 17px;
+        font-family: myriad-pro;
+        margin-top: 10px; }
     #coverPageContainer .innerContainer #arrowContainer {
       position: absolute;
-      bottom: 8%;
+      bottom: 4%;
       left: 45%; }
       #coverPageContainer .innerContainer #arrowContainer .arrowBtn {
         font-family: jt-icons;
-        font-size: 30px;
+        font-size: 59px;
         background-color: #fff;
         border-radius: 40px;
-        height: 35px;
-        width: 35px;
+        height: 75px;
+        width: 75px;
         color: #F16259;
-        padding-top: 5px;
+        padding-top: 11px;
         box-sizing: border-box;
         margin: 0 auto;
         font-weight: bold; }
@@ -792,40 +810,50 @@ input:checked ~ .modal__overlay {
         margin-top: 5px; }
 
 #learningStoryPage {
-  position: absolute;
-  top: 100%;
+  position: relative;
   display: none;
-  height: 50%;
+  height: 500px;
   text-align: center;
   width: 100%;
-  padding: 20px 100px;
+  padding: 20px 100px 100px 100px;
   box-sizing: border-box; }
   #learningStoryPage .addBtnContainer {
     text-align: center; }
     #learningStoryPage .addBtnContainer button {
       background: none;
-      border: 1px solid #F16259;
+      border: 1px solid #505050;
       border-radius: 30px;
       width: 30px;
       height: 30px;
       font-family: jt-icons;
       font-size: 19px;
-      padding: 5px; }
+      padding: 5px;
+      color: #505050; }
   #learningStoryPage .singleImage {
     border: 1px dashed #ccc;
     width: 100%;
-    height: 50%;
+    height: 500px;
     margin-top: 30px;
-    display: none; }
+    display: none;
+    background-size: cover; }
+  #learningStoryPage .storyInput {
+    text-align: left;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
+    min-height: 10px;
+    color: #333; }
 
 #addElementContainer {
   width: 100%;
   height: 100%;
-  background-color: #F16259;
+  background: rgba(240, 97, 91, 0.8);
   position: fixed;
   text-align: center;
   padding-top: 50%;
-  display: none; }
+  display: none;
+  top: 0; }
   #addElementContainer .btnContainer {
     margin-left: 20px;
     display: inline-block;
@@ -969,7 +997,7 @@ input:checked ~ .modal__overlay {
     padding: 1em;
     color: #F16259;
     font-size: 20px;
-    font-family: Myriad Pro;
+    font-family: myriad-pro;
     background: #FFF;
     -webkit-border-radius: 10px;
     border-radius: 10px; }
@@ -1018,5 +1046,88 @@ input:checked ~ .modal__overlay {
       font-size: 20px;
       text-decoration: none;
       border-top: 2px #F16259 solid; }
+
+#childNav {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 1em; }
+  #childNav ul {
+    padding: 0px;
+    margin: 0px; }
+    #childNav ul li {
+      float: left;
+      list-style: none;
+      width: 25%;
+      padding: 0;
+      text-align: center;
+      font-size: 20px;
+      box-sizing: border-box;
+      border-left: 2px #F16259 solid; }
+      #childNav ul li a {
+        display: block;
+        padding: 15px 0;
+        color: #fff;
+        text-decoration: none;
+        background-color: #F3817B; }
+      #childNav ul li:first-child {
+        border-left: none; }
+      #childNav ul li.active {
+        background-color: #F2716C; }
+  #childNav .jtIcons {
+    position: center;
+    display: inline-block;
+    font-family: jt-icons;
+    color: #fff;
+    font-size: 28px;
+    line-height: 28px; }
+
+.childMasthead {
+  width: 100%; }
+
+.childheader {
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em 0 0;
+  background: #F16259;
+  text-align: center;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .childheader.shrink h3 {
+    font-size: 0;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .childheader.shrink img {
+    width: 5%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .childheader h3:first-child {
+    padding-top: 0;
+    padding-bottom: 1em; }
+  .childheader h3 {
+    padding-top: 1em;
+    font-family: museo;
+    font-weight: 500;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .childheader img {
+    width: 23%;
+    border: 3px solid #FFF;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+
+.placeholder {
+  height: 2000px;
+  /*just to get the page to scroll*/ }
 
 /*# sourceMappingURL=style.css.map */

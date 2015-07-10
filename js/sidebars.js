@@ -52,9 +52,12 @@ var Sidebars = {
 		console.log('clicked');
 		if($('#mainSidebar').hasClass('sidebarLeft')) {
 			$('#mainSidebar').toggleClass('openLeft');
+			$('body').toggleClass('overflow');
 		} else if($('#mainSidebar').hasClass('sidebarRight')) {
 			$('#mainSidebar').toggleClass('openRight');
+			$('body').toggleClass('overflow');
 		}
+		
 	},
 
 	togglePhotoSidebar: function(e) {
@@ -67,6 +70,7 @@ var Sidebars = {
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
 			$('#addImageSidebar').addClass('openRight');
 		}
+		$('body').css('overflow', 'hidden');
 	},
 
 	toggleTagSidebar: function() {
@@ -77,20 +81,24 @@ var Sidebars = {
 			$('#tagSidebar').addClass('openRight');
 		}
 
+		$('body').css('overflow', 'hidden');
+
 		$('.modal__overlay').css({'width': '70%'});
-		$('.sidebarRight').css('right', '0px');
+		// $('.sidebarRight').css('right', '0px');
 		$('.classroomLargeImg').animate({'width': '20%'});
 		$('.editImageTextArea textarea').focus();
 		$('.classGallery').hide();
 	},
 
 	closeTagSidebar: function() {
+		console.log('closing sidebar');
 		$('.classGallery').show();
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').removeClass('openRight');
 		}
+		$('body').css('overflow', 'auto');
 	},
 
 	closePhotoSidebar: function() {
@@ -101,28 +109,38 @@ var Sidebars = {
 		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
 			$('#addImageSidebar').removeClass('openRight');
 		}
+		$('body').css('overflow', 'auto');
 	},
 	openMainModal: function() {
 		console.log('open main modal');
 		var thumbImg = $(this).find('.classroomThumbImg').prop('src');
 		var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+
+		$('.headerPlaceholder').hide();
+		$('.modalHeaderPlaceholder').show();
+
 		$('.classroomLargeImg').attr("src",mainImg);
 		$('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
 	},
 
 	closeMainModal: function() {
 		console.log('close main modal');
+		$('.headerPlaceholder').show();
+		$('.modalHeaderPlaceholder').hide();
 		$('.modal__overlay').css({'opacity': '0', 'transform': 'scale(0.5)', 'z-index': '-800'});
 		$('.classGallery').show();
 		$('.modal__overlay').css('width', '100%');
 		$('.sidebarRight').css('right', '-320px');
-		$('.classroomLargeImg').css('width', '100%');
+		$('.classroomLargeImg').animate({'width': '100%'});
 
 		$('.editImageTextArea textarea').val('');
 		$('.frameworksSection ul').find('li').not(':first').remove();
 		$('.activitiesSection ul').find('li').not(':first').remove();
-		addedFrameworks = new Array();
-		addedActivities = new Array();
+		$('.profileTagsSection h6').text('');
+
+		window.addedProfileTags = new Array();
+		window.addedFrameworks = new Array();
+		window.addedActivities = new Array();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
@@ -177,7 +195,6 @@ var Sidebars = {
 			$(sectionClass).find('h6').text(tagText);
 		}
 	}
-
 }
 
 

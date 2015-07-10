@@ -1,4 +1,5 @@
-.headerPlaceholder {
+.headerPlaceholder, .modalHeaderPlaceholder {
+	top: 0;
 	height: 64px;
 	background: $melon;
 	p {
@@ -6,6 +7,16 @@
 		padding-top: 20px;
 		color: #FFF;
 		text-align: center;
+	}
+}
+
+.modalHeaderPlaceholder {
+
+	p {
+		label {
+			padding: 0px 25px 0;
+  			float: right;		
+  		}
 	}
 }
 
@@ -70,7 +81,7 @@
 	right: 0;
 	text-align: center;
 	text-shadow: none;
-	top: 0;
+	top: 64px;
 	z-index: 600;
 }
 .modal__wrap {
