@@ -1130,4 +1130,125 @@ input:checked ~ .modal__overlay {
   height: 2000px;
   /*just to get the page to scroll*/ }
 
+#menuPages {
+  height: 100%;
+  width: 100%;
+  margin-top: 90px; }
+  #menuPages #menuScene {
+    background: #E9A8A4 url(../img/menuBgScene.png) no-repeat;
+    background-size: contain;
+    background-position: bottom right;
+    position: fixed;
+    top: 90px;
+    left: 320px;
+    z-index: 0;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 120px; }
+    #menuPages #menuScene #help2Tab, #menuPages #menuScene #help3Tab {
+      display: none; }
+    #menuPages #menuScene .helpContent h3 {
+      color: #F16259;
+      font-size: 43px;
+      font-family: museo;
+      font-weight: 200; }
+    #menuPages #menuScene .helpContent p {
+      color: #282828;
+      font-size: 20px; }
+    #menuPages #menuScene .helpInfo {
+      text-align: center;
+      margin: 10%; }
+      #menuPages #menuScene .helpInfo h3 {
+        color: #F16259;
+        font-size: 43px;
+        font-family: museo;
+        font-weight: 200; }
+      #menuPages #menuScene .helpInfo p {
+        color: #282828;
+        font-size: 20px; }
+      #menuPages #menuScene .helpInfo a {
+        text-decoration: none; }
+      #menuPages #menuScene .helpInfo .helpIcon {
+        width: 100px; }
+      #menuPages #menuScene .helpInfo .roundButLarge {
+        color: #F16259;
+        font-size: 25px;
+        box-sizing: border-box;
+        border: #F16259 2px solid;
+        padding: 10px 30px 10px 30px;
+        border-radius: 80px;
+        display: inline-block;
+        margin: 20px; }
+      #menuPages #menuScene .helpInfo .grey {
+        color: #787878;
+        border: #787878 2px solid; }
+  #menuPages #childListStatic {
+    background: #F0F0F0;
+    color: #282828;
+    width: 320px;
+    height: 100%; }
+    #menuPages #childListStatic .searchIcon {
+      font-family: jt-icons;
+      font-size: 18px;
+      color: #282828;
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle; }
+    #menuPages #childListStatic .childListSidebarMenuList ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #menuPages #childListStatic .childListSidebarMenuList ul li {
+        border-bottom: 2px solid #CACCCE;
+        padding: 10px 10px; }
+        #menuPages #childListStatic .childListSidebarMenuList ul li:first-child {
+          border-top: 2px solid #CACCCE; }
+    #menuPages #childListStatic .menuDisplayPicture {
+      width: 40px;
+      height: 40px;
+      border-radius: 30px;
+      display: inline-block;
+      vertical-align: middle; }
+      #menuPages #childListStatic .menuDisplayPicture img {
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        border: 2px solid #F16259; }
+    #menuPages #childListStatic .listItem {
+      font-size: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px; }
+  #menuPages #helpList {
+    z-index: 2;
+    height: 100%;
+    width: 320px;
+    background-color: #F0F0F0;
+    box-sizing: border-box;
+    border-right: 4px solid #fff;
+    position: fixed;
+    top: 90px;
+    bottom: 0; }
+    #menuPages #helpList .helpInto {
+      color: #505050;
+      font-size: 20px;
+      padding: 20px; }
+    #menuPages #helpList ul {
+      width: 100%;
+      padding: 0px; }
+      #menuPages #helpList ul li {
+        width: 100%;
+        list-style: none;
+        color: #787878;
+        font-size: 20px;
+        font-weight: 400;
+        box-sizing: border-box;
+        padding: 20px 10px 20px 20px;
+        border-bottom: 2px solid #fff; }
+      #menuPages #helpList ul li:first-child {
+        border-top: 2px solid #fff; }
+      #menuPages #helpList ul .active {
+        background-color: #DCDCDC; }
+
 /*# sourceMappingURL=style.css.map */
