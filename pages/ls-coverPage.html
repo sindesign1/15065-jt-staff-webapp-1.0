@@ -27,6 +27,10 @@
             $('#coverPageContainer').find('.addImageBtnText').text('replace');
             $('#coverPageContainer').find('.addImageBtn').text('h');
         }
+
+        Common.frameworksClick = function() { Story.appendTagContent; };
+        Common.activitiesClick = function() { Story.appendTagContent; };
+
     </script>
 </head>
 <body>
@@ -58,6 +62,7 @@
             <button id="addElementBtn" class="addElementBtn">?</button>
         </div> -->
         <!-- <div class="singleImage"></div> -->
+
         </div>
     </div>
 
@@ -67,14 +72,14 @@
             <div>photo</div>
         </div>
         <div id="addTextElement" class="btnContainer">
-            <button>^</button>
+            <button>6</button>
             <div>text</div>
         </div>
-        <div class="btnContainer">
+        <div id="addImageGrid" class="btnContainer">
             <button>^</button>
             <div>image grid</div>
         </div>
-        <div class="btnContainer">
+        <div id="addFramework" class="btnContainer">
             <button>f</button>
             <div>frameworks</div>
         </div>

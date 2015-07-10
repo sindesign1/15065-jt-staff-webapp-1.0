@@ -35,7 +35,7 @@ var Sidebars = {
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('taphold', '#coverPageContainer, .mainImageSection', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer, .mainImageSection, .singleImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
@@ -184,7 +184,7 @@ var Sidebars = {
 		var contentText = $(obj).find('p.content').text();
 		var pText = $(obj).find('p').text();
 
-		if ( sectionClass == '.frameworksSection' ) {
+		if ( sectionClass.substring(0, 10) == '.framework' ) {
 			if ( !titleText ) {
 				titleText = $(obj).prevUntil('li p.title').find('p.title').last().text();
 			}
@@ -195,10 +195,18 @@ var Sidebars = {
 			contentText = '<span class="greyText edit-placeholder">Click here to add a sub-paragraph</span>';
 		}
 
+		console.log('addSectionItem: titleText=' + titleText);
+		console.log('addSectionItem: contentText=' + contentText);
+		console.log('addSectionItem: sectionClass=' + sectionClass);
+		console.log('addSectionItem: $(sectionClass).length=' + $(sectionClass).length);
+		console.log('addSectionItem: $(sectionClass).find(ul).first().length=' + $(sectionClass).find('ul').first().length);
+
 		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
 
 			var pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
 			if ( !pTag.text() ) {
+				console.log('addSectionItem: trying to append title...');
+			
 				$(sectionClass).find('ul').first().append (
 					$('<li/>').append(
 							$('<h4 contenteditable=true/>').html(titleText)
@@ -208,6 +216,8 @@ var Sidebars = {
 					)
 				;
 			}
+
+			console.log('addSectionItem: trying to append content...');
 
 			pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
 			var ulTag = pTag.parent().find('ul');
