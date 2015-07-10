@@ -84,7 +84,6 @@ h6 {
   left: -320px; }
 
 .sidebarRight {
-  top: 64px;
   right: -320px; }
 
 .openRight {
@@ -727,6 +726,7 @@ input:checked ~ .modal__overlay {
   width: 100%;
   height: 100%;
   bottom: 0;
+  margin-top: 90px;
   background: #505050;
   position: relative;
   text-align: center;
@@ -748,7 +748,7 @@ input:checked ~ .modal__overlay {
     width: 100%; }
     #coverPageContainer .innerContainer .addImageContainer {
       position: absolute;
-      bottom: 60%;
+      bottom: 68%;
       left: 46%; }
     #coverPageContainer .innerContainer .addImageBtn {
       background-color: #fff;
@@ -763,7 +763,7 @@ input:checked ~ .modal__overlay {
       color: #F16259; }
     #coverPageContainer .innerContainer .textContainer {
       position: absolute;
-      bottom: 18%;
+      bottom: 22%;
       left: 16%;
       width: 524px; }
       #coverPageContainer .innerContainer .textContainer .headerInput {
@@ -785,7 +785,7 @@ input:checked ~ .modal__overlay {
         margin-top: 10px; }
     #coverPageContainer .innerContainer #arrowContainer {
       position: absolute;
-      bottom: 4%;
+      bottom: 8%;
       left: 45%; }
       #coverPageContainer .innerContainer #arrowContainer .arrowBtn {
         font-family: jt-icons;
