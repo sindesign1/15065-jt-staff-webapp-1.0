@@ -1,7 +1,5 @@
 
 /* Styling */
-
-
 @font-face {
   font-family: "jt-icons";
   src:url("../fonts/jt-iconfont.eot");
@@ -21,21 +19,11 @@ html body {
 	font-size: 1em;
 	font-family: myriad pro, arial, sans-serif;
 	font-weight: lighter;
+	overflow: auto;
 }
 html {
     -webkit-font-smoothing: antialiased;
 }
-
-html {
-    -webkit-font-smoothing: antialiased;
-}
-
-html {
-    -webkit-font-smoothing: antialiased;
-}
-
-
-
 
 .topTitle {
 	// font-family:$iconfont;
@@ -59,7 +47,8 @@ h1, h2, h3 ,h4 ,h5 ,h6 {
 h1 {
 	// font-family:$iconfont;
 	font-size: $h1-size;
-	font-weight: normal;
+	font-weight: 300;
+	font-family: $museo;
 }
 
 h2 {

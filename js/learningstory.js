@@ -15,6 +15,7 @@ var Story = {
 		$('body').on('click touch', '#addPhotoElement', Story.addPhotoElement);
 		$(document).on('click touch','#learningStoryPage', Story.closePhotoSidebar);
 		$('body').on('click touch', '#addTextElement', Story.addTextElement);
+		$('body').on('click touch', '#arrowContainer', Story.slideUpEffect);
 
 	},
 
@@ -26,15 +27,15 @@ var Story = {
 
 	changeHeaderText: function(e) {
 		e.preventDefault();
-		$('#header, #subHeader').hide();
+		// $('#header, #subHeader').hide();
 
-		$('#headerInput, #subHeaderInput').show();
+		// $('#headerInput, #subHeaderInput').show();
 		$('#headerInput').focus();		
 	},
 
 	setInputVal: function() {
-		var headerText = $('#header').text();
-		var subHeaderText = $('#subHeader').text();
+		var headerText = "Today's Class Learning Story";
+		var subHeaderText = "Enter Classroom Details";
 
 		$('#headerInput').val(headerText);
 		$('#subHeaderInput').val(subHeaderText);
@@ -43,19 +44,17 @@ var Story = {
 	showArrow: function() {
 		var timeOut = window.setTimeout(Story.showArrow, 1000);
 		var $coverImg = $('body').find('#coverPageContainer');
-		var headerText = $('#header').text();
-		var subHeaderText = $('#subHeader').text();
-		var headerInput = $('#headerInput').val();
-		var subHeaderInput = $('#subHeaderInput').val();
+		var headerText = "Today's Class Learning Story";
+		var subHeaderText = "Enter Classroom Details";
+		var headerInput = $('#headerInput').text();
+		var subHeaderInput = $('#subHeaderInput').text();
 
 		var $arrowDiv = $('#arrowContainer');
 
 		$arrowDiv.hide();
 
-		console.log(headerText);
 		console.log(headerInput);
 
-		console.log(subHeaderText);
 		console.log(subHeaderInput);
 
 		console.log($coverImg.css('background-image'));
@@ -71,6 +70,17 @@ var Story = {
 			$arrowDiv.hide();
 		}
 
+	},
+
+	slideUpEffect: function(e) {
+		console.log('scrooooollleeedddd');
+		
+		var myDiv = $('html body');
+		console.log(myDiv);
+		var scrollto = myDiv.offset().top + 500;
+		myDiv.animate({ scrollTop:  myDiv.offset().top + 500}, 1000);
+		console.log(scrollto);
+		e.stopPropagation();
 	},
 
 	showAddBtn: function() {
@@ -131,6 +141,12 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$storyPage.append('<div contentEditable="true" class="storyInput"></div>');
+
+		var $textField = $('.storyInput').focus();
+
+		$('html, body').animate({
+	        scrollTop: $textField.offset().top + 500
+	    }, 1000);
 
 		$('.storyInput').focus();
 

@@ -16,7 +16,7 @@
         function getChildData(n) {
             var thisChild = {};
             thisChild.thumbnail = $(n).prop('src');
-            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', '');
+            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
             DataUtils.setCurrentChildData(thisChild);
             console.log(DataUtils.currentChildData());
             var thisChild = DataUtils.currentChildData();
@@ -30,7 +30,7 @@
     </script>
 </head>
 <body>
-
+    <div id="loadLearningStoryHeader"></div>
     <div id="coverPageContainer">
 
         <div class="innerContainer">
@@ -39,10 +39,10 @@
                 <div class="addImageBtnText">add image</div>
             </div>
             <div class="textContainer">
-                <div class="header" id="header">Today's Class Learning Story</div>
-                <div class="header" id="subHeader">Enter Classroom Details</div>
-                <textarea class="header" id="headerInput"></textarea>
-                <textarea class="header" id="subHeaderInput"></textarea>
+                <!-- <div class="header" id="header">Today's Class Learning Story</div>
+                <div class="header" id="subHeader">Enter Classroom Details</div> -->
+                <div contentEditable="true" class="headerInput" id="headerInput">Today's Class Learning Story</div>
+                <div contentEditable="true" class="headerInput" id="subHeaderInput">Enter Classroom Details</div>
                 <div class="date">18/07/2015</div>
             </div>
             <div id="arrowContainer">
@@ -82,8 +82,6 @@
             <div>nevermind</div>
         </div>
     </div>
-
-
 
     <!-- loaded templates -->
     <div id="loadPhotoSidebar"></div>

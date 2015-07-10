@@ -1,0 +1,187 @@
+#mainFeed { 
+	background-color:#fff;
+	width:100%;
+	box-sizing: border-box;
+	border: 5px solid #fff;
+	.profilePicture {
+				width: 46px;
+				height: 46px;
+				margin-right: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				border-radius: 40px;
+				border: 2px solid $melon;
+				
+
+				 /* there could be a global issue with profile image size and padding you have to reduce the size of the width and height to accomdate the border*/
+
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 40px;
+				}
+			}
+
+	#addToFeed{
+		float:left;
+		width:100%;
+
+		padding: 20px 0px 20px 0px;
+		
+		.feedAuth{
+			
+			width:15%;
+		}
+		#addFeedText{
+			float:left;
+			width:65%;
+			.profilePicture {
+				margin:0px 20px 0px 20px;
+				float:left;
+			}
+			input {
+				float:left;
+				background-color:$grey240;
+				color:$grey40;
+				padding: 8px;
+				border: none;
+				width: 80%;
+				display: inline-block;
+				box-sizing: border-box;
+				height: 50px;
+				font-size: 17px;
+				border-radius: 4px;
+				}
+				
+
+		}
+		#addFeedActions{
+			float:left;
+			width:35%;
+			.jtIcons{	
+				position:center;
+				display: inline-block;
+				font-family: $iconfont;
+				color: $grey200;
+				font-size:30px;	
+			}
+			ul{	
+				float:left;
+				margin:0px;
+				margin:0px;
+				
+			}
+			li{
+				float:left;
+				list-style: none;
+				text-align: center;
+				display: inline-block;
+				margin:10px 0px 0px 20px;
+
+			}
+
+		}	
+
+		
+	}
+	.feedAuth{
+		text-align: center;
+		.profilePicture{
+			margin:-30px 0px 0px 0px;
+		}
+		.feedAuthDetails{
+			color: $grey80;
+		}
+		.feedAuthDetails strong{
+			color: $melon;
+		}
+		.feedAuthTime{
+			color: $grey160;
+		}
+
+
+	}
+	#feedPhoto{
+		width:50%;
+		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
+		.feedPhotoImg{
+			width:100%;
+		}
+		.feedPhotoDescribe{
+			color: $grey80;
+			font-size: $h3-size;
+		}
+	}
+	#feedNotice{
+		width:50%;
+		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
+		.feedPhotoImg{
+			width:100%;
+		}
+		.feedNoticeText{
+			color: $grey80;
+			font-size: $h3-size;
+			background-color:$pale-melon;
+			padding:20px 20px 40px 20px;
+		}
+		.feedNoticeText p{
+			margin:0px;
+		}	
+	}
+	#feedLearnStory{
+		position:relative;
+		width:50%;
+		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
+		.feedLearnStoryImg{
+			width:100%;
+		}
+		.feedLearnStoryText{
+			position:absolute;
+			top: 40%;
+			color: #fff;
+			font-size:40px;
+			text-align: center;
+			padding:20px;
+
+		}
+	}
+	#feedPhotoGrid{
+		position:relative;
+		background-color:$grey200;
+		width:50%;
+		float: left;
+		box-sizing: border-box;
+		border: 5px solid #fff;
+		.feedPhotoGridImg{
+			width:100%;
+		}
+		.feedPhotoGridThumbs{
+			margin:0px;
+			padding:0px;
+			width:100%;
+			img{
+				width:100%;
+			}
+			li{
+				display: inline-block;
+				width:calc(100% / 3);
+				height: 100%;
+				list-style:none;
+				box-sizing: border-box;
+				border: 5px solid #fff;
+
+				&:first-child{
+					border-left: 0px;
+				}
+			}
+			
+
+		}
+	}		
+}

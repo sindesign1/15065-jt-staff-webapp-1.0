@@ -1,6 +1,5 @@
 @import "variables";
 @import "mixins";
-@import "fullScreen";
 @import "global";
 @import "sidebars";
 @import "chooseLearning";
@@ -9,5 +8,9 @@
 @import "botImgActions";
 @import "botMainNav";
 @import "botImgActions";
-@import "headerNav";
+@import "headers";
 @import "coverPage";
+@import "login";
+@import "learningCentre";
+@import "childHeader";
+@import "childNav";
