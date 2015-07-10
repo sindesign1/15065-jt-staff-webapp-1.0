@@ -1212,4 +1212,59 @@ input:checked ~ .modal__overlay {
 .hueGreenMessage {
   background: #D1E0AB; }
 
+.staffHeader {
+  z-index: 1;
+  width: 100%;
+  padding: 1em 0 0;
+  background: #F16259;
+  text-align: center;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .staffHeader .childMasthead {
+    width: 100%;
+    margin-bottom: 1em; }
+    .staffHeader .childMasthead .childTreeIcon {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      color: #fff;
+      font-family: jt-icons;
+      line-height: 28px; }
+  .staffHeader h3 {
+    padding-top: 1em;
+    font-family: museo;
+    font-weight: 500;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .staffHeader img {
+    width: 23%;
+    border: 3px solid #FFF;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+
+#staffProfileContainer {
+  padding: 40px; }
+  #staffProfileContainer .fullColumn {
+    margin-bottom: 40px; }
+  #staffProfileContainer .columnOne, #staffProfileContainer .columnTwo {
+    display: inline-block;
+    vertical-align: top; }
+  #staffProfileContainer .columnOne {
+    width: 20%; }
+  #staffProfileContainer .columnTwo {
+    width: 79%; }
+  #staffProfileContainer .label {
+    color: #F16259;
+    margin-bottom: 40px;
+    font-size: 20px; }
+  #staffProfileContainer .input {
+    color: #505050;
+    margin-bottom: 45px;
+    font-size: 17px; }
+
 /*# sourceMappingURL=style.css.map */
