@@ -21,7 +21,7 @@
 	text-align: left;
 	
 	p {
-		color: $melon;
+		color: #333;
 	}
 
 	ul {
@@ -34,9 +34,9 @@
 }
 
 .editImageTextArea {
-	textarea {
-		border: none;
-		width: 524px;
+	div {
+		color: #333;
+		margin-top: 20px;
 	}
 }
 

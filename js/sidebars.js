@@ -97,7 +97,7 @@ var Sidebars = {
 		$('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
 		$('.shrinkContainer').animate({'width': '55%', 'height': '55%', 'padding': '20px 20px'});
-		$('.editImageTextArea textarea').focus();
+		$('.editImageTextArea div').focus();
 		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
 
@@ -251,7 +251,7 @@ var Sidebars = {
 			var ulTag = pTag.parent().find('ul');
 			ulTag.append(
 				$('<li/>').append(
-					$('<h6 contenteditable=true/>').html(contentText)
+					$('<p contenteditable=true/>').html(contentText)
 				)
 			);
 
