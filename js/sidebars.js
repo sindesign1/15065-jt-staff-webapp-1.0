@@ -94,7 +94,7 @@ var Sidebars = {
 			$('#tagSidebar').addClass('openRight');
 		}
 
-		$('body').css('overflow', 'hidden');
+		// $('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
 		$('.shrinkContainer').animate({'width': '55%', 'height': '55%', 'padding': '20px 20px'});
 		$('.editImageTextArea div').focus();
@@ -148,12 +148,13 @@ var Sidebars = {
 			// $('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
 
 			$('.mainImage').css("background-image",'url(' + mainImg + ')');
-			$('.classGallery').hide();
+			$('#classroom').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
 			$('.mainImageSection').animate({'opacity': '1'});
-			$('#gridHeader').hide();
-			$('#imageHeader').show();
+			// $('#gridHeader').hide();
+			// $('#imageHeader').show();
+			$('#loadImgActionFooter').show();
 		}
 	},
 
@@ -176,6 +177,7 @@ var Sidebars = {
 		$('.profileTagsSection').hide();
 		$('.frameworksSection').hide();
 		$('.activitiesSection').hide();
+		$('#loadImgActionFooter').hide();
 
 		$('.editImageTextArea textarea').val('');
 		// $('.frameworksSection ul').find('li').not(':first').remove();
