@@ -43,11 +43,16 @@ var Sidebars = {
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
 		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
-		$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
-		$('body').on('click touch', '.li-activities', Sidebars.addActivity);
+		
+		$('body').off('click touch', '.li-frameworks');
+		$('body').off('click touch', '.li-activities');
+		$('body').on('click touch', '.li-frameworks', Common.frameworksClick);
+		$('body').on('click touch', '.li-activities', Common.activitiesClick);
+
 		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
-		$('.frameworksSelect').change(Sidebars.changeFramework);
+		$('body').on('change', '.frameworksSelect', Sidebars.changeFramework);
+		// $('.frameworksSelect').change(Sidebars.changeFramework);
 
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
 	},
@@ -259,22 +264,23 @@ var Sidebars = {
 	},
 
 	changeFramework: function() {
-		// $('#frameworksList ul').children().remove();
+		$('#frameworksList ul').children().remove();
 
-		// var val = $(this).val();
-		// var frameworkData = window.frameworkData[val];
-		// for ( var i=0; i<frameworkData.length; i++ ) {
-		// 	$('#frameworksList ul').append(
-		// 		$('<li class="li-frameworks"/>').append(
-		// 			frameworkData[i].title ?
-		// 			$('<p class="title"/>').text(frameworkData[i].title)
-		// 			:
-		// 			null
-		// 		).append(
-		// 			$('<p class="content"/>').text(frameworkData[i].content);
-		// 		)
-		// 	);
-		// }
+		var val = $(this).val();
+		var frameworkData = window.frameworkData[val];
+		for ( var i=0; i<frameworkData.length; i++ ) {
+			$('#frameworksList ul').append(
+				$('<li class="li-frameworks"/>').append(
+					frameworkData[i].title 
+					?
+					$('<p class="title"/>').text(frameworkData[i].title)
+					:
+					null
+				).append(
+					$('<p class="content"/>').text(frameworkData[i].content)
+				)
+			);
+		}
 	}
 }
 
@@ -285,57 +291,46 @@ window.addedActivities = new Array();
 
 window.frameworkData = {
 
-	// federal: [
-	// 	{
-	// 		title: '1.0 Connectedness',
-	// 		content: '1.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: '1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: '1.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		title: '2.0 Wellbeing',
-	// 		content: '2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: '2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	}
-	// ],
+	federal: [
+		{
+			title: '1.0 Connectedness',
+			content: '1.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: '1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: '1.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '2.0 Wellbeing',
+			content: '2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: '2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		}
+	],
 	state: [
-	// 	{
-	// 		title: 'a1.0 Connectedness',
-	// 		content: '1a.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: 'a1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		title: 'a2.0 Wellbeing',
-	// 		content: 'a2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: 'a2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: 'a2.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	},
-	// 	{
-	// 		content: 'a2.4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	// 		tempor incididunt ut labore et dolore magna aliqua.'
-	// 	}
+		{
+			title: 'a1.0 Connectedness',
+			content: '1a.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: 'a1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: 'a2.0 Wellbeing',
+			content: 'a2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: 'a2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: 'a2.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			content: 'a2.4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		}
 	]
 };
 
