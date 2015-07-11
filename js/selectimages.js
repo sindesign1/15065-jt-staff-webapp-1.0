@@ -24,6 +24,8 @@ var SelectImages = {
 		$('div.thumbnail').css({'border': 'none'});
 
 		$('body').off('click touch', 'div.thumbnail');
+
+		window.selectedImages = new Array();
 	},
 
 	events: function() {
@@ -37,8 +39,12 @@ var SelectImages = {
 
 	selectImage: function() {
 		$(this).css({'border-style': 'solid', 'border-color': 'red'});
+		var imgSrc = $(this).find('.classroomThumbImg').attr("src");
+		window.selectedImages.push(imgSrc);
 	}
 }
+
+window.selectedImages = new Array();
 
 $(document).ready(function(){
 	SelectImages.init();

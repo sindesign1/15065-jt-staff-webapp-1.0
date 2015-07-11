@@ -19,11 +19,14 @@ var Story = {
 		$('body').on('click touch', '#addFramework', Story.addFramework);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
-		$('body').off('click touch', '.li-frameworks');
-		$('body').off('click touch', '.li-activities');
-		$('body').on('click touch', '.li-frameworks', Common.frameworksClick);
-		$('body').on('click touch', '.li-activities', Common.activitiesClick);
 
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			console.log('setting li ons to Story');
+			$('body').off('click touch', '.li-frameworks');
+			$('body').off('click touch', '.li-activities');
+			$('body').on('click touch', '.li-frameworks', Story.appendTagContent);
+			$('body').on('click touch', '.li-activities', Story.appendTagContent);
+		}
 	},
 
 	findScreenHeight: function() {

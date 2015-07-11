@@ -35,19 +35,23 @@ var Sidebars = {
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('taphold', '#coverPageContainer, .mainImageSection, .singleImage', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
 		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
-		
-		$('body').off('click touch', '.li-frameworks');
-		$('body').off('click touch', '.li-activities');
-		$('body').on('click touch', '.li-frameworks', Common.frameworksClick);
-		$('body').on('click touch', '.li-activities', Common.activitiesClick);
+
+		if ( window.sourcePage == 'classroom' ) {
+			console.log('setting li ons to Sidebars');
+			$('body').off('click touch', '.li-frameworks');
+			$('body').off('click touch', '.li-activities');
+			$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
+			$('body').on('click touch', '.li-activities', Sidebars.addActivity);
+		}		
 
 		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
@@ -147,7 +151,7 @@ var Sidebars = {
 			$('.classGallery').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
-			$('.mainImageSection').animate({'opacity': '1', 'z-index': '-800'});
+			$('.mainImageSection').animate({'opacity': '1'});
 			$('#gridHeader').hide();
 			$('#imageHeader').show();
 		}
@@ -164,7 +168,7 @@ var Sidebars = {
 		$('.headerPlaceholder').show();
 		$('.modalHeaderPlaceholder').hide();
 		$('#loadMainFooter').show();
-		$('.mainImageSection').css({'opacity': '0', 'z-index': '-800'});
+		$('.mainImageSection').css({'opacity': '0'});
 		$('.classGallery').show();
 		$('.mainImage').animate({'width': '100%'});
 
@@ -183,6 +187,32 @@ var Sidebars = {
 		window.addedProfileTags = new Array();
 		window.addedFrameworks = new Array();
 		window.addedActivities = new Array();
+	},
+
+	editImagesMulti: function() {
+
+		Sidebars.openMainModal();
+
+		if ( window.selectedImages.length > 0 ) {
+			$('.mainImage').addClass('mainImage-0');
+			$('.mainImage').css("background-image",'url(' + window.selectedImages[0] + ')');
+		}
+
+		for ( var i=1; i<window.selectedImages.length; i++ ) {
+			var thisMainImage = $('<div class="mainImage"/>');
+			thisMainImage.addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
+			thisMainImage.insertAfter('.mainImage-'+(i-1));
+		}
+
+		$('.mainImage').css({'width': '20%', 'heigth': '20%'})
+		$('.classGallery').hide();
+		$('.mainImageSection').show();
+		$('#loadMainFooter').hide();
+		$('.mainImageSection').animate({'opacity': '1'});
+		$('#gridHeader').hide();
+		$('#imageHeader').show();
+
+		Sidebars.toggleTagSidebar();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
