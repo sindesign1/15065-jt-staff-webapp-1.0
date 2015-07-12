@@ -164,6 +164,7 @@ var Sidebars = {
 
 		Sidebars.closeTagSidebar();
 
+		$('#classroom').show();
 		$('#gridHeader').show();
 		$('#imageHeader').hide();
 

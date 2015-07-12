@@ -21,7 +21,7 @@ var SelectImages = {
 
 		window.selectImagesChecked = false;
 
-		$('div.thumbnail').css({'border': 'none'});
+		$('div.thumbnail').css({'border': 'none', 'border-color': ''});
 
 		$('body').off('click touch', 'div.thumbnail');
 
