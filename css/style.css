@@ -1177,6 +1177,17 @@ input:checked ~ .modal__overlay {
       left: -20px; }
     .childMessages .messageLeft h6 {
       left: 40px; }
+    .childMessages .messageLeft:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 30px solid transparent;
+      border-top: 24px solid #FCDCDB;
+      position: absolute;
+      top: 73px;
+      left: 10px;
+      border-radius: 0px; }
   .childMessages .messageRight {
     float: right; }
     .childMessages .messageRight .messageProfilePic {
@@ -1208,9 +1219,31 @@ input:checked ~ .modal__overlay {
 
 .tintGreenMessage {
   background: #BBD483; }
+  .tintGreenMessage:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 24px solid #BBD483;
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    border-radius: 0px; }
 
 .hueGreenMessage {
   background: #D1E0AB; }
+  .hueGreenMessage:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 24px solid #D1E0AB;
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    border-radius: 0px; }
 
 .staffHeader {
   z-index: 1;
