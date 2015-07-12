@@ -211,6 +211,8 @@ var Sidebars = {
 			thisMainImage.insertAfter('.mainImage-'+(i-1));
 		}
 
+		$('.mainImage').addClass('arrange-horizontally');
+		
 		$('.mainImage').css({'width': '20%', 'height': '20%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
