@@ -276,7 +276,34 @@ var Story = {
 		window.addedActivities = new Array();
 
 		window.frameworkIndex++;
-		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+
+		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
+
+			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
+
+			$storyPage.append(
+				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
+					$('<ul/>').append(
+						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
+						)
+					)
+				).append(
+					$('<ul/>').append(
+						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
+						)
+				).append(
+				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
+					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
+						$('<h6/>')
+						)
+					)
+				).append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		}
+
 	},
 
 	appendTagContent: function() {
@@ -289,33 +316,6 @@ var Story = {
 
 		var sectionClass = sectionType.replace('List', 'Section') + window.frameworkIndex;
 
-		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
-
-			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-
-			$storyPage.append(
-				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
-					$('<ul/>').append(
-						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
-							$('<ul/>')
-							)
-						)
-					)
-				).append(
-					$('<ul/>').append(
-						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
-							$('<ul/>')
-							)
-						)
-				).append(
-				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
-					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
-						$('<h6/>')
-						)
-					)
-			);
-		}
-
 		// 2. Call Sidebars.addFramework() etc;
 		if ( sectionType == 'frameworksList' ) {
 			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedFrameworks);
@@ -327,36 +327,36 @@ var Story = {
 
 	addProfileTag: function() {
 
-		var $storyPage = $('#learningStoryPage');
-		var sectionClass = '.profileTagsSection'+ window.frameworkIndex;
+		var $storyPage = $('#learningStoryPageTags');
+		var sectionClass = '.profileTagsSection';
 		var obj = this;
 		var addedArray = window.addedProfileTags;
 
-		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
+		// if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
 
-			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-			$storyPage.append(
-				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
-					$('<ul/>').append(
-						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
-							$('<ul/>')
-							)
-						)
-				).append(
-					$('<ul/>').append(
-						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
-							$('<ul/>')
-							)
-						)
-					)
-				).append(
-				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
-					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
-						$('<h6/>')
-						)
-					)
-			);
-		}
+		// 	// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
+		// 	$storyPage.append(
+		// 		$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
+		// 			$('<ul/>').append(
+		// 				$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
+		// 					$('<ul/>')
+		// 					)
+		// 				)
+		// 		).append(
+		// 			$('<ul/>').append(
+		// 				$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
+		// 					$('<ul/>')
+		// 					)
+		// 				)
+		// 			)
+		// 		).append(
+		// 		$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
+		// 			$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
+		// 				$('<h6/>')
+		// 				)
+		// 			)
+		// 	);
+		// }
 
 		var personName = $(obj).find('.personName').text();
 
@@ -374,7 +374,7 @@ var Story = {
 				tagText += '<span class="greyText"> and </span>' + addedArray[addedArray.length-1];
 			}
 
-			$(sectionClass).find('h6').html(tagText);
+			$(sectionClass).html(tagText);
 		}
 	},
 
