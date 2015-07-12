@@ -38,9 +38,25 @@ var SelectImages = {
 	},
 
 	selectImage: function() {
-		$(this).css({'border-style': 'solid', 'border-color': 'red'});
+
 		var imgSrc = $(this).find('.classroomThumbImg').attr("src");
-		window.selectedImages.push(imgSrc);
+
+		if ( $(this).css('border-color') == 'rgb(255, 0, 0)' ) {
+
+			$(this).css({'border-style': 'none', 'border-color': ''});
+
+			var index = window.selectedImages.indexOf(imgSrc);
+			if ( index > -1 ) {
+			    window.selectedImages.splice(index, 1);
+			}
+
+		} else {
+			$(this).css({'border-style': 'solid', 'border-color': 'red'});
+
+			if ( $.inArray(imgSrc, window.selectedImages) == -1 ) {
+				window.selectedImages.push(imgSrc);
+			}
+		}
 	}
 }
 

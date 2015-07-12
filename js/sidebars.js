@@ -134,6 +134,7 @@ var Sidebars = {
 		}
 		$('body').css('overflow', 'auto');
 	},
+
 	openMainModal: function() {
 		console.log('open main modal');
 
@@ -193,6 +194,9 @@ var Sidebars = {
 
 		Sidebars.openMainModal();
 
+		$('.mainImage-extra').remove();
+		$('.mainImage').css("background-image",'');
+
 		if ( window.selectedImages.length > 0 ) {
 			$('.mainImage').addClass('mainImage-0');
 			$('.mainImage').css("background-image",'url(' + window.selectedImages[0] + ')');
@@ -200,11 +204,11 @@ var Sidebars = {
 
 		for ( var i=1; i<window.selectedImages.length; i++ ) {
 			var thisMainImage = $('<div class="mainImage"/>');
-			thisMainImage.addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
+			thisMainImage.addClass('mainImage-extra').addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
 			thisMainImage.insertAfter('.mainImage-'+(i-1));
 		}
 
-		$('.mainImage').css({'width': '20%', 'heigth': '20%'})
+		$('.mainImage').css({'width': '20%', 'height': '20%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
 		$('#loadMainFooter').hide();
