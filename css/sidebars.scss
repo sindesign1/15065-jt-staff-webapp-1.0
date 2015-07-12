@@ -48,6 +48,51 @@
 	margin-bottom: 40px;
 	padding: 20px 20px 0 20px;
 
+	.tagWrapper {
+		width: 50%;
+		display: inline-block;
+		vertical-align: middle;
+
+		input {
+			width: 70%;
+		}
+	}
+
+	.selectList {
+
+		display: inline;
+
+		&:after {
+			content: "_";
+			font-family: $iconfont;
+			position: absolute;
+			top: 10.5%;
+	        right: 9%;
+	        bottom: 0;
+	        font-size: 30px;
+	        line-height: 30px;
+	        height: 30px;
+	        color: #787878;
+	        pointer-events: none;
+		}
+	}
+
+	.frameworksSelect {
+		background: rgba(255,255,255,0.8);
+		border: 0;
+		border-radius: 0px;
+		color: #787878;
+		height: 52px;
+		width: 47%;
+		margin-left: 5px;
+		border-color: rgb(170, 170, 170);
+		-webkit-appearance: none;
+		padding: 0 8px;
+		font-size: 17px;
+		vertical-align: top;
+
+	}
+
 	.searchWrapper {
 
 		background: rgba(255,255,255,0.8);
