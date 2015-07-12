@@ -279,31 +279,24 @@ var Story = {
 
 		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
 
-			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-
 			$storyPage.append(
 				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
 					$('<ul/>').append(
-						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
+						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
 							$('<ul/>')
 							)
 						)
 					)
 				).append(
 					$('<ul/>').append(
-						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
+						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
 							$('<ul/>')
 							)
 						)
 				).append(
-				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
-					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
-						$('<h6/>')
-						)
-					)
-				).append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+					$('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+				);
 		}
-
 	},
 
 	appendTagContent: function() {
@@ -318,9 +311,11 @@ var Story = {
 
 		// 2. Call Sidebars.addFramework() etc;
 		if ( sectionType == 'frameworksList' ) {
+			$('.frameworksSection' + window.frameworkIndex).show();
 			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedFrameworks);
 		}
 		if ( sectionType == 'activitiesList' ) {
+			$('.activitiesSection' + window.frameworkIndex).show();
 			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedActivities);
 		}
 	},
@@ -331,32 +326,6 @@ var Story = {
 		var sectionClass = '.profileTagsSection';
 		var obj = this;
 		var addedArray = window.addedProfileTags;
-
-		// if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
-
-		// 	// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-		// 	$storyPage.append(
-		// 		$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
-		// 			$('<ul/>').append(
-		// 				$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
-		// 					$('<ul/>')
-		// 					)
-		// 				)
-		// 		).append(
-		// 			$('<ul/>').append(
-		// 				$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
-		// 					$('<ul/>')
-		// 					)
-		// 				)
-		// 			)
-		// 		).append(
-		// 		$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
-		// 			$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
-		// 				$('<h6/>')
-		// 				)
-		// 			)
-		// 	);
-		// }
 
 		var personName = $(obj).find('.personName').text();
 
