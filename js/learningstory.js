@@ -1,5 +1,7 @@
 var Story = {
 
+	sliderOpen: false,
+
 	init: function() {
 		Story.events();
 		Story.setInputVal();
@@ -13,10 +15,13 @@ var Story = {
 		$('body').on('click touch', '.addElementBtn', Story.openAddElement);
 		$('body').on('click touch', '#nevermindBtn', Story.closeAddElement);
 		$('body').on('click touch', '#addPhotoElement', Story.addPhotoElement);
-		$(document).on('click touch','#learningStoryPage', Story.closePhotoSidebar);
+		$('body').on('click touch','.menuIcon', Story.closePhotoSidebar);
 		$('body').on('click touch', '#addTextElement', Story.addTextElement);
 		$('body').on('click touch', '#arrowContainer', Story.slideUpEffect);
 		$('body').on('click touch', '#addFramework', Story.addFramework);
+		$('body').on('click touch', '#addImageGrid', Story.addImageGridElement);
+		$('body').on('click touch', '.gridImage', Story.addSelectedGridImage);
+		$('body').on('click touch', '.edit', Story.editElements);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -90,10 +95,11 @@ var Story = {
 		var scrollto = myDiv.offset().top + 500;
 		myDiv.animate({ scrollTop:  myDiv.offset().top + 500}, 1000);
 		console.log(scrollto);
-		e.stopPropagation();
+		// e.stopPropagation();
 	},
 
 	showAddBtn: function() {
+		console.log('test');
 		$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 	},
 
@@ -114,7 +120,7 @@ var Story = {
 
 		$('div.singleImage').removeClass('singleImage-active');
 
-		$storyPage.append('<div class="singleImage singleImage-active"></div>');
+		$storyPage.append('<div class="singleImage edit singleImage-active"></div>');
 
 		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -131,6 +137,7 @@ var Story = {
 	        scrollTop: $image.offset().top + 500
 	    }, 1000);
 
+		Story.sliderOpen = true;
 	    $('#addImageSidebar').addClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {
 			$('#addImageSidebar').addClass('openLeft');
@@ -158,7 +165,7 @@ var Story = {
 	        scrollTop: $textField.offset().top + 500
 	    }, 1000);
 		e.preventDefault();
-		e.stopPropagation();
+		// e.stopPropagation();
 		$('.storyInput').focus();
 
 		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
@@ -166,6 +173,86 @@ var Story = {
 
 		$('#addElementContainer').css('display', 'none');
 		$('#learningStoryPage').css('height', 'auto');
+	},
+
+	addImageGridElement: function() {
+		var $storyPage = $('#learningStoryPage');
+
+		$('div.singleImage').removeClass('singleImage-active');
+
+		$storyPage.append('<div class="gridImages edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div>');
+
+		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+
+
+		window.divForImageGrid = '.singleImage-active';
+
+		$('#addElementContainer').css('display', 'none');
+
+		$storyPage.css('height', '100%');
+		var $image = $storyPage.find('div.gridImage.singleImage-active');
+		console.log($image);
+
+		$('html, body').animate({
+	        scrollTop: $image.offset().top + 500
+	    }, 1000);
+
+		Story.sliderOpen = true;
+	    $('#addImageSidebar').addClass('display');
+		if($('#addImageSidebar').hasClass('sidebarLeft')) {
+			$('#addImageSidebar').addClass('openLeft');
+		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+			$('#addImageSidebar').addClass('openRight');
+		}
+
+		if($('#addImageSidebar').hasClass('openRight')) {
+			$('#learningStoryPage').css('padding', '20px 20px');
+			$('.singleImage').css('width', '56%');
+		}
+
+		$('.singleImage').css('display', 'block');
+		$('#learningStoryPage').css('height', 'auto');
+	},
+
+	//when a grid image is clicked, change the active class to this image
+	addSelectedGridImage: function(e){
+		if(!Story.sliderOpen){
+			console.log('asgl stopped!!!');
+			return;
+		}
+		var $this = $(this);
+		// e.stopPropagation();
+		$('.gridImage.singleImage-active').removeClass('singleImage-active');
+		$this.addClass('singleImage-active');
+	},
+
+	editElements: function() {
+		//stops this from happening when sliders open
+		if(Story.sliderOpen){
+			return;
+		}
+		// $('.edit').removeClass('overlay');
+		var $this = $(this);
+		
+
+		var height = $this.height();
+		var width = $this.width();
+		var top = $this.offset().top;
+		var $overlay = $('.overlay');
+
+
+		console.log(width);
+
+		$overlay.height(height);
+		$overlay.width(width);
+		$overlay.offset({top: top});
+
+		$overlay.show();
+		$this.append($overlay);
+
+		// $overlay.append('<div class="editOptions"><div id="addPhotoElement" class="btnContainer"><button>^</button><div>photo</div></div><div id="addTextElement" class="btnContainer"><button>6</button><div>text</div></div><div id="addImageGrid" class="btnContainer"><button>^</button><div>image grid</div></div><div id="addFramework" class="btnContainer"><button>f</button><div>frameworks</div></div></div>');
+
+		
 	},
 
 	addFramework: function() {
@@ -193,6 +280,7 @@ var Story = {
 	appendTagContent: function() {
 
 		var $storyPage = $('#learningStoryPage');
+		var $editContainer = $('<div class="edit"></div>');
 
 		// 1 Detect what section theuser clicked
 		var sectionType = $(this).parent().parent().attr('id');
@@ -202,7 +290,8 @@ var Story = {
 		if ( !$storyPage.find('.' + sectionClass).length ) {
 
 			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-			$storyPage.append(
+			$storyPage.append($editContainer);
+			$editContainer.append(
 				$('<ul/>').append(
 					$('<li class="' + sectionClass + '"/>').append(
 						$('<ul/>')
@@ -221,6 +310,7 @@ var Story = {
 	},
 
 	closePhotoSidebar: function() {
+		Story.sliderOpen = false;
 		$('#addImageSidebar').removeClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {
 			$('#addImageSidebar').removeClass('openLeft');

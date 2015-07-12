@@ -575,8 +575,11 @@
 
 	#buttonContainer {
 		padding: 20px;
-		margin-top: 100px;
 		text-align: center;
+		position: fixed;
+		bottom: 62px;
+		background-color: #333;
+		z-index: 99;
 
 		button {
 			background: none;

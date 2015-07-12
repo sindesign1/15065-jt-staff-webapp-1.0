@@ -10,10 +10,6 @@
     </script>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
-    <script src="../js/common.js" type="text/javascript"></script>
-    <script src="../js/datautils.js" type="text/javascript"></script>
-    <script src="../js/sidebars.js" type="text/javascript"></script>
-    <script src="../js/learningstory.js" type="text/javascript"></script>
     <script src="../js/templates.js" type="text/javascript"></script>
     <script src="//use.typekit.net/xxx2qsl.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
@@ -27,6 +23,7 @@
             console.log(DataUtils.currentChildData());
             var thisChild = DataUtils.currentChildData();
             $(window.divForBackground).css("background-image",'url(' + thisChild.image + ')');
+            $(window.divForImageGrid).css("background-image",'url(' + thisChild.thumbnail + ')');
             // $('#coverPageContainer').css("background-image",'url(' + thisChild.image + ')');
             // $('.singleImage').css('background-image', 'url(' + thisChild.image + ')');
             $('#coverPageContainer').find('.innerContainer').css('border', 'none');
@@ -85,6 +82,28 @@
         <div id="addFramework" class="btnContainer">
             <button>f</button>
             <div>frameworks</div>
+        </div>
+        <div id="nevermindBtn">
+            <div>nevermind</div>
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div id="addPhotoElement" class="btnContainer">
+            <button>2</button>
+            <div>edit</div>
+        </div>
+        <div id="addTextElement" class="btnContainer">
+            <button>a</button>
+            <div>delete</div>
+        </div>
+        <div id="addImageGrid" class="btnContainer">
+            <button>|</button>
+            <div>move up</div>
+        </div>
+        <div id="addFramework" class="btnContainer">
+            <button>_</button>
+            <div>move down</div>
         </div>
         <div id="nevermindBtn">
             <div>nevermind</div>
