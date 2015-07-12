@@ -27,8 +27,10 @@ var Story = {
 
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			console.log('setting li ons to Story');
+			$('body').off('click touch', '.li-profiles');
 			$('body').off('click touch', '.li-frameworks');
 			$('body').off('click touch', '.li-activities');
+			$('body').on('click touch', '.li-profiles', Story.addProfileTag);
 			$('body').on('click touch', '.li-frameworks', Story.appendTagContent);
 			$('body').on('click touch', '.li-activities', Story.appendTagContent);
 		}
@@ -287,17 +289,31 @@ var Story = {
 
 		var sectionClass = sectionType.replace('List', 'Section') + window.frameworkIndex;
 
-		if ( !$storyPage.find('.' + sectionClass).length ) {
+		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
 
 			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
-			$storyPage.append($editContainer);
-			$editContainer.append(
-				$('<ul/>').append(
-					$('<li class="' + sectionClass + '"/>').append(
-						$('<ul/>')
+
+			$storyPage.append(
+				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
+					$('<ul/>').append(
+						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
 						)
 					)
-				);
+				).append(
+					$('<ul/>').append(
+						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
+						)
+				).append(
+				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
+					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
+						$('<h6/>')
+						)
+					)
+			);
 		}
 
 		// 2. Call Sidebars.addFramework() etc;
@@ -306,6 +322,59 @@ var Story = {
 		}
 		if ( sectionType == 'activitiesList' ) {
 			Sidebars.addSectionItem(this, '.' + sectionClass, window.addedActivities);
+		}
+	},
+
+	addProfileTag: function() {
+
+		var $storyPage = $('#learningStoryPage');
+		var sectionClass = '.profileTagsSection'+ window.frameworkIndex;
+		var obj = this;
+		var addedArray = window.addedProfileTags;
+
+		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
+
+			// 1. Construct the frameworksSection or activitiesSection or profileTagsSection
+			$storyPage.append(
+				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
+					$('<ul/>').append(
+						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
+						)
+				).append(
+					$('<ul/>').append(
+						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').append(
+							$('<ul/>')
+							)
+						)
+					)
+				).append(
+				$('<div id="storyPageBottom' + window.frameworkIndex + '"/>').append(
+					$('<div class="profileTagsSection' + window.frameworkIndex + '"/>').append(
+						$('<h6/>')
+						)
+					)
+			);
+		}
+
+		var personName = $(obj).find('.personName').text();
+
+		if ( $.inArray(personName, addedArray) == -1 ) {
+			addedArray.push(personName);
+
+			var tagText = '<span class="greyText">With </span>' + addedArray[0];
+			if ( addedArray.length > 1 ) {
+				if ( addedArray.length > 2 ) {
+					for ( var i=1; i<addedArray.length-1; i++ ) {
+						tagText += ', ' + addedArray[i];
+					}
+				}
+
+				tagText += '<span class="greyText"> and </span>' + addedArray[addedArray.length-1];
+			}
+
+			$(sectionClass).find('h6').html(tagText);
 		}
 	},
 

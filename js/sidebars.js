@@ -43,12 +43,12 @@ var Sidebars = {
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
-		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
-
 		if ( window.sourcePage == 'classroom' ) {
 			console.log('setting li ons to Sidebars');
+			$('body').off('click touch', '.li-profiles');
 			$('body').off('click touch', '.li-frameworks');
 			$('body').off('click touch', '.li-activities');
+			$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
 			$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
 			$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 		}		
@@ -134,6 +134,7 @@ var Sidebars = {
 		}
 		$('body').css('overflow', 'auto');
 	},
+
 	openMainModal: function() {
 		console.log('open main modal');
 
@@ -163,6 +164,7 @@ var Sidebars = {
 
 		Sidebars.closeTagSidebar();
 
+		$('#classroom').show();
 		$('#gridHeader').show();
 		$('#imageHeader').hide();
 
@@ -195,6 +197,9 @@ var Sidebars = {
 
 		Sidebars.openMainModal();
 
+		$('.mainImage-extra').remove();
+		$('.mainImage').css("background-image",'');
+
 		if ( window.selectedImages.length > 0 ) {
 			$('.mainImage').addClass('mainImage-0');
 			$('.mainImage').css("background-image",'url(' + window.selectedImages[0] + ')');
@@ -202,11 +207,13 @@ var Sidebars = {
 
 		for ( var i=1; i<window.selectedImages.length; i++ ) {
 			var thisMainImage = $('<div class="mainImage"/>');
-			thisMainImage.addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
+			thisMainImage.addClass('mainImage-extra').addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
 			thisMainImage.insertAfter('.mainImage-'+(i-1));
 		}
 
-		$('.mainImage').css({'width': '20%', 'heigth': '20%'})
+		$('.mainImage').addClass('arrange-horizontally');
+
+		$('.mainImage').css({'width': '20%', 'height': '20%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
 		$('#loadMainFooter').hide();
