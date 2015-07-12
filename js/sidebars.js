@@ -43,12 +43,12 @@ var Sidebars = {
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
-		$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
-
 		if ( window.sourcePage == 'classroom' ) {
 			console.log('setting li ons to Sidebars');
+			$('body').off('click touch', '.li-profiles');
 			$('body').off('click touch', '.li-frameworks');
 			$('body').off('click touch', '.li-activities');
+			$('body').on('click touch', '.li-profiles', Sidebars.addProfileTag);
 			$('body').on('click touch', '.li-frameworks', Sidebars.addFramework);
 			$('body').on('click touch', '.li-activities', Sidebars.addActivity);
 		}		
@@ -212,7 +212,7 @@ var Sidebars = {
 		}
 
 		$('.mainImage').addClass('arrange-horizontally');
-		
+
 		$('.mainImage').css({'width': '20%', 'height': '20%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
