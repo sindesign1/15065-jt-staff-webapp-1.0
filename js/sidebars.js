@@ -330,6 +330,9 @@ var Sidebars = {
 	},
 
 	deleteImagesDialog: function() {
+
+		Sidebars.closeTagSidebar();
+
 		var msg = "Your image is about to be deleted!";
 		if ( window.selectedImages.length > 0 ) {
 			msg = "Your images are about to be deleted!";
@@ -349,7 +352,7 @@ var Sidebars = {
 	deleteImages: function() {
 
 		$.modal.close();
-		
+
 		window.deletedImages = window.deletedImages || new Array();
 		window.deletedImages = window.deletedImages.concat(window.selectedImages);
 
