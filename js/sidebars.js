@@ -35,7 +35,7 @@ var Sidebars = {
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
-		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
+		$('body').on('taphold', '#coverPageContainer, .mainImage, .singleImage, .gridImages', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
@@ -256,7 +256,7 @@ var Sidebars = {
 			
 				$(sectionClass).find('ul').first().append (
 					$('<li/>').append(
-							$('<h4 contenteditable=true/>').html(titleText)
+							$('<h4 contenteditable=true/>').addClass('frameworksTitle').html(titleText)
 						).append(
 							$('<ul/>')
 						)
