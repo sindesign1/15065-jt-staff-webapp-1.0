@@ -27,7 +27,7 @@ var Templates = {
 		$('head').append("<script src='../js/taphold.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/main.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/common.js' type='text/javascript'></script>");
-		$('head').append("<script src='../js/selectimages.js' type='text/javascript'></script>");
+		// $('head').append("<script src='../js/selectimages.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/datautils.js' type='text/javascript'></script>");
 	},
 

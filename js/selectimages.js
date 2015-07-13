@@ -21,7 +21,7 @@ var SelectImages = {
 
 		window.selectImagesChecked = false;
 
-		$('div.thumbnail').css({'border': 'none', 'border-color': ''});
+		$('div.thumbnail').css({'box-shadow': 'none'});
 
 		$('body').off('click touch', 'div.thumbnail');
 
@@ -41,20 +41,27 @@ var SelectImages = {
 
 		var imgSrc = $(this).find('.classroomThumbImg').attr("src");
 
-		if ( $(this).css('border-color') == 'rgb(255, 0, 0)' ) {
+		var $selectElement = $(this);
 
-			$(this).css({'border-style': 'none', 'border-color': ''});
+/*
+-webkit-box-shadow:inset 0 0 0 2px #FF0000 ;
+box-shadow:inset 0 0 0 2px #FF0000 ;
+*/
+
+		if ( $selectElement.css('box-shadow') == 'none' ) {
+
+			$selectElement.css({'-webkit-box-shadow': '0 0 0 2px #FF0000', 'box-shadow': '0 0 0 2px #FF0000'});
+
+			if ( $.inArray(imgSrc, window.selectedImages) == -1 ) {
+				window.selectedImages.push(imgSrc);
+			}
+		} else {
+			
+			$selectElement.css({'box-shadow': 'none'});
 
 			var index = window.selectedImages.indexOf(imgSrc);
 			if ( index > -1 ) {
 			    window.selectedImages.splice(index, 1);
-			}
-
-		} else {
-			$(this).css({'border-style': 'solid', 'border-color': 'red'});
-
-			if ( $.inArray(imgSrc, window.selectedImages) == -1 ) {
-				window.selectedImages.push(imgSrc);
 			}
 		}
 	}

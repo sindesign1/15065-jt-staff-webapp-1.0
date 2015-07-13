@@ -148,6 +148,8 @@ var Sidebars = {
 			// $('.classroomLargeImg').attr("src",mainImg);
 			// $('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
 
+			$('.mainImage-extra').remove();
+	
 			$('.mainImage').css("background-image",'url(' + mainImg + ')');
 			$('#classroom').hide();
 			$('.mainImageSection').show();
@@ -173,7 +175,7 @@ var Sidebars = {
 		$('#loadMainFooter').show();
 		$('.mainImageSection').css({'opacity': '0'});
 		$('.classGallery').show();
-		$('.mainImage').animate({'width': '100%'});
+		$('.mainImage').animate({'width': '100%', 'height': '100%'});
 
 		$('.editImageTextArea').hide();
 		$('.profileTagsSection').hide();
@@ -201,7 +203,7 @@ var Sidebars = {
 		$('.mainImage').css("background-image",'');
 
 		if ( window.selectedImages.length > 0 ) {
-			$('.mainImage').addClass('mainImage-0');
+			$('.mainImage').addClass('mainImage-0').addClass('arrange-horizontally');
 			$('.mainImage').css("background-image",'url(' + window.selectedImages[0] + ')');
 		}
 
@@ -209,11 +211,11 @@ var Sidebars = {
 			var thisMainImage = $('<div class="mainImage"/>');
 			thisMainImage.addClass('mainImage-extra').addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
 			thisMainImage.insertAfter('.mainImage-'+(i-1));
+
+			$('.mainImage-' + i).addClass('arrange-horizontally');
 		}
 
-		$('.mainImage').addClass('arrange-horizontally');
-
-		$('.mainImage').css({'width': '20%', 'height': '20%'})
+		$('.mainImage').css({'width': '32%', 'height': '32%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
 		$('#loadMainFooter').hide();
