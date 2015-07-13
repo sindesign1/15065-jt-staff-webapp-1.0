@@ -152,6 +152,30 @@
         color: #333;
     }
 
+    .textOptions {
+        position: absolute;
+        right: 40px;
+        margin-top: -70px;
+        font-family: $iconfont;
+        color: #333;
+
+        .textArrows {
+            background: #eee;
+            border-radius: 40px;
+            height: 40px;
+            width: 40px;
+            font-size: 41px;
+            margin: 0px;
+            box-sizing: border-box;
+            line-height: 44px;
+            margin-bottom: 10px;
+        }
+
+        .textDelete {
+            font-size: 31px;
+        }
+    }
+
     ul {
         color: #333;
     }
