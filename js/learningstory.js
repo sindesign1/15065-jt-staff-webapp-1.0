@@ -25,7 +25,7 @@ var Story = {
 		$('body').on('click touch', '.edit', Story.showEditOverlay);
 		$('body').on('click touch', '#editElement', Story.editElement);
 		$('body').on('click touch', '#moveUp', Story.moveUp);
-		// $('body').on('click touch', '#moveDown', Story.moveDown);
+		$('body').on('click touch', '#moveDown', Story.moveDown);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -243,7 +243,7 @@ var Story = {
 		$('.overlay').show();
 		var height = $this.height();
 		var width = $this.width();
-		var top = $this.offset().top;
+		// var top = $this.offset().top;
 		var $overlay = $('.overlay');
 		$this.append($overlay);
 
@@ -251,7 +251,10 @@ var Story = {
 
 		$overlay.height(height);
 		$overlay.width(width);
-		$overlay.offset({top: top});
+		if($this.hasClass('gridImages')) {
+			$overlay.css('margin-top', '-' + height + 'px');
+		}
+		// $overlay.offset({top: top});
 
 		
 		
@@ -297,34 +300,52 @@ var Story = {
 		//this is for singe image stuff
 		if($itemElement.hasClass('singleImage')){
 			type = "image";
-			var prevElements = $itemElement.prevAll('.element');
-			var numPrevElements = prevElements.length;
-			var currentPosition = numPrevElements;
-			var moveToPosition = currentPosition - 1;
+			// var prevElements = $itemElement.prevAll('.element');
+			// var numPrevElements = prevElements.length;
+			// var currentPosition = numPrevElements;
+			// var moveToPosition = currentPosition - 1;
 
-			// $itemElement.before($("#learningStoryPage:nth-child(" + moveToPosition + ")"));
-			// $itemElement.detach();
-			//$itemElement.children(':eq(' + moveToPosition + ')').before('.singleImage');
 			var elementToMove = $itemElement;
-			// var elementToMoveBefore = $("#learningStoryPage:nth-child(" + moveToPosition + ")");
-			var elementToMoveBefore = $itemElement.prev();
+			var elementToMoveBefore = $itemElement.prev().prev();
 			$itemElement.insertBefore(elementToMoveBefore);
-			console.log($("#learningStoryPage:nth-child(" + moveToPosition + ")"));
-
-			// $('ul li:nth-child(4n)').after('<li class="clear">This is what I want to add</li>')
-
-			// $('.element').each(function(index, value){
-			// 	if(index == moveToPosition){
-
-			// 		value.after($itemElement);
-			// 	}
-			// });
 
 
 		//this is for grid image stuff
 		}else if($itemElement.hasClass('gridImages')){
 			type = "grid";
-			
+			var elementToMove = $itemElement;
+			var elementToMoveBefore = $itemElement.prev().prev();
+			$itemElement.insertBefore(elementToMoveBefore);
+			console.log(type);
+		}
+	},
+
+	moveDown: function(e) {
+		e.stopPropagation();
+		var $this = $(this);
+		var $overlay = $('.overlay');
+		var type;
+		var $itemElement = $this.parent().parent();
+
+		//this is for singe image stuff
+		if($itemElement.hasClass('singleImage')){
+			type = "image";
+			// var prevElements = $itemElement.prevAll('.element');
+			// var numPrevElements = prevElements.length;
+			// var currentPosition = numPrevElements;
+			// var moveToPosition = currentPosition - 1;
+
+			var elementToMove = $itemElement;
+			var elementToMoveBefore = $itemElement.next().next();
+			$itemElement.insertAfter(elementToMoveBefore);
+
+
+		//this is for grid image stuff
+		}else if($itemElement.hasClass('gridImages')){
+			type = "grid";
+			var elementToMove = $itemElement;
+			var elementToMoveBefore = $itemElement.next().next();
+			$itemElement.insertAfter(elementToMoveBefore);
 			console.log(type);
 		}
 	},
