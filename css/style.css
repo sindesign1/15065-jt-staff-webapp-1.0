@@ -698,10 +698,7 @@ input:checked ~ .modal__overlay {
   background: #F16259;
   text-align: center;
   padding: 50px 20px 0 20px;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  z-index: 2; }
+  box-sizing: border-box; }
   .headerTemplate .mainText {
     font-family: museo;
     font-size: 25px;
@@ -1073,16 +1070,6 @@ input:checked ~ .modal__overlay {
         border-left: none; }
       #childNav ul li.active {
         background-color: #F2716C; }
-  #childNav .jtIcons {
-    position: center;
-    display: inline-block;
-    font-family: jt-icons;
-    color: #fff;
-    font-size: 28px;
-    line-height: 28px; }
-
-.childMasthead {
-  width: 100%; }
 
 .childheader {
   z-index: 1;
@@ -1097,6 +1084,16 @@ input:checked ~ .modal__overlay {
   -webkit-transition: height 0.35s;
   -moz-transition: height 0.35s;
   transition: height 0.35s; }
+  .childheader .childMasthead {
+    width: 100%;
+    margin-bottom: 1em; }
+    .childheader .childMasthead .childTreeIcon {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      color: #fff;
+      font-family: jt-icons;
+      line-height: 28px; }
   .childheader.shrink h3 {
     font-size: 0;
     -webkit-transition: all 0.35s;
@@ -1107,9 +1104,6 @@ input:checked ~ .modal__overlay {
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s; }
-  .childheader h3:first-child {
-    padding-top: 0;
-    padding-bottom: 1em; }
   .childheader h3 {
     padding-top: 1em;
     font-family: museo;
@@ -1126,8 +1120,215 @@ input:checked ~ .modal__overlay {
     -moz-transition: all 0.35s;
     transition: all 0.35s; }
 
-.placeholder {
-  height: 2000px;
-  /*just to get the page to scroll*/ }
+.childContent {
+  overflow: auto;
+  width: 100%;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .childContent img {
+    width: 100%;
+    display: block;
+    border-radius: 50%; }
+
+.childMessages {
+  float: right;
+  width: 58%;
+  padding-top: 423px;
+  padding-bottom: 112px; }
+  .childMessages h5 {
+    color: #787878;
+    text-align: center; }
+  .childMessages h6 {
+    position: absolute;
+    top: -20px;
+    color: #A0A0A0; }
+  .childMessages .message {
+    position: relative;
+    width: 58%;
+    margin: 70px 8% 0;
+    padding: 20px;
+    box-sizing: border-box;
+    -webkit-border-radius: 8px;
+    border-radius: 8px; }
+  .childMessages .messageProfilePic {
+    position: absolute;
+    top: -35px;
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    border: 4px #FFF solid;
+    border-radius: 50%;
+    background: #F16259; }
+  .childMessages .messageLeft {
+    float: left; }
+    .childMessages .messageLeft .messageProfilePic {
+      left: -20px; }
+    .childMessages .messageLeft h6 {
+      left: 40px; }
+    .childMessages .messageLeft:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 25px solid transparent;
+      position: absolute;
+      top: 73px;
+      left: 15px;
+      border-radius: 0px; }
+  .childMessages .messageRight {
+    float: right; }
+    .childMessages .messageRight .messageProfilePic {
+      right: -20px; }
+    .childMessages .messageRight h6 {
+      right: 40px; }
+    .childMessages .messageRight:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 0px solid transparent;
+      position: absolute;
+      top: 50px;
+      right: 15px;
+      border-radius: 0px; }
+  .childMessages p {
+    margin: 0;
+    color: #282828;
+    font-weight: 400; }
+
+.importantNotice {
+  display: inline-block;
+  float: none;
+  width: 84%;
+  margin: 50px 8% 0;
+  padding: 20px;
+  text-align: center;
+  background: #F16259;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  box-sizing: border-box; }
+  .importantNotice p {
+    margin-top: 20px;
+    color: #FFF; }
+
+.paleMelonMessage {
+  background: #FCDCDB; }
+  .paleMelonMessage:after {
+    border-top: 20px solid #FCDCDB; }
+
+.tintGreenMessage {
+  background: #BBD483; }
+  .tintGreenMessage:after {
+    border-top: 24px solid #BBD483; }
+
+.hueGreenMessage {
+  background: #D1E0AB; }
+  .hueGreenMessage:after {
+    border-top: 24px solid #D1E0AB; }
+
+.messageSidebar {
+  float: left;
+  padding-top: 403px;
+  padding-bottom: 112px;
+  width: 320px;
+  min-height: 100vh;
+  background: #F0F0F0; }
+  .messageSidebar.fixed {
+    position: fixed;
+    top: 152px;
+    padding-top: 0; }
+
+.messageUserContainer {
+  overflow: auto;
+  width: 100%;
+  padding: 6.25%;
+  color: #505050;
+  border-bottom: 2px #C8C8C8 solid;
+  box-sizing: border-box; }
+  .messageUserContainer .messageUserPic {
+    float: left;
+    position: relative;
+    width: 17.857%;
+    border-radius: 50%;
+    border: 2px #F16259 solid; }
+  .messageUserContainer .messageTag {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    padding: 3px;
+    text-align: center;
+    color: #FFF;
+    background: #F16259;
+    border-radius: 50%; }
+  .messageUserContainer .messageUserText {
+    float: right;
+    width: 76%; }
+  .messageUserContainer h5, .messageUserContainer h6, .messageUserContainer p {
+    margin: 0; }
+  .messageUserContainer h5 {
+    color: #F16259; }
+    .messageUserContainer h5 .messageUserTime {
+      float: right;
+      color: #505050; }
+
+.staffHeader {
+  z-index: 1;
+  width: 100%;
+  padding: 1em 0 0;
+  background: #F16259;
+  text-align: center;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  transition: height 0.35s; }
+  .staffHeader .childMasthead {
+    width: 100%;
+    margin-bottom: 1em; }
+    .staffHeader .childMasthead .childTreeIcon {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      color: #fff;
+      font-family: jt-icons;
+      line-height: 28px; }
+  .staffHeader h3 {
+    padding-top: 1em;
+    font-family: museo;
+    font-weight: 500;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+  .staffHeader img {
+    width: 23%;
+    border: 3px solid #FFF;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s; }
+
+#staffProfileContainer {
+  padding: 40px; }
+  #staffProfileContainer .fullColumn {
+    margin-bottom: 40px; }
+  #staffProfileContainer .columnOne, #staffProfileContainer .columnTwo {
+    display: inline-block;
+    vertical-align: top; }
+  #staffProfileContainer .columnOne {
+    width: 20%; }
+  #staffProfileContainer .columnTwo {
+    width: 79%; }
+  #staffProfileContainer .label {
+    color: #F16259;
+    margin-bottom: 40px;
+    font-size: 20px; }
+  #staffProfileContainer .input {
+    color: #505050;
+    margin-bottom: 45px;
+    font-size: 17px; }
 
 /*# sourceMappingURL=style.css.map */
