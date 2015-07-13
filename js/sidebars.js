@@ -37,6 +37,8 @@ var Sidebars = {
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
 		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
+		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
 		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
@@ -142,12 +144,16 @@ var Sidebars = {
 			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
 			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
 
+			window.selectedImage = mainImg;
+
 			// $('.headerPlaceholder').hide();
 			// $('.modalHeaderPlaceholder').show();
 
 			// $('.classroomLargeImg').attr("src",mainImg);
 			// $('.modal__overlay').css({'opacity': '1', 'transform': 'scale(1)', 'z-index': '800'});
 
+			$('.mainImage-extra').remove();
+	
 			$('.mainImage').css("background-image",'url(' + mainImg + ')');
 			$('#classroom').hide();
 			$('.mainImageSection').show();
@@ -173,7 +179,7 @@ var Sidebars = {
 		$('#loadMainFooter').show();
 		$('.mainImageSection').css({'opacity': '0'});
 		$('.classGallery').show();
-		$('.mainImage').animate({'width': '100%'});
+		$('.mainImage').animate({'width': '100%', 'height': '100%'});
 
 		$('.editImageTextArea').hide();
 		$('.profileTagsSection').hide();
@@ -201,7 +207,7 @@ var Sidebars = {
 		$('.mainImage').css("background-image",'');
 
 		if ( window.selectedImages.length > 0 ) {
-			$('.mainImage').addClass('mainImage-0');
+			$('.mainImage').addClass('mainImage-0').addClass('arrange-horizontally');
 			$('.mainImage').css("background-image",'url(' + window.selectedImages[0] + ')');
 		}
 
@@ -209,17 +215,18 @@ var Sidebars = {
 			var thisMainImage = $('<div class="mainImage"/>');
 			thisMainImage.addClass('mainImage-extra').addClass('mainImage-' + i).css("background-image",'url(' + window.selectedImages[i] + ')');
 			thisMainImage.insertAfter('.mainImage-'+(i-1));
+
+			$('.mainImage-' + i).addClass('arrange-horizontally');
 		}
 
-		$('.mainImage').addClass('arrange-horizontally');
-
-		$('.mainImage').css({'width': '20%', 'height': '20%'})
+		$('.mainImage').css({'width': '32%', 'height': '32%'})
 		$('.classGallery').hide();
 		$('.mainImageSection').show();
 		$('#loadMainFooter').hide();
 		$('.mainImageSection').animate({'opacity': '1'});
 		$('#gridHeader').hide();
 		$('#imageHeader').show();
+		$('#loadImgActionFooter').show();
 
 		Sidebars.toggleTagSidebar();
 	},
@@ -320,6 +327,63 @@ var Sidebars = {
 				)
 			);
 		}
+	},
+
+	deleteImagesDialog: function() {
+
+		Sidebars.closeTagSidebar();
+
+		var msg = "Your image is about to be deleted!";
+		if ( window.selectedImages.length > 0 ) {
+			msg = "Your images are about to be deleted!";
+		}
+
+		$('#modalMsg').html('<p>' + msg + '</p>');
+
+		$('#dialogModal').modal({
+		  fadeDuration: 500,
+		  fadeDelay: 0.50,
+		  escapeClose: false,
+		  clickClose: false,
+		  showClose: false
+		});
+	},
+
+	deleteImages: function() {
+
+		$.modal.close();
+
+		window.deletedImages = window.deletedImages || new Array();
+		window.deletedImages = window.deletedImages.concat(window.selectedImages);
+
+		if ( window.selectedImage ) {
+			window.deletedImages.push(window.selectedImage);
+		}
+
+		for ( var i=0; i<window.deletedImages.length; i++ ) {
+
+			var index = window.selectedImages.indexOf(window.deletedImages[i]);
+			if ( index > -1 ) {
+			    window.selectedImages.splice(index, 1);
+			}
+
+//			var srcVal = "../img/classroomThumbs/" + window.deletedImages[i].substring(window.deletedImages[i].lastIndexOf('/')+1);
+
+			var srcVal = window.deletedImages[i].replace('Large', 'Thumbs').replace('large', 'thumb');
+
+			$.each($('img'), function(index, value ) {
+				var thisImgSrc = value.src;
+
+				if ( thisImgSrc.substring(thisImgSrc.lastIndexOf('/')) == srcVal.substring(srcVal.lastIndexOf('/')) ) {
+					var labelElement = $(value).parent();
+					var thumbnailElement = labelElement.parent();
+
+					thumbnailElement.hide();
+				}
+			});
+		}
+
+		Sidebars.closeMainModal();
 	}
 }
 

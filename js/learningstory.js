@@ -400,7 +400,6 @@ var Story = {
 		$('#learningStoryPage').css('height', 'auto');
 
 		var $storyPage = $('#learningStoryPage');
-		console.log('window.frameworkIndex++, yay, cool!');
 		
 		window.addedProfileTags = new Array();
 		window.addedFrameworks = new Array();
