@@ -12,10 +12,18 @@
 }
 
 // Styling for the message speach bubbles and layout
-.childMessages {
+
+.mainMessages {
+    padding-top: 130px !important;
+    .fixed {
+		top: 90px;
+    }
+}
+
+.messagesThread {
 	float: right;
-	width: 58%;
-    padding-top: 423px;
+	width: 58.333%;
+    padding-top: 403px;
     padding-bottom: 112px;
 	h5 {
 		color: $grey120;
@@ -25,6 +33,26 @@
 		position: absolute;
 		top: -20px;
 		color: $grey160;
+	}
+	.MessageThreadNames {
+		overflow: auto;
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 5px 20px;
+		background: $pale-melon;
+		box-sizing: border-box;
+		p {
+			float: left;
+			color: $melon;
+		}
+		.threeDots {
+			float: right;
+			width: 4px;
+			img {
+				max-width: 100%;
+				border-radius: 0;
+			}
+		}
 	}
 	.message {
 		position: relative;
@@ -131,18 +159,27 @@
 }
 
 // Styling for the list of message contributors 
-.messageSidebar {
+.messageSidebar,
+.messagesMainList {
 	float: left;
     padding-top: 403px;
     padding-bottom: 112px;
-	width: 320px;
+	width: 41.667%;
 	min-height: 100vh;
 	background: $grey240;
-	&.fixed {
-		position: fixed;
-		top: 152px;
-		padding-top: 0;
-	}
+}
+
+.fixed {
+	z-index: 1;
+	position: fixed;
+	top: 152px;
+	padding-top: 0;
+}
+
+.messagesMainList {
+	position: fixed;
+	top: 90px;
+	padding-top: 0;
 }
 
 .messageUserContainer {

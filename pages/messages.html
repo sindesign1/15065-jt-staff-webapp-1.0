@@ -12,24 +12,11 @@
 
 </head>
 <body>
-    <div class="childheader">
-        <div class="childMasthead">
-            <h2 class="childTreeIcon">}</h2>
-            <h3>Bunnies Room</h3>
-         </div>
-        <a href=""><img id="childProfilePic" src="../img/charlotteThumbs/thumb_Charlotte_04.jpg"></a>
-        <h3>Charlotte Smith</h3>
-        <nav id="childNav">
-        <ul>
-            <li id="childTree" class="active"><a href="">tree</a></li>
-            <li id="childImg"><a href="">images</a></li>
-            <li id="childMsg"><a href="">message</a></li>
-            <li id="childSty"><a href="">stories</a></li>
-        </ul>       
-    </div>
+
+    <div id="loadMessagesHeader"></div>
 
     <div class="childContent">
-        <aside class="messageSidebar">
+        <aside class="messagesMainList">
             <div class="messageUserContainer">
                 <div class="messageUserPic"><img src="../img/profile-01-100px.jpg"><h6 class="messageTag">13</h6></div>
                 <div class="messageUserText">
@@ -43,13 +30,32 @@
                 <div class="messageUserPic"><img src="../img/profile-02-100px.jpg"><h6 class="messageTag">10</h6></div>
                 <div class="messageUserText">
                     <h5>Charlotte Smith <span class="messageUserTime">6:30 am</span></h5>
-                    <h6>Bunnies Room at Whirlybirds</h6>
+                    <h6>Whitebears Room at Whirlybirds</h6>
                     <p>Hi Charlotte is happy today.</p>
                 </div>
             </div>
+
+            <div class="messageUserContainer">
+                <div class="messageUserPic"><img src="../img/profile-13-80px.jpg"><h6 class="messageTag">10</h6></div>
+                <div class="messageUserText">
+                    <h5>Jacob Smith <span class="messageUserTime">6:30 am</span></h5>
+                    <h6>Bunnies Room at Whirlybirds</h6>
+                    <p>Jacob is happy playing now, no tears...</p>
+                </div>
+            </div>
+
+            <div class="messageUserContainer">
+                <div class="messageUserPic"><img src="../img/profile-14-100px.jpg"><h6 class="messageTag">10</h6></div>
+                <div class="messageUserText">
+                    <h5>Aden Smith <span class="messageUserTime">6:30 am</span></h5>
+                    <h6>Billygoats Room at Whirlybirds</h6>
+                    <p>Aden is fine and playing nicely...</p>
+                </div>
+            </div>
+
         </aside>
-        <div class="messagesThread">
-            <div class="MessageThreadNames childFixed">
+        <div class="messagesThread mainMessages">
+            <div class="MessageThreadNames fixed">
                 <p>To: James Smith, Mary Smith, Miss Hannah and 2 others..</p>
                 <!-- <a class="threeDots"><img src="../img/threeDots.svg"></a> -->
             </div>
@@ -90,11 +96,17 @@
                 <p>Dear Adam all went fine this morning, again ;)</p>
             </div>
 
+            <div class="message hueGreenMessage messageRight">
+                <h6>Mary</h6>
+                <div class="messageProfilePic"><img src="../img/profile-02-80px.jpg"></div>
+                <p>Great! Thanks Hannah</p>
+            </div>
+
         </div>
     </div>
 
 
     <div id="loadMainFooter"></div>
-    <div id="loadCharlotteMsgSidebar"></div>
+    <div id="loadMainSidebar"></div>
 </body>
 </html>

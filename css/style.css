@@ -698,11 +698,14 @@ input:checked ~ .modal__overlay {
   background: #F16259;
   text-align: center;
   padding: 50px 20px 0 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 2; }
   .headerTemplate .mainText {
     font-family: museo;
     font-size: 25px;
-    color: #E9A8A4; }
+    color: #FCDCDB; }
   .headerTemplate .rightText {
     position: absolute;
     right: 20px;
@@ -1072,7 +1075,7 @@ input:checked ~ .modal__overlay {
         background-color: #F2716C; }
 
 .childheader {
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -1131,19 +1134,40 @@ input:checked ~ .modal__overlay {
     display: block;
     border-radius: 50%; }
 
-.childMessages {
+.mainMessages {
+  padding-top: 130px !important; }
+  .mainMessages .fixed {
+    top: 90px; }
+
+.messagesThread {
   float: right;
-  width: 58%;
-  padding-top: 423px;
+  width: 58.333%;
+  padding-top: 403px;
   padding-bottom: 112px; }
-  .childMessages h5 {
+  .messagesThread h5 {
     color: #787878;
     text-align: center; }
-  .childMessages h6 {
+  .messagesThread h6 {
     position: absolute;
     top: -20px;
     color: #A0A0A0; }
-  .childMessages .message {
+  .messagesThread .MessageThreadNames {
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    background: #FCDCDB;
+    box-sizing: border-box; }
+    .messagesThread .MessageThreadNames p {
+      float: left;
+      color: #F16259; }
+    .messagesThread .MessageThreadNames .threeDots {
+      float: right;
+      width: 4px; }
+      .messagesThread .MessageThreadNames .threeDots img {
+        max-width: 100%;
+        border-radius: 0; }
+  .messagesThread .message {
     position: relative;
     width: 58%;
     margin: 70px 8% 0;
@@ -1151,7 +1175,7 @@ input:checked ~ .modal__overlay {
     box-sizing: border-box;
     -webkit-border-radius: 8px;
     border-radius: 8px; }
-  .childMessages .messageProfilePic {
+  .messagesThread .messageProfilePic {
     position: absolute;
     top: -35px;
     padding: 2px;
@@ -1162,13 +1186,13 @@ input:checked ~ .modal__overlay {
     border: 4px #FFF solid;
     border-radius: 50%;
     background: #F16259; }
-  .childMessages .messageLeft {
+  .messagesThread .messageLeft {
     float: left; }
-    .childMessages .messageLeft .messageProfilePic {
+    .messagesThread .messageLeft .messageProfilePic {
       left: -20px; }
-    .childMessages .messageLeft h6 {
+    .messagesThread .messageLeft h6 {
       left: 40px; }
-    .childMessages .messageLeft:after {
+    .messagesThread .messageLeft:after {
       content: "";
       width: 0;
       height: 0;
@@ -1178,13 +1202,13 @@ input:checked ~ .modal__overlay {
       top: 73px;
       left: 15px;
       border-radius: 0px; }
-  .childMessages .messageRight {
+  .messagesThread .messageRight {
     float: right; }
-    .childMessages .messageRight .messageProfilePic {
+    .messagesThread .messageRight .messageProfilePic {
       right: -20px; }
-    .childMessages .messageRight h6 {
+    .messagesThread .messageRight h6 {
       right: 40px; }
-    .childMessages .messageRight:after {
+    .messagesThread .messageRight:after {
       content: "";
       width: 0;
       height: 0;
@@ -1194,7 +1218,7 @@ input:checked ~ .modal__overlay {
       top: 50px;
       right: 15px;
       border-radius: 0px; }
-  .childMessages p {
+  .messagesThread p {
     margin: 0;
     color: #282828;
     font-weight: 400; }
@@ -1229,17 +1253,25 @@ input:checked ~ .modal__overlay {
   .hueGreenMessage:after {
     border-top: 24px solid #D1E0AB; }
 
-.messageSidebar {
+.messageSidebar,
+.messagesMainList {
   float: left;
   padding-top: 403px;
   padding-bottom: 112px;
-  width: 320px;
+  width: 41.667%;
   min-height: 100vh;
   background: #F0F0F0; }
-  .messageSidebar.fixed {
-    position: fixed;
-    top: 152px;
-    padding-top: 0; }
+
+.fixed {
+  z-index: 1;
+  position: fixed;
+  top: 152px;
+  padding-top: 0; }
+
+.messagesMainList {
+  position: fixed;
+  top: 90px;
+  padding-top: 0; }
 
 .messageUserContainer {
   overflow: auto;
