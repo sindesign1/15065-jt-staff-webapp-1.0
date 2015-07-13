@@ -6,6 +6,7 @@ var SelectImages = {
 
 	enableSelect: function() {
 		$('.selectImagesBtn').hide();
+		$('.deleteImagesBtn').show();
 		$('.doneImagesBtn').show();
 		$('.cancelImagesBtn').show();
 
@@ -16,6 +17,7 @@ var SelectImages = {
 
 	disableSelect: function() {
 		$('.selectImagesBtn').show();
+		$('.deleteImagesBtn').hide();
 		$('.doneImagesBtn').hide();
 		$('.cancelImagesBtn').hide();
 

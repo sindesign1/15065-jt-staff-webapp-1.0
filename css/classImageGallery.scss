@@ -120,21 +120,62 @@
 }
 
 .arrange-horizontally {
-//    display: inline-block;
-//    text-align: center;
-		float: left;
-		width: 31.53125%;
-		margin-right: 0.5859375%;
-		margin-bottom: 5px;
-		padding: 0;
-		img {
-			display: block;
-			width: 100%;
-		}
-		&:nth-child(5n+0) {
-			margin-right: 0;
-		}
+	float: left;
+	width: 31.53125%;
+	margin-right: 0.5859375%;
+	margin-bottom: 5px;
+	padding: 0;
+	img {
+		display: block;
+		width: 100%;
+	}
+	&:nth-child(5n+0) {
+		margin-right: 0;
+	}
 }
-.arrange-vertically {
-    display: block;
+
+.modal a.close-modal[class*="icon-"] {
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  background: #900;
+  border: 2px solid #fff;
+  -webkit-border-radius:  26px;
+  -moz-border-radius:     26px;
+  -o-border-radius:       26px;
+  -ms-border-radius:      26px;
+  -moz-box-shadow:    1px 1px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
+}
+
+  .modalMsg {
+  	color: #000;
+  	margin: 34px;
+  }
+
+  .modalBtn {
+  	color: $dark-melon;
+	border: 2px solid $dark-melon;
+	-webkit-border-radius:  26px;
+	-moz-border-radius:     26px;
+	-o-border-radius:       26px;
+	-ms-border-radius:      26px;
+    margin-left: auto;
+    margin-right: auto;
+	width: 50%;
+  	text-align: center;
+  	padding: 13px;
+}
+
+.modalCancel {
+	color: $melon;
+    text-decoration: none;
+    float: right;
 }

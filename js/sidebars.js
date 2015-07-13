@@ -37,7 +37,8 @@ var Sidebars = {
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
 		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
-		$('body').on('click touch', '#deleteImageBtn', Sidebars.deleteImagesDialog);
+		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
+		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
 		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
@@ -334,13 +335,21 @@ var Sidebars = {
 			msg = "Your images are about to be deleted!";
 		}
 
-		if ( confirm(msg) ) {
-			Sidebars.deleteImages();
-		}
+		$('#modalMsg').html('<p>' + msg + '</p>');
+
+		$('#dialogModal').modal({
+		  fadeDuration: 500,
+		  fadeDelay: 0.50,
+		  escapeClose: false,
+		  clickClose: false,
+		  showClose: false
+		});
 	},
 
 	deleteImages: function() {
 
+		$.modal.close();
+		
 		window.deletedImages = window.deletedImages || new Array();
 		window.deletedImages = window.deletedImages.concat(window.selectedImages);
 
@@ -349,6 +358,12 @@ var Sidebars = {
 		}
 
 		for ( var i=0; i<window.deletedImages.length; i++ ) {
+
+			var index = window.selectedImages.indexOf(window.deletedImages[i]);
+			if ( index > -1 ) {
+			    window.selectedImages.splice(index, 1);
+			}
+
 //			var srcVal = "../img/classroomThumbs/" + window.deletedImages[i].substring(window.deletedImages[i].lastIndexOf('/')+1);
 
 			var srcVal = window.deletedImages[i].replace('Large', 'Thumbs').replace('large', 'thumb');
