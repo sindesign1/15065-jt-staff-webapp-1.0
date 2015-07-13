@@ -19,6 +19,7 @@ var Templates = {
 		Templates.helpHeader();
 		Templates.draftsHeader();
 		Templates.editImageHeader();
+		Templates.messagesHeader();
 	},
 
 	loadScripts: function() {
