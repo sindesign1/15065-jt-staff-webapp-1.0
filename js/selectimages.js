@@ -43,20 +43,15 @@ var SelectImages = {
 
 		var $selectElement = $(this);
 
-/*
--webkit-box-shadow:inset 0 0 0 2px #FF0000 ;
-box-shadow:inset 0 0 0 2px #FF0000 ;
-*/
-
 		if ( $selectElement.css('box-shadow') == 'none' ) {
 
-			$selectElement.css({'-webkit-box-shadow': '0 0 0 2px #FF0000', 'box-shadow': '0 0 0 2px #FF0000'});
+			$selectElement.css({'-webkit-box-shadow': '0 0 0 4px #FF0000', 'box-shadow': '0 0 0 4px #FF0000'});
 
 			if ( $.inArray(imgSrc, window.selectedImages) == -1 ) {
 				window.selectedImages.push(imgSrc);
 			}
 		} else {
-			
+
 			$selectElement.css({'box-shadow': 'none'});
 
 			var index = window.selectedImages.indexOf(imgSrc);

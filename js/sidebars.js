@@ -37,6 +37,7 @@ var Sidebars = {
 		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
 		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '#deleteImageBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
@@ -142,6 +143,8 @@ var Sidebars = {
 			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
 			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
 
+			window.selectedImage = mainImg;
+
 			// $('.headerPlaceholder').hide();
 			// $('.modalHeaderPlaceholder').show();
 
@@ -222,6 +225,7 @@ var Sidebars = {
 		$('.mainImageSection').animate({'opacity': '1'});
 		$('#gridHeader').hide();
 		$('#imageHeader').show();
+		$('#loadImgActionFooter').show();
 
 		Sidebars.toggleTagSidebar();
 	},
@@ -322,6 +326,46 @@ var Sidebars = {
 				)
 			);
 		}
+	},
+
+	deleteImagesDialog: function() {
+		var msg = "Your image is about to be deleted!";
+		if ( window.selectedImages.length > 0 ) {
+			msg = "Your images are about to be deleted!";
+		}
+
+		if ( confirm(msg) ) {
+			Sidebars.deleteImages();
+		}
+	},
+
+	deleteImages: function() {
+
+		window.deletedImages = window.deletedImages || new Array();
+		window.deletedImages = window.deletedImages.concat(window.selectedImages);
+
+		if ( window.selectedImage ) {
+			window.deletedImages.push(window.selectedImage);
+		}
+
+		for ( var i=0; i<window.deletedImages.length; i++ ) {
+//			var srcVal = "../img/classroomThumbs/" + window.deletedImages[i].substring(window.deletedImages[i].lastIndexOf('/')+1);
+
+			var srcVal = window.deletedImages[i].replace('Large', 'Thumbs').replace('large', 'thumb');
+
+			$.each($('img'), function(index, value ) {
+				var thisImgSrc = value.src;
+
+				if ( thisImgSrc.substring(thisImgSrc.lastIndexOf('/')) == srcVal.substring(srcVal.lastIndexOf('/')) ) {
+					var labelElement = $(value).parent();
+					var thumbnailElement = labelElement.parent();
+
+					thumbnailElement.hide();
+				}
+			});
+		}
+
+		Sidebars.closeMainModal();
 	}
 }
 
