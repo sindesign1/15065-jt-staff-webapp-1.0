@@ -1,26 +1,22 @@
 .childContent {
 	overflow: auto;
-    margin-top: 423px;
-    margin-bottom: 112px;
     width: 100%;
     -webkit-transition: height 0.35s;
     -moz-transition: height 0.35s;
     transition: height 0.35s;
     img {
         width: 100%;
+		display: block;
+		border-radius: 50%;
     }
 }
 
-.messageSidebar {
-	float: left;
-	padding-bottom: 62px;
-	width: 320px;
-	background: $grey240;
-}
-
+// Styling for the message speach bubbles and layout
 .childMessages {
 	float: right;
 	width: 58%;
+    padding-top: 423px;
+    padding-bottom: 112px;
 	h5 {
 		color: $grey120;
 		text-align: center;
@@ -33,7 +29,7 @@
 	.message {
 		position: relative;
 		width: 58%;
-		margin: 50px 8% 0;
+		margin: 70px 8% 0;
 		padding: 20px;
 		box-sizing: border-box;
 		-webkit-border-radius: 8px;
@@ -43,19 +39,13 @@
 		position: absolute;
 		top: -35px;
 		padding: 2px;
-		width: 52px;
-		height: 52px;
+		width: 40px;
+		height: 40px;
 		display: block;
 		text-align: center;
 		border: 4px $white solid;
 		border-radius: 50%;
 		background: $melon;
-		box-sizing: border-box;
-		img {
-			display: block;
-			width: 100%;
-			border-radius: 50%;
-		}
 	}
 	.messageLeft {
 		float: left;
@@ -65,17 +55,15 @@
 		h6 {
 			left: 40px;
 		}
-
 		&:after {
 			content: "";
 			width: 0;
 			height: 0;
 			border-left: 0px solid transparent;
-			border-right: 30px solid transparent;
-			border-top: 24px solid $pale-melon;
+			border-right: 25px solid transparent;
 			position: absolute;
 			top: 73px;
-			left: 10px;
+			left: 15px;
 			border-radius: 0px;
 		}
 	}
@@ -87,8 +75,17 @@
 		h6 {
 			right: 40px;
 		}
-
-		
+		&:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-left: 30px solid transparent;
+			border-right: 0px solid transparent;
+			position: absolute;
+			top: 50px;
+			right: 15px;
+			border-radius: 0px;
+		}
 	}
 	p {
 		margin: 0;
@@ -101,7 +98,7 @@
 	display: inline-block;
 	float: none;
 	width: 84%;
-	margin: 50px 8%;
+	margin: 50px 8% 0;
 	padding: 20px;
 	text-align: center;
 	background: $melon;
@@ -116,35 +113,76 @@
 
 .paleMelonMessage {
 	background: $pale-melon;
+	&:after {
+		border-top: 20px solid $pale-melon;
+	}
 }
 .tintGreenMessage {
 	background: $tint-green;
 	&:after {
-			content: "";
-			width: 0;
-			height: 0;
-			border-left: 30px solid transparent;
-			border-right: 0px solid transparent;
-			border-top: 24px solid $tint-green;
-			position: absolute;
-			top: 55px;
-			right: 10px;
-			border-radius: 0px;
-		}
+		border-top: 24px solid $tint-green;
+	}
 }
 .hueGreenMessage {
 	background: $hue-green;
-
 	&:after {
-			content: "";
-			width: 0;
-			height: 0;
-			border-left: 30px solid transparent;
-			border-right: 0px solid transparent;
-			border-top: 24px solid $hue-green;
-			position: absolute;
-			top: 55px;
-			right: 10px;
-			border-radius: 0px;
+		border-top: 24px solid $hue-green;
+	}
+}
+
+// Styling for the list of message contributors 
+.messageSidebar {
+	float: left;
+    padding-top: 403px;
+    padding-bottom: 112px;
+	width: 320px;
+	min-height: 100vh;
+	background: $grey240;
+	&.fixed {
+		position: fixed;
+		top: 152px;
+		padding-top: 0;
+	}
+}
+
+.messageUserContainer {
+	overflow: auto;
+	width: 100%;
+	padding: 6.25%;
+	color: $grey80;
+	border-bottom: 2px $grey200 solid;
+	box-sizing: border-box;
+	.messageUserPic {
+		float: left;
+		position: relative;
+		width: 17.857%;
+		border-radius: 50%;
+		border: 2px $melon solid;
+	}
+	.messageTag {
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		width: 15px;
+		height: 15px;
+		padding: 3px;
+		text-align: center;
+		color: $white;
+		background: $melon;
+		border-radius: 50%;
+	}
+	.messageUserText {
+		float: right;
+		width: 76%;
+	}
+	h5, h6, p {
+		margin: 0;
+	}
+	h5 {
+		color: $melon;
+		.messageUserTime {
+			float: right;
+			color: $grey80;
 		}
+	}
 }

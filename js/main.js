@@ -12,9 +12,11 @@ var Main = {
             var scroll = Main.getCurrentScroll();
             if ( scroll >= shrinkHeader ) {
                 $('.childheader').addClass('shrink');
+                $('.messageSidebar').addClass('fixed');
             }
             else {
                 $('.childheader').removeClass('shrink');
+                $('.messageSidebar').removeClass('fixed');
             }
         });
     },
