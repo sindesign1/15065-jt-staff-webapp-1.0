@@ -333,9 +333,17 @@ var Sidebars = {
 
 		Sidebars.closeTagSidebar();
 
-		var msg = "Your image is about to be deleted!";
+		var msg = "Are you sure about this? This image will be permanently deleted from your Journey Tree on all devices.";
+
+		if ( window.fromAlbum ) {
+			msg = 'This image will only be removed from this album but will but will still be available in your Journey Tree images.'
+		}
 		if ( window.selectedImages.length > 0 ) {
-			msg = "Your images are about to be deleted!";
+			msg = "Are you sure about this? These images will be permanently deleted from your Journey Tree on all devices.";
+
+			if ( window.fromAlbum ) {
+				msg = 'These images will only be removed from this album but will but will still be available in your Journey Tree images.'
+			}
 		}
 
 		$('#modalMsg').html('<p>' + msg + '</p>');
