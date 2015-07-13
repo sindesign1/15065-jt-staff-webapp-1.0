@@ -1,6 +1,7 @@
 var Story = {
 
 	sliderOpen: false,
+	editOverlayOpen: false,
 
 	init: function() {
 		Story.events();
@@ -21,7 +22,10 @@ var Story = {
 		$('body').on('click touch', '#addFramework', Story.addFramework);
 		$('body').on('click touch', '#addImageGrid', Story.addImageGridElement);
 		$('body').on('click touch', '.gridImage', Story.addSelectedGridImage);
-		$('body').on('click touch', '.edit', Story.editElements);
+		$('body').on('click touch', '.edit', Story.showEditOverlay);
+		$('body').on('click touch', '#editElement', Story.editElement);
+		$('body').on('click touch', '#moveUp', Story.moveUp);
+		// $('body').on('click touch', '#moveDown', Story.moveDown);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -89,7 +93,7 @@ var Story = {
 
 	},
 
-	slideUpEffect: function(e) {
+	slideUpEffect: function() {
 		console.log('scrooooollleeedddd');
 		
 		var myDiv = $('html body');
@@ -122,7 +126,7 @@ var Story = {
 
 		$('div.singleImage').removeClass('singleImage-active');
 
-		$storyPage.append('<div class="singleImage edit singleImage-active"></div>');
+		$storyPage.append('<div class="singleImage element edit singleImage-active"></div>');
 
 		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -139,15 +143,9 @@ var Story = {
 	        scrollTop: $image.offset().top + 500
 	    }, 1000);
 
-		Story.sliderOpen = true;
-	    $('#addImageSidebar').addClass('display');
-		if($('#addImageSidebar').hasClass('sidebarLeft')) {
-			$('#addImageSidebar').addClass('openLeft');
-		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
-			$('#addImageSidebar').addClass('openRight');
-		}
+		Story.openImageSidebar();
 
-		if($('#addImageSidebar').hasClass('openRight')) {
+		if(Story.sliderOpen) {
 			$('#learningStoryPage').css('padding', '20px 20px');
 			$('.singleImage').css('width', '56%');
 		}
@@ -156,10 +154,10 @@ var Story = {
 		$('#learningStoryPage').css('height', 'auto');
 	},
 
-	addTextElement: function(e) {
+	addTextElement: function() {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div contentEditable="true" class="storyInput"></div>');
+		$storyPage.append('<div contentEditable="true" class="storyInput element"></div>');
 
 		var $textField = $('.storyInput').focus();
 
@@ -180,9 +178,9 @@ var Story = {
 	addImageGridElement: function() {
 		var $storyPage = $('#learningStoryPage');
 
-		$('div.singleImage').removeClass('singleImage-active');
+		$('div.gridImage').removeClass('singleImage-active');
 
-		$storyPage.append('<div class="gridImages edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div>');
+		$storyPage.append('<div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div>');
 
 		$storyPage.append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -199,15 +197,9 @@ var Story = {
 	        scrollTop: $image.offset().top + 500
 	    }, 1000);
 
-		Story.sliderOpen = true;
-	    $('#addImageSidebar').addClass('display');
-		if($('#addImageSidebar').hasClass('sidebarLeft')) {
-			$('#addImageSidebar').addClass('openLeft');
-		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
-			$('#addImageSidebar').addClass('openRight');
-		}
+		Story.openImageSidebar();
 
-		if($('#addImageSidebar').hasClass('openRight')) {
+		if(Story.sliderOpen) {
 			$('#learningStoryPage').css('padding', '20px 20px');
 			$('.singleImage').css('width', '56%');
 		}
@@ -216,8 +208,18 @@ var Story = {
 		$('#learningStoryPage').css('height', 'auto');
 	},
 
+	openImageSidebar: function(){
+		Story.sliderOpen = true;
+	    $('#addImageSidebar').addClass('display');
+		if($('#addImageSidebar').hasClass('sidebarLeft')) {
+			$('#addImageSidebar').addClass('openLeft');
+		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+			$('#addImageSidebar').addClass('openRight');
+		}
+	},
+
 	//when a grid image is clicked, change the active class to this image
-	addSelectedGridImage: function(e){
+	addSelectedGridImage: function(){
 		if(!Story.sliderOpen){
 			console.log('asgl stopped!!!');
 			return;
@@ -228,20 +230,22 @@ var Story = {
 		$this.addClass('singleImage-active');
 	},
 
-	editElements: function() {
+	showEditOverlay: function() {
+		
 		//stops this from happening when sliders open
 		if(Story.sliderOpen){
 			return;
 		}
+
+		// Story.editOverlayOpen = true;
 		// $('.edit').removeClass('overlay');
 		var $this = $(this);
-		
-
+		$('.overlay').show();
 		var height = $this.height();
 		var width = $this.width();
 		var top = $this.offset().top;
 		var $overlay = $('.overlay');
-
+		$this.append($overlay);
 
 		console.log(width);
 
@@ -249,12 +253,80 @@ var Story = {
 		$overlay.width(width);
 		$overlay.offset({top: top});
 
-		$overlay.show();
-		$this.append($overlay);
+		
+		
 
 		// $overlay.append('<div class="editOptions"><div id="addPhotoElement" class="btnContainer"><button>^</button><div>photo</div></div><div id="addTextElement" class="btnContainer"><button>6</button><div>text</div></div><div id="addImageGrid" class="btnContainer"><button>^</button><div>image grid</div></div><div id="addFramework" class="btnContainer"><button>f</button><div>frameworks</div></div></div>');
 
 		
+	},
+
+	editElement: function(e){
+		e.stopPropagation();
+		var $this = $(this);
+		var $overlay = $('.overlay');
+		$this.parent().hide();
+		var type;
+		var $itemElement = $this.parent().parent();
+		$('.singleImage, .gridImage').removeClass('singleImage-active');
+
+		//this is for singe image stuff
+		if($itemElement.hasClass('singleImage')){
+			type = "image";
+			$itemElement.addClass('singleImage-active');
+			Story.openImageSidebar();
+			console.log(type);
+
+		//this is for grid image stuff
+		}else if($itemElement.hasClass('gridImages')){
+			type = "grid";
+			$itemElement.find('.firstImage').addClass('singleImage-active');
+			Story.openImageSidebar();
+			console.log(type);
+		}
+
+	},
+
+	moveUp: function(e){
+		e.stopPropagation();
+		var $this = $(this);
+		var $overlay = $('.overlay');
+		var type;
+		var $itemElement = $this.parent().parent();
+
+		//this is for singe image stuff
+		if($itemElement.hasClass('singleImage')){
+			type = "image";
+			var prevElements = $itemElement.prevAll('.element');
+			var numPrevElements = prevElements.length;
+			var currentPosition = numPrevElements;
+			var moveToPosition = currentPosition - 1;
+
+			// $itemElement.before($("#learningStoryPage:nth-child(" + moveToPosition + ")"));
+			// $itemElement.detach();
+			//$itemElement.children(':eq(' + moveToPosition + ')').before('.singleImage');
+			var elementToMove = $itemElement;
+			// var elementToMoveBefore = $("#learningStoryPage:nth-child(" + moveToPosition + ")");
+			var elementToMoveBefore = $itemElement.prev();
+			$itemElement.insertBefore(elementToMoveBefore);
+			console.log($("#learningStoryPage:nth-child(" + moveToPosition + ")"));
+
+			// $('ul li:nth-child(4n)').after('<li class="clear">This is what I want to add</li>')
+
+			// $('.element').each(function(index, value){
+			// 	if(index == moveToPosition){
+
+			// 		value.after($itemElement);
+			// 	}
+			// });
+
+
+		//this is for grid image stuff
+		}else if($itemElement.hasClass('gridImages')){
+			type = "grid";
+			
+			console.log(type);
+		}
 	},
 
 	addFramework: function() {
