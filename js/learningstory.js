@@ -28,6 +28,8 @@ var Story = {
 		$('body').on('click touch', '#moveDown, #moveTextDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
+		$('body').on('click touch', '.storyInput', Story.formatText);
+		$('body').on('click touch', '.formatBtn', Story.doFormatText);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -159,7 +161,7 @@ var Story = {
 	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div class="textContainer"><div contentEditable="true" class="storyInput element"></div><div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div></div>');
+		$storyPage.append('<div class="textContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element"></div><div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div></div>');
 
 		var $textField = $('.storyInput').focus();
 
@@ -489,8 +491,25 @@ var Story = {
 			$('.singleImage').css('border', 'none');
 			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 		}
-	}
+	},
 
+	formatText: function() {
+		$('#loadMainFooter').hide();
+		$('#loadFormatActionFooter').show();
+	},
+
+	doFormatText: function() {
+
+	    var text = "";
+	    if (window.getSelection) {
+	        text = window.getSelection().toString();
+	    } else if (document.selection && document.selection.type != "Control") {
+	        text = document.selection.createRange().text;
+	    }
+
+	    if (text!='') alert(text);
+	    else alert('bad selection');
+	}
 }
 
 window.frameworkIndex = 0;

@@ -163,6 +163,7 @@ var Sidebars = {
 			// $('#gridHeader').hide();
 			// $('#imageHeader').show();
 			$('#loadImgActionFooter').show();
+			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
 	},
 
@@ -194,6 +195,7 @@ var Sidebars = {
 		$('.frameworksSection ul').find('li').remove();
 		$('.activitiesSection ul').find('li').remove();
 		$('.profileTagsSection h6').text('');
+		$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 
 		window.addedProfileTags = new Array();
 		window.addedFrameworks = new Array();
