@@ -17,18 +17,24 @@ var Sidebars = {
 
 		$('body').on('click touch', '#name', function(){
 			console.log('name worked');
+			$('#normalSearch').show();
+			$('#frameworkSearch').hide();
 			$('#frameworksList, #activitiesList').hide();
 			$('#tagList').fadeIn();
 		});
 
 		$('body').on('click touch', '#frameworks', function(){
 			console.log('frameworks worked');
+			$('#normalSearch').hide();
+			$('#frameworkSearch').show();
 			$('#tagList, #activitiesList').hide();
 			$('#frameworksList').fadeIn();
 		});
 
 		$('body').on('click touch', '#activities', function(){
 			console.log('activities worked');
+			$('#normalSearch').show();
+			$('#frameworkSearch').hide();
 			$('#frameworksList, #tagList').hide();
 			$('#activitiesList').fadeIn();
 		});
@@ -99,12 +105,13 @@ var Sidebars = {
 
 		// $('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
-		$('.shrinkContainer').animate({'width': '55%', 'height': '55%', 'padding': '20px 20px'});
-		$('.editImageTextArea div').focus();
+		$('.mainImageSection').animate({'width': '55%', 'height': '55%', 'padding': '100px 10px 5px 10px'});
+	
 		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
 
 		$('.editImageTextArea').show();
+		$('#postInput').focus();
 		$('.profileTagsSection').show();
 		$('.frameworksSection').show();
 		$('.activitiesSection').show();
@@ -115,9 +122,9 @@ var Sidebars = {
 		console.log('closing sidebar');
 //		$('.classGallery').show();
 //		$('.mainImageSection').hide();
-		$('.mainImageSection').css({'z-index': '-800'});
+		// $('.mainImageSection').css({'z-index': '-800'});
 
-		$('.shrinkContainer').animate({'width': '100%', 'height': '100%'});
+		$('.mainImageSection').animate({'width': '100%', 'height': '100%', 'padding': '90px 0 61px 0'});
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
@@ -156,10 +163,10 @@ var Sidebars = {
 			$('.mainImage-extra').remove();
 	
 			$('.mainImage').css("background-image",'url(' + mainImg + ')');
-			$('#classroom').hide();
+			$('#gallery').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
-			$('.mainImageSection').animate({'opacity': '1'});
+			// $('.mainImageSection').animate({'opacity': '1'});
 			// $('#gridHeader').hide();
 			// $('#imageHeader').show();
 			$('#loadImgActionFooter').show();
