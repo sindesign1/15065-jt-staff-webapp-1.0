@@ -24,8 +24,8 @@ var Story = {
 		$('body').on('click touch', '.gridImage', Story.addSelectedGridImage);
 		$('body').on('click touch', '.edit', Story.showEditOverlay);
 		$('body').on('click touch', '#editElement', Story.editElement);
-		$('body').on('click touch', '#moveUp, #moveTextUp', Story.moveUp);
-		$('body').on('click touch', '#moveDown, #moveTextDown', Story.moveDown);
+		$('body').on('click touch', '#moveUp, #moveTextUp, #moveFrameworkUp', Story.moveUp);
+		$('body').on('click touch', '#moveDown, #moveTextDown, #moveFrameworkDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
 		$('body').on('click touch', '.storyInput', Story.formatText);
@@ -132,6 +132,8 @@ var Story = {
 
 		$storyPage.append('<div class="singleImageContainer"><div class="singleImage edit element singleImage-active"></div></div>');
 
+		$('.singleImage').append('<div class="photoPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
+
 		$('.singleImageContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 		window.divForBackground = '.singleImage-active';
@@ -161,7 +163,8 @@ var Story = {
 	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div class="textContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element"></div><div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div></div>');
+		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element"></div></div>');
+		$('.inputContainer').prepend('<div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
 
 		var $textField = $('.storyInput').focus();
 
@@ -172,7 +175,7 @@ var Story = {
 		// e.stopPropagation();
 		$('.storyInput').focus();
 
-		$('.textContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.inputContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		$('#addElementContainer').css('display', 'none');
@@ -185,6 +188,7 @@ var Story = {
 		$('div.gridImage').removeClass('singleImage-active');
 
 		$storyPage.append('<div class="imageGridContainer"><div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div></div>');
+		$('.firstImage').append('<div class="photoPlaceholder gridPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
 		$('.imageGridContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -205,7 +209,9 @@ var Story = {
 
 		if(Story.sliderOpen) {
 			$('#learningStoryPage').css('padding', '20px 20px');
-			$('.singleImageContainer').css('width', '56%');
+			$('.gridImages').css({'width': '56%', 'text-align': 'left'});
+			$('.firstImage').css({'height': '400px'});
+			$('.secondImage, .thirdImage').css({'height': '199px'});
 		}
 
 		$('.singleImage').css('display', 'block');
@@ -350,6 +356,12 @@ var Story = {
 			var elementToMoveBefore = $item.prev();
 			$item.insertBefore(elementToMoveBefore);
 			console.log(type);
+		}else if($item.hasClass('frameworksContainer')) {
+			type = "framework";
+			var elementToMove = $item;
+			var elementToMoveBefore = $item.prev();
+			$item.insertBefore(elementToMoveBefore);
+			console.log(type);
 		}
 	},
 
@@ -387,6 +399,12 @@ var Story = {
 			var elementToMoveBefore = $item.next();
 			$item.insertAfter(elementToMoveBefore);
 			console.log(type);
+		}else if($item.hasClass('frameworksContainer')) {
+			type = "framework";
+			var elementToMove = $item;
+			var elementToMoveBefore = $item.next();
+			$item.insertAfter(elementToMoveBefore);
+			console.log(type);
 		}
 	},
 
@@ -412,23 +430,31 @@ var Story = {
 		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
 
 			$storyPage.append(
-				$('<div id="storyPageTop' + window.frameworkIndex + '"/>').append(
+				$('<div id="storyPageTop' + window.frameworkIndex + '" class="frameworksContainer"/>').append(
 					$('<ul/>').append(
 						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
 							$('<ul/>')
 							)
 						)
-					)
-				).append(
-					$('<ul/>').append(
-						$('<li class="activitiesSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
-							$('<ul/>')
+					).append(
+						$('<ul/>').append(
+							$('<li class="activitiesSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
+								$('<ul/>')
+								)
 							)
-						)
-				).append(
-					$('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+					).append(
+						$('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+					).prepend(
+						$('<div class="textOptions frameworksOptions" contentEditable="false"><div class="textArrows" id="moveFrameworkUp">|</div><div class="textArrows" id="moveFrameworkDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
+					)
 				);
 		}
+
+		var $element = $('.frameworksContainer');
+
+		$('html, body').animate({
+	        scrollTop: $element.offset().top + 500
+	    }, 1000);
 	},
 
 	appendTagContent: function() {
@@ -461,6 +487,8 @@ var Story = {
 
 		var personName = $(obj).find('.personName').text();
 
+		$storyPage.show();
+
 		if ( $.inArray(personName, addedArray) == -1 ) {
 			addedArray.push(personName);
 
@@ -489,6 +517,15 @@ var Story = {
 			$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
 			$('.singleImageContainer').css('width', '100%');
 			$('.singleImage').css('border', 'none');
+			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
+			$('.gridImages').css({'width': '100%', 'text-align': 'center'});
+			$('.firstImage').css('height', '500px');
+			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
+			$('.thirdImage').css('margin-left', '7.3px');
+			$('.photoPlaceholder').hide();
+
+
+
 			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 		}
 	},
