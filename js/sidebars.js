@@ -38,6 +38,7 @@ var Sidebars = {
 		$('body').on('taphold', '#coverPageContainer, .mainImage', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
+		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
 		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
@@ -392,6 +393,16 @@ var Sidebars = {
 		}
 
 		Sidebars.closeMainModal();
+	},
+
+	toggleImageLike: function() {
+		var heartIcon = $(this).find('.jtIcons');
+		var heart = heartIcon.text();
+		if ( heart == 'e' ) {
+			heartIcon.css('color', 'red').text('d');
+		} else {
+			heartIcon.css('color', '').text('e');
+		}
 	}
 }
 
