@@ -634,7 +634,7 @@ var Story = {
 			console.log('show message!!');
 		} else {
 			$('.errorMessage').hide();
-			window.location.href='index.html';
+			window.location.href='sendStory.html';
 		}
 	}, 
 
@@ -649,7 +649,7 @@ var Story = {
 			$('.singleImageContainer').css('width', '100%');
 			$('.singleImage').css('border', 'none');
 			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
-			$('#learningStoryPage > .gridImages').css({'width': '100%', 'text-align': 'center'});
+			$('.gridImages').css({'width': '100%'});
 			$('.firstImage').css('height', '500px');
 			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
 			$('.thirdImage').css('margin-left', '7.3px');
