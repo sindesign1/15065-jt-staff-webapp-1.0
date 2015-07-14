@@ -29,6 +29,10 @@ var Story = {
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
 		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		$('body').on('click touch', '.cancelStory', Story.cancelStory);
+		$('body').on('click touch', '#cancelStoryOverlay', Story.cancelStoryOverlay);
+		$('body').on('click touch', '#editNevermindBtn', Story.hideEditOverlay);
+		$('body').on('click touch', '#submitStory', Story.submitStory);
 		// $('body').on('click touch', '.storyInput', Story.formatText);
 		// $('body').on('click touch', '.formatBtn', Story.doFormatText);
 
@@ -307,6 +311,11 @@ var Story = {
 		// $overlay.append('<div class="editOptions"><div id="addPhotoElement" class="btnContainer"><button>^</button><div>photo</div></div><div id="addTextElement" class="btnContainer"><button>6</button><div>text</div></div><div id="addImageGrid" class="btnContainer"><button>^</button><div>image grid</div></div><div id="addFramework" class="btnContainer"><button>f</button><div>frameworks</div></div></div>');
 
 		
+	},
+
+	hideEditOverlay: function(e) {
+		e.stopPropagation();
+		$('.overlay').hide();
 	},
 
 	editElement: function(e){
@@ -610,6 +619,24 @@ var Story = {
 		$('.selectedImage').removeClass('selectedImage');
 		$this.addClass('selectedImage');
 	},
+
+	cancelStory: function() {
+		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><button class="overlayBtn draft" href="#">save draft</button><button class="overlayBtn" href="mainFeed.html">delete</button></div></div></div>')
+	},
+
+	cancelStoryOverlay: function() {
+		$('.storyOverlay').hide();
+	},
+
+	submitStory: function() {
+		if($('.frameworksContainer').css('display') != 'block') {
+			$('.errorMessage').show();
+			console.log('show message!!');
+		} else {
+			$('.errorMessage').hide();
+			window.location.href='index.html';
+		}
+	}, 
 
 	closePhotoSidebar: function() {
 		Story.sliderOpen = false;
