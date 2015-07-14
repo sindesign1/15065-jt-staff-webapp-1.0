@@ -129,6 +129,7 @@ var Story = {
 
 		var $storyPage = $('#learningStoryPage');
 
+		$('div.gridImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
 		$('div.singleCoverImage').removeClass('singleImage-active');
 
@@ -188,6 +189,8 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.singleImage').removeClass('singleImage-active');
+		$('div.singleCoverImage').removeClass('singleImage-active');
 
 		$storyPage.append('<div class="imageGridContainer"><div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div></div>');
 		$('.firstImage').append('<div class="photoPlaceholder gridPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
