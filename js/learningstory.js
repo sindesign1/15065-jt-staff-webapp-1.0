@@ -243,6 +243,9 @@ var Story = {
 		// e.stopPropagation();
 		$('.gridImage.singleImage-active').removeClass('singleImage-active');
 		$this.addClass('singleImage-active');
+		
+		$('.selectedImage').removeClass('selectedImage');
+		$this.addClass('selectedImage');
 	},
 
 	showEditOverlay: function() {
@@ -570,6 +573,9 @@ var Story = {
 		$this.find('p.gridImageTitle').removeClass('gridImageTitle').addClass('gridImageTitleWithBG');
 
 		$this.find('.photoCoverPlaceholder').hide();
+
+		$('.selectedImage').removeClass('selectedImage');
+		$this.addClass('selectedImage');
 	},
 
 	closePhotoSidebar: function() {
