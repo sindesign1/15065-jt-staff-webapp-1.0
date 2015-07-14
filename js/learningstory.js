@@ -28,8 +28,9 @@ var Story = {
 		$('body').on('click touch', '#moveDown, #moveTextDown, #moveFrameworkDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
-		$('body').on('click touch', '.storyInput', Story.formatText);
-		$('body').on('click touch', '.formatBtn', Story.doFormatText);
+		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		// $('body').on('click touch', '.storyInput', Story.formatText);
+		// $('body').on('click touch', '.formatBtn', Story.doFormatText);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -490,6 +491,13 @@ var Story = {
 		$storyPage.show();
 
 		if ( $.inArray(personName, addedArray) == -1 ) {
+
+			if ( !window.profileTagsCount ) {
+				window.profileTagsCount = 0;
+			}
+
+			window.profileTagsCount ++;
+
 			addedArray.push(personName);
 
 			var tagText = '<span class="greyText">With </span>' + addedArray[0];
@@ -504,7 +512,60 @@ var Story = {
 			}
 
 			$(sectionClass).html(tagText);
+
+            // <div class="gridCoverImage firstCoverImage">
+            //     <div class="photoCoverPlaceholder gridCoverPlaceholder">
+            //         <div class="photoCoverIcon">?</div>
+            //         <div class="photoCoverText">Personalise cover</div>
+            //     </div>
+            //     <p class="gridCoverImageTitle">Group cover</p>
+            // </div>
+
+            $('#learningStoryPageCovers').show();
+
+            var coverTitleText = 'Group cover';
+            var bgImage = $('#coverPageContainer').css('background-image');
+            if ( window.profileTagsCount > 1 ) {
+            	bgImage = '';
+            	coverTitleText = personName;
+
+				$('.gridImages').append(
+					$('<div class="gridImage gridImage-click"/>').append(
+						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+							$('<div class="photoCoverIcon"/>').text('?')
+							).append(
+							$('<div class="photoCoverText"/>').text('Personalise cover')
+						)
+					).append(
+						$('<p class="gridImageTitle"/>').text(coverTitleText)
+					)
+				);			
+            } else {
+				$('.gridImages').append(
+					$('<div class="gridImage gridImage-click"/>').css('background-image', bgImage).append(
+							$('<p class="gridImageTitleWithBG"/>').text(coverTitleText)
+						)
+					);			
+            }
+		
 		}
+	},
+
+	updateCoverImage: function() {
+
+		$('.singleImage-active').removeClass('singleImage-active');
+
+		Story.openImageSidebar();
+
+		window.divForImageGrid = '.singleImage-active';
+		window.divForBackground = '';
+
+		var $this = $(this);
+
+		$this.addClass('singleImage-active');
+		$this.find('p.gridImageTitle').removeClass('gridImageTitle').addClass('gridImageTitleWithBG');
+
+		$this.find('.photoCoverPlaceholder').hide();
 	},
 
 	closePhotoSidebar: function() {
@@ -538,7 +599,10 @@ var Story = {
 	doFormatText: function() {
 
 	    var text = "";
-	    if (window.getSelection) {
+	    if ( document.getSelection) {
+	        text = document.getSelection().toString();
+	    }
+	    else if (window.getSelection) {
 	        text = window.getSelection().toString();
 	    } else if (document.selection && document.selection.type != "Control") {
 	        text = document.selection.createRange().text;
