@@ -539,11 +539,8 @@ var Story = {
 
             $('#learningStoryPageCovers').show();
 
-            var coverTitleText = 'Group cover';
             var bgImage = $('#coverPageContainer').css('background-image');
             if ( window.profileTagsCount > 1 ) {
-            	bgImage = '';
-            	coverTitleText = personName;
 
 				$('.gridImages').css('text-align', 'left !important').append(
 					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
@@ -553,15 +550,27 @@ var Story = {
 							$('<div class="photoCoverText"/>').text('Personalise cover')
 						)
 					).append(
-						$('<p class="gridImageTitle"/>').text(coverTitleText)
+						$('<p class="gridImageTitle"/>').text(personName)
 					)
 				);			
             } else {
 				$('.gridImages').append(
 					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
-							$('<p class="gridImageTitleWithBG"/>').text(coverTitleText)
+							$('<p class="gridImageTitleWithBG"/>').text('Group cover')
 						)
 					);			
+
+				$('.gridImages').css('text-align', 'left !important').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+							$('<div class="photoCoverIcon"/>').text('?')
+							).append(
+							$('<div class="photoCoverText"/>').text('Personalise cover')
+						)
+					).append(
+						$('<p class="gridImageTitle"/>').text(personName)
+					)
+				);			
             }
 		
 		}
