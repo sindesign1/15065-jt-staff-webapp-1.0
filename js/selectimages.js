@@ -4,11 +4,16 @@ var SelectImages = {
 		SelectImages.events();
 	},
 
-	enableSelect: function() {
-		$('.selectImagesBtn').hide();
+	enableSelect: function(e) {
+		// $('.selectImagesBtn').hide();
+		e.stopPropagation();
 		$('.deleteImagesBtn').show();
 		$('.doneImagesBtn').show();
 		$('.cancelImagesBtn').show();
+
+		$('#loadMainFooter').hide();
+		$('body').find('#loadImgActionFooter').show();
+		console.log($('#loadImgActionFooter'));
 
 		window.selectImagesChecked = true;
 
@@ -16,7 +21,7 @@ var SelectImages = {
 	},
 
 	disableSelect: function() {
-		$('.selectImagesBtn').show();
+		// $('.selectImagesBtn').show();
 		$('.deleteImagesBtn').hide();
 		$('.doneImagesBtn').hide();
 		$('.cancelImagesBtn').hide();

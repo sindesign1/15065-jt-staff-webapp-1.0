@@ -7,7 +7,7 @@ var Templates = {
 		Templates.formatActionFooter();
 		Templates.mainSidebar();
 		Templates.childListSidebar();
-		Templates.charlotteMessageSidebar();
+		Templates.childListStatic();
 		Templates.charlotteMessageSidebar();
 		Templates.tagSidebar();
 		Templates.photoSidebar();
@@ -20,6 +20,8 @@ var Templates = {
 		Templates.helpHeader();
 		Templates.draftsHeader();
 		Templates.editImageHeader();
+		Templates.messagesHeader();
+		Templates.childrenHeader();
 	},
 
 	loadScripts: function() {
@@ -50,6 +52,10 @@ var Templates = {
 
 	childListSidebar: function() {
 		$('#loadChildListSidebar').load('../templates/childListSidebar.html #childListSidebar');
+	},
+
+	childListStatic: function() {
+		$('#loadChildListStatic').load('../templates/childListStatic.html #childListStatic');
 	},
 
 	charlotteMessageSidebar: function() {
