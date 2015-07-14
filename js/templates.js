@@ -14,6 +14,7 @@ var Templates = {
 		Templates.childNav();
 		Templates.chooseCentreHeader();
 		Templates.learningStoryHeader();
+		Templates.imagesHeader();
 		Templates.selectImages();
 		Templates.albumnHeader();
 		Templates.bunniesHeader();
@@ -25,8 +26,8 @@ var Templates = {
 	},
 
 	loadScripts: function() {
-		$('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
-		$('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
+		// $('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
+		// $('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/taphold.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/main.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/common.js' type='text/javascript'></script>");
@@ -84,6 +85,10 @@ var Templates = {
 
 	learningStoryHeader: function() {
 		$('#loadLearningStoryHeader').load('../templates/headers.html #learningStoryHeader');
+	},
+
+	imagesHeader: function() {
+		$('#loadImagesHeader').load('../templates/headers.html #imagesHeader');
 	},
 
 	selectImages: function() {

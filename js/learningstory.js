@@ -259,12 +259,20 @@ var Story = {
 		// Story.editOverlayOpen = true;
 		// $('.edit').removeClass('overlay');
 		var $this = $(this);
+
 		$('.overlay').show();
 		var height = $this.height();
 		var width = $this.width();
 		// var top = $this.offset().top;
-		var $overlay = $('.overlay');
-		$this.append($overlay);
+		var $overlay = $('#overlay');
+
+		var sic = $('.singleImageContainer');
+		if ( sic.length > 0 ) {
+			$this.append($overlay);
+			$overlay.show();
+		} else {
+			$overlay.hide();
+		}
 
 		console.log(width);
 
@@ -288,7 +296,7 @@ var Story = {
 	editElement: function(e){
 		e.stopPropagation();
 		var $this = $(this);
-		var $overlay = $('.overlay');
+		var $overlay = $('.overlay1');
 		$this.parent().hide();
 		var type;
 		var $itemElement = $this.parent().parent();
@@ -313,12 +321,11 @@ var Story = {
 
 	deleteElement: function() {
 		var $this = $(this);
-		var $item = $this.parent().parent();
-		var $overlay = $('.overlay');
+		var $item = $this.parent().parent().parent();
 
-		// $overlay.hide();
-
-		$item.detach();
+		var $overlay = $('#overlay');
+		$('#overlayContainer').append($overlay);
+		$item.remove();
 	},
 
 	deleteText: function() {

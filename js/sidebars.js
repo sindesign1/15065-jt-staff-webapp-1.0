@@ -104,7 +104,7 @@ var Sidebars = {
 			Sidebars.editImagesMulti();
 		} 
 
-		$('#loadLearningStoryHeader').hide();
+		$('#imagesHeader').hide();
 		$('#loadSelectImagesHeader').hide();
 		$('#loadEditImageHeader').show();
 		$('.postBtnContainer').show();
@@ -140,10 +140,10 @@ var Sidebars = {
 
 		$('#loadEditImageHeader').hide();
 		if ( window.selectImagesChecked ) {
-			$('#loadLearningStoryHeader').hide();
+			$('#imagesHeader').hide();
 			$('#loadSelectImagesHeader').show();
 		} else {
-			$('#loadLearningStoryHeader').show();
+			$('#imagesHeader').show();
 			$('#loadSelectImagesHeader').hide();
 		}
 		$('.editSection').show();
