@@ -46,11 +46,11 @@ var Sidebars = {
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
-		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 		$('body').on('click touch', '#threeDots', Sidebars.toggleCharlotteMessageSidebar);
 
-		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
+		$('body').on('click touch', '.doneBtn', Sidebars.closeTagSidebar);
+		$('body').on('click touch', '.cancelBtn', Sidebars.closeTagSidebarWithCancel);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
 		if ( window.sourcePage == 'classroom' ) {
@@ -102,6 +102,8 @@ var Sidebars = {
 			$('.MessageThreadNames').animate({"right":"0px"}, 200);
 			$('.messageOverlay').fadeOut();
 		}
+
+		console.log($('#mainSidebar'));
 	},
 
 	togglePhotoSidebar: function(e) {
@@ -119,6 +121,17 @@ var Sidebars = {
 
 	toggleTagSidebar: function() {
 		console.log('tag sidebar clicked');
+
+
+		if ( window.selectImagesChecked ) {
+			Sidebars.editImagesMulti();
+		} 
+
+		$('#imagesHeader').hide();
+		$('#loadSelectImagesHeader').hide();
+		$('#loadEditImageHeader').show();
+		$('.postBtnContainer').show();
+
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
@@ -127,7 +140,8 @@ var Sidebars = {
 
 		// $('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
-		$('.mainImageSection').animate({'width': '55%', 'height': '55%', 'padding': '100px 10px 5px 10px'});
+		$('.mainImageSection').animate({'width': '59%', 'height': '55%', 'padding': '90px 0px 0px 0px'});
+		$('.editSection').animate({'width': '59%'});
 	
 		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
@@ -138,6 +152,7 @@ var Sidebars = {
 		$('.frameworksSection').show();
 		$('.activitiesSection').show();
 
+
 	},
 
 	closeTagSidebar: function() {
@@ -146,7 +161,20 @@ var Sidebars = {
 //		$('.mainImageSection').hide();
 		// $('.mainImageSection').css({'z-index': '-800'});
 
-		$('.mainImageSection').animate({'width': '100%', 'height': '100%', 'padding': '90px 0 61px 0'});
+		$('#loadEditImageHeader').hide();
+		if ( window.selectImagesChecked ) {
+			$('#imagesHeader').hide();
+			$('#loadSelectImagesHeader').show();
+		} else {
+			$('#imagesHeader').show();
+			$('#loadSelectImagesHeader').hide();
+		}
+		$('.editSection').show();
+
+		$('.postBtnContainer').hide();
+
+		$('.editSection').animate({'width': '100%'});
+		$('.mainImageSection').animate({'width': '100%', 'height': '55%', 'padding': '90px 0 0 0'});
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
@@ -154,6 +182,14 @@ var Sidebars = {
 			$('#tagSidebar').removeClass('openRight');
 		}
 		$('body').css('overflow', 'auto');
+	},
+
+	closeTagSidebarWithCancel: function() {
+		Sidebars.closeTagSidebar();
+
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			$('#storyPageTop' + window.frameworkIndex).remove();
+		}
 	},
 
 	closePhotoSidebar: function() {
@@ -188,10 +224,12 @@ var Sidebars = {
 			$('#gallery').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
+			$('.mainImageSection').css({'opacity': '1'});
 			// $('.mainImageSection').animate({'opacity': '1'});
 			// $('#gridHeader').hide();
 			// $('#imageHeader').show();
 			$('#loadImgActionFooter').show();
+			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
 	},
 
@@ -201,6 +239,7 @@ var Sidebars = {
 		Sidebars.closeTagSidebar();
 
 		$('#classroom').show();
+		$('#gallery').show();
 		$('#gridHeader').show();
 		$('#imageHeader').hide();
 
@@ -216,6 +255,7 @@ var Sidebars = {
 		$('.frameworksSection').hide();
 		$('.activitiesSection').hide();
 		$('#loadImgActionFooter').hide();
+		$('.editSection').hide();
 
 		$('.editImageTextArea textarea').val('');
 		// $('.frameworksSection ul').find('li').not(':first').remove();
@@ -223,6 +263,7 @@ var Sidebars = {
 		$('.frameworksSection ul').find('li').remove();
 		$('.activitiesSection ul').find('li').remove();
 		$('.profileTagsSection h6').text('');
+		$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 
 		window.addedProfileTags = new Array();
 		window.addedFrameworks = new Array();
@@ -257,8 +298,6 @@ var Sidebars = {
 		$('#gridHeader').hide();
 		$('#imageHeader').show();
 		$('#loadImgActionFooter').show();
-
-		Sidebars.toggleTagSidebar();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
@@ -425,13 +464,16 @@ var Sidebars = {
 	},
 
 	toggleImageLike: function() {
-		var heartIcon = $(this).find('.jtIcons');
+		var heartIcon = $('#likeImageBtn').find('.jtIcons');
 		var heart = heartIcon.text();
 		if ( heart == 'e' ) {
-			heartIcon.css('color', 'red').text('d');
+			$('#likeImageBtn').find('.jtIcons').css('color', 'red').text('d');
 		} else {
-			heartIcon.css('color', '').text('e');
+			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
+
+		var heartIcon2 = $('#likeImageBtn').find('.jtIcons').text();
+		var heartIcon3 = $('#likeImageBtn').find('.jtIcons').text();
 	}
 }
 

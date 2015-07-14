@@ -7,11 +7,16 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
         window.sourcePage = 'ls-coverPage';
+        window.completedCurrentImageSelectSection = true;
     </script>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
+    
+    <!--<script src="../js/sidebars.js" type="text/javascript"></script>
+    <script src="../js/learningstory.js" type="text/javascript"></script>-->
+    
     <script src="../js/templates.js" type="text/javascript"></script>
-    <script src="//use.typekit.net/xxx2qsl.js"></script>
+    <script src="https://use.typekit.net/xxx2qsl.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
     <script>
@@ -29,6 +34,12 @@
             $('#coverPageContainer').find('.innerContainer').css('border', 'none');
             $('#coverPageContainer').find('.addImageBtnText').text('replace');
             $('#coverPageContainer').find('.addImageBtn').text('h');
+
+            $(window.divForBackground).find('.photoPlaceholder').hide();
+            $(window.divForImageGrid).find('.photoPlaceholder').hide();
+            $('.selectedImage').removeClass('selectedImage');
+
+            window.completedCurrentImageSelectSection = true;
         }
 
     </script>
@@ -69,6 +80,18 @@
         <div class="profileTagsSection">
         </div>
     </div>
+    <div id="learningStoryPageCovers" style="display:none">
+        <div class="imageGridCointainer">
+            <div class="gridImages">
+            </div>
+        </div>
+    </div>
+    <div class="errorMessage">Oops! Please add a framework to your story.</div>
+    <div class="submitContainer">
+        <button class="submitBtn disabled" disabled="true">save</button>
+        <button class="submitBtn" id="submitStory">submit</button>
+        <button class="submitBtn disabled" disabled="true">send</button>
+    </div>
 
     <div id="addElementContainer">
         <div id="addPhotoElement" class="btnContainer">
@@ -80,7 +103,7 @@
             <div>text</div>
         </div>
         <div id="addImageGrid" class="btnContainer">
-            <button>^</button>
+            <button>r</button>
             <div>image grid</div>
         </div>
         <div id="addFramework" class="btnContainer">
@@ -92,32 +115,35 @@
         </div>
     </div>
 
-    <div class="overlay">
-        <div id="editElement" class="btnContainer">
-            <button>2</button>
-            <div>edit</div>
-        </div>
-        <div id="deleteElement" class="btnContainer">
-            <button>a</button>
-            <div>delete</div>
-        </div>
-        <div id="moveUp" class="btnContainer">
-            <button>|</button>
-            <div>move up</div>
-        </div>
-        <div id="moveDown" class="btnContainer">
-            <button>_</button>
-            <div>move down</div>
-        </div>
-        <div id="nevermindBtn">
-            <div>nevermind</div>
+    <div id="overlayContainer">
+        <div id="overlay" class="overlay">
+            <div id="editElement" class="btnContainer">
+                <button>2</button>
+                <div>edit</div>
+            </div>
+            <div id="deleteElement" class="btnContainer">
+                <button>a</button>
+                <div>delete</div>
+            </div>
+            <div id="moveUp" class="btnContainer">
+                <button>|</button>
+                <div>move up</div>
+            </div>
+            <div id="moveDown" class="btnContainer">
+                <button>_</button>
+                <div>move down</div>
+            </div>
+            <div id="nevermindBtn">
+                <div>nevermind</div>
+            </div>
         </div>
     </div>
 
     <!-- loaded templates -->
     <div id="loadPhotoSidebar"></div>
 	<div id="loadTagSidebar"></div>
-	<div id="loadMainFooter"></div>
+    <div id="loadMainFooter"></div>
+    <div id="loadFormatActionFooter" style="display:none"></div>
 	<div id="loadMainSidebar"></div>
 </body>
 </html>

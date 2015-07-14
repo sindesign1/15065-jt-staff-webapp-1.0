@@ -110,39 +110,6 @@
 .icon-jt-icon-name:before {
   content: "k";
 }
-.icon-jt-icon-roundchildstory:before {
-  content: "l";
-}
-.icon-jt-icon-roundframeworks:before {
-  content: "m";
-}
-.icon-jt-icon-roundgrid:before {
-  content: "n";
-}
-.icon-jt-icon-roundgroupstory:before {
-  content: "o";
-}
-.icon-jt-icon-roundimages:before {
-  content: "p";
-}
-.icon-jt-icon-roundparent:before {
-  content: "q";
-}
-.icon-jt-icon-roundphoto:before {
-  content: "r";
-}
-.icon-jt-icon-roundroomstory:before {
-  content: "s";
-}
-.icon-jt-icon-roundstaff:before {
-  content: "t";
-}
-.icon-jt-icon-roundtext:before {
-  content: "u";
-}
-.icon-jt-icon-services-thin:before {
-  content: "v";
-}
 .icon-jt-icon-staff:before {
   content: "w";
 }
@@ -151,9 +118,6 @@
 }
 .icon-jt-icon-tag-thin:before {
   content: "y";
-}
-.icon-jt-icon-roundtag:before {
-  content: "z";
 }
 .icon-jt-icon-tree:before {
   content: "1";
@@ -172,4 +136,25 @@
 }
 .icon-jt-icon-addtext-thin:before {
   content: "6";
+}
+.icon-jt-icon-parent:before {
+  content: "l";
+}
+.icon-jt-icon-imagethin:before {
+  content: "m";
+}
+.icon-jt-icon-groupstory:before {
+  content: "n";
+}
+.icon-jt-icon-classstory:before {
+  content: "o";
+}
+.icon-jt-icon-childstory:before {
+  content: "p";
+}
+.icon-jt-icon-addtext-thin-1:before {
+  content: "q";
+}
+.icon-jt-icon-addphotogrid:before {
+  content: "r";
 }
