@@ -103,7 +103,6 @@ var Sidebars = {
 			Sidebars.editImagesMulti();
 		} 
 
-		$('#loadLearningStoryHeader').hide();
 		$('#loadSelectImagesHeader').hide();
 		$('#loadEditImageHeader').show();
 		$('.postBtnContainer').show();

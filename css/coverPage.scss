@@ -239,6 +239,7 @@
         text-align: left;
         border-top: 2px solid $melon;
         margin-top: 15px;
+        display: block;
 
         ul {
             list-style: none;
@@ -297,6 +298,7 @@
             font-size: 26px;
             font-family: $iconfont;
             padding: 0;
+            color: $melon;
 
         }
 
@@ -325,6 +327,7 @@
         display: inline-block;
         vertical-align: middle;
         width: 80px;
+        margin: 28% 0;
 
         &:first-child {
             margin-left: 0;
@@ -448,12 +451,45 @@
         font-size: 20px;
         color: $melon;
         margin-right: 25px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
     }
 
     .disabled {
         border-color: $grey200;
         color: $grey200;
+
+        &:last-child {
+            margin-right: 0px;
+        }
     }
+}
+
+.errorMessage {
+    text-align: center;
+    color: #fff;
+    background-color: $melon;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: none;
+
+    // &:before {
+    //     content: "";
+    //     width: 0;
+    //     height: 0;
+    //     border-left: 10px solid transparent;
+    //     border-right: 10px solid transparent;
+    //     border-bottom: 10px solid #F16259;
+    //     position: absolute;
+    //     bottom: -24.5%;
+    //     left: 48.59%;
+    // }
 }
 
 .selectedImage {
@@ -508,6 +544,28 @@
                 color: $melon;
                 margin-right: 15px;
             }
+        }
+    }
+}
+
+#sendStoryContainer {
+    height: 100%;
+    width: 100%;
+    background: $melon;
+    position: absolute;
+    text-align: center;
+    opacity: 0.9;
+
+    .messageContainer {
+        margin-top: 50%;
+
+        img {
+            width: 15%;
+        }
+
+        .sentText {
+            margin-top: 10px;
+            font-size: 17px;
         }
     }
 }
