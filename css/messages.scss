@@ -1,0 +1,225 @@
+.childContent {
+	overflow: auto;
+    width: 100%;
+    -webkit-transition: height 0.35s;
+    -moz-transition: height 0.35s;
+    transition: height 0.35s;
+    img {
+        width: 100%;
+		display: block;
+		border-radius: 50%;
+    }
+}
+
+// Styling for the message speach bubbles and layout
+
+.mainMessages {
+    padding-top: 130px !important;
+    .fixed {
+		top: 90px;
+    }
+}
+
+.messagesThread {
+	float: right;
+	width: 58.333%;
+    padding-top: 403px;
+    padding-bottom: 112px;
+	h5 {
+		color: $grey120;
+		text-align: center;
+	}
+	h6 {
+		position: absolute;
+		top: -20px;
+		color: $grey160;
+	}
+	.MessageThreadNames {
+		overflow: auto;
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 5px 20px;
+		background: $pale-melon;
+		box-sizing: border-box;
+		p {
+			float: left;
+			color: $melon;
+		}
+		.threeDots {
+			float: right;
+			width: 4px;
+			img {
+				max-width: 100%;
+				border-radius: 0;
+			}
+		}
+	}
+	.message {
+		position: relative;
+		width: 58%;
+		margin: 70px 8% 0;
+		padding: 20px;
+		box-sizing: border-box;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+	}
+	.messageProfilePic {
+		position: absolute;
+		top: -35px;
+		padding: 2px;
+		width: 40px;
+		height: 40px;
+		display: block;
+		text-align: center;
+		border: 4px $white solid;
+		border-radius: 50%;
+		background: $melon;
+	}
+	.messageLeft {
+		float: left;
+		.messageProfilePic {
+			left: -20px;
+		}
+		h6 {
+			left: 40px;
+		}
+		&:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-left: 0px solid transparent;
+			border-right: 25px solid transparent;
+			position: absolute;
+			top: 73px;
+			left: 15px;
+			border-radius: 0px;
+		}
+	}
+	.messageRight {
+		float: right;
+		.messageProfilePic {
+			right: -20px;
+		}
+		h6 {
+			right: 40px;
+		}
+		&:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-left: 30px solid transparent;
+			border-right: 0px solid transparent;
+			position: absolute;
+			top: 50px;
+			right: 15px;
+			border-radius: 0px;
+		}
+	}
+	p {
+		margin: 0;
+		color: $grey40;
+		font-weight: 400;
+	}
+}
+
+.importantNotice {
+	display: inline-block;
+	float: none;
+	width: 84%;
+	margin: 50px 8% 0;
+	padding: 20px;
+	text-align: center;
+	background: $melon;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	box-sizing: border-box;
+	p {
+		margin-top: 20px;
+		color: $white;
+	}
+}
+
+.paleMelonMessage {
+	background: $pale-melon;
+	&:after {
+		border-top: 20px solid $pale-melon;
+	}
+}
+.tintGreenMessage {
+	background: $tint-green;
+	&:after {
+		border-top: 24px solid $tint-green;
+	}
+}
+.hueGreenMessage {
+	background: $hue-green;
+	&:after {
+		border-top: 24px solid $hue-green;
+	}
+}
+
+// Styling for the list of message contributors 
+.messageSidebar,
+.messagesMainList {
+	float: left;
+    padding-top: 403px;
+    padding-bottom: 112px;
+	width: 41.667%;
+	min-height: 100vh;
+	background: $grey240;
+}
+
+.fixed {
+	z-index: 1;
+	position: fixed;
+	top: 152px;
+	padding-top: 0;
+}
+
+.messagesMainList {
+	position: fixed;
+	top: 90px;
+	padding-top: 0;
+}
+
+.messageUserContainer {
+	overflow: auto;
+	width: 100%;
+	padding: 6.25%;
+	color: $grey80;
+	border-bottom: 2px $grey200 solid;
+	box-sizing: border-box;
+	.messageUserPic {
+		float: left;
+		position: relative;
+		width: 17.857%;
+		border-radius: 50%;
+		border: 2px $melon solid;
+	}
+	.messageTag {
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		width: 15px;
+		height: 15px;
+		padding: 3px;
+		text-align: center;
+		color: $white;
+		background: $melon;
+		border-radius: 50%;
+	}
+	.messageUserText {
+		float: right;
+		width: 76%;
+	}
+	h5, h6, p {
+		margin: 0;
+	}
+	h5 {
+		color: $melon;
+		.messageUserTime {
+			float: right;
+			color: $grey80;
+		}
+	}
+}

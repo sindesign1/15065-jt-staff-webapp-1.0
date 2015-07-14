@@ -1,0 +1,73 @@
+.staffHeader {
+    z-index: 1;
+    width: 100%;
+    padding: 1em 0 0;
+    background: $melon;
+    text-align: center;
+    -webkit-transition: height 0.35s;
+    -moz-transition: height 0.35s;
+    transition: height 0.35s;
+    .childMasthead {
+        width: 100%;
+        margin-bottom: 1em;
+        .childTreeIcon {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            color: #fff;
+            font-family: $iconfont;
+            line-height: $top-title;
+        }
+    }
+    
+    h3 {
+        padding-top: 1em;
+        font-family: $museo;
+        font-weight: 500;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        transition: all 0.35s;
+    }
+    img {
+        width: 23%;
+        border: 3px solid $white;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        transition: all 0.35s;
+    }
+}
+
+#staffProfileContainer {
+    padding: 40px;
+
+    .fullColumn {
+        margin-bottom: 40px;
+    }
+
+    .columnOne, .columnTwo {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .columnOne {
+        width: 20%;
+    }
+
+    .columnTwo {
+        width: 79%;
+    }
+
+    .label {
+        color: $melon;
+        margin-bottom: 40px;
+        font-size: 20px;
+    }
+
+    .input {
+        color: $grey80;
+        margin-bottom: 45px;
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,43 @@
+.childProfile {
+	margin-top: 403px;
+	padding: 50px 5%;
+	h5 {
+		float: left;
+		color: $melon;
+		font-family: $museo;
+		margin-bottom: 20px;
+		.h6Size {
+			margin: 0 30px 0 10px;
+			color: $grey160;
+			font-size: $h6Size;
+			font-family: $myriad;
+		}
+		&:last-child {
+			clear: both;
+			margin-bottom: 0;
+		}
+	}
+	.childContacts {
+		clear: both;
+		display: inline-block;
+		margin: 50px 0 0;
+		padding: 20px 0 0;
+		width: 100%;
+		border-top: 1px $melon solid;
+		div {
+			clear: both;
+			margin-bottom: 20px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			border: 2px $melon solid;
+			img {
+				width: 100%;
+				border-radius: 50%;
+			}
+		}
+	}
+	h6 {
+		color: $grey160;
+	}
+}
