@@ -32,7 +32,6 @@ $(document).ready(function(){
     Main.init();
 });
 
-
 $(document).ready(function() {
     $( ".childheader" ).click(function() {
          $(this).removeClass("shrink");

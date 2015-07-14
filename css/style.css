@@ -1076,7 +1076,6 @@ input:checked ~ .modal__overlay {
 
 .childheader {
   z-index: 2;
-  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -1362,5 +1361,41 @@ input:checked ~ .modal__overlay {
     color: #505050;
     margin-bottom: 45px;
     font-size: 17px; }
+
+.childProfile {
+  margin-top: 403px;
+  padding: 50px 5%; }
+  .childProfile h5 {
+    float: left;
+    color: #F16259;
+    font-family: museo;
+    margin-bottom: 20px; }
+    .childProfile h5 .h6Size {
+      margin: 0 30px 0 10px;
+      color: #A0A0A0;
+      font-size: 14px;
+      font-family: myriad-pro; }
+    .childProfile h5:last-child {
+      clear: both;
+      margin-bottom: 0; }
+  .childProfile .childContacts {
+    clear: both;
+    display: inline-block;
+    margin: 50px 0 0;
+    padding: 20px 0 0;
+    width: 100%;
+    border-top: 1px #F16259 solid; }
+    .childProfile .childContacts div {
+      clear: both;
+      margin-bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px #F16259 solid; }
+      .childProfile .childContacts div img {
+        width: 100%;
+        border-radius: 50%; }
+  .childProfile h6 {
+    color: #A0A0A0; }
 
 /*# sourceMappingURL=style.css.map */
