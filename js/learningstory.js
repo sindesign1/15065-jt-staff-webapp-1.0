@@ -132,6 +132,13 @@ var Story = {
 
 	addPhotoElement: function() {
 
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
@@ -142,7 +149,7 @@ var Story = {
 
 		$('.singleImage').append('<div class="photoPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.singleImageContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.singleImageContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 		window.divForBackground = '.singleImage-active';
 
@@ -183,7 +190,7 @@ var Story = {
 		// e.stopPropagation();
 		$('.storyInput').focus();
 
-		$('.inputContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		$('#addElementContainer').css('display', 'none');
@@ -191,6 +198,14 @@ var Story = {
 	},
 
 	addImageGridElement: function() {
+
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
@@ -200,7 +215,7 @@ var Story = {
 		$storyPage.append('<div class="imageGridContainer"><div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div></div>');
 		$('.firstImage').append('<div class="photoPlaceholder gridPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.imageGridContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.imageGridContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		window.divForImageGrid = '.singleImage-active';
@@ -263,12 +278,21 @@ var Story = {
 		// Story.editOverlayOpen = true;
 		// $('.edit').removeClass('overlay');
 		var $this = $(this);
+
 		$('.overlay').show();
 		var height = $this.height();
 		var width = $this.width();
 		// var top = $this.offset().top;
-		var $overlay = $('.overlay');
-		$this.append($overlay);
+		var $overlay = $('#overlay');
+
+		var sic = $('.singleImageContainer');
+		var igc = $('.imageGridContainer');
+		if ( sic.length > 0 || igc.length > 0 ) {
+			$this.append($overlay);
+			$overlay.show();
+		} else {
+			$overlay.hide();
+		}
 
 		console.log(width);
 
@@ -297,7 +321,7 @@ var Story = {
 	editElement: function(e){
 		e.stopPropagation();
 		var $this = $(this);
-		var $overlay = $('.overlay');
+		var $overlay = $('.overlay1');
 		$this.parent().hide();
 		var type;
 		var $itemElement = $this.parent().parent();
@@ -322,12 +346,11 @@ var Story = {
 
 	deleteElement: function() {
 		var $this = $(this);
-		var $item = $this.parent().parent();
-		var $overlay = $('.overlay');
+		var $item = $this.parent().parent().parent();
 
-		// $overlay.hide();
-
-		$item.detach();
+		var $overlay = $('#overlay');
+		$('#overlayContainer').append($overlay);
+		$item.remove();
 	},
 
 	deleteText: function() {
@@ -540,11 +563,8 @@ var Story = {
 
             $('#learningStoryPageCovers').show();
 
-            var coverTitleText = 'Group cover';
             var bgImage = $('#coverPageContainer').css('background-image');
             if ( window.profileTagsCount > 1 ) {
-            	bgImage = '';
-            	coverTitleText = personName;
 
 				$('.gridImages').css('text-align', 'left !important').append(
 					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
@@ -554,15 +574,27 @@ var Story = {
 							$('<div class="photoCoverText"/>').text('Personalise cover')
 						)
 					).append(
-						$('<p class="gridImageTitle"/>').text(coverTitleText)
+						$('<p class="gridImageTitle"/>').text(personName)
 					)
 				);			
             } else {
 				$('.gridImages').append(
 					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
-							$('<p class="gridImageTitleWithBG"/>').text(coverTitleText)
+							$('<p class="gridImageTitleWithBG"/>').text('Group cover')
 						)
 					);			
+
+				$('.gridImages').css('text-align', 'left !important').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+							$('<div class="photoCoverIcon"/>').text('?')
+							).append(
+							$('<div class="photoCoverText"/>').text('Personalise cover')
+						)
+					).append(
+						$('<p class="gridImageTitle"/>').text(personName)
+					)
+				);			
             }
 		
 		}

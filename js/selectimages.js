@@ -8,7 +8,7 @@ var SelectImages = {
 		// $('.selectImagesBtn').hide();
 //		e.stopPropagation();
 
-		$('#loadLearningStoryHeader').hide();
+		$('#imagesHeader').hide();
 		$('#loadSelectImagesHeader').show();
 		$('#loadEditImageHeader').hide();
 
@@ -23,7 +23,7 @@ var SelectImages = {
 
 	disableSelect: function() {
 
-		$('#loadLearningStoryHeader').show();
+		$('#imagesHeader').show();
 		$('#loadSelectImagesHeader').hide();
 		$('#loadEditImageHeader').hide();
 
