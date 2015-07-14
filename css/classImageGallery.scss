@@ -19,22 +19,44 @@
 	display: block;
 	color: $melon;
 	text-align: left;
-	border-top: 2px solid $melon;
-	margin-top: 30px;
+	border-top: 3px solid $melon;
+	position: absolute;
+	top: 54.9%;
+	padding-bottom: 62px;
 	
 	p {
 		color: #333;
+		padding-left: 10px;	
 	}
 
 	ul {
 		list-style-type: none;
 		text-align: left;
-		padding: 0;
 		margin: 0;
+		padding: 0;
 	}
 
 	.profileTagsSection {
 		margin: 10px 0;
+	}
+
+	.edit {
+		padding: 0 20px;
+	}
+
+	.postBtnContainer {
+		text-align: center;
+		padding: 20px 0;
+
+		.postBtn {
+			background: none;
+			border: 1px solid $melon;
+			color: $melon;
+			font-size: 20px;
+			padding: 10px 40px;
+			width: 40%;
+			border-radius: 40px;
+		}
 	}
 
 }
@@ -92,6 +114,7 @@
 	width: 100%;
 	box-sizing: border-box;
 	padding: 90px 0 61px 0;
+	z-index: 1;
 
 	.shrinkContainer {
 		width: 100%;
