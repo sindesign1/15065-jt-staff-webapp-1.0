@@ -4,6 +4,7 @@ var Templates = {
 		Templates.loadScripts();
 		Templates.mainNavFooter();
 		Templates.imgActionFooter();
+		Templates.formatActionFooter();
 		Templates.mainSidebar();
 		Templates.childListSidebar();
 		Templates.childListStatic();
@@ -25,7 +26,7 @@ var Templates = {
 
 	loadScripts: function() {
 		// $('head').append("<script src='../js/sidebars.js' type='text/javascript'></script>");
-		$('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
+		// $('head').append("<script src='../js/learningstory.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/taphold.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/main.js' type='text/javascript'></script>");
 		$('head').append("<script src='../js/common.js' type='text/javascript'></script>");
@@ -39,6 +40,10 @@ var Templates = {
 
 	imgActionFooter: function() {
 		$('#loadImgActionFooter').load('../templates/botImgActions.html #botImgActions');
+	},
+
+	formatActionFooter: function() {
+		$('#loadFormatActionFooter').load('../templates/botFormatActions.html #botFormatActions');
 	},
 
 	mainSidebar: function() {
