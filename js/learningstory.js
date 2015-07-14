@@ -29,6 +29,8 @@ var Story = {
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
 		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		$('body').on('click touch', '.cancelStory', Story.cancelStory);
+		$('body').on('click touch', '#cancelStoryOverlay', Story.cancelStoryOverlay);
 		// $('body').on('click touch', '.storyInput', Story.formatText);
 		// $('body').on('click touch', '.formatBtn', Story.doFormatText);
 
@@ -577,6 +579,14 @@ var Story = {
 
 		$('.selectedImage').removeClass('selectedImage');
 		$this.addClass('selectedImage');
+	},
+
+	cancelStory: function() {
+		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><button class="overlayBtn draft" href="#">save draft</button><button class="overlayBtn" href="mainFeed.html">delete</button></div></div></div>')
+	},
+
+	cancelStoryOverlay: function() {
+		$('.storyOverlay').hide();
 	},
 
 	closePhotoSidebar: function() {
