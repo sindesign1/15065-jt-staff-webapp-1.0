@@ -130,6 +130,7 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.singleImage').removeClass('singleImage-active');
+		$('div.singleCoverImage').removeClass('singleImage-active');
 
 		$storyPage.append('<div class="singleImageContainer"><div class="singleImage edit element singleImage-active"></div></div>');
 
@@ -530,7 +531,7 @@ var Story = {
             	coverTitleText = personName;
 
 				$('.gridImages').append(
-					$('<div class="gridImage gridImage-click"/>').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').append(
 						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
 							$('<div class="photoCoverIcon"/>').text('?')
 							).append(
@@ -542,7 +543,7 @@ var Story = {
 				);			
             } else {
 				$('.gridImages').append(
-					$('<div class="gridImage gridImage-click"/>').css('background-image', bgImage).append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
 							$('<p class="gridImageTitleWithBG"/>').text(coverTitleText)
 						)
 					);			
