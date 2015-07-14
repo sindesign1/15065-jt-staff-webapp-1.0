@@ -48,7 +48,8 @@ var Sidebars = {
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
-		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
+		$('body').on('click touch', '.doneBtn', Sidebars.closeTagSidebar);
+		$('body').on('click touch', '.cancelBtn', Sidebars.closeTagSidebarWithCancel);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
 		if ( window.sourcePage == 'classroom' ) {
@@ -158,6 +159,14 @@ var Sidebars = {
 			$('#tagSidebar').removeClass('openRight');
 		}
 		$('body').css('overflow', 'auto');
+	},
+
+	closeTagSidebarWithCancel: function() {
+		Sidebars.closeTagSidebar();
+
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			$('#storyPageTop' + window.frameworkIndex).remove();
+		}
 	},
 
 	closePhotoSidebar: function() {
