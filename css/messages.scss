@@ -1,4 +1,5 @@
 .childContent {
+	position: relative;
 	overflow: auto;
     width: 100%;
     -webkit-transition: height 0.35s;
@@ -11,12 +12,22 @@
     }
 }
 
+.messageOverlay {
+	display: none;
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+}
+
 // Styling for the message speach bubbles and layout
 
 .mainMessages {
     padding-top: 130px !important;
     .fixed {
 		top: 90px;
+		right: 0; 
     }
 }
 
@@ -36,9 +47,8 @@
 	}
 	.MessageThreadNames {
 		overflow: auto;
-		width: 100%;
-		margin-bottom: 20px;
-		padding: 5px 20px;
+		width: 58.333%;
+		padding: 5px 0 5px 20px;
 		background: $pale-melon;
 		box-sizing: border-box;
 		p {
@@ -48,6 +58,7 @@
 		.threeDots {
 			float: right;
 			width: 4px;
+			padding: 0 20px;
 			img {
 				max-width: 100%;
 				border-radius: 0;
@@ -166,7 +177,7 @@
     padding-bottom: 112px;
 	width: 41.667%;
 	min-height: 100vh;
-	background: $grey240;
+	background: $grey249;
 }
 
 .fixed {
@@ -183,12 +194,16 @@
 }
 
 .messageUserContainer {
+	display: block;
 	overflow: auto;
 	width: 100%;
 	padding: 6.25%;
 	color: $grey80;
 	border-bottom: 2px $grey200 solid;
 	box-sizing: border-box;
+	&.active {
+		background-color: $grey240;
+	}
 	.messageUserPic {
 		float: left;
 		position: relative;
