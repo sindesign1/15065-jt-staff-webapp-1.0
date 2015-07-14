@@ -8,12 +8,17 @@
 	background-color: #333;
 	box-sizing: border-box;
 	top: 90px;
-	bottom: 62px;
+	bottom: -62px;
 	-webkit-transition: all 300ms ease 300ms;
     -moz-transition: all 300ms ease 300ms;
     -o-transition: all 300ms ease 300ms;
     transition: all 300ms ease 300ms;
-    overflow-y: scroll;
+    
+
+    .sidebarContainer {
+    	height: 100vh;
+    	position: relative;
+    }
 }
 
 .sidebarLeft {
@@ -411,11 +416,11 @@
 			font-size: 20px;
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			text-align: center;
-			position: fixed;
-			bottom: 61px;
+			position: absolute;
+			top: 780px;
 			width: 320px;
 			box-sizing: border-box;
 			z-index: 3 !important;
@@ -436,7 +441,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 	}
 
 	
@@ -446,6 +451,8 @@
 		display: none;
 		background: #333;
 		padding-bottom: 90px;
+		overflow-y: scroll;
+		height: 57%;
 
 		ul {
 			list-style: none;
@@ -471,7 +478,7 @@
 			font-size: 15px;
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			margin-top: 100px;
 			text-align: center;
@@ -492,7 +499,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 	}
 
 	#activitiesList {
@@ -515,7 +522,7 @@
 			}
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			margin-top: 100px;
 			text-align: center;
@@ -536,7 +543,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 
 	}
 
@@ -581,13 +588,19 @@
 		}
 	}
 
-	#buttonContainer {
+	
+	
+}
+
+.buttonContainer {
 		padding: 20px;
 		text-align: center;
-		position: fixed;
-		bottom: 62px;
+		position: absolute;
+		top: 780px;
 		background-color: #333;
 		z-index: 99;
+		width: 320px;
+		box-sizing: border-box;
 
 		button {
 			background: none;
@@ -606,6 +619,4 @@
 			}
 		}
 	}
-	
-}
 
