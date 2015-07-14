@@ -2,13 +2,13 @@
 
 .sidebarLeft, .sidebarRight {
 	position: fixed;
-	z-index: 2;
+	z-index: 1;
 	height: 100%;
 	width: 320px;
 	background-color: #333;
 	box-sizing: border-box;
 	top: 90px;
-	bottom: 0;
+	bottom: 62px;
 	-webkit-transition: all 300ms ease 300ms;
     -moz-transition: all 300ms ease 300ms;
     -o-transition: all 300ms ease 300ms;
@@ -21,7 +21,6 @@
 }
 
 .sidebarRight {
-	top: 64px;
 	right: -320px;
 }
 
@@ -44,10 +43,59 @@
 	
 }
 
+#frameworkSearch {
+	display: none;
+}
+
 .searchContainer {
 
 	margin-bottom: 40px;
 	padding: 20px 20px 0 20px;
+
+	.tagWrapper {
+		width: 50%;
+		display: inline-block;
+		vertical-align: middle;
+
+		input {
+			width: 70%;
+		}
+	}
+
+	.selectList {
+
+		display: inline;
+
+		&:after {
+			content: "_";
+			font-family: $iconfont;
+			position: absolute;
+			top: 10.5%;
+	        right: 9%;
+	        bottom: 0;
+	        font-size: 30px;
+	        line-height: 30px;
+	        height: 30px;
+	        color: #787878;
+	        pointer-events: none;
+		}
+	}
+
+	.frameworksSelect {
+		background: rgba(255,255,255,0.8);
+		border: 0;
+		border-radius: 0px;
+		color: #787878;
+		height: 52px;
+		width: 47%;
+		margin-left: 5px;
+		border-color: rgb(170, 170, 170);
+		-webkit-appearance: none;
+		padding: 0 8px;
+		font-size: 17px;
+		vertical-align: top;
+
+	}
 
 	.searchWrapper {
 
@@ -365,8 +413,12 @@
 
 		#buttonContainer {
 			padding: 20px;
-			margin-top: 100px;
 			text-align: center;
+			position: fixed;
+			bottom: 61px;
+			width: 320px;
+			box-sizing: border-box;
+			z-index: 3 !important;
 
 			button {
 				background: none;
@@ -531,8 +583,11 @@
 
 	#buttonContainer {
 		padding: 20px;
-		margin-top: 100px;
 		text-align: center;
+		position: fixed;
+		bottom: 62px;
+		background-color: #333;
+		z-index: 99;
 
 		button {
 			background: none;

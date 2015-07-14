@@ -5,141 +5,249 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script>
+        window.sourcePage = 'classroom';
+    </script>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="../js/datautils.js" type="text/javascript"></script>
+    <script src="../js/jquery-modal/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../js/jquery-modal/jquery.modal.css" type="text/css" media="screen" />
+    <script src="../js/sidebars.js" type="text/javascript"></script>
     <script src="../js/templates.js" type="text/javascript"></script>
     <script src="//use.typekit.net/xxx2qsl.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-    <header class="headerPlaceholder">
-        <p class="new">All Images</p>
-    </header>
-    <header class="modalHeaderPlaceholder" style="display:none">
-        <p class="new">Header template <label for="thumb" class="classroomImageClose">Close</label></p>
-    </header>
 
-    <div class="mainModal" id="mainModalContainer">
-        <input id="thumb" type="checkbox" style="display:none" data-role="none"/>
-        <div class="modal__overlay" role="dialog">
-            <div class="modal__wrap">
-                <div class="editSection">
-                    <img class="classroomLargeImg" src="">
-                    <div class="editImageTextArea">
-                        <textarea class="header"/></textarea>
+    <div id="dialogModal" class="modal">
+
+        <a href="#" rel="modal:close" class="modalCancel">cancel</a>
+
+        <div id="modalMsg" class="modalMsg"></div>
+
+        <div class="modalBtn">remove</div>
+    </div>
+
+    <div id="classroom">
+        <div id="gallery">
+            <div class="classGallery">
+                <p>
+                    <label for="selectImagesBtn" class="selectImagesBtn">Select Images</label>
+                    <label for="cancelImagesBtn" class="cancelImagesBtn" style="display:none">Cancel Select Images</label>
+                    <label for="doneImagesBtn" class="doneImagesBtn" style="display:none">Done Select Images</label>
+                    <label for="deleteImagesBtn" class="deleteImagesBtn" style="display:none">Delete Select Images</label>
+                </p>
+
+                <p>Today</p>
+
+                <!--Thumbnail 1 -->
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_01.jpg"/></label>
+                </div>
+                <!--End Thumbnail 1 -->
+
+                <!--Thumbnail 2 -->
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_02.jpg"/></label>
+                </div>
+                <!--End Thumbnail 2 -->
+
+                <!--Thumbnail 3 -->
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_03.jpg"/></label>
+                </div>
+                <!--End Thumbnail 3 -->
+
+                <!--Thumbnail 4 -->
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_04.jpg"/></label>
+                </div>
+                <!--End Thumbnail 4 --> 
+
+                <!--Thumbnail 5 -->
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_05.jpg"/></label>
+                </div>
+                <!--End Thumbnail 5 -->     
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_06.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_07.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_08.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_09.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_10.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_11.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_12.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_13.jpg"/></label>
+                </div>
+                <div class="thumbnail">
+                    <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_14.jpg"/></label>
+                </div>
+
+            </div>   
+
+            <div class="classGallery">
+                <p>Yesterday</p>
+                <div class="classGallery2">
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_15.jpg"/></label>
                     </div>
-                    <div class="profileTagsSection">
-                        <h6>
-                        </h6>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_16.jpg"/></label>
                     </div>
-                    <div class="frameworksSection">
-                        <ul>
-                            <li><h4>Frameworks</h4></li>
-                        </ul>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_17.jpg"/></label>
                     </div>
-                    <div class="activitiesSection">
-                        <ul>
-                            <li><h4>Activities</h4></li>
-                        </ul>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_18.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_19.jpg"/></label>
                     </div>
                 </div>
-                <div id="loadImgActionFooter"></div>
+            </div>
+
+            <div class="classGallery">
+                <p>Last Week</p>
+                <div class="classGallery3">
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_20.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_22.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_23.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_24.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_25.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_26.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_27.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_28.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_29.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_30.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_31.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_32.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_33.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_34.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_35.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_36.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_37.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_38.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_39.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_40.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_41.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_42.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_43.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_44.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_45.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_46.jpg"/></label>
+                    </div>
+                    <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_47.jpg"/></label>
+                    </div>
+                        <div class="thumbnail">
+                        <label for="thumb1"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_48.jpg"/></label>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="classGallery">
-        <p>Today</p>
-
-        <!--Thumbnail 1 -->
-        <div class="thumbnail">
-            <label for="thumb"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_01.jpg"></label>
-        </div>
-        <!--End Thumbnail 1 -->
-
-        <!--Thumbnail 2 -->
-        <div class="thumbnail">
-            <label for="thumb"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_02.jpg"></label>
-        </div>
-        <!--End Thumbnail 2 -->
-
-        <!--Thumbnail 3 -->
-        <div class="thumbnail">
-            <label for="thumb"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_03.jpg"></label>
-        </div>
-        <!--End Thumbnail 3 -->
-
-        <!--Thumbnail 4 -->
-        <div class="thumbnail">
-            <label for="thumb"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_04.jpg"></label>
-        </div>
-        <!--End Thumbnail 4 --> 
-
-        <!--Thumbnail 5 -->
-        <div class="thumbnail">
-            <label for="thumb"><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_05.jpg"></label>
-        </div>
-        <!--End Thumbnail 5 -->     
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_06.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_07.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_08.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_09.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_10.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_11.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_12.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_13.jpg"></a>
-        <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_14.jpg"></a>
-
-    </div>   
-
-    <div class="classGallery">
-        <p>Yesterday</p>
-        <div class="classGallery2">
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_15.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_16.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_17.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_18.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_19.jpg"></a>
-        </div>
-    </div>
-
-    <div class="classGallery">
-        <p>Last Week</p>
-        <div class="classGallery3">
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_20.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_22.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_23.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_24.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_25.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_26.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_27.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_28.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_29.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_30.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_31.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_32.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_33.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_34.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_35.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_36.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_37.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_38.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_39.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_40.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_41.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_42.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_43.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_44.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_45.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_46.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_47.jpg"></a>
-            <a href=""><img class="classroomThumbImg" src="../img/classroomThumbs/thumb_IMG_48.jpg"></a>
+        <div class="mainImageSection">
+        <!-- <div class="shrinkContainer"> -->
+            <div class="mainImageContainer">
+                <div class="mainImage">
+                </div>
+            </div>
+            <div class="editSection">
+                <ul>
+                    <li class="editImageTextArea" style="display:none">
+                        <div id="postInput" contentEditable="true"/></div>
+                    </li>
+                    <li class="profileTagsSection" style="display:none">
+                        <h6>
+                        </h6>
+                    </li>
+                    <li class="frameworksSection" style="display:none">
+                        <!-- <p><h4>Frameworks</h4></p> -->
+                        <ul>
+                        </ul>
+                    </li>
+                    <li class="activitiesSection" style="display:none">
+                        <!-- <p><h4>Activities</h4></p> -->
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        <!-- </div> -->
+        
         </div>
     </div>
 
     <div id="loadMainFooter"></div>
     <div id="loadMainSidebar"></div>
     <div id="loadTagSidebar"></div>
+    <div id="loadEditImageHeader"></div>
+
+    
+    <div id="loadImgActionFooter" style="display:none;"></div>
 
 </body>
 </html>

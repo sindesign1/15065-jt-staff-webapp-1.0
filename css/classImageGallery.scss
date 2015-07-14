@@ -1,4 +1,4 @@
-.headerPlaceholder, .modalHeaderPlaceholder {
+.headerPlaceholder {
 	top: 0;
 	height: 64px;
 	background: $melon;
@@ -7,12 +7,7 @@
 		padding-top: 20px;
 		color: #FFF;
 		text-align: center;
-	}
-}
 
-.modalHeaderPlaceholder {
-
-	p {
 		label {
 			padding: 0px 25px 0;
   			float: right;		
@@ -24,38 +19,46 @@
 	display: block;
 	color: $melon;
 	text-align: left;
+	border-top: 2px solid $melon;
+	margin-top: 30px;
 	
 	p {
-		color: $melon;
+		color: #333;
 	}
 
 	ul {
 		list-style-type: none;
 		text-align: left;
+		padding: 0;
+		margin: 0;
+	}
+
+	.profileTagsSection {
+		margin: 10px 0;
 	}
 
 }
 
 .editImageTextArea {
-	textarea {
-		border: none;
-		width: 524px;
+	div {
+		color: #333;
+		margin-top: 20px;
 	}
 }
 
 .classGallery {
-	clear: both;
 	width: 100%;
+	padding: 90px 5px;
+	box-sizing: border-box;
 	p {
-		padding: 0 25px;
 		color: $grey40;
 	}
 	div.thumbnail, .mainModal, a {
-	float: left;
-	width: 19.53125%;
-	margin-right: 0.5859375%;
-	margin-bottom: 5px;
-	padding: 0;
+		margin-bottom: 5px;
+		padding: 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 19.6%;
 		img {
 			display: block;
 			width: 100%;
@@ -69,56 +72,122 @@
 	}
 }
 
-.mainModal > label {
-	transition: all 0.55s;
-}
-
-.modal__overlay {
-	background: #FFF;
-	bottom: 0;
+.mainImageSection {
+	/*bottom: 0;
 	left: 0;
-	position: fixed;
 	right: 0;
+	position: absolute;
 	text-align: center;
 	text-shadow: none;
-	top: 64px;
-	z-index: 600;
-}
-.modal__wrap {
-	position: relative;
-	z-index: 1000;
+	padding-top: 90px;
+	padding-bottom: 61px;
+	z-index: 0;
 	margin: 0 auto;
+	transform: scale(1.0);
 	width: 100%;
-	p {
-		padding: 20px 25px 0;
-		color: #FFF;
+	height: 100%;
+	box-sizing: border-box;*/
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 90px 0 61px 0;
+
+	.shrinkContainer {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.mainImage {
+		background-size: cover;
+		width: 100%;
+		height: 100%;
 	}
 }
 
-.modal__wrap label {
-	cursor: pointer;
-	display: inline-block;
-	float: right;
-}
 
-.modal input:focus ~ label {
-	transform: scale(0.97);
-}
+
 
 .classGallery input {
 	position: absolute;
 	top: -1000px;
 }
 
-.modal__overlay {
+
+/*.mainImageSection {
 	opacity: 0;
-	transform: scale(0.5);
 	transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	z-index: -100;
+}*/
+
+.mainImageContainer {
+	width: 100%;
+	height: 100%;
+	
+}
+.greyText {
+	color: $grey200;
 }
 
-input:checked ~ .modal__overlay {
-	opacity: 1;
-	transform: scale(1);
-	z-index: 800;
+.arrange-horizontally {
+	display: inline-block;
+	vertical-align: middle;
+	width: 31.53125%;
+	margin-right: 0.5859375%;
+	margin-bottom: 5px;
+	padding: 0;
+	img {
+		display: block;
+		width: 100%;
+	}
+	&:nth-child(5n+0) {
+		margin-right: 0;
+	}
+}
+
+.modal a.close-modal[class*="icon-"] {
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  background: #900;
+  border: 2px solid #fff;
+  -webkit-border-radius:  26px;
+  -moz-border-radius:     26px;
+  -o-border-radius:       26px;
+  -ms-border-radius:      26px;
+  -moz-box-shadow:    1px 1px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.modalMsg {
+  	color: #000;
+  	margin: 34px;
+}
+
+.modalBtn {
+  	color: $dark-melon;
+	border: 2px solid $dark-melon;
+	-webkit-border-radius:  26px;
+	-moz-border-radius:     26px;
+	-o-border-radius:       26px;
+	-ms-border-radius:      26px;
+    margin-left: auto;
+    margin-right: auto;
+	width: 50%;
+  	text-align: center;
+  	padding: 13px;
+}
+
+.modalCancel {
+	color: $melon;
+    text-decoration: none;
+    float: right;
 }
