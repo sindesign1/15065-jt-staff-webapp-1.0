@@ -106,6 +106,7 @@ var Sidebars = {
 		$('#loadLearningStoryHeader').hide();
 		$('#loadSelectImagesHeader').hide();
 		$('#loadEditImageHeader').show();
+		$('.postBtnContainer').show();
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').addClass('openLeft');
@@ -144,6 +145,9 @@ var Sidebars = {
 			$('#loadLearningStoryHeader').show();
 			$('#loadSelectImagesHeader').hide();
 		}
+		$('.editSection').show();
+
+		$('.postBtnContainer').hide();
 
 		$('.editSection').animate({'width': '100%'});
 		$('.mainImageSection').animate({'width': '100%', 'height': '55%', 'padding': '90px 0 0 0'});
@@ -219,6 +223,7 @@ var Sidebars = {
 		$('.frameworksSection').hide();
 		$('.activitiesSection').hide();
 		$('#loadImgActionFooter').hide();
+		$('.editSection').hide();
 
 		$('.editImageTextArea textarea').val('');
 		// $('.frameworksSection ul').find('li').not(':first').remove();
@@ -427,13 +432,16 @@ var Sidebars = {
 	},
 
 	toggleImageLike: function() {
-		var heartIcon = $(this).find('.jtIcons');
+		var heartIcon = $('#likeImageBtn').find('.jtIcons');
 		var heart = heartIcon.text();
 		if ( heart == 'e' ) {
-			heartIcon.css('color', 'red').text('d');
+			$('#likeImageBtn').find('.jtIcons').css('color', 'red').text('d');
 		} else {
-			heartIcon.css('color', '').text('e');
+			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
+
+		var heartIcon2 = $('#likeImageBtn').find('.jtIcons').text();
+		var heartIcon3 = $('#likeImageBtn').find('.jtIcons').text();
 	}
 }
 
