@@ -116,6 +116,7 @@ var Story = {
 
 	openAddElement: function() {
 		$('#addElementContainer').fadeIn('slow');
+		$('.submitContainer').show();
 		
 	},
 
@@ -536,8 +537,8 @@ var Story = {
             	bgImage = '';
             	coverTitleText = personName;
 
-				$('.gridImages').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').append(
+				$('.gridImages').css('text-align', 'left !important').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
 						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
 							$('<div class="photoCoverIcon"/>').text('?')
 							).append(
@@ -589,7 +590,7 @@ var Story = {
 			$('.singleImageContainer').css('width', '100%');
 			$('.singleImage').css('border', 'none');
 			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
-			$('.gridImages').css({'width': '100%', 'text-align': 'center'});
+			$('#learningStoryPage > .gridImages').css({'width': '100%', 'text-align': 'center'});
 			$('.firstImage').css('height', '500px');
 			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
 			$('.thirdImage').css('margin-left', '7.3px');

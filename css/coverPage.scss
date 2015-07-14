@@ -362,29 +362,32 @@
 }
 
 #learningStoryPageCovers {
-    height: 250px;
     color: $grey160;
     padding: 0 100px;
-
     position: relative;
-    // margin-top: 1024px;
     display: block;
-    height: 250px;
     text-align: center;
     width: 100%;
-    padding: 0px 100px 100px 100px;
     box-sizing: border-box;
+    height: 240px;
 
     .photoCoverPlaceholder {
-        color: $grey200;
+        color: $melon;
         margin-top: 46%;
         text-align: center;
 
         .photoCoverIcon {
             font-family: $iconfont;
-            font-size: 60px;
-            margin-bottom: -10px;
+            font-size: 45px;
+            margin-bottom: 15px;
             margin-top: -30px;
+            border: 1px solid;
+            border-radius: 50px;
+            padding: 0;
+            width: 49px;
+            margin-left: auto;
+            margin-right: auto;
+            color: $melon;
         }
 
         .photoCoverText {
@@ -397,31 +400,60 @@
     }
 
     .gridImages {
-
+        text-align: left;
         // margin-top: 30px;
 
         .gridImage {
             background-size: cover;
-            width: 20%;
-            height: 120px;
-            border: 1px dashed $grey160;
+            width: 150px;
+            height: 150px;
+            border: 1px dashed $melon;
             // margin-top: 20px;
             display: inline-block;
             vertical-align: middle;
-            background-color: $grey240;
+            background-color: #fef8f8;
+            margin-right: 15px;
+            box-sizing: border-box;
+
+            &:last-child {
+                margin-right: 0px;
+            }
         }
 
         .gridImageTitleWithBG {
-            padding-top: 116px;
+            padding-top: 145px;
             margin: 14px;
+            text-align: center;
         }
         .gridImageTitle {
-            padding-top: 12px;
-            margin: 14px;
+            padding-top: 29px;
+            margin: 22px;
+            text-align: center;
         }
 
     }
+}
 
+.submitContainer {
+    display: none;
+    text-align: center;
+    margin-bottom: 120px;
+
+    .submitBtn {
+        background: none;
+        border: 1px solid $melon;
+        border-radius: 40px;
+        width: 160px;
+        padding: 10px 0;
+        font-size: 20px;
+        color: $melon;
+        margin-right: 25px;
+    }
+
+    .disabled {
+        border-color: $grey200;
+        color: $grey200;
+    }
 }
 
 .selectedImage {
