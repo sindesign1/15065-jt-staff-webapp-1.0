@@ -6,10 +6,11 @@ var SelectImages = {
 
 	enableSelect: function(e) {
 		// $('.selectImagesBtn').hide();
-		e.stopPropagation();
-		$('.deleteImagesBtn').show();
-		$('.doneImagesBtn').show();
-		$('.cancelImagesBtn').show();
+//		e.stopPropagation();
+
+		$('#loadLearningStoryHeader').hide();
+		$('#loadSelectImagesHeader').show();
+		$('#loadEditImageHeader').hide();
 
 		$('#loadMainFooter').hide();
 		$('body').find('#loadImgActionFooter').show();
@@ -21,14 +22,14 @@ var SelectImages = {
 	},
 
 	disableSelect: function() {
-		// $('.selectImagesBtn').show();
-		$('.deleteImagesBtn').hide();
-		$('.doneImagesBtn').hide();
-		$('.cancelImagesBtn').hide();
+
+		$('#loadLearningStoryHeader').show();
+		$('#loadSelectImagesHeader').hide();
+		$('#loadEditImageHeader').hide();
 
 		window.selectImagesChecked = false;
 
-		$('div.thumbnail').css({'box-shadow': 'none'});
+		$('div.thumbnail').css({'box-shadow': 'none', '-webkit-box-shadow': 'none'});
 
 		$('body').off('click touch', 'div.thumbnail');
 
@@ -59,7 +60,7 @@ var SelectImages = {
 			}
 		} else {
 
-			$selectElement.css({'box-shadow': 'none'});
+			$selectElement.css({'box-shadow': 'none', '-webkit-box-shadow': 'none'});
 
 			var index = window.selectedImages.indexOf(imgSrc);
 			if ( index > -1 ) {

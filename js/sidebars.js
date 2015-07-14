@@ -46,7 +46,6 @@ var Sidebars = {
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
-		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
@@ -97,6 +96,16 @@ var Sidebars = {
 
 	toggleTagSidebar: function() {
 		console.log('tag sidebar clicked');
+
+
+		if ( window.selectImagesChecked ) {
+			Sidebars.editImagesMulti();
+		} 
+
+		$('#loadLearningStoryHeader').hide();
+		$('#loadSelectImagesHeader').hide();
+		$('#loadEditImageHeader').show();
+
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
@@ -116,6 +125,7 @@ var Sidebars = {
 		$('.frameworksSection').show();
 		$('.activitiesSection').show();
 
+
 	},
 
 	closeTagSidebar: function() {
@@ -123,6 +133,15 @@ var Sidebars = {
 //		$('.classGallery').show();
 //		$('.mainImageSection').hide();
 		// $('.mainImageSection').css({'z-index': '-800'});
+
+		$('#loadEditImageHeader').hide();
+		if ( window.selectImagesChecked ) {
+			$('#loadLearningStoryHeader').hide();
+			$('#loadSelectImagesHeader').show();
+		} else {
+			$('#loadLearningStoryHeader').show();
+			$('#loadSelectImagesHeader').hide();
+		}
 
 		$('.mainImageSection').animate({'width': '100%', 'height': '100%', 'padding': '90px 0 61px 0'});
 
@@ -166,6 +185,7 @@ var Sidebars = {
 			$('#gallery').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
+			$('.mainImageSection').css({'opacity': '1'});
 			// $('.mainImageSection').animate({'opacity': '1'});
 			// $('#gridHeader').hide();
 			// $('#imageHeader').show();
@@ -180,6 +200,7 @@ var Sidebars = {
 		Sidebars.closeTagSidebar();
 
 		$('#classroom').show();
+		$('#gallery').show();
 		$('#gridHeader').show();
 		$('#imageHeader').hide();
 
@@ -237,8 +258,6 @@ var Sidebars = {
 		$('#gridHeader').hide();
 		$('#imageHeader').show();
 		$('#loadImgActionFooter').show();
-
-		Sidebars.toggleTagSidebar();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
