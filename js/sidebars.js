@@ -46,7 +46,6 @@ var Sidebars = {
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
-		$('body').on('click touch', '.doneImagesBtn', Sidebars.editImagesMulti);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 
 		$('body').on('click touch', '.doneBtn, .cancelBtn', Sidebars.closeTagSidebar);
@@ -98,6 +97,17 @@ var Sidebars = {
 
 	toggleTagSidebar: function() {
 		console.log('tag sidebar clicked');
+
+
+		if ( window.selectImagesChecked ) {
+			Sidebars.editImagesMulti();
+		} 
+
+		$('#loadLearningStoryHeader').hide();
+		$('#loadSelectImagesHeader').hide();
+		$('#loadEditImageHeader').show();
+		$('.postBtnContainer').show();
+
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
@@ -118,6 +128,7 @@ var Sidebars = {
 		$('.frameworksSection').show();
 		$('.activitiesSection').show();
 
+
 	},
 
 	closeTagSidebar: function() {
@@ -125,6 +136,18 @@ var Sidebars = {
 //		$('.classGallery').show();
 //		$('.mainImageSection').hide();
 		// $('.mainImageSection').css({'z-index': '-800'});
+
+		$('#loadEditImageHeader').hide();
+		if ( window.selectImagesChecked ) {
+			$('#loadLearningStoryHeader').hide();
+			$('#loadSelectImagesHeader').show();
+		} else {
+			$('#loadLearningStoryHeader').show();
+			$('#loadSelectImagesHeader').hide();
+		}
+		$('.editSection').show();
+
+		$('.postBtnContainer').hide();
 
 		$('.editSection').animate({'width': '100%'});
 		$('.mainImageSection').animate({'width': '100%', 'height': '55%', 'padding': '90px 0 0 0'});
@@ -169,6 +192,7 @@ var Sidebars = {
 			$('#gallery').hide();
 			$('.mainImageSection').show();
 			$('#loadMainFooter').hide();
+			$('.mainImageSection').css({'opacity': '1'});
 			// $('.mainImageSection').animate({'opacity': '1'});
 			// $('#gridHeader').hide();
 			// $('#imageHeader').show();
@@ -183,6 +207,7 @@ var Sidebars = {
 		Sidebars.closeTagSidebar();
 
 		$('#classroom').show();
+		$('#gallery').show();
 		$('#gridHeader').show();
 		$('#imageHeader').hide();
 
@@ -198,6 +223,7 @@ var Sidebars = {
 		$('.frameworksSection').hide();
 		$('.activitiesSection').hide();
 		$('#loadImgActionFooter').hide();
+		$('.editSection').hide();
 
 		$('.editImageTextArea textarea').val('');
 		// $('.frameworksSection ul').find('li').not(':first').remove();
@@ -240,8 +266,6 @@ var Sidebars = {
 		$('#gridHeader').hide();
 		$('#imageHeader').show();
 		$('#loadImgActionFooter').show();
-
-		Sidebars.toggleTagSidebar();
 	},
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
@@ -408,13 +432,16 @@ var Sidebars = {
 	},
 
 	toggleImageLike: function() {
-		var heartIcon = $(this).find('.jtIcons');
+		var heartIcon = $('#likeImageBtn').find('.jtIcons');
 		var heart = heartIcon.text();
 		if ( heart == 'e' ) {
-			heartIcon.css('color', 'red').text('d');
+			$('#likeImageBtn').find('.jtIcons').css('color', 'red').text('d');
 		} else {
-			heartIcon.css('color', '').text('e');
+			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
+
+		var heartIcon2 = $('#likeImageBtn').find('.jtIcons').text();
+		var heartIcon3 = $('#likeImageBtn').find('.jtIcons').text();
 	}
 }
 
