@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
         window.sourcePage = 'ls-coverPage';
+        window.completedCurrentImageSelectSection = true;
     </script>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
@@ -37,6 +38,8 @@
             $(window.divForBackground).find('.photoPlaceholder').hide();
             $(window.divForImageGrid).find('.photoPlaceholder').hide();
             $('.selectedImage').removeClass('selectedImage');
+
+            window.completedCurrentImageSelectSection = true;
         }
 
     </script>

@@ -128,6 +128,13 @@ var Story = {
 
 	addPhotoElement: function() {
 
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
@@ -187,6 +194,14 @@ var Story = {
 	},
 
 	addImageGridElement: function() {
+
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
