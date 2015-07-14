@@ -48,10 +48,16 @@
 
 .classGallery {
 	width: 100%;
-	padding: 90px 5px;
+	padding: 20px 5px 0;
 	box-sizing: border-box;
 	p {
 		color: $grey40;
+	}
+	&:first-child {
+		margin-top: 70px;
+	}
+	&:last-child {
+		margin-bottom: 62px;
 	}
 	div.thumbnail, .mainModal, a {
 		margin-bottom: 5px;
@@ -68,6 +74,14 @@
 		}
 		textarea {
 			float: left;
+		}
+	}
+}
+
+.childGallery {
+	.classGallery {
+		&:first-child {
+			margin-top: 403px;
 		}
 	}
 }
