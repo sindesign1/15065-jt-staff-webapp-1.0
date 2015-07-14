@@ -138,7 +138,7 @@ var Story = {
 
 		$('.singleImage').append('<div class="photoPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.singleImageContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.singleImageContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 		window.divForBackground = '.singleImage-active';
 
@@ -179,7 +179,7 @@ var Story = {
 		// e.stopPropagation();
 		$('.storyInput').focus();
 
-		$('.inputContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		$('#addElementContainer').css('display', 'none');
@@ -196,7 +196,7 @@ var Story = {
 		$storyPage.append('<div class="imageGridContainer"><div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div></div>');
 		$('.firstImage').append('<div class="photoPlaceholder gridPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.imageGridContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.imageGridContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		window.divForImageGrid = '.singleImage-active';
@@ -267,7 +267,8 @@ var Story = {
 		var $overlay = $('#overlay');
 
 		var sic = $('.singleImageContainer');
-		if ( sic.length > 0 ) {
+		var igc = $('.imageGridContainer');
+		if ( sic.length > 0 || igc.length > 0 ) {
 			$this.append($overlay);
 			$overlay.show();
 		} else {
