@@ -4,6 +4,7 @@ var Templates = {
 		Templates.loadScripts();
 		Templates.mainNavFooter();
 		Templates.imgActionFooter();
+		Templates.formatActionFooter();
 		Templates.mainSidebar();
 		Templates.childListSidebar();
 		Templates.childListStatic();
@@ -13,6 +14,7 @@ var Templates = {
 		Templates.childNav();
 		Templates.chooseCentreHeader();
 		Templates.learningStoryHeader();
+		Templates.imagesHeader();
 		Templates.selectImages();
 		Templates.albumnHeader();
 		Templates.bunniesHeader();
@@ -39,6 +41,10 @@ var Templates = {
 
 	imgActionFooter: function() {
 		$('#loadImgActionFooter').load('../templates/botImgActions.html #botImgActions');
+	},
+
+	formatActionFooter: function() {
+		$('#loadFormatActionFooter').load('../templates/botFormatActions.html #botFormatActions');
 	},
 
 	mainSidebar: function() {
@@ -79,6 +85,10 @@ var Templates = {
 
 	learningStoryHeader: function() {
 		$('#loadLearningStoryHeader').load('../templates/headers.html #learningStoryHeader');
+	},
+
+	imagesHeader: function() {
+		$('#loadImagesHeader').load('../templates/headers.html #imagesHeader');
 	},
 
 	selectImages: function() {

@@ -239,6 +239,7 @@
         text-align: left;
         border-top: 2px solid $melon;
         margin-top: 15px;
+        display: block;
 
         ul {
             list-style: none;
@@ -297,6 +298,7 @@
             font-size: 26px;
             font-family: $iconfont;
             padding: 0;
+            color: $melon;
 
         }
 
@@ -312,7 +314,7 @@
     }  
 }
 
-.overlay {
+.overlay, .overlay1 {
         content: "";
         position: relative;
         background: rgba(240,97,91, 0.8);
@@ -325,6 +327,7 @@
         display: inline-block;
         vertical-align: middle;
         width: 80px;
+        margin: 28% 0;
 
         &:first-child {
             margin-left: 0;
@@ -356,7 +359,213 @@
 
 #learningStoryPageTags {
     height: 120px;
-    color: $melon;
+    color: $grey160;
     padding: 0 100px;
     display: none;
+}
+
+#learningStoryPageCovers {
+    color: $grey160;
+    padding: 0 100px;
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    height: 240px;
+
+    .photoCoverPlaceholder {
+        color: $melon;
+        margin-top: 46%;
+        text-align: center;
+
+        .photoCoverIcon {
+            font-family: $iconfont;
+            font-size: 45px;
+            margin-bottom: 15px;
+            margin-top: -30px;
+            border: 1px solid;
+            border-radius: 50px;
+            padding: 0;
+            width: 49px;
+            margin-left: auto;
+            margin-right: auto;
+            color: $melon;
+        }
+
+        .photoCoverText {
+//            font-size: 25px;
+        }
+    }
+
+    .gridCoverPlaceholder {
+        margin-top: 36%;
+    }
+
+    .gridImages {
+        text-align: left;
+        // margin-top: 30px;
+
+        .gridImage {
+            background-size: cover;
+            width: 150px;
+            height: 150px;
+            border: 1px dashed $melon;
+            // margin-top: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #fef8f8;
+            margin-right: 15px;
+            box-sizing: border-box;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+
+        .gridImageTitleWithBG {
+            padding-top: 145px;
+            margin: 14px;
+            text-align: center;
+        }
+        .gridImageTitle {
+            padding-top: 29px;
+            margin: 22px;
+            text-align: center;
+        }
+
+    }
+}
+
+.submitContainer {
+    display: none;
+    text-align: center;
+    margin-bottom: 120px;
+
+    .submitBtn {
+        background: none;
+        border: 1px solid $melon;
+        border-radius: 40px;
+        width: 160px;
+        padding: 10px 0;
+        font-size: 20px;
+        color: $melon;
+        margin-right: 25px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
+    .disabled {
+        border-color: $grey200;
+        color: $grey200;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+.errorMessage {
+    text-align: center;
+    color: #fff;
+    background-color: $melon;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: none;
+
+    // &:before {
+    //     content: "";
+    //     width: 0;
+    //     height: 0;
+    //     border-left: 10px solid transparent;
+    //     border-right: 10px solid transparent;
+    //     border-bottom: 10px solid #F16259;
+    //     position: absolute;
+    //     bottom: -24.5%;
+    //     left: 48.59%;
+    // }
+}
+
+.selectedImage {
+    box-shadow: 0 0 0 4px $melon;
+    -webkit-box-shadow: 0 0 0 4px $melon;
+}
+
+.storyOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(240,97,91, 0.8);
+    top: 0;
+    text-align: center;
+
+    .dialogBoxContainer {
+        width: 100%;
+        margin-top: 50%;
+
+        .dialogBox {
+            background: #fff;
+            width: 50%;
+            margin: 0 auto;
+            color: #333;
+            height: 160px;
+
+            .dialogCancel {
+                text-align: right;
+                padding: 10px 15px;
+            }
+
+            .cancelText {
+                text-align: left;
+                padding: 0 40px;
+                font-size: 20px;
+                color: $melon;
+                margin-bottom: 30px;
+            }
+
+            .overlayBtn {
+                background: none;
+                border: 1px solid $grey40;
+                border-radius: 40px;
+                width: 125px;
+                padding: 10px;
+                color: $grey40;
+                font-size: 15px;
+            }
+
+            .draft {
+                border-color: $melon;
+                color: $melon;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+#sendStoryContainer {
+    height: 100%;
+    width: 100%;
+    background: $melon;
+    position: absolute;
+    text-align: center;
+    opacity: 0.9;
+
+    .messageContainer {
+        margin-top: 50%;
+
+        img {
+            width: 15%;
+        }
+
+        .sentText {
+            margin-top: 10px;
+            font-size: 17px;
+        }
+    }
 }

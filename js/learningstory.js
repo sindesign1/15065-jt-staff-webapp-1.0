@@ -28,6 +28,13 @@ var Story = {
 		$('body').on('click touch', '#moveDown, #moveTextDown, #moveFrameworkDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
+		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		$('body').on('click touch', '.cancelStory', Story.cancelStory);
+		$('body').on('click touch', '#cancelStoryOverlay', Story.cancelStoryOverlay);
+		$('body').on('click touch', '#editNevermindBtn', Story.hideEditOverlay);
+		$('body').on('click touch', '#submitStory', Story.submitStory);
+		// $('body').on('click touch', '.storyInput', Story.formatText);
+		// $('body').on('click touch', '.formatBtn', Story.doFormatText);
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
@@ -113,6 +120,7 @@ var Story = {
 
 	openAddElement: function() {
 		$('#addElementContainer').fadeIn('slow');
+		$('.submitContainer').show();
 		
 	},
 
@@ -124,15 +132,24 @@ var Story = {
 
 	addPhotoElement: function() {
 
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
+		$('div.gridImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
+		$('div.singleCoverImage').removeClass('singleImage-active');
 
 		$storyPage.append('<div class="singleImageContainer"><div class="singleImage edit element singleImage-active"></div></div>');
 
 		$('.singleImage').append('<div class="photoPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.singleImageContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.singleImageContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 		window.divForBackground = '.singleImage-active';
 
@@ -161,7 +178,7 @@ var Story = {
 	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div class="inputContainer"><div contentEditable="true" class="storyInput element"></div></div>');
+		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element"></div></div>');
 		$('.inputContainer').prepend('<div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
 
 		var $textField = $('.storyInput').focus();
@@ -173,7 +190,7 @@ var Story = {
 		// e.stopPropagation();
 		$('.storyInput').focus();
 
-		$('.inputContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		$('#addElementContainer').css('display', 'none');
@@ -181,14 +198,24 @@ var Story = {
 	},
 
 	addImageGridElement: function() {
+
+		if ( !window.completedCurrentImageSelectSection ) {
+			Story.closeAddElement();
+			return;			
+		}
+
+		window.completedCurrentImageSelectSection = false;
+
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.singleImage').removeClass('singleImage-active');
+		$('div.singleCoverImage').removeClass('singleImage-active');
 
 		$storyPage.append('<div class="imageGridContainer"><div class="gridImages element edit"><div class="firstImage gridImage singleImage-active"></div><div class="secondImage gridImage"></div><div class="thirdImage gridImage"></div></div></div>');
 		$('.firstImage').append('<div class="photoPlaceholder gridPlaceholder"><div class="photoIcon">^</div><div class="photoText">add photo</div></div>');
 
-		$('.imageGridContainer').append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
+		$('.imageGridContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
 		window.divForImageGrid = '.singleImage-active';
@@ -236,6 +263,9 @@ var Story = {
 		// e.stopPropagation();
 		$('.gridImage.singleImage-active').removeClass('singleImage-active');
 		$this.addClass('singleImage-active');
+		
+		$('.selectedImage').removeClass('selectedImage');
+		$this.addClass('selectedImage');
 	},
 
 	showEditOverlay: function() {
@@ -248,12 +278,21 @@ var Story = {
 		// Story.editOverlayOpen = true;
 		// $('.edit').removeClass('overlay');
 		var $this = $(this);
+
 		$('.overlay').show();
 		var height = $this.height();
 		var width = $this.width();
 		// var top = $this.offset().top;
-		var $overlay = $('.overlay');
-		$this.append($overlay);
+		var $overlay = $('#overlay');
+
+		var sic = $('.singleImageContainer');
+		var igc = $('.imageGridContainer');
+		if ( sic.length > 0 || igc.length > 0 ) {
+			$this.append($overlay);
+			$overlay.show();
+		} else {
+			$overlay.hide();
+		}
 
 		console.log(width);
 
@@ -274,10 +313,15 @@ var Story = {
 		
 	},
 
+	hideEditOverlay: function(e) {
+		e.stopPropagation();
+		$('.overlay').hide();
+	},
+
 	editElement: function(e){
 		e.stopPropagation();
 		var $this = $(this);
-		var $overlay = $('.overlay');
+		var $overlay = $('.overlay1');
 		$this.parent().hide();
 		var type;
 		var $itemElement = $this.parent().parent();
@@ -302,12 +346,11 @@ var Story = {
 
 	deleteElement: function() {
 		var $this = $(this);
-		var $item = $this.parent().parent();
-		var $overlay = $('.overlay');
+		var $item = $this.parent().parent().parent();
 
-		// $overlay.hide();
-
-		$item.detach();
+		var $overlay = $('#overlay');
+		$('#overlayContainer').append($overlay);
+		$item.remove();
 	},
 
 	deleteText: function() {
@@ -488,6 +531,13 @@ var Story = {
 		$storyPage.show();
 
 		if ( $.inArray(personName, addedArray) == -1 ) {
+
+			if ( !window.profileTagsCount ) {
+				window.profileTagsCount = 0;
+			}
+
+			window.profileTagsCount ++;
+
 			addedArray.push(personName);
 
 			var tagText = '<span class="greyText">With </span>' + addedArray[0];
@@ -502,8 +552,91 @@ var Story = {
 			}
 
 			$(sectionClass).html(tagText);
+
+            // <div class="gridCoverImage firstCoverImage">
+            //     <div class="photoCoverPlaceholder gridCoverPlaceholder">
+            //         <div class="photoCoverIcon">?</div>
+            //         <div class="photoCoverText">Personalise cover</div>
+            //     </div>
+            //     <p class="gridCoverImageTitle">Group cover</p>
+            // </div>
+
+            $('#learningStoryPageCovers').show();
+
+            var bgImage = $('#coverPageContainer').css('background-image');
+            if ( window.profileTagsCount > 1 ) {
+
+				$('.gridImages').css('text-align', 'left !important').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+							$('<div class="photoCoverIcon"/>').text('?')
+							).append(
+							$('<div class="photoCoverText"/>').text('Personalise cover')
+						)
+					).append(
+						$('<p class="gridImageTitle"/>').text(personName)
+					)
+				);			
+            } else {
+				$('.gridImages').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
+							$('<p class="gridImageTitleWithBG"/>').text('Group cover')
+						)
+					);			
+
+				$('.gridImages').css('text-align', 'left !important').append(
+					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+							$('<div class="photoCoverIcon"/>').text('?')
+							).append(
+							$('<div class="photoCoverText"/>').text('Personalise cover')
+						)
+					).append(
+						$('<p class="gridImageTitle"/>').text(personName)
+					)
+				);			
+            }
+		
 		}
 	},
+
+	updateCoverImage: function() {
+
+		$('.singleImage-active').removeClass('singleImage-active');
+
+		Story.openImageSidebar();
+
+		window.divForImageGrid = '.singleImage-active';
+		window.divForBackground = '';
+
+		var $this = $(this);
+
+		$this.addClass('singleImage-active');
+		$this.find('p.gridImageTitle').removeClass('gridImageTitle').addClass('gridImageTitleWithBG');
+
+		$this.find('.photoCoverPlaceholder').hide();
+
+		$('.selectedImage').removeClass('selectedImage');
+		$this.addClass('selectedImage');
+	},
+
+	cancelStory: function() {
+		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><button class="overlayBtn draft" href="#">save draft</button><button class="overlayBtn" href="mainFeed.html">delete</button></div></div></div>')
+	},
+
+	cancelStoryOverlay: function() {
+		$('.storyOverlay').hide();
+	},
+
+	submitStory: function() {
+		if($('.frameworksContainer').css('display') != 'block') {
+			$('.errorMessage').show();
+			console.log('show message!!');
+		} else {
+			$('.errorMessage').hide();
+			window.location.href='sendStory.html';
+		}
+	}, 
 
 	closePhotoSidebar: function() {
 		Story.sliderOpen = false;
@@ -516,7 +649,7 @@ var Story = {
 			$('.singleImageContainer').css('width', '100%');
 			$('.singleImage').css('border', 'none');
 			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
-			$('.gridImages').css({'width': '100%', 'text-align': 'center'});
+			$('.gridImages').css({'width': '100%'});
 			$('.firstImage').css('height', '500px');
 			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
 			$('.thirdImage').css('margin-left', '7.3px');
@@ -526,8 +659,28 @@ var Story = {
 
 			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 		}
-	}
+	},
 
+	formatText: function() {
+		$('#loadMainFooter').hide();
+		$('#loadFormatActionFooter').show();
+	},
+
+	doFormatText: function() {
+
+	    var text = "";
+	    if ( document.getSelection) {
+	        text = document.getSelection().toString();
+	    }
+	    else if (window.getSelection) {
+	        text = window.getSelection().toString();
+	    } else if (document.selection && document.selection.type != "Control") {
+	        text = document.selection.createRange().text;
+	    }
+
+	    if (text!='') alert(text);
+	    else alert('bad selection');
+	}
 }
 
 window.frameworkIndex = 0;

@@ -2,7 +2,7 @@
 
 .sidebarLeft, .sidebarRight {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	height: 100%;
 	width: 320px;
 	background-color: #333;
@@ -14,6 +14,11 @@
     -o-transition: all 200ms;
     transition: all 200ms;
     overflow-y: scroll;
+
+    .sidebarContainer {
+    	height: 100vh;
+    	position: relative;
+    }
 }
 
 .sidebarLeft {
@@ -212,14 +217,15 @@
 
 	img {
 		width: 100%;
-		background: $melon;
+		position: absolute;
+		bottom: 152px;
 	}
 
 }
 
 /* Children List Sidebar */
 
-#childListSidebar {
+#childListSidebar, #childListStatic {
 	background: $grey240;
 	color: $grey40;
 
@@ -411,11 +417,11 @@
 			font-size: 20px;
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			text-align: center;
-			position: fixed;
-			bottom: 61px;
+			position: absolute;
+			top: 780px;
 			width: 320px;
 			box-sizing: border-box;
 			z-index: 3 !important;
@@ -436,7 +442,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 	}
 
 	
@@ -446,6 +452,8 @@
 		display: none;
 		background: #333;
 		padding-bottom: 90px;
+		overflow-y: scroll;
+		height: 57%;
 
 		ul {
 			list-style: none;
@@ -471,7 +479,7 @@
 			font-size: 15px;
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			margin-top: 100px;
 			text-align: center;
@@ -492,7 +500,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 	}
 
 	#activitiesList {
@@ -515,7 +523,7 @@
 			}
 		}
 
-		#buttonContainer {
+		/*#buttonContainer {
 			padding: 20px;
 			margin-top: 100px;
 			text-align: center;
@@ -536,7 +544,7 @@
 					margin-right: 0;
 				}
 			}
-		}
+		}*/
 
 	}
 
@@ -581,13 +589,19 @@
 		}
 	}
 
-	#buttonContainer {
+	
+	
+}
+
+.buttonContainer {
 		padding: 20px;
 		text-align: center;
-		position: fixed;
-		bottom: 62px;
+		position: absolute;
+		top: 780px;
 		background-color: #333;
 		z-index: 99;
+		width: 320px;
+		box-sizing: border-box;
 
 		button {
 			background: none;
@@ -606,6 +620,4 @@
 			}
 		}
 	}
-	
-}
 
