@@ -273,6 +273,7 @@ var Sidebars = {
 		window.addedActivities = new Array();
 
 		window.mainModalOpened = false;
+		Sidebars.expandChildHeader();
 	},
 
 	editImagesMulti: function() {
