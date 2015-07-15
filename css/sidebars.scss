@@ -44,7 +44,21 @@
 
 #mainSidebar {
 	background-color: $melon;
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
 	
+}
+
+.mainSidebarMenuList {
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+
 }
 
 #frameworkSearch {
@@ -156,7 +170,6 @@
 
 	.personDetailsContainer {
 		display: inline-block;
-		vertical-align: middle;
 	}
 
 	.profileName {
