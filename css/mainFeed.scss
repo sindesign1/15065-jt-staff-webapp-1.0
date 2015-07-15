@@ -86,7 +86,6 @@
 	padding: 20px 0px;
 	.addFeedText{
 		float:left;
-		width:65%;
 		.profilePicture {
 			margin:0px 20px;
 			float:left;
@@ -123,4 +122,19 @@
 		background-color:$pale-melon;
 		padding:20px 20px 40px;
 	}
+}
+
+.feedBtn {
+	background: none;
+	border: 1px solid $melon;
+	border-radius: 40px;
+	width: 260px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 0;
+	color: $melon;
+	font-size: 17px;
+	margin-top: 6px;
+	/* margin-right: 15px; */
+	margin-left: 30px;
 }

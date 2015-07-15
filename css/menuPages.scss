@@ -169,9 +169,10 @@
 	background: $light-melon;
 	text-align: center;
 	position: fixed;
+	height: 100%;
 
 	img {
-		width: 89%;
+		width: 100%;
 		background-size: contain;
 	}
 
@@ -284,10 +285,6 @@
 					font-family: $iconfont;
 					color: $grey200;
 					margin-right: 20px;
-
-					&:last-child {
-						margin-right: 0px;
-					}
 				}
 			}
 		}
