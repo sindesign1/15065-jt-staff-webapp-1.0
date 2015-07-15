@@ -92,8 +92,11 @@ var Story = {
 		if ($coverImg.css('background-image') != 'none' && headerInput != headerText && subHeaderInput != subHeaderText) {
 			$arrowDiv.show();
 			clearTimeout(timeOut);
+			// $('html, body').animate({
+		 //        scrollTop: $coverImg.offset().bottom
+		 //    }, 1000);
 			// $(document).on('swipeup', 'body', Story.swipeUp);
-			$('#learningStoryPage').show();
+			
 			// $('#coverPageContainer').css('position', 'absolute');
 			
 		} else {
@@ -104,7 +107,7 @@ var Story = {
 
 	slideUpEffect: function() {
 		console.log('scrooooollleeedddd');
-		
+		$('#learningStoryPage').show();
 		var myDiv = $('html body');
 		console.log(myDiv);
 		var scrollto = myDiv.offset().top + 500;
@@ -340,6 +343,14 @@ var Story = {
 			$itemElement.find('.firstImage').addClass('singleImage-active');
 			Story.openImageSidebar();
 			console.log(type);
+		}
+
+		if(Story.sliderOpen) {
+			$('#learningStoryPage').css('padding', '20px 20px');
+			$('.gridImages').css({'width': '56%', 'text-align': 'left'});
+			$('.firstImage').css({'height': '400px'});
+			$('.secondImage, .thirdImage').css({'height': '199px'});
+			$('.singleImageContainer').css('width', '56%');
 		}
 
 	},
