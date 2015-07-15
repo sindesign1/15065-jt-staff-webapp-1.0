@@ -47,6 +47,7 @@ var Sidebars = {
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
+		$('body').on('click touch', '#threeDots', Sidebars.toggleCharlotteMessageSidebar);
 
 		$('body').on('click touch', '.doneBtn', Sidebars.closeTagSidebar);
 		$('body').on('click touch', '.cancelBtn', Sidebars.closeTagSidebarWithCancel);
@@ -79,8 +80,30 @@ var Sidebars = {
 			$('#mainSidebar').toggleClass('openRight');
 			$('body').toggleClass('overflow');
 		}
+	},
+
+	toggleCharlotteMessageSidebar: function() {
+		console.log('clicked');
+		if($('#messageSidebar-c').hasClass('sidebarLeft')) {
+			$('#messageSidebar-c').toggleClass('openLeft');
+			$('body').toggleClass('overflow');
+		} else if($('#messageSidebar-c').hasClass('sidebarRight')) {
+			$('#messageSidebar-c').toggleClass('openRight');
+			$('body').toggleClass('overflow');
+		}
+		if($('#messageSidebar-c').hasClass('openRight')){
+			$('.childContent').animate({"margin-left":"-320px", "width":"768px"}, 200);
+			$('.messagesMainList').animate({"margin-left":"-320px"}, 200);
+			$('.MessageThreadNames').animate({"right":"320px"}, 200);
+			$('.messageOverlay').fadeIn();
+		} else {
+			$('.childContent').animate({"margin-left":"0px", "width":"100%"}, 200);
+			$('.messagesMainList').animate({"margin-left":"0px"}, 200);
+			$('.MessageThreadNames').animate({"right":"0px"}, 200);
+			$('.messageOverlay').fadeOut();
+		}
+
 		console.log($('#mainSidebar'));
-		
 	},
 
 	togglePhotoSidebar: function(e) {
