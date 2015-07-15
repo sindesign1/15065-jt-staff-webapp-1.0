@@ -417,12 +417,12 @@ var Story = {
 			var elementToMoveBefore = $itemElement.prev();
 			$itemElement.insertBefore(elementToMoveBefore);
 			console.log(type);
-		}else if($item.hasClass('textContainer')){
+		}else if($item.hasClass('inputContainer')){
 			type = "text";
 			var elementToMove = $item;
 			var elementToMoveBefore = $item.prev();
 			$item.insertBefore(elementToMoveBefore);
-			console.log(type);
+			console.log("WOOOOO");
 		}else if($item.hasClass('frameworksContainer')) {
 			type = "framework";
 			var elementToMove = $item;
@@ -460,7 +460,7 @@ var Story = {
 			var elementToMoveBefore = $itemElement.next();
 			$itemElement.insertAfter(elementToMoveBefore);
 			console.log(type);
-		}else if($item.hasClass('textContainer')){
+		}else if($item.hasClass('inputContainer')){
 			type = "text";
 			var elementToMove = $item;
 			var elementToMoveBefore = $item.next();
