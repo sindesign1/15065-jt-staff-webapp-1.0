@@ -183,6 +183,7 @@ var Sidebars = {
 		}
 		$('body').css('overflow', 'auto');
 
+
 		$('#addImageSidebar').removeClass('display');
 		if($('#addImageSidebar').hasClass('sidebarLeft')) {
 			$('#addImageSidebar').removeClass('openLeft');
@@ -197,6 +198,12 @@ var Sidebars = {
 			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
 			$('.thirdImage').css('margin-left', '7.3px');
 			$('.photoPlaceholder').hide();
+
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			if ( $('#storyPageTop' + window.frameworkIndex).find('.frameworksSection' + window.frameworkIndex + ' ul li').length < 1 &&
+				$('#storyPageTop' + window.frameworkIndex).find('.activitiesSection' + window.frameworkIndex + ' ul li').length < 1 ) {
+				$('#storyPageTop' + window.frameworkIndex).remove();
+			}
 		}
 	},
 
@@ -247,6 +254,9 @@ var Sidebars = {
 			// $('#imageHeader').show();
 			$('#loadImgActionFooter').show();
 			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
+
+			Sidebars.shrinkChildHeader();
+			window.mainModalOpened = true;
 		}
 	},
 
@@ -285,6 +295,9 @@ var Sidebars = {
 		window.addedProfileTags = new Array();
 		window.addedFrameworks = new Array();
 		window.addedActivities = new Array();
+
+		window.mainModalOpened = false;
+		Sidebars.expandChildHeader();
 	},
 
 	editImagesMulti: function() {
@@ -488,9 +501,20 @@ var Sidebars = {
 		} else {
 			$('#likeImageBtn').find('.jtIcons').css('color', '').text('e');
 		}
+	},
 
-		var heartIcon2 = $('#likeImageBtn').find('.jtIcons').text();
-		var heartIcon3 = $('#likeImageBtn').find('.jtIcons').text();
+	shrinkChildHeader: function() {
+		if ( !$('.childheader').hasClass('shrink') ) {
+	        $('.childheader').addClass('shrink');
+	        $('.messageSidebar').addClass('fixed');
+	        $('.childFixed').addClass('fixed');
+		}
+	},
+
+	expandChildHeader: function() {
+        $('.childheader').removeClass('shrink');
+        $('.messageSidebar').removeClass('fixed');
+        $('.childFixed').removeClass('fixed');
 	}
 }
 

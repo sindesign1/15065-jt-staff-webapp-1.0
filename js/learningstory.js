@@ -586,40 +586,47 @@ var Story = {
 
             $('#learningStoryPageCovers').show();
 
-            var bgImage = $('#coverPageContainer').css('background-image');
-            if ( window.profileTagsCount > 1 ) {
+            var el = $('#learningStoryPageCovers').
+            	find('.imageGridCointainer .gridImages .gridImage .gridImageTitle').
+					filter(function() {
+					    return $(this).text() == personName;
+					});
 
-				$('.gridImages').css('text-align', 'left !important').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
-						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
-							$('<div class="photoCoverIcon"/>').text('?')
-							).append(
-							$('<div class="photoCoverText"/>').text('Personalise cover')
-						)
-					).append(
-						$('<p class="gridImageTitle"/>').text(personName)
-					)
-				);			
-            } else {
-				$('.gridImages').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
-							$('<p class="gridImageTitleWithBG"/>').text('Group cover')
+            if ( el.length == 0 ) {
+	            var bgImage = $('#coverPageContainer').css('background-image');
+	            if ( window.profileTagsCount > 1 ) {
+
+					$('.gridImages').css('text-align', 'left !important').append(
+						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+								$('<div class="photoCoverIcon"/>').text('?')
+								).append(
+								$('<div class="photoCoverText"/>').text('Personalise cover')
+							)
+						).append(
+							$('<p class="gridImageTitle"/>').text(personName)
 						)
 					);			
+	            } else {
+					$('.gridImages').append(
+						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
+								$('<p class="gridImageTitleWithBG"/>').text('Group cover')
+							)
+						);			
 
-				$('.gridImages').css('text-align', 'left !important').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
-						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
-							$('<div class="photoCoverIcon"/>').text('?')
-							).append(
-							$('<div class="photoCoverText"/>').text('Personalise cover')
+					$('.gridImages').css('text-align', 'left !important').append(
+						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+								$('<div class="photoCoverIcon"/>').text('?')
+								).append(
+								$('<div class="photoCoverText"/>').text('Personalise cover')
+							)
+						).append(
+							$('<p class="gridImageTitle"/>').text(personName)
 						)
-					).append(
-						$('<p class="gridImageTitle"/>').text(personName)
-					)
-				);			
+					);			
+	            }
             }
-		
 		}
 	},
 
