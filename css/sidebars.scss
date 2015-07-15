@@ -467,13 +467,17 @@
 			}
 		}
 
-		.title {
+		.heading {
 			font-weight: bold;
 			font-size: 20px;
 			letter-spacing: 0.5px;
 			margin-bottom: -10px;
 		}
 
+		.title {
+			margin-left: 15px;
+			font-size: 15px;
+		}
 		.content {
 			margin-left: 15px;
 			font-size: 15px;
