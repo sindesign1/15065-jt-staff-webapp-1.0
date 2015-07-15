@@ -162,7 +162,7 @@ var Sidebars = {
 		// $('.mainImageSection').css({'z-index': '-800'});
 
 		Story.sliderOpen = false;
-		
+
 		$('#loadEditImageHeader').hide();
 		if ( window.selectImagesChecked ) {
 			$('#imagesHeader').hide();
@@ -215,7 +215,13 @@ var Sidebars = {
 
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			$('#storyPageTop' + window.frameworkIndex).remove();
-			$('.singleImage-active').parent().remove(); //can't get the image back once removed (same as overlay)
+			if ( $('.singleImage-active').parent().hasClass('singleImageContainer') ) {
+				$('.singleImage-active').parent().remove(); //can't get the image back once removed (same as overlay)
+				window.completedCurrentImageSelectSection = true;
+			} else if ( $('.singleImage-active').parent().parent().hasClass('imageGridContainer') ) {
+				$('.singleImage-active').parent().parent().remove(); //can't get the image back once removed (same as overlay)
+				window.completedCurrentImageSelectSection = true;
+			}
 		}
 	},
 
