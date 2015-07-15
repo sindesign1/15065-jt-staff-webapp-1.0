@@ -403,11 +403,11 @@
         margin-top: 36%;
     }
 
-    .gridImages {
+    .gridCoverImages {
         text-align: left;
         // margin-top: 30px;
 
-        .gridImage {
+        .gridCoverImage {
             background-size: cover;
             width: 150px;
             height: 150px;
@@ -424,12 +424,12 @@
             }
         }
 
-        .gridImageTitleWithBG {
+        .gridCoverImageTitleWithBG {
             padding-top: 145px;
             margin: 14px;
             text-align: center;
         }
-        .gridImageTitle {
+        .gridCoverImageTitle {
             padding-top: 29px;
             margin: 22px;
             text-align: center;

@@ -28,7 +28,7 @@ var Story = {
 		$('body').on('click touch', '#moveDown, #moveTextDown, #moveFrameworkDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
-		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		$('body').on('click touch', '.gridCoverImage-click', Story.updateCoverImage);
 		$('body').on('click touch', '.cancelStory', Story.cancelStory);
 		$('body').on('click touch', '#cancelStoryOverlay', Story.cancelStoryOverlay);
 		$('body').on('click touch', '#editNevermindBtn', Story.hideEditOverlay);
@@ -157,6 +157,7 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.gridCoverImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
 		$('div.singleCoverImage').removeClass('singleImage-active');
 
@@ -224,6 +225,7 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.gridCoverImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
 		$('div.singleCoverImage').removeClass('singleImage-active');
 
@@ -233,6 +235,7 @@ var Story = {
 		$('.imageGridContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
+		window.divForBackground = '';
 		window.divForImageGrid = '.singleImage-active';
 
 		$('#addElementContainer').css('display', 'none');
@@ -587,7 +590,7 @@ var Story = {
             $('#learningStoryPageCovers').show();
 
             var el = $('#learningStoryPageCovers').
-            	find('.imageGridCointainer .gridImages .gridImage .gridImageTitle').
+            	find('.imageGridCointainer .gridCoverImages .gridCoverImage .gridCoverImageTitle').
 					filter(function() {
 					    return $(this).text() == personName;
 					});
@@ -596,33 +599,33 @@ var Story = {
 	            var bgImage = $('#coverPageContainer').css('background-image');
 	            if ( window.profileTagsCount > 1 ) {
 
-					$('.gridImages').css('text-align', 'left !important').append(
-						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+					$('.gridCoverImages').css('text-align', 'left !important').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('margin-right', '15px').append(
 							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
 								$('<div class="photoCoverIcon"/>').text('?')
 								).append(
 								$('<div class="photoCoverText"/>').text('Personalise cover')
 							)
 						).append(
-							$('<p class="gridImageTitle"/>').text(personName)
+							$('<p class="gridCoverImageTitle"/>').text(personName)
 						)
 					);			
 	            } else {
-					$('.gridImages').append(
-						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
-								$('<p class="gridImageTitleWithBG"/>').text('Group cover')
+					$('.gridCoverImages').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('background-image', bgImage).append(
+								$('<p class="gridCoverImageTitleWithBG"/>').text('Group cover')
 							)
 						);			
 
-					$('.gridImages').css('text-align', 'left !important').append(
-						$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
+					$('.gridCoverImages').css('text-align', 'left !important').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('margin-right', '15px').append(
 							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
 								$('<div class="photoCoverIcon"/>').text('?')
 								).append(
 								$('<div class="photoCoverText"/>').text('Personalise cover')
 							)
 						).append(
-							$('<p class="gridImageTitle"/>').text(personName)
+							$('<p class="gridCoverImageTitle"/>').text(personName)
 						)
 					);			
 	            }
