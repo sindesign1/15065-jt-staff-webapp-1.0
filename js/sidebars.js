@@ -153,7 +153,7 @@ var Sidebars = {
 		// $('body').css('overflow', 'hidden');
 		// $('.sidebarRight').css('right', '0px');
 		$('.mainImageSection').animate({'width': '59%', 'height': '55%', 'padding': '90px 0px 0px 0px'});
-		$('.editSection').animate({'width': '59%'});
+		$('.editSection').show().animate({'width': '59%'});
 	
 		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
@@ -163,8 +163,8 @@ var Sidebars = {
 		$('.profileTagsSection').show();
 		$('.frameworksSection').show();
 		$('.activitiesSection').show();
-
-
+		$('.frameworksSection').children().remove();
+		Sidebars.changeFramework();
 	},
 
 	closeSidebars: function() {
@@ -174,7 +174,7 @@ var Sidebars = {
 		// $('.mainImageSection').css({'z-index': '-800'});
 
 		Story.sliderOpen = false;
-		
+
 		$('#loadEditImageHeader').hide();
 		if ( window.selectImagesChecked ) {
 			$('#imagesHeader').hide();
@@ -227,7 +227,13 @@ var Sidebars = {
 
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			$('#storyPageTop' + window.frameworkIndex).remove();
-			$('.singleImage-active').parent().remove(); //can't get the image back once removed (same as overlay)
+			if ( $('.singleImage-active').parent().hasClass('singleImageContainer') ) {
+				$('.singleImage-active').parent().remove(); //can't get the image back once removed (same as overlay)
+				window.completedCurrentImageSelectSection = true;
+			} else if ( $('.singleImage-active').parent().parent().hasClass('imageGridContainer') ) {
+				$('.singleImage-active').parent().parent().remove(); //can't get the image back once removed (same as overlay)
+				window.completedCurrentImageSelectSection = true;
+			}
 		}
 	},
 
@@ -278,7 +284,7 @@ var Sidebars = {
 	closeMainModal: function() {
 		console.log('close main modal');
 
-		Sidebars.closeTagSidebar();
+		Sidebars.closeSidebars();
 
 		$('#classroom').show();
 		$('#gallery').show();
@@ -347,54 +353,28 @@ var Sidebars = {
 
 	addSectionItem: function(obj, sectionClass, addedArray) {
 
+		var headingText = $(obj).find('p.heading').text();
 		var titleText = $(obj).find('p.title').text();
 		var contentText = $(obj).find('p.content').text();
 		var pText = $(obj).find('p').text();
 
 		if ( sectionClass.substring(0, 10) == '.framework' ) {
-			if ( !titleText ) {
-				titleText = $(obj).prevUntil('li p.title').find('p.title').last().text();
+			if ( !headingText ) {
+				headingText = $(obj).prevUntil('li p.heading').find('p.heading').last().text();
 			}
 		}
 
-		if ( !contentText ) {
+		if ( !titleText ) {
 			titleText = pText;
-			contentText = '<span class="greyText edit-placeholder">Click here to add a sub-paragraph</span>';
 		}
 
-		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
+		if ( $.inArray(headingText+titleText, addedArray) == -1 ) {
 
-			var pTag = $(sectionClass).find("ul li h4").
-					filter(function() {
-					    return $(this).text() == titleText;
-					});
-
-			if ( pTag.length == 0 ) {
-			
-				$(sectionClass).find('ul').first().append (
-					$('<li/>').append(
-							$('<h4 contenteditable=true/>').addClass('frameworksTitle').html(titleText)
-						).append(
-							$('<ul/>')
-						)
-					)
-				;
-			}
-
-			// pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
-			pTag = $(sectionClass).find("ul li h4").
-					filter(function() {
-					    return $(this).text() == titleText;
-					});
-
-			var ulTag = pTag.parent().find('ul');
-			ulTag.append(
-				$('<li/>').append(
-					$('<p contenteditable=true/>').html(contentText)
-				)
+			$(sectionClass).append(
+				$('<div class="addedFramework"/>').text(titleText)
 			);
 
-			addedArray.push(titleText+contentText);
+			addedArray.push(headingText+titleText);
 		}
 	},
 
@@ -403,7 +383,7 @@ var Sidebars = {
 	},
 
 	addActivity: function() {
-		Sidebars.addSectionItem(this, '.activitiesSection', window.addedActivities);
+		Sidebars.addSectionItem(this, '.frameworksSection', window.addedActivities);
 	},
 
 	addProfileTag: function() {
@@ -435,16 +415,22 @@ var Sidebars = {
 	changeFramework: function() {
 		$('#frameworksList ul').children().remove();
 
-		var val = $(this).val();
+		var val = $('.frameworksSelect').val();
+		if ( !val ) {
+			val = 'federal';
+		}
+
 		var frameworkData = window.frameworkData[val];
 		for ( var i=0; i<frameworkData.length; i++ ) {
 			$('#frameworksList ul').append(
 				$('<li class="li-frameworks"/>').append(
-					frameworkData[i].title 
+					frameworkData[i].heading 
 					?
-					$('<p class="title"/>').text(frameworkData[i].title)
+					$('<p class="heading"/>').text(frameworkData[i].heading)
 					:
 					null
+				).append(
+					$('<p class="title"/>').text(frameworkData[i].title)
 				).append(
 					$('<p class="content"/>').text(frameworkData[i].content)
 				)
@@ -454,7 +440,7 @@ var Sidebars = {
 
 	deleteImagesDialog: function() {
 
-		Sidebars.closeTagSidebar();
+		Sidebars.closeSidebars();
 
 		var msg = "Are you sure about this? This image will be permanently deleted from your Journey Tree on all devices.";
 
@@ -551,42 +537,112 @@ window.frameworkData = {
 
 	federal: [
 		{
-			title: '1.0 Connectedness',
-			content: '1.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+			heading: '1.0 Connectedness',
+			title: '1.1 belonging',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
-			content: '1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+			title: '1.2 responsiveness',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
-			content: '1.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+			title: '1.3 awareness',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
-			title: '2.0 Wellbeing',
-			content: '2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+			title: '1.4 responsibility',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
-			content: '2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+			title: '2.0 Identity',
+			title: '2.1 safety',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '2.2 autonomy',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '2.3 confidence',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '2.4 empathy',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '3.0 Wellbeing',
+			title: '3.1 emotional',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '3.2 physical',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '4.0 Confidence',
+			title: '4.1 curiosity',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '4.2 problem-solving',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '4.3 adaptability',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '4.4 connectedness',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '5.0 Communication',
+			title: '5.1 interaction',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '5.2 engagement',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '5.3 expression',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '5.4 understanding',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		},
+		{
+			title: '5.5 information',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		}
 	],
 	state: [
 		{
-			title: 'a1.0 Connectedness',
+			heading: 'a1.0 Connectedness',
+			title: '1.3 becoming',
 			content: '1a.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
+			title: '1.4 becoming',
 			content: 'a1.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
-			title: 'a2.0 Wellbeing',
+			heading: 'a2.0 Wellbeing',
+			title: '2.1 becoming',
 			content: 'a2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
+			title: '2.2 becoming',
 			content: 'a2.2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
+			title: '2.3 becoming',
 			content: 'a2.3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		},
 		{
+			title: '2.4 becoming',
 			content: 'a2.4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		}
 	]
