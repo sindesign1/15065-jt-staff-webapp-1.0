@@ -13,7 +13,6 @@
     -moz-transition: all 200ms;
     -o-transition: all 200ms;
     transition: all 200ms;
-    overflow-y: scroll;
 
     .sidebarContainer {
     	height: 100vh;
@@ -402,6 +401,7 @@
   			border-radius: 30px;
   			border: 2px solid;
   			vertical-align: middle;
+  			margin: 0;
 
   			img {
   				width: 100%;
@@ -578,6 +578,10 @@
 	#imageList {
 	padding: 0 4px;
 	background: #333;
+	overflow-y: scroll;
+	height: 54%;
+	padding-bottom: 14px;
+	box-sizing: border-box;
 
 		.imgBlock {
 			display: inline-block;
@@ -597,7 +601,7 @@
 		padding: 20px;
 		text-align: center;
 		position: absolute;
-		bottom: 351px;
+		bottom: 152px;
 		background-color: #333;
 		z-index: 99;
 		width: 320px;

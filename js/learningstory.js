@@ -9,6 +9,7 @@ var Story = {
 		Story.showArrow();
 		Story.showAddBtn();
 		Story.findScreenHeight();
+		Story.hideNavOnFocus();
 	},
 
 	events: function() {
@@ -16,7 +17,6 @@ var Story = {
 		$('body').on('click touch', '.addElementBtn', Story.openAddElement);
 		$('body').on('click touch', '#nevermindBtn', Story.closeAddElement);
 		$('body').on('click touch', '#addPhotoElement', Story.addPhotoElement);
-		$('body').on('click touch','.menuIcon', Story.closePhotoSidebar);
 		$('body').on('click touch', '#addTextElement', Story.addTextElement);
 		$('body').on('click touch', '#arrowContainer', Story.slideUpEffect);
 		$('body').on('click touch', '#addFramework', Story.addFramework);
@@ -47,6 +47,18 @@ var Story = {
 			$('body').on('click touch', '.li-frameworks', Story.appendTagContent);
 			$('body').on('click touch', '.li-activities', Story.appendTagContent);
 		}
+	},
+
+	hideNavOnFocus: function() {
+		 $('.storyInput').focus(function(){
+
+		    $("#botMainNav, #botImgActions").hide();
+
+		  }).blur(function(){
+
+		    $("#botMainNav, #botImgActions").show();
+
+		  });
 	},
 
 	findScreenHeight: function() {
@@ -649,28 +661,28 @@ var Story = {
 		}
 	}, 
 
-	closePhotoSidebar: function() {
-		Story.sliderOpen = false;
-		$('#addImageSidebar').removeClass('display');
-		if($('#addImageSidebar').hasClass('sidebarLeft')) {
-			$('#addImageSidebar').removeClass('openLeft');
-		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
-			$('#addImageSidebar').removeClass('openRight');
-			$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
-			$('.singleImageContainer').css('width', '100%');
-			$('.singleImage').css('border', 'none');
-			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
-			$('.gridImages').css({'width': '100%'});
-			$('.firstImage').css('height', '500px');
-			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
-			$('.thirdImage').css('margin-left', '7.3px');
-			$('.photoPlaceholder').hide();
+	// closePhotoSidebar: function() {
+	// 	Story.sliderOpen = false;
+	// 	$('#addImageSidebar').removeClass('display');
+	// 	if($('#addImageSidebar').hasClass('sidebarLeft')) {
+	// 		$('#addImageSidebar').removeClass('openLeft');
+	// 	} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+	// 		$('#addImageSidebar').removeClass('openRight');
+	// 		$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
+	// 		$('.singleImageContainer').css('width', '100%');
+	// 		$('.singleImage').css('border', 'none');
+	// 		$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
+	// 		$('.gridImages').css({'width': '100%'});
+	// 		$('.firstImage').css('height', '500px');
+	// 		$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
+	// 		$('.thirdImage').css('margin-left', '7.3px');
+	// 		$('.photoPlaceholder').hide();
 
 
 
-			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
-		}
-	},
+	// 		//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+	// 	}
+	// },
 
 	formatText: function() {
 		$('#loadMainFooter').hide();

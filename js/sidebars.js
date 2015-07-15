@@ -49,8 +49,8 @@ var Sidebars = {
 		$('body').on('click touch', '.classroomImageClose', Sidebars.closeMainModal);
 		$('body').on('click touch', '#threeDots', Sidebars.toggleCharlotteMessageSidebar);
 
-		$('body').on('click touch', '.doneBtn', Sidebars.closeTagSidebar);
-		$('body').on('click touch', '.cancelBtn', Sidebars.closeTagSidebarWithCancel);
+		$('body').on('click touch', '.doneBtn', Sidebars.closeSidebars);
+		$('body').on('click touch', '.cancelBtn', Sidebars.closeSidebarsWithCancel);
 		$('body').on('click touch', '.thumbnail', Sidebars.openMainModal);
 
 		if ( window.sourcePage == 'classroom' ) {
@@ -155,7 +155,7 @@ var Sidebars = {
 
 	},
 
-	closeTagSidebar: function() {
+	closeSidebars: function() {
 		console.log('closing sidebar');
 //		$('.classGallery').show();
 //		$('.mainImageSection').hide();
@@ -182,13 +182,30 @@ var Sidebars = {
 			$('#tagSidebar').removeClass('openRight');
 		}
 		$('body').css('overflow', 'auto');
+
+		$('#addImageSidebar').removeClass('display');
+		if($('#addImageSidebar').hasClass('sidebarLeft')) {
+			$('#addImageSidebar').removeClass('openLeft');
+		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+			$('#addImageSidebar').removeClass('openRight');
+			$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
+			$('.singleImageContainer').css('width', '100%');
+			$('.singleImage').css('border', 'none');
+			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
+			$('.gridImages').css({'width': '100%'});
+			$('.firstImage').css('height', '500px');
+			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
+			$('.thirdImage').css('margin-left', '7.3px');
+			$('.photoPlaceholder').hide();
+		}
 	},
 
-	closeTagSidebarWithCancel: function() {
-		Sidebars.closeTagSidebar();
+	closeSidebarsWithCancel: function() {
+		Sidebars.closeSidebars();
 
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			$('#storyPageTop' + window.frameworkIndex).remove();
+			$('.singleImage-active').parent().remove(); //can't get the image back once removed (same as overlay)
 		}
 	},
 
