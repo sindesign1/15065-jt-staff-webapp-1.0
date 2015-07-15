@@ -304,6 +304,7 @@ var Story = {
 		var $overlay = $('#overlay');
 
 		if ( !$this.hasClass('hasOverlay') ) {
+			$('.hasOverlay').removeClass('hasOverlay');
 			$this.append($overlay);
 			$this.addClass('hasOverlay');
 			$overlay.show();
