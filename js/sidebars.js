@@ -198,7 +198,8 @@ var Sidebars = {
 			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
 			$('.thirdImage').css('margin-left', '7.3px');
 			$('.photoPlaceholder').hide();
-
+		}
+		
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			if ( $('#storyPageTop' + window.frameworkIndex).find('.frameworksSection' + window.frameworkIndex + ' ul li').length < 1 &&
 				$('#storyPageTop' + window.frameworkIndex).find('.activitiesSection' + window.frameworkIndex + ' ul li').length < 1 ) {
