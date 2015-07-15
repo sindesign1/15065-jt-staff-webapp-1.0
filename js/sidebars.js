@@ -161,6 +161,8 @@ var Sidebars = {
 //		$('.mainImageSection').hide();
 		// $('.mainImageSection').css({'z-index': '-800'});
 
+		Story.sliderOpen = false;
+		
 		$('#loadEditImageHeader').hide();
 		if ( window.selectImagesChecked ) {
 			$('#imagesHeader').hide();

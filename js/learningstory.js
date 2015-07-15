@@ -303,10 +303,9 @@ var Story = {
 		// var top = $this.offset().top;
 		var $overlay = $('#overlay');
 
-		var sic = $('.singleImageContainer');
-		var igc = $('.imageGridContainer');
-		if ( sic.length > 0 || igc.length > 0 ) {
+		if ( !$this.hasClass('hasOverlay') ) {
 			$this.append($overlay);
+			$this.addClass('hasOverlay');
 			$overlay.show();
 		} else {
 			$overlay.hide();
