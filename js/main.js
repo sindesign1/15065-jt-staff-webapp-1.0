@@ -8,17 +8,22 @@ var Main = {
 
     events: function() {
         $(window).scroll(function() {
-            var shrinkHeader = 203;
-            var scroll = Main.getCurrentScroll();
-            if ( scroll >= shrinkHeader ) {
-                $('.childheader').addClass('shrink');
-                $('.messageSidebar').addClass('fixed');
-                $('.childFixed').addClass('fixed');
-            }
-            else {
-                $('.childheader').removeClass('shrink');
-                $('.messageSidebar').removeClass('fixed');
-                $('.childFixed').removeClass('fixed');
+
+            if ( !window.mainModalOpened ) {
+                var shrinkHeader = 203;
+                var scroll = Main.getCurrentScroll();
+                if ( scroll >= shrinkHeader ) {
+                    console.log('main:shrinking...');
+                    $('.childheader').addClass('shrink');
+                    $('.messageSidebar').addClass('fixed');
+                    $('.childFixed').addClass('fixed');
+                }
+                else {
+                    console.log('main:expanding...');
+                    $('.childheader').removeClass('shrink');
+                    $('.messageSidebar').removeClass('fixed');
+                    $('.childFixed').removeClass('fixed');
+                }
             }
         });
     },
