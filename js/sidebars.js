@@ -199,7 +199,7 @@ var Sidebars = {
 			$('.thirdImage').css('margin-left', '7.3px');
 			$('.photoPlaceholder').hide();
 		}
-		
+
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			if ( $('#storyPageTop' + window.frameworkIndex).find('.frameworksSection' + window.frameworkIndex + ' ul li').length < 1 &&
 				$('#storyPageTop' + window.frameworkIndex).find('.activitiesSection' + window.frameworkIndex + ' ul li').length < 1 ) {
@@ -350,8 +350,12 @@ var Sidebars = {
 
 		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
 
-			var pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
-			if ( !pTag.text() ) {
+			var pTag = $(sectionClass).find("ul li h4").
+					filter(function() {
+					    return $(this).text() == titleText;
+					});
+
+			if ( pTag.length == 0 ) {
 			
 				$(sectionClass).find('ul').first().append (
 					$('<li/>').append(
@@ -363,7 +367,12 @@ var Sidebars = {
 				;
 			}
 
-			pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
+			// pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
+			pTag = $(sectionClass).find("ul li h4").
+					filter(function() {
+					    return $(this).text() == titleText;
+					});
+
 			var ulTag = pTag.parent().find('ul');
 			ulTag.append(
 				$('<li/>').append(
