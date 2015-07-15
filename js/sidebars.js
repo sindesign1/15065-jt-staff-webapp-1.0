@@ -182,6 +182,13 @@ var Sidebars = {
 			$('#tagSidebar').removeClass('openRight');
 		}
 		$('body').css('overflow', 'auto');
+
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			if ( $('#storyPageTop' + window.frameworkIndex).find('.frameworksSection' + window.frameworkIndex + ' ul li').length < 1 &&
+				$('#storyPageTop' + window.frameworkIndex).find('.activitiesSection' + window.frameworkIndex + ' ul li').length < 1 ) {
+				$('#storyPageTop' + window.frameworkIndex).remove();
+			}
+		}
 	},
 
 	closeTagSidebarWithCancel: function() {
