@@ -196,7 +196,8 @@ var Sidebars = {
 		$('.postBtnContainer').hide();
 
 		$('.editSection').animate({'width': '100%'});
-		$('.mainImageSection').animate({'width': '100%', 'height': '55%', 'padding': '90px 0 0 0'});
+		$('.writePostControls').animate('width', '94%');
+		$('.mainImageSection').animate({'width': '100%', 'height': '100%', 'padding': '90px 0 0 0'});
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
