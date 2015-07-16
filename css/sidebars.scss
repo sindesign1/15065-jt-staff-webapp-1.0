@@ -13,6 +13,8 @@
     -moz-transition: all 200ms;
     -o-transition: all 200ms;
     transition: all 200ms;
+    -webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 
     .sidebarContainer {
     	height: 100vh;
@@ -471,6 +473,7 @@
 		padding-bottom: 90px;
 		overflow-y: scroll;
 		height: 57%;
+		-webkit-overflow-scrolling: touch;
 
 		ul {
 			list-style: none;
@@ -619,24 +622,25 @@
 }
 
 .buttonContainer {
-		padding: 20px;
+		padding: 20px 20px 10px 20px;
 		text-align: center;
 		background-color: #333;
 		z-index: 99;
 		width: 320px;
 		box-sizing: border-box;
+		top: 83%;
 
 		button {
 			background: none;
 			border: 1px solid $grey160;
 			border-radius: 40px;
-			height: 50px;
+			height: 35px;
 			color: $grey160;
-			font-size: 20px;
+			font-size: 15px;
 			display: inline-block;
 			vertical-align: middle;
 			margin-right: 25px;
-			width: 120px;
+			width: 90px;
 
 			&:last-child {
 				margin-right: 0;
