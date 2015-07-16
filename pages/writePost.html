@@ -46,21 +46,21 @@
         <div class="modalBtn">remove</div>
     </div>
 
-    <div id="classroom">
+    <div id="postContainer">
 
         <div class="writePost">
             <div class="writePostMsg" contenteditable=true>
                 Add your post here...
             </div>
 
-            <div class="mainImageSection" style="display:none">
+            <div class="mainImageSection" style="display:none;position:relative;height:auto;margin-top:30px;">
                 <div class="mainImageContainer">
                     <div class="mainImage">
                     </div>
                 </div>
             </div>
 
-            <div class="editSection">
+            <div class="editSection" style="position:relative;top:0;margin-top:30px;border:none;">
                 <ul class="edit">
                     <li class="editImageTextArea" style="display:none">
                         <div id="postInput" contentEditable="true"/></div>
@@ -80,19 +80,14 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="postBtnContainer" style="display:none">
-                    <button class="postBtn">post</button>
-                </div>
             </div>
 
             <div class="writePostControls">
-                <div class="writePostControlsLeft">
-                    <div id="writePostAddPhotos" class="jtIcons">^</div>
-                    <div id="writePostAddTags" class="jtIcons">y</div>
+                <div class="postIcons">
+                    <div id="writePostAddPhotos" class="postIcon">^</div>
+                    <div id="writePostAddTags" class="postIcon">y</div>
                 </div>
-                <div class="writePostControlsRight">
-                    <div class="postButton">Post</div>
-                </div>
+                <div class="postButton">post</div>
             </div>
         </div>
         

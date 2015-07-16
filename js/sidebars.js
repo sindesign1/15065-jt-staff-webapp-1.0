@@ -129,6 +129,14 @@ var Sidebars = {
 			$('#addImageSidebar').addClass('openRight');
 		}
 		$('body').css('overflow', 'hidden');
+
+		if($('#addImageSidebar').hasClass('openRight')) {
+			$('.writePostControls').css('width', '53%');
+			$('.editSection').css('width', '55%');
+		} else if(!$('#addImageSidebar').hasClass('openRight')) {
+			$('.editSection').css('width', '100%');
+			$('.writePostControls').css('width', '94%');
+		}
 	},
 
 	toggleTagSidebar: function() {
