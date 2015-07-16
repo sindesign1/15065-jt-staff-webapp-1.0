@@ -17,12 +17,14 @@ var Main = {
                     $('.childheader').addClass('shrink');
                     $('.messageSidebar').addClass('fixed');
                     $('.childFixed').addClass('fixed');
+                    $('.MessageThreadNames').addClass('fixed');
                 }
                 else {
                     console.log('main:expanding...');
                     $('.childheader').removeClass('shrink');
                     $('.messageSidebar').removeClass('fixed');
                     $('.childFixed').removeClass('fixed');
+                    $('.MessageThreadNames').removeClass('fixed');
                 }
             }
         });
