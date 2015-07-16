@@ -104,6 +104,22 @@
 			float: left;
 		}
 	}
+
+	.thumbnailContainer {
+		margin-bottom: 5px;
+		padding: 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 19.6%;
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+		&:nth-child(5n+0) {
+			margin-right: 0;
+		}
+	}
 }
 
 .childGallery {
@@ -249,3 +265,4 @@
   	text-align: center;
   	padding: 5px;
 }
+
