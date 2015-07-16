@@ -4,7 +4,7 @@
 		width: auto;
 		padding: 3.75em 5% 0;
 		overflow: hidden;
-		a {
+		a, .albumToAddTo {
 			display: block;
 			float: left;
 			margin: 0 5% 3.5em 0;
@@ -33,3 +33,15 @@
 		}
 	}
 }
+
+.albumMessage {
+	color: $melon;
+	margin-left: 37px;
+  	margin-top: 34px;
+}
+
+.selectedAlbum {
+    box-shadow: 0 0 0 4px $melon;
+    -webkit-box-shadow: 0 0 0 4px $melon;
+}
+
