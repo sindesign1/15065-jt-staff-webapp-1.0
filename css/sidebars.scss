@@ -264,11 +264,11 @@
 			li {
 				border-bottom: 2px solid #CACCCE;
 				padding: 10px 10px;
-
+			}
 				&:first-child {
 					border-top: 2px solid #CACCCE;
+					border-bottom: 0;
 				}
-			}
 		}
 
 	}
