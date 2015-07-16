@@ -12,6 +12,15 @@
     }
 }
 
+.childMessagesThread {
+	.MessageThreadNames {
+		top: 402px;
+	}
+	.fixed {
+		top: 151px;
+	}
+}
+
 .messageOverlay {
 	display: none;
 	z-index: 1;
@@ -31,6 +40,13 @@
     }
 }
 
+.MessageThreadNames {
+	z-index: 1;
+	position: fixed;
+	top: 90px;
+	width: 58.333%;
+}
+
 .messagesThread {
 	float: right;
 	width: 58.333%;
@@ -47,7 +63,6 @@
 	}
 	.MessageThreadNames {
 		overflow: auto;
-		width: 58.333%;
 		padding: 5px 0 5px 20px;
 		background: $pale-melon;
 		box-sizing: border-box;

@@ -5,12 +5,14 @@ var Sidebars = {
 	},
 
 	events: function() {
-		$('#messageSidebar-c').on('click touch', '#hannahBioBtn', function(e){
+		$('body').on('click touch', '#hannahBioBtn', function(e){
 			e.stopPropagation();
+			console.log('cliiicckkkkkk');
 			$('#hannahBio').slideToggle();
 		});
 
-		$('#messageSidebar-c').on('click touch', '#carolBioBtn', function(e){
+		$('body').on('click touch', '#carolBioBtn', function(e){
+			console.log('cliiicckkkkkk');
 			e.stopPropagation();
 			$('#carolBio').slideToggle();
 		});
@@ -106,12 +108,14 @@ var Sidebars = {
 		if($('#messageSidebar-c').hasClass('openRight')){
 			$('.childContent').animate({"margin-left":"-320px", "width":"768px"}, 200);
 			$('.messagesMainList').animate({"margin-left":"-320px"}, 200);
-			$('.MessageThreadNames').animate({"right":"320px"}, 200);
+			$('.MessageThreadNames').animate({"right":"320px", "top":"151px"}, 200);
+			$('.childheader').addClass("shrink");
 			$('.messageOverlay').fadeIn();
 		} else {
 			$('.childContent').animate({"margin-left":"0px", "width":"100%"}, 200);
 			$('.messagesMainList').animate({"margin-left":"0px"}, 200);
-			$('.MessageThreadNames').animate({"right":"0px"}, 200);
+			$('.MessageThreadNames').animate({"right":"0px", "top":"151px"}, 200);
+			$('.childheader').addClass("shrink");
 			$('.messageOverlay').fadeOut();
 		}
 
