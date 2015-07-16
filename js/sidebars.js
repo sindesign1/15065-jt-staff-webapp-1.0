@@ -162,7 +162,9 @@ var Sidebars = {
 		// $('.sidebarRight').css('right', '0px');
 		$('.mainImageSection').animate({'width': '59%', 'height': '55%', 'padding': '90px 0px 0px 0px'});
 		$('.editSection').show().animate({'width': '59%'});
-	
+		//$('.writePostControls').animate('width', '55%');
+		$('.writePostControls').css('width', '53%');
+
 		// $('.mainImageSection').css({'z-index': '-800'});
 //		$('.classGallery').hide();
 
@@ -192,11 +194,13 @@ var Sidebars = {
 			$('#loadSelectImagesHeader').hide();
 		}
 		$('.editSection').show();
+		$('.writePostControls').css('width', '94%');
 
 		$('.postBtnContainer').hide();
 
 		$('.editSection').animate({'width': '100%'});
-		$('.mainImageSection').animate({'width': '100%', 'height': '55%', 'padding': '90px 0 0 0'});
+		$('.writePostControls').animate('width', '94%');
+		$('.mainImageSection').animate({'width': '100%', 'height': '100%', 'padding': '90px 0 0 0'});
 
 		if($('#tagSidebar').hasClass('sidebarLeft')) {
 			$('#tagSidebar').removeClass('openLeft');
@@ -312,6 +316,7 @@ var Sidebars = {
 		$('.activitiesSection').hide();
 		$('#loadImgActionFooter').hide();
 		$('.editSection').hide();
+		$('.mainImageSection').hide();
 
 		$('.editImageTextArea textarea').val('');
 		// $('.frameworksSection ul').find('li').not(':first').remove();
