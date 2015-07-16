@@ -43,6 +43,12 @@
 			margin-top: 0;
 		}
 	}
+	a {
+		display: block;
+		img {
+			width:100%;
+		}
+	}
 	strong{
 		color: $melon;
 	}
