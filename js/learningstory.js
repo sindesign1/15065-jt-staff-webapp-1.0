@@ -481,6 +481,7 @@ var Story = {
 			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').addClass('openRight');
+			$('body').css('overflow', 'hidden !important');
 		}
 
 		$('#addElementContainer').css('display', 'none');
@@ -645,7 +646,7 @@ var Story = {
 		var $this = $(this);
 
 		$this.addClass('singleImage-active');
-		$this.find('p.gridImageTitle').removeClass('gridImageTitle').addClass('gridImageTitleWithBG');
+		$this.find('p.gridCoverImageTitle').removeClass('gridCoverImageTitle').addClass('gridCoverImageTitleWithBG');
 
 		$this.find('.photoCoverPlaceholder').hide();
 
