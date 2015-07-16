@@ -129,6 +129,14 @@ var Sidebars = {
 			$('#addImageSidebar').addClass('openRight');
 		}
 		$('body').css('overflow', 'hidden');
+
+		if($('#addImageSidebar').hasClass('openRight')) {
+			$('.writePostControls').css('width', '53%');
+			$('.editSection').css('width', '55%');
+		} else if(!$('#addImageSidebar').hasClass('openRight')) {
+			$('.editSection').css('width', '100%');
+			$('.writePostControls').css('width', '94%');
+		}
 	},
 
 	toggleTagSidebar: function() {
@@ -253,7 +261,7 @@ var Sidebars = {
 
 		if ( !window.selectImagesChecked ) {
 			var thumbImg = $(this).find('.classroomThumbImg').prop('src');
-			var mainImg = thumbImg.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
+			var mainImg = thumbImg.replace('Thumbs', 'Large').replace('thumb_', 'large_');
 
 			window.selectedImage = mainImg;
 

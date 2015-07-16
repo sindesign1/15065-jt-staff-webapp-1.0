@@ -23,6 +23,7 @@ var Templates = {
 		Templates.editImageHeader();
 		Templates.messagesHeader();
 		Templates.childrenHeader();
+		Templates.postHeader();
 	},
 
 	loadScripts: function() {
@@ -121,6 +122,10 @@ var Templates = {
 
 	messagesHeader: function() {
 		$('#loadMessagesHeader').load('../templates/headers.html #messagesHeader');
+	},
+
+	postHeader: function() {
+		$('#loadPostHeader').load('../templates/headers.html #writePostHeader');
 	},
 }
 

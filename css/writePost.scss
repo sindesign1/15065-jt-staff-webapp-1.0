@@ -1,30 +1,57 @@
-.writePost {
-	margin-top: 100px;
-}
+#postContainer {
 
-.writePostMsg {
-	color: $grey160;
-}
+	padding: 115px 20px;;
+	box-sizing: border-box;
 
-.writePostControls {
+	.writePost {
+		
+	}
 
-	position: absolute;
-	display: inline-block;
-	bottom: 100px;
-
-	.jtIcons{	
-		display: block;
-		font-family: $iconfont;
+	.writePostMsg {
 		color: $grey160;
-		margin:0px 30px;
-		font-size:24px			
 	}
 
-	.writePostControlsLeft {
-		float: left;
+	.writePostControls {
+
+		position: fixed;
+		display: inline-block;
+		bottom: 83px;
+		width: 94%;
+
+		.postIcons {
+			display: inline-block;
+			vertical-align: middle;
+
+			.postIcon {
+				font-family: $iconfont;
+				font-size: 25px;
+				color: $grey160;
+				margin-left: 20px;
+				display: inline-block;
+				vertical-align: middle;
+
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+		}
+
+		.postButton {
+			color: $melon;
+			border: 1px solid $melon;
+			border-radius: 40px;
+			width: 160px;
+			padding: 10px 0;
+			background: none;
+			font-size: 20px;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			float: right;
+			margin-top: -15px;
+		}
+		
 	}
-	.writePostControlsRight {
-		float: right;
-	}
-	
 }
+
+
