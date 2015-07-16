@@ -164,3 +164,129 @@
 	}
 
 }
+
+#draftsContainer {
+	background: $light-melon;
+	text-align: center;
+	position: fixed;
+	height: 100%;
+
+	img {
+		width: 100%;
+		background-size: contain;
+	}
+
+	.topContainer {
+		position: absolute;
+		top: 90px;
+		width: 100%;
+		background-color: $grey240;
+		padding: 20px;
+		box-sizing: border-box;
+		opacity: 0.8;
+		text-align: left;
+
+		.picture {
+			display: inline-block;
+			vertical-align: middle;
+			width: 40px;
+			height: 40px;
+			border-radius: 40px;
+			border: 2px solid $melon;
+
+			img {
+				width: 100%;
+				border-radius: 40px;
+			}
+		}
+
+		.topText {
+			display: inline-block;
+			vertical-align: middle;
+			text-align: left;
+			margin-left: 20px;
+			line-height: 10px;
+			color: #333;
+
+			.pinkText {
+				color: $melon;
+				font-weight: bold;
+			}
+		}
+
+		.topBtn {
+			display: inline-block;
+			vertical-align: middle;
+			float: right;
+			margin-top: 13px;
+
+			button {
+				background: none;
+				border: 1px solid $melon;
+				border-radius: 40px;
+				width: 200px;
+				padding: 10px 0;
+				font-size: 15px;
+				color: $melon;
+			}
+		}
+	}
+
+	.draftItemContainer {
+		position: absolute;
+		top: 25%;
+		padding: 20px;
+		box-sizing: border-box;
+
+		.draftItem {
+			display: inline-block;
+			vertical-align: middle;
+			width: 235px;
+			margin-right: 5px;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+		}
+
+		.displayPicture {
+
+			img {
+				width: 100%;
+			}
+
+		}
+
+		.contentBox {
+			background: #fff;
+			color: #333;
+			padding: 10px;
+			box-sizing: border-box;
+			margin-top: -4px;
+			line-height: 10px;
+
+			.pinkText {
+				color: $melon;
+				font-size: 15px;
+			}
+
+			p {
+				font-size: 13px;
+			}
+
+			.iconDiv {
+
+				padding: 15px;
+
+				.icons {
+					display: inline-block;
+					vertical-align: middle;
+					font-size: 25px;
+					font-family: $iconfont;
+					color: $grey200;
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+}
