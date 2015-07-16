@@ -40,9 +40,9 @@ var Sidebars = {
 		});
 
 		$('body').on('click touch', '#mainSidebarBtn', Sidebars.toggleMainSidebar);
-		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid', Sidebars.togglePhotoSidebar);
+		$('body').on('click touch', '#addCoverImg, #addImg, #addImgGrid, #writePostAddPhotos', Sidebars.togglePhotoSidebar);
 		$('body').on('taphold', '#coverPageContainer, .mainImage, .singleImage, .gridImages', Sidebars.toggleTagSidebar);
-		$('body').on('click touch', '#editImageBtn', Sidebars.toggleTagSidebar);
+		$('body').on('click touch', '#editImageBtn, #writePostAddTags', Sidebars.toggleTagSidebar);
 		$('body').on('click touch', '#deleteImageBtn, .deleteImagesBtn', Sidebars.deleteImagesDialog);
 		$('body').on('click touch', '#likeImageBtn', Sidebars.toggleImageLike);
 		$('body').on('click touch', '.modalBtn', Sidebars.deleteImages);
