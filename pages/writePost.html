@@ -33,6 +33,10 @@
             window.completedCurrentImageSelectSection = true;
         }
 
+        function blankMsgText() {
+            $('.writePostMsg').text('');
+        }
+
     </script>
 </head>
 <body>
@@ -49,48 +53,49 @@
     <div id="postContainer">
 
         <div class="writePost">
-            <div class="writePostMsg" contenteditable=true>
+            <div class="writePostMsg" contenteditable=true onclick="blankMsgText();">
                 Add your post here...
             </div>
 
-            <div class="mainImageSection" style="display:none;position:relative;height:auto;margin-top:30px;">
-                <div class="mainImageContainer">
-                    <div class="mainImage">
+            <div id="classroom">
+                <div class="mainImageSection" style="display:none;position:relative;height:auto;margin-top:30px;">
+                    <div class="mainImageContainer">
+                        <div class="mainImage">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="editSection" style="position:relative;top:0;margin-top:30px;border:none;">
-                <ul class="edit">
-                    <li class="editImageTextArea" style="display:none">
-                        <div id="postInput" contentEditable="true"/></div>
-                    </li>
-                    <li class="profileTagsSection" style="display:none">
-                        <h6>
-                        </h6>
-                    </li>
-                    <li class="frameworksSection" style="display:none">
-                        <!-- <p><h4>Frameworks</h4></p> -->
-                        <ul>
-                        </ul>
-                    </li>
-                    <li class="activitiesSection" style="display:none">
-                        <!-- <p><h4>Activities</h4></p> -->
-                        <ul>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="writePostControls">
-                <div class="postIcons">
-                    <div id="writePostAddPhotos" class="postIcon">^</div>
-                    <div id="writePostAddTags" class="postIcon">y</div>
+                <div class="editSection" style="position:relative;top:0;margin-top:30px;border:none;">
+                    <ul class="edit">
+                        <li class="editImageTextArea" style="display:none">
+                            <div id="postInput" contentEditable="true"/></div>
+                        </li>
+                        <li class="profileTagsSection" style="display:none">
+                            <h6>
+                            </h6>
+                        </li>
+                        <li class="frameworksSection" style="display:none">
+                            <!-- <p><h4>Frameworks</h4></p> -->
+                            <ul>
+                            </ul>
+                        </li>
+                        <li class="activitiesSection" style="display:none">
+                            <!-- <p><h4>Activities</h4></p> -->
+                            <ul>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="postButton">post</div>
+
+                <div class="writePostControls">
+                    <div class="postIcons">
+                        <div id="writePostAddPhotos" class="postIcon">^</div>
+                        <div id="writePostAddTags" class="postIcon">y</div>
+                    </div>
+                    <div class="postButton">post</div>
+                </div>
             </div>
         </div>
-        
     </div>
 
     <div id="loadMainFooter"></div>
