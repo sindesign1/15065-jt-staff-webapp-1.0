@@ -24,6 +24,7 @@ var Templates = {
 		Templates.messagesHeader();
 		Templates.childrenHeader();
 		Templates.postHeader();
+		Templates.charlotteHeader();
 	},
 
 	loadScripts: function() {
@@ -127,6 +128,11 @@ var Templates = {
 	postHeader: function() {
 		$('#loadPostHeader').load('../templates/headers.html #writePostHeader');
 	},
+
+	charlotteHeader: function() {
+		$('#loadCharlotteHeader').load('../templates/headers.html #addCharlotteHeader');
+	},
+
 }
 
 $(document).ready(function(){
