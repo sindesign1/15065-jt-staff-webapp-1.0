@@ -5,12 +5,14 @@ var Sidebars = {
 	},
 
 	events: function() {
-		$('#messageSidebar-c').on('click touch', '#hannahBioBtn', function(e){
+		$('body').on('click touch', '#hannahBioBtn', function(e){
 			e.stopPropagation();
+			console.log('cliiicckkkkkk');
 			$('#hannahBio').slideToggle();
 		});
 
-		$('#messageSidebar-c').on('click touch', '#carolBioBtn', function(e){
+		$('body').on('click touch', '#carolBioBtn', function(e){
+			console.log('cliiicckkkkkk');
 			e.stopPropagation();
 			$('#carolBio').slideToggle();
 		});
