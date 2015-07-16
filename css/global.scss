@@ -81,3 +81,7 @@ h6 {
 	font-size: $h6-size;
 	font-weight: normal;
 }
+
+input[type="file"] {
+	display: none !important;
+}

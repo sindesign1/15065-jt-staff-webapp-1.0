@@ -11,10 +11,17 @@
     <script src="//use.typekit.net/xxx2qsl.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <script>
-        $('body').on('click touch', '.albumThumb', function() {
+        $('body').on('click touch', '.albumToAddTo', function() {
                 $('.albumMessage').hide();
             }
         );
+
+        function selectAlbum(o) {
+            console.log('in selectAlbum');
+            $('.albumMessage').hide();
+            $('.selectedAlbum').removeClass('selectedAlbum');
+            $(o).addClass('selectedAlbum');
+        }
     </script>
 </head>
 <body>
@@ -22,52 +29,52 @@
         <p class="new">All Images</p>
     </header>
 
+    <div class="albumMessage">
+        Add to album
+    </div>
+
     <div class="albumContainer">
         <div class="albums">
-            <div class="albumMessage">
-                Select album
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
+                <img src="../img/albumTop.png">
+                <img src="../img/classroomThumbs/thumb_IMG_33.jpg">
+                <p>Favourites</p>
             </div>
-
-            <a href="favourites.html" class="albumThumb">
-                <img src="../img/albumTop.png">
-                <img src="../img/classroomThumbs/thumb_IMG_33.jpg">
-                <p>Favourites</p>
-            </a>
-            <a href="foryearcalendar.html" class="albumThumb">
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_38.jpg">
                 <p>For Year Calendar</p>
-            </a>
-            <a href="outsideplay.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_07.jpg">
                 <p>Outside Play</p>
-            </a>
-            <a href="activities.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_12.jpg">
                 <p>Activities</p>
-            </a>
-            <a href="favourites.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_33.jpg">
                 <p>Favourites</p>
-            </a>
-            <a href="foryearcalendar.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_38.jpg">
                 <p>For Year Calendar</p>
-            </a>
-            <a href="outsideplay.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_07.jpg">
                 <p>Outside Play</p>
-            </a>
-            <a href="activities.html" class="albumThumb">
+            </div>
+            <div class="albumToAddTo" onclick="selectAlbum(this);">
                 <img src="../img/albumTop.png">
                 <img src="../img/classroomThumbs/thumb_IMG_12.jpg">
                 <p>Activities</p>
-            </a>
+            </div>
         </div>
 
         <div class="albumIcon">
