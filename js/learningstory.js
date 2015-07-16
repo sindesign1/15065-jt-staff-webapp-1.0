@@ -661,7 +661,7 @@ var Story = {
 	},
 
 	cancelStory: function() {
-		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><button class="overlayBtn draft" href="#">save draft</button><button class="overlayBtn" href="mainFeed.html">delete</button></div></div></div>')
+		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><a href="drafts.html"><button class="overlayBtn draft" href="drafts.html">save draft</button></a><a href="mainFeed.html"><button class="overlayBtn" href="mainFeed.html">delete</button></a></div></div></div>')
 	},
 
 	cancelStoryOverlay: function() {

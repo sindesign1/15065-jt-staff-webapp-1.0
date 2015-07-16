@@ -35,7 +35,7 @@ var Main = {
         $('body').on('click touch', '#help4', Main.showHelp4);
         $('body').on('click touch', '#help5', Main.showHelp5);
         $('body').on('click touch', '#help6', Main.showHelp6);
-        $('body').on('click touch', '#postCancelBtn', Main.cancelPostBtn);
+        $('body').on('click touch', '#postCancelBtn, .postButton', Main.cancelPostBtn);
     },
 
     getCurrentScroll: function() {
