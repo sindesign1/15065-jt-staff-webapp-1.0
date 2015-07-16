@@ -69,7 +69,7 @@ var Sidebars = {
 		$('body').on('click touch', '.edit-placeholder', function() {$(this).text('')});
 
 		$('body').on('change', '.frameworksSelect', Sidebars.changeFramework);
-		// $('.frameworksSelect').change(Sidebars.changeFramework);
+		$('body').on('click touch', '#frameworks', Sidebars.changeFramework);
 
 		$(document).on('click touch', '#coverPageContainer', Sidebars.closePhotoSidebar);
 	},
@@ -139,7 +139,7 @@ var Sidebars = {
 			$('.editSection').css('width', '55%');
 		} else if(!$('#addImageSidebar').hasClass('openRight')) {
 			$('.editSection').css('width', '100%');
-			$('.writePostControls').css('width', '94%');
+			$('.writePostControls').css('width', '100%');
 		}
 	},
 
@@ -198,7 +198,7 @@ var Sidebars = {
 			$('#loadSelectImagesHeader').hide();
 		}
 		$('.editSection').show();
-		$('.writePostControls').css('width', '94%');
+		$('.writePostControls').css('width', '100%');
 
 		$('.postBtnContainer').hide();
 
@@ -368,7 +368,65 @@ var Sidebars = {
 		$('#loadImgActionFooter').show();
 	},
 
+	addSectionItemOld: function(obj, sectionClass, addedArray) {
+
+		var titleText = $(obj).find('p.title').text();
+		var contentText = $(obj).find('p.content').text();
+		var pText = $(obj).find('p').text();
+
+		if ( sectionClass.substring(0, 10) == '.framework' ) {
+			if ( !titleText ) {
+				titleText = $(obj).prevUntil('li p.title').find('p.title').last().text();
+			}
+		}
+
+		if ( !contentText ) {
+			titleText = pText;
+			contentText = '<span class="greyText edit-placeholder">Click here to add a sub-paragraph</span>';
+		}
+
+		if ( $.inArray(titleText+contentText, addedArray) == -1 ) {
+
+			var pTag = $(sectionClass).find("ul li h4").
+					filter(function() {
+					    return $(this).text() == titleText;
+					});
+
+			if ( pTag.length == 0 ) {
+			
+				$(sectionClass).find('ul').first().append (
+					$('<li/>').append(
+							$('<h4 contenteditable=true/>').addClass('frameworksTitle').html(titleText)
+						).append(
+							$('<ul/>')
+						)
+					)
+				;
+			}
+
+			// pTag = $(sectionClass).find("ul li h4:contains('" + titleText + "')");
+			pTag = $(sectionClass).find("ul li h4").
+					filter(function() {
+					    return $(this).text() == titleText;
+					});
+
+			var ulTag = pTag.parent().find('ul');
+			ulTag.append(
+				$('<li/>').append(
+					$('<p contenteditable=true/>').html(contentText)
+				)
+			);
+
+			addedArray.push(titleText+contentText);
+		}
+	},
+
 	addSectionItem: function(obj, sectionClass, addedArray) {
+
+		if ( window.sourcePage == 'ls-coverPage' ) {
+			Sidebars.addSectionItemOld(obj, sectionClass, addedArray);
+			return;
+		}
 
 		var headingText = $(obj).find('p.heading').text();
 		var titleText = $(obj).find('p.title').text();
