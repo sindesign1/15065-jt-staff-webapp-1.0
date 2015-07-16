@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script>
+        window.sourcePage = 'classroom';
+    </script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-modal/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../js/jquery-modal/jquery.modal.css" type="text/css" media="screen" />
+    <script src="../js/templates.js" type="text/javascript"></script>
+    <script src="//use.typekit.net/xxx2qsl.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <script>
+
+        function getChildData(n) {
+            var thisChild = {};
+            thisChild.thumbnail = $(n).prop('src');
+            thisChild.image = thisChild.thumbnail.replace('classroomThumbs', 'classroomLarge').replace('thumb_', 'large_');
+            DataUtils.setCurrentChildData(thisChild);
+            console.log(DataUtils.currentChildData());
+            var thisChild = DataUtils.currentChildData();
+
+            $('.mainImageSection').show();
+
+            $('.mainImage').css("background-image",'url(' + thisChild.image + ')');
+            $('.mainImageSection').css({'width': '59%', 'height': '55%', 'padding': '90px 0px 0px 0px'});
+
+            window.completedCurrentImageSelectSection = true;
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="dialogModal" class="modal">
+
+        <a href="#" rel="modal:close" class="modalCancel">cancel</a>
+
+        <div id="modalMsg" class="modalMsg"></div>
+
+        <div class="modalBtn">remove</div>
+    </div>
+
+    <div id="classroom">
+
+        <div class="writePost">
+            <div class="writePostMsg" contenteditable=true>
+                Add your post here...
+            </div>
+
+            <div class="mainImageSection" style="display:none">
+                <div class="mainImageContainer">
+                    <div class="mainImage">
+                    </div>
+                </div>
+            </div>
+
+            <div class="editSection">
+                <ul class="edit">
+                    <li class="editImageTextArea" style="display:none">
+                        <div id="postInput" contentEditable="true"/></div>
+                    </li>
+                    <li class="profileTagsSection" style="display:none">
+                        <h6>
+                        </h6>
+                    </li>
+                    <li class="frameworksSection" style="display:none">
+                        <!-- <p><h4>Frameworks</h4></p> -->
+                        <ul>
+                        </ul>
+                    </li>
+                    <li class="activitiesSection" style="display:none">
+                        <!-- <p><h4>Activities</h4></p> -->
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="postBtnContainer" style="display:none">
+                    <button class="postBtn">post</button>
+                </div>
+            </div>
+
+            <div class="writePostControls">
+                <div class="writePostControlsLeft">
+                    <div id="writePostAddPhotos" class="jtIcons">^</div>
+                    <div id="writePostAddTags" class="jtIcons">y</div>
+                </div>
+                <div class="writePostControlsRight">
+                    <div class="postButton">Post</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="loadMainFooter"></div>
+    <div id="loadMainSidebar"></div>
+    <div id="loadTagSidebar"></div>
+    <div id="loadPhotoSidebar"></div>
+    <div id="loadImagesHeader"></div>
+    <div id="loadSelectImagesHeader" style="display:none"></div>
+    <div id="loadEditImageHeader" style="display:none"></div>
+
+    
+    <div id="loadImgActionFooter" style="display:none;"></div>
+
+</body>
+</html>

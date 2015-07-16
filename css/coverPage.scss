@@ -320,6 +320,7 @@
         background: rgba(240,97,91, 0.8);
         width: 586px;
         height: inherit;
+        text-align: center;
         display: none;
 
     .btnContainer {
@@ -402,11 +403,11 @@
         margin-top: 36%;
     }
 
-    .gridImages {
+    .gridCoverImages {
         text-align: left;
         // margin-top: 30px;
 
-        .gridImage {
+        .gridCoverImage {
             background-size: cover;
             width: 150px;
             height: 150px;
@@ -423,12 +424,12 @@
             }
         }
 
-        .gridImageTitleWithBG {
+        .gridCoverImageTitleWithBG {
             padding-top: 145px;
             margin: 14px;
             text-align: center;
         }
-        .gridImageTitle {
+        .gridCoverImageTitle {
             padding-top: 29px;
             margin: 22px;
             text-align: center;
@@ -498,7 +499,7 @@
 }
 
 .storyOverlay {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background: rgba(240,97,91, 0.8);
@@ -569,3 +570,142 @@
         }
     }
 }
+
+.untitledCover {
+    background: url('../img/classroomLarge/large_IMG_02.jpg') !important;
+}
+
+.communityCover {
+    background: url('../img/classroomLarge/large_IMG_40.jpg') !important;
+}
+
+.outsideCover {
+    background: url('../img/classroomLarge/large_IMG_35.jpg') !important;
+}
+
+#firstStoryContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/classroomLarge/large_IMG_09.jpg');
+    background-size: cover;
+    text-align: center;
+
+    &:before {
+        content: "";
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .storyTextContainer {
+        font-size: 60px;
+        font-family: $museo;
+        margin-top: 85%;
+        position: relative;
+        z-index: 99;
+    }
+
+    .storySubTextContainer {
+        font-size: 30px;
+        font-family: $myriad;
+        position: relative;
+        z-index: 99;
+    }
+
+    .storyDate {
+        font-size: 20px;
+        font-family: $myriad;
+        position: relative;
+        z-index: 99;
+    }
+}
+
+.completeStoryContainer {
+    margin-top: 230px;
+    padding: 40px 100px 100px 100px;
+    box-sizing: border-box;
+    color: #333;
+
+    .storyText {
+        margin: 40px 0;
+        text-align: left;
+    }
+
+    .storySingleImage {
+        width: 100%;
+        margin-bottom: 40px;
+        box-sizing: border-box;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .firstGridImage {
+        width: 100%;
+    }
+
+    .otherGridImages {
+        width: 49%;
+        margin-left: 5px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 10px;
+    }
+
+    .storyImageGridContainer {
+        margin-bottom: 40px;
+    }
+
+    .storyFrameworksTitle {
+        font-size: 25px;
+        color: $melon;
+        text-align: left;
+    }
+
+    .storyFrameworksText {
+        font-size: 20px;
+        padding-left: 20px;
+        text-align: left;
+        margin-top: 10px;
+    }
+}
+
+/*responsive design */
+
+/* Samsung Tablet */
+@media only screen and (min-device-width: 800px) and (max-device-height: 1280px) and (min-resolution: 192dpi) and (-webkit-device-pixel-ratio:2) and (orientation : portrait) {
+    .buttonContainer {
+        bottom: 152px;
+    }
+
+    .searchContainer {
+        .selectList {
+            &:after {
+                top: 110px;
+            }
+        }
+    }
+
+    .overlay {
+        .btnContainer {
+            width: 100px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

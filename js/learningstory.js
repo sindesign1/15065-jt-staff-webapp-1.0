@@ -9,6 +9,7 @@ var Story = {
 		Story.showArrow();
 		Story.showAddBtn();
 		Story.findScreenHeight();
+		Story.hideNavOnFocus();
 	},
 
 	events: function() {
@@ -16,7 +17,6 @@ var Story = {
 		$('body').on('click touch', '.addElementBtn', Story.openAddElement);
 		$('body').on('click touch', '#nevermindBtn', Story.closeAddElement);
 		$('body').on('click touch', '#addPhotoElement', Story.addPhotoElement);
-		$('body').on('click touch','.menuIcon', Story.closePhotoSidebar);
 		$('body').on('click touch', '#addTextElement', Story.addTextElement);
 		$('body').on('click touch', '#arrowContainer', Story.slideUpEffect);
 		$('body').on('click touch', '#addFramework', Story.addFramework);
@@ -28,7 +28,7 @@ var Story = {
 		$('body').on('click touch', '#moveDown, #moveTextDown, #moveFrameworkDown', Story.moveDown);
 		$('body').on('click touch', '#deleteElement', Story.deleteElement);
 		$('body').on('click touch', '#deleteText', Story.deleteText);
-		$('body').on('click touch', '.gridImage-click', Story.updateCoverImage);
+		$('body').on('click touch', '.gridCoverImage-click', Story.updateCoverImage);
 		$('body').on('click touch', '.cancelStory', Story.cancelStory);
 		$('body').on('click touch', '#cancelStoryOverlay', Story.cancelStoryOverlay);
 		$('body').on('click touch', '#editNevermindBtn', Story.hideEditOverlay);
@@ -47,6 +47,18 @@ var Story = {
 			$('body').on('click touch', '.li-frameworks', Story.appendTagContent);
 			$('body').on('click touch', '.li-activities', Story.appendTagContent);
 		}
+	},
+
+	hideNavOnFocus: function() {
+		 $('.storyInput').focus(function(){
+
+		    $("#botMainNav, #botImgActions").hide();
+
+		  }).blur(function(){
+
+		    $("#botMainNav, #botImgActions").show();
+
+		  });
 	},
 
 	findScreenHeight: function() {
@@ -92,8 +104,11 @@ var Story = {
 		if ($coverImg.css('background-image') != 'none' && headerInput != headerText && subHeaderInput != subHeaderText) {
 			$arrowDiv.show();
 			clearTimeout(timeOut);
+			// $('html, body').animate({
+		 //        scrollTop: $coverImg.offset().bottom
+		 //    }, 1000);
 			// $(document).on('swipeup', 'body', Story.swipeUp);
-			$('#learningStoryPage').show();
+			
 			// $('#coverPageContainer').css('position', 'absolute');
 			
 		} else {
@@ -104,7 +119,7 @@ var Story = {
 
 	slideUpEffect: function() {
 		console.log('scrooooollleeedddd');
-		
+		$('#learningStoryPage').show();
 		var myDiv = $('html body');
 		console.log(myDiv);
 		var scrollto = myDiv.offset().top + 500;
@@ -142,6 +157,7 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.gridCoverImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
 		$('div.singleCoverImage').removeClass('singleImage-active');
 
@@ -209,6 +225,7 @@ var Story = {
 		var $storyPage = $('#learningStoryPage');
 
 		$('div.gridImage').removeClass('singleImage-active');
+		$('div.gridCoverImage').removeClass('singleImage-active');
 		$('div.singleImage').removeClass('singleImage-active');
 		$('div.singleCoverImage').removeClass('singleImage-active');
 
@@ -218,6 +235,7 @@ var Story = {
 		$('.imageGridContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
 
+		window.divForBackground = '';
 		window.divForImageGrid = '.singleImage-active';
 
 		$('#addElementContainer').css('display', 'none');
@@ -285,10 +303,10 @@ var Story = {
 		// var top = $this.offset().top;
 		var $overlay = $('#overlay');
 
-		var sic = $('.singleImageContainer');
-		var igc = $('.imageGridContainer');
-		if ( sic.length > 0 || igc.length > 0 ) {
+		if ( !$this.hasClass('hasOverlay') ) {
+			$('.hasOverlay').removeClass('hasOverlay');
 			$this.append($overlay);
+			$this.addClass('hasOverlay');
 			$overlay.show();
 		} else {
 			$overlay.hide();
@@ -342,6 +360,14 @@ var Story = {
 			console.log(type);
 		}
 
+		if(Story.sliderOpen) {
+			$('#learningStoryPage').css('padding', '20px 20px');
+			$('.gridImages').css({'width': '56%', 'text-align': 'left'});
+			$('.firstImage').css({'height': '400px'});
+			$('.secondImage, .thirdImage').css({'height': '199px'});
+			$('.singleImageContainer').css('width', '56%');
+		}
+
 	},
 
 	deleteElement: function() {
@@ -391,12 +417,12 @@ var Story = {
 			var elementToMoveBefore = $itemElement.prev();
 			$itemElement.insertBefore(elementToMoveBefore);
 			console.log(type);
-		}else if($item.hasClass('textContainer')){
+		}else if($item.hasClass('inputContainer')){
 			type = "text";
 			var elementToMove = $item;
 			var elementToMoveBefore = $item.prev();
 			$item.insertBefore(elementToMoveBefore);
-			console.log(type);
+			console.log("WOOOOO");
 		}else if($item.hasClass('frameworksContainer')) {
 			type = "framework";
 			var elementToMove = $item;
@@ -434,7 +460,7 @@ var Story = {
 			var elementToMoveBefore = $itemElement.next();
 			$itemElement.insertAfter(elementToMoveBefore);
 			console.log(type);
-		}else if($item.hasClass('textContainer')){
+		}else if($item.hasClass('inputContainer')){
 			type = "text";
 			var elementToMove = $item;
 			var elementToMoveBefore = $item.next();
@@ -563,40 +589,47 @@ var Story = {
 
             $('#learningStoryPageCovers').show();
 
-            var bgImage = $('#coverPageContainer').css('background-image');
-            if ( window.profileTagsCount > 1 ) {
+            var el = $('#learningStoryPageCovers').
+            	find('.imageGridCointainer .gridCoverImages .gridCoverImage .gridCoverImageTitle').
+					filter(function() {
+					    return $(this).text() == personName;
+					});
 
-				$('.gridImages').css('text-align', 'left !important').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
-						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
-							$('<div class="photoCoverIcon"/>').text('?')
-							).append(
-							$('<div class="photoCoverText"/>').text('Personalise cover')
-						)
-					).append(
-						$('<p class="gridImageTitle"/>').text(personName)
-					)
-				);			
-            } else {
-				$('.gridImages').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('background-image', bgImage).append(
-							$('<p class="gridImageTitleWithBG"/>').text('Group cover')
+            if ( el.length == 0 ) {
+	            var bgImage = $('#coverPageContainer').css('background-image');
+	            if ( window.profileTagsCount > 1 ) {
+
+					$('.gridCoverImages').css('text-align', 'left !important').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('margin-right', '15px').append(
+							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+								$('<div class="photoCoverIcon"/>').text('?')
+								).append(
+								$('<div class="photoCoverText"/>').text('Personalise cover')
+							)
+						).append(
+							$('<p class="gridCoverImageTitle"/>').text(personName)
 						)
 					);			
+	            } else {
+					$('.gridCoverImages').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('background-image', bgImage).append(
+								$('<p class="gridCoverImageTitleWithBG"/>').text('Group cover')
+							)
+						);			
 
-				$('.gridImages').css('text-align', 'left !important').append(
-					$('<div class="gridImage singleCoverImage gridImage-click"/>').css('margin-right', '15px').append(
-						$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
-							$('<div class="photoCoverIcon"/>').text('?')
-							).append(
-							$('<div class="photoCoverText"/>').text('Personalise cover')
+					$('.gridCoverImages').css('text-align', 'left !important').append(
+						$('<div class="gridCoverImage singleCoverImage gridCoverImage-click"/>').css('margin-right', '15px').append(
+							$('<div class="photoCoverPlaceholder gridCoverPlaceholder"/>').append(
+								$('<div class="photoCoverIcon"/>').text('?')
+								).append(
+								$('<div class="photoCoverText"/>').text('Personalise cover')
+							)
+						).append(
+							$('<p class="gridCoverImageTitle"/>').text(personName)
 						)
-					).append(
-						$('<p class="gridImageTitle"/>').text(personName)
-					)
-				);			
+					);			
+	            }
             }
-		
 		}
 	},
 
@@ -638,28 +671,28 @@ var Story = {
 		}
 	}, 
 
-	closePhotoSidebar: function() {
-		Story.sliderOpen = false;
-		$('#addImageSidebar').removeClass('display');
-		if($('#addImageSidebar').hasClass('sidebarLeft')) {
-			$('#addImageSidebar').removeClass('openLeft');
-		} else if($('#addImageSidebar').hasClass('sidebarRight')) {
-			$('#addImageSidebar').removeClass('openRight');
-			$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
-			$('.singleImageContainer').css('width', '100%');
-			$('.singleImage').css('border', 'none');
-			$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
-			$('.gridImages').css({'width': '100%'});
-			$('.firstImage').css('height', '500px');
-			$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
-			$('.thirdImage').css('margin-left', '7.3px');
-			$('.photoPlaceholder').hide();
+	// closePhotoSidebar: function() {
+	// 	Story.sliderOpen = false;
+	// 	$('#addImageSidebar').removeClass('display');
+	// 	if($('#addImageSidebar').hasClass('sidebarLeft')) {
+	// 		$('#addImageSidebar').removeClass('openLeft');
+	// 	} else if($('#addImageSidebar').hasClass('sidebarRight')) {
+	// 		$('#addImageSidebar').removeClass('openRight');
+	// 		$('#learningStoryPage').css('padding', '20px 100px 100px 100px');
+	// 		$('.singleImageContainer').css('width', '100%');
+	// 		$('.singleImage').css('border', 'none');
+	// 		$('.firstImage, .secondImage, .thirdImage').css('border', 'none');
+	// 		$('.gridImages').css({'width': '100%'});
+	// 		$('.firstImage').css('height', '500px');
+	// 		$('.secondImage, .thirdImage').css({'height': '250px', 'width': '49%'});
+	// 		$('.thirdImage').css('margin-left', '7.3px');
+	// 		$('.photoPlaceholder').hide();
 
 
 
-			//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
-		}
-	},
+	// 		//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+	// 	}
+	// },
 
 	formatText: function() {
 		$('#loadMainFooter').hide();
