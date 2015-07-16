@@ -38,6 +38,9 @@ var Story = {
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
+		$('body').on('click touch', '.storyInput', Story.storyInputClicked);
+		$('body').on('click touch', '#learningStoryPage', Story.showFooter);
+
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			console.log('setting li ons to Story');
 			$('body').off('click touch', '.li-profiles');
@@ -52,10 +55,12 @@ var Story = {
 	hideNavOnFocus: function() {
 		 $('.storyInput').focus(function(){
 
+		 	console.log($(this).attr('id') + ' focussed');
 		    $("#botMainNav, #botImgActions").hide();
 
 		  }).blur(function(){
 
+		 	console.log($(this).attr('id') + ' blurred');
 		    $("#botMainNav, #botImgActions").show();
 
 		  });
@@ -205,6 +210,7 @@ var Story = {
 		e.preventDefault();
 		// e.stopPropagation();
 		$('.storyInput').focus();
+	    $("#botMainNav, #botImgActions").hide();
 
 		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -694,6 +700,16 @@ var Story = {
 	// 		//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 	// 	}
 	// },
+
+	storyInputClicked: function() {
+		console.log($(this).attr('id') + ' clicked');
+	    $("#botMainNav, #botImgActions").hide();
+	},
+
+	showFooter: function() {
+
+	    $("#botMainNav, #botImgActions").show();
+	},
 
 	formatText: function() {
 		$('#loadMainFooter').hide();
