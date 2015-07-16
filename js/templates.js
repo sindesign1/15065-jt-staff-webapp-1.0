@@ -25,6 +25,7 @@ var Templates = {
 		Templates.childrenHeader();
 		Templates.postHeader();
 		Templates.charlotteHeader();
+		Templates.jacobHeader();
 	},
 
 	loadScripts: function() {
@@ -131,6 +132,10 @@ var Templates = {
 
 	charlotteHeader: function() {
 		$('#loadCharlotteHeader').load('../templates/headers.html #addCharlotteHeader');
+	},
+
+	jacobHeader: function() {
+		$('#loadJacobHeader').load('../templates/headers.html #addJacobHeader');
 	},
 
 }
