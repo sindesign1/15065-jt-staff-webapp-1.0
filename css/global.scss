@@ -21,6 +21,9 @@ html body {
 	font-weight: lighter;
 	overflow: auto;
 	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 html {
     -webkit-font-smoothing: antialiased;

@@ -488,29 +488,29 @@ var Sidebars = {
 	},
 
 	changeFramework: function() {
-		$('#frameworksList ul').children().remove();
+		// $('#frameworksList ul').children().remove();
 
-		var val = $('.frameworksSelect').val();
-		if ( !val ) {
-			val = 'federal';
-		}
+		// var val = $('.frameworksSelect').val();
+		// if ( !val ) {
+		// 	val = 'federal';
+		// }
 
-		var frameworkData = window.frameworkData[val];
-		for ( var i=0; i<frameworkData.length; i++ ) {
-			$('#frameworksList ul').append(
-				$('<li class="li-frameworks"/>').append(
-					frameworkData[i].heading 
-					?
-					$('<p class="heading"/>').text(frameworkData[i].heading)
-					:
-					null
-				).append(
-					$('<p class="title"/>').text(frameworkData[i].title)
-				).append(
-					$('<p class="content"/>').text(frameworkData[i].content)
-				)
-			);
-		}
+		// var frameworkData = window.frameworkData[val];
+		// for ( var i=0; i<frameworkData.length; i++ ) {
+		// 	$('#frameworksList ul').append(
+		// 		$('<li class="li-frameworks"/>').append(
+		// 			frameworkData[i].heading 
+		// 			?
+		// 			$('<p class="heading"/>').text(frameworkData[i].heading)
+		// 			:
+		// 			null
+		// 		).append(
+		// 			$('<p class="title"/>').text(frameworkData[i].title)
+		// 		).append(
+		// 			$('<p class="content"/>').text(frameworkData[i].content)
+		// 		)
+		// 	);
+		// }
 	},
 
 	deleteImagesDialog: function() {

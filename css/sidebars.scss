@@ -13,6 +13,8 @@
     -moz-transition: all 200ms;
     -o-transition: all 200ms;
     transition: all 200ms;
+    -webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 
     .sidebarContainer {
     	height: 100vh;
@@ -471,6 +473,7 @@
 		padding-bottom: 90px;
 		overflow-y: scroll;
 		height: 57%;
+		-webkit-overflow-scrolling: touch;
 
 		ul {
 			list-style: none;
@@ -625,6 +628,8 @@
 		z-index: 99;
 		width: 320px;
 		box-sizing: border-box;
+		position: fixed;
+		top: 83%;
 
 		button {
 			background: none;

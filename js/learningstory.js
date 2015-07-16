@@ -481,47 +481,49 @@ var Story = {
 			$('#tagSidebar').addClass('openLeft');
 		} else if($('#tagSidebar').hasClass('sidebarRight')) {
 			$('#tagSidebar').addClass('openRight');
+			$('body').css('overflow', 'hidden !important');
 		}
 
 		$('#addElementContainer').css('display', 'none');
 		$('#learningStoryPage').css('height', 'auto');
 
-		var $storyPage = $('#learningStoryPage');
+
+		// var $storyPage = $('#learningStoryPage');
 		
-		window.addedProfileTags = new Array();
-		window.addedFrameworks = new Array();
-		window.addedActivities = new Array();
+		// window.addedProfileTags = new Array();
+		// window.addedFrameworks = new Array();
+		// window.addedActivities = new Array();
 
-		window.frameworkIndex++;
+		// window.frameworkIndex++;
 
-		if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
+		// if ( !$('#storyPageTop' + window.frameworkIndex).length ) {
 
-			$storyPage.append(
-				$('<div id="storyPageTop' + window.frameworkIndex + '" class="frameworksContainer"/>').append(
-					$('<ul/>').append(
-						$('<li class="frameworksSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
-							$('<ul/>')
-							)
-						)
-					).append(
-						$('<ul/>').append(
-							$('<li class="activitiesSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
-								$('<ul/>')
-								)
-							)
-					).append(
-						$('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>')
-					).prepend(
-						$('<div class="textOptions frameworksOptions" contentEditable="false"><div class="textArrows" id="moveFrameworkUp">|</div><div class="textArrows" id="moveFrameworkDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
-					)
-				);
-		}
+		// 	$storyPage.append(
+		// 		$('<div id="storyPageTop' + window.frameworkIndex + '" class="frameworksContainer"/>').append(
+		// 			$('<ul/>').append(
+		// 				$('<li class="frameworksSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
+		// 					$('<ul/>')
+		// 					)
+		// 				)
+		// 			).append(
+		// 				$('<ul/>').append(
+		// 					$('<li class="activitiesSection' + window.frameworkIndex + '"/>').css('display', 'none').append(
+		// 						$('<ul/>')
+		// 						)
+		// 					)
+		// 			).append(
+		// 				$('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>')
+		// 			).prepend(
+		// 				$('<div class="textOptions frameworksOptions" contentEditable="false"><div class="textArrows" id="moveFrameworkUp">|</div><div class="textArrows" id="moveFrameworkDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
+		// 			)
+		// 		);
+		// }
 
-		var $element = $('.frameworksContainer');
+		// var $element = $('.frameworksContainer');
 
-		$('html, body').animate({
-	        scrollTop: $element.offset().top + 500
-	    }, 1000);
+		// $('html, body').animate({
+	 //        scrollTop: $element.offset().top + 500
+	 //    }, 1000);
 	},
 
 	appendTagContent: function() {
