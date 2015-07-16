@@ -27,10 +27,11 @@
 		.postIcons {
 			display: inline-block;
 			vertical-align: middle;
+			margin-top: -8px;
 
 			.postIcon {
 				font-family: $iconfont;
-				font-size: 25px;
+				font-size: 35px;
 				color: $grey160;
 				margin-left: 20px;
 				display: inline-block;
