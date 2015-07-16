@@ -135,7 +135,7 @@ var Sidebars = {
 			$('.editSection').css('width', '55%');
 		} else if(!$('#addImageSidebar').hasClass('openRight')) {
 			$('.editSection').css('width', '100%');
-			$('.writePostControls').css('width', '94%');
+			$('.writePostControls').css('width', '100%');
 		}
 	},
 
@@ -194,7 +194,7 @@ var Sidebars = {
 			$('#loadSelectImagesHeader').hide();
 		}
 		$('.editSection').show();
-		$('.writePostControls').css('width', '94%');
+		$('.writePostControls').css('width', '100%');
 
 		$('.postBtnContainer').hide();
 
