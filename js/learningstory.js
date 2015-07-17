@@ -9,7 +9,7 @@ var Story = {
 		Story.showArrow();
 		Story.showAddBtn();
 		Story.findScreenHeight();
-		Story.hideNavOnFocus();
+//		Story.hideNavOnFocus();
 	},
 
 	events: function() {
@@ -211,17 +211,19 @@ var Story = {
 	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element"></div></div>');
+		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element" style="color: #C8C8C8;">Click here to add text</div></div>');
 		$('.inputContainer').prepend('<div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
 
-		var $textField = $('.storyInput').focus();
+		var $textField = $('.storyInput');
+//<span class="textOptions greyText">Click here to add text</span>
+//		$textField.addClass('greyText').text('Click here to add text');
 
 		$('html, body').animate({
 	        scrollTop: $textField.offset().top + 500
 	    }, 1000);
 		e.preventDefault();
 		// e.stopPropagation();
-		$('.storyInput').focus();
+//		$('.storyInput').focus();
 	    // $("#botMainNav, #botImgActions").hide();
 
 		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
@@ -715,11 +717,22 @@ var Story = {
 
 	storyInputClicked: function() {
 		console.log($(this).attr('id') + ' clicked');
+		var txt = $(this).text();
+		if ( txt == 'Click here to add text' ) {
+			$(this).text('');
+			$(this).css('color', '');
+		}
 	    // $("#botMainNav, #botImgActions").hide();
 	},
 
 	showFooter: function() {
+		$('.headerTemplate').css('position', 'relative');
 
+		window.setTimeout(Story.showFooter2, 0);
+	    // $("#botMainNav, #botImgActions").show();
+	},
+	showFooter2: function() {
+		$('.headerTemplate').css('position', 'fixed');
 	    // $("#botMainNav, #botImgActions").show();
 	},
 
