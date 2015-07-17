@@ -38,6 +38,9 @@ var Story = {
 
 		// $('body').on('click touch', '.li-profiles', Story.setProfileTag);
 
+		$('body').on('click touch', '.storyInput', Story.storyInputClicked);
+		$('body').on('click touch', '#learningStoryPage', Story.showFooter);
+
 		if ( window.sourcePage == 'ls-coverPage' ) {
 			console.log('setting li ons to Story');
 			$('body').off('click touch', '.li-profiles');
@@ -50,21 +53,35 @@ var Story = {
 	},
 
 	hideNavOnFocus: function() {
-		 $('.storyInput').focus(function(){
 
-		    $("#botMainNav, #botImgActions").hide();
+		var height = $(window).height();
+		var innerHeight = $(window).innerHeight();
 
-		  }).blur(function(){
-
-		    $("#botMainNav, #botImgActions").show();
-
-		  });
+		$(document).on('focusin', '.storyInput', function() {
+			 	console.log($(this).attr('id') + ' focussed');
+			    $("#botMainNav, #botImgActions").hide();
+		    }).on('focusout', '.storyInput', function() {
+			 	console.log($(this).attr('id') + ' blurred');
+		    	$("#botMainNav, #botImgActions").show();
+			 	console.log('height=' + height + ', innerHeight=' + innerHeight);
+		    	$('#overallContainer').css('top', innerHeight);
+		    });
 	},
 
 	findScreenHeight: function() {
 		var height = $(window).height();
+		var innerHeight = $(window).innerHeight();
 
 		$('#coverPageContainer').height(height - 230);
+
+		$(document).on('scroll', '#loadLearningStoryHeader', function() {
+			 	console.log($(this).attr('id') + ' focussed');
+			    $("#botMainNav, #botImgActions").hide();
+		    }).on('blur', 'textarea,input,select', function() {
+			 	console.log($(this).attr('id') + ' blurred');
+		    	$("#botMainNav, #botImgActions").show();
+		    	$('#overallContainer').css('top', -innerHeight);
+		    });
 	},
 
 	changeHeaderText: function(e) {
@@ -205,6 +222,7 @@ var Story = {
 		e.preventDefault();
 		// e.stopPropagation();
 		$('.storyInput').focus();
+	    // $("#botMainNav, #botImgActions").hide();
 
 		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -655,7 +673,7 @@ var Story = {
 	},
 
 	cancelStory: function() {
-		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><button class="overlayBtn draft" href="#">save draft</button><button class="overlayBtn" href="mainFeed.html">delete</button></div></div></div>')
+		$('body').append('<div class="storyOverlay"><div class="dialogBoxContainer"><div class="dialogBox"><div class="dialogCancel" id="cancelStoryOverlay">cancel</div><div class="cancelText">Do you want to:</div><a href="drafts.html"><button class="overlayBtn draft" href="drafts.html">save draft</button></a><a href="mainFeed.html"><button class="overlayBtn" href="mainFeed.html">delete</button></a></div></div></div>')
 	},
 
 	cancelStoryOverlay: function() {
@@ -694,6 +712,16 @@ var Story = {
 	// 		//$('#learningStoryPage').append('<div class="addBtnContainer"><button id="addElementBtn" class="addElementBtn">?</button></div>')
 	// 	}
 	// },
+
+	storyInputClicked: function() {
+		console.log($(this).attr('id') + ' clicked');
+	    // $("#botMainNav, #botImgActions").hide();
+	},
+
+	showFooter: function() {
+
+	    // $("#botMainNav, #botImgActions").show();
+	},
 
 	formatText: function() {
 		$('#loadMainFooter').hide();
