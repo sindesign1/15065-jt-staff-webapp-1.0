@@ -53,23 +53,35 @@ var Story = {
 	},
 
 	hideNavOnFocus: function() {
-		 $('.storyInput').focus(function(){
 
-		 	console.log($(this).attr('id') + ' focussed');
-		    $("#botMainNav, #botImgActions").hide();
+		var height = $(window).height();
+		var innerHeight = $(window).innerHeight();
 
-		  }).blur(function(){
-
-		 	console.log($(this).attr('id') + ' blurred');
-		    $("#botMainNav, #botImgActions").show();
-
-		  });
+		$(document).on('focusin', '.storyInput', function() {
+			 	console.log($(this).attr('id') + ' focussed');
+			    $("#botMainNav, #botImgActions").hide();
+		    }).on('focusout', '.storyInput', function() {
+			 	console.log($(this).attr('id') + ' blurred');
+		    	$("#botMainNav, #botImgActions").show();
+			 	console.log('height=' + height + ', innerHeight=' + innerHeight);
+		    	$('#overallContainer').css('top', innerHeight);
+		    });
 	},
 
 	findScreenHeight: function() {
 		var height = $(window).height();
+		var innerHeight = $(window).innerHeight();
 
 		$('#coverPageContainer').height(height - 230);
+
+		$(document).on('scroll', '#loadLearningStoryHeader', function() {
+			 	console.log($(this).attr('id') + ' focussed');
+			    $("#botMainNav, #botImgActions").hide();
+		    }).on('blur', 'textarea,input,select', function() {
+			 	console.log($(this).attr('id') + ' blurred');
+		    	$("#botMainNav, #botImgActions").show();
+		    	$('#overallContainer').css('top', -innerHeight);
+		    });
 	},
 
 	changeHeaderText: function(e) {
@@ -210,7 +222,7 @@ var Story = {
 		e.preventDefault();
 		// e.stopPropagation();
 		$('.storyInput').focus();
-	    $("#botMainNav, #botImgActions").hide();
+	    // $("#botMainNav, #botImgActions").hide();
 
 		$('.inputContainer').last().append('<div class="addBtnContainer" style="margin-top:30px;"><button id="addElementBtn" class="addElementBtn">?</button></div>');
 
@@ -703,12 +715,12 @@ var Story = {
 
 	storyInputClicked: function() {
 		console.log($(this).attr('id') + ' clicked');
-	    $("#botMainNav, #botImgActions").hide();
+	    // $("#botMainNav, #botImgActions").hide();
 	},
 
 	showFooter: function() {
 
-	    $("#botMainNav, #botImgActions").show();
+	    // $("#botMainNav, #botImgActions").show();
 	},
 
 	formatText: function() {
