@@ -584,12 +584,16 @@
 }
 
 #firstStoryContainer {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
-    background: url('../img/classroomLarge/large_IMG_09.jpg');
     background-size: cover;
     text-align: center;
+
+    .firstStoryImg {
+        width: 100%;
+        display: block;
+    }
 
     &:before {
         content: "";
@@ -602,14 +606,17 @@
     }
 
     .storyTextContainer {
+        position: absolute;
+        top: 700px;
         font-size: 60px;
         font-family: $museo;
-        margin-top: 85%;
         position: relative;
-        z-index: 1;
+        z-index:1;
     }
 
     .storySubTextContainer {
+        position: absolute;
+        top: 750px;
         font-size: 30px;
         font-family: $myriad;
         position: relative;
@@ -617,6 +624,8 @@
     }
 
     .storyDate {
+        position: absolute;
+        top: 755px;
         font-size: 20px;
         font-family: $myriad;
         position: relative;
@@ -624,8 +633,12 @@
     }
 }
 
+.leadingStoryFeedback {
+    padding: 80px 80px 100px !important;
+}
+
 .completeStoryContainer {
-    padding: 0 0 100px;
+    padding: 0;
     box-sizing: border-box;
     color: #333;
 
