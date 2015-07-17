@@ -211,7 +211,7 @@ var Story = {
 	addTextElement: function(e) {
 		var $storyPage = $('#learningStoryPage');
 
-		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element greyText">Click here to add text</div></div>');
+		$storyPage.append('<div class="inputContainer"><div id="storyInput'+ window.frameworkIndex + '" contentEditable="true" class="storyInput element" style="color: #C8C8C8;">Click here to add text</div></div>');
 		$('.inputContainer').prepend('<div class="textOptions" contentEditable="false"><div class="textArrows" id="moveTextUp">|</div><div class="textArrows" id="moveTextDown">_</div><div class="textDelete" id="deleteText">a</div></div>')
 
 		var $textField = $('.storyInput');
@@ -720,12 +720,19 @@ var Story = {
 		var txt = $(this).text();
 		if ( txt == 'Click here to add text' ) {
 			$(this).text('');
+			$(this).css('color', '');
 		}
 	    // $("#botMainNav, #botImgActions").hide();
 	},
 
 	showFooter: function() {
+		$('.headerTemplate').css('position', 'relative');
 
+		window.setTimeout(Story.showFooter2, 0);
+	    // $("#botMainNav, #botImgActions").show();
+	},
+	showFooter2: function() {
+		$('.headerTemplate').css('position', 'fixed');
 	    // $("#botMainNav, #botImgActions").show();
 	},
 
