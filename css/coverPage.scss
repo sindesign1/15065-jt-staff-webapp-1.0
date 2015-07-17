@@ -584,12 +584,16 @@
 }
 
 #firstStoryContainer {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
-    background: url('../img/classroomLarge/large_IMG_09.jpg');
     background-size: cover;
     text-align: center;
+
+    .firstStoryImg {
+        width: 100%;
+        display: block;
+    }
 
     &:before {
         content: "";
@@ -602,42 +606,84 @@
     }
 
     .storyTextContainer {
+        position: absolute;
+        top: 700px;
         font-size: 60px;
         font-family: $museo;
-        margin-top: 85%;
         position: relative;
-        z-index: 99;
+        z-index:1;
     }
 
     .storySubTextContainer {
+        position: absolute;
+        top: 750px;
         font-size: 30px;
         font-family: $myriad;
         position: relative;
-        z-index: 99;
+        z-index: 1;
     }
 
     .storyDate {
+        position: absolute;
+        top: 755px;
         font-size: 20px;
         font-family: $myriad;
         position: relative;
-        z-index: 99;
+        z-index: 1;
     }
 }
 
+.leadingStoryFeedback {
+    padding: 80px 80px 100px !important;
+}
+
 .completeStoryContainer {
-    margin-top: 230px;
-    padding: 40px 100px 100px 100px;
+    padding: 0;
     box-sizing: border-box;
     color: #333;
 
+    .quote {
+        text-align: left !important;
+        border-left: 4px $melon solid;
+        margin: 80px;
+        padding: 40px !important;
+    }
+
     .storyText {
-        margin: 40px 0;
+        text-align: center;
+        padding: 80px;
+        h3 {
+            color: $melon;
+            font-weight: 300;
+            font-family: $museo;
+        }
+        h4 {
+            font-weight: 300;
+        }
+    }
+
+    .storyText2 {
+        margin: 0 40px 60px 80px;
+        padding: 40px 0 20px;
         text-align: left;
+        border-top: 1px $melon solid;
+        border-bottom: 1px $melon solid;
+        h3 {
+            color: $melon;
+            font-weight: 300;
+            font-family: $museo;
+        }
+        h5 {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        span {
+            color:$melon;
+        }
     }
 
     .storySingleImage {
         width: 100%;
-        margin-bottom: 40px;
         box-sizing: border-box;
     }
 
@@ -658,7 +704,10 @@
     }
 
     .storyImageGridContainer {
-        margin-bottom: 40px;
+        margin: 80px;
+        img {
+            width: 100%;
+        }
     }
 
     .storyFrameworksTitle {
